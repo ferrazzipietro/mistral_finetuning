@@ -12,6 +12,7 @@ dataset_checkpoint = dotenv_values(".env.base")['DATASET_CHEKPOINT']
 base_model = "mistralai/Mistral-7B-v0.1"
 new_model = dotenv_values(".env.base")['FT_MODEL_CHECKPOINT'] 
 
+
 dataset = load_dataset(dataset_checkpoint)
 
 # Load base model(Mistral 7B)
