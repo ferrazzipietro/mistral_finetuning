@@ -10,9 +10,9 @@
     target_modules - The names of the modules to apply the adapter to. If None, automatic.
 """
 r = 16
-bias =  "none" # be very careful. if this is set different from "none", will modify all the biases in the model, even the ones that are not in the lora modules
+lora_alpha = 16
+bias =  "lora_only" # be very careful. if this is set different from "none", will modify all the biases in the model, even the ones that are not in the lora modules
 use_rslora = True
 lora_dropout = 0.05
-bias="none",
-task_type="CAUSAL_LM",
+task_type="CAUSAL_LM"
 target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]

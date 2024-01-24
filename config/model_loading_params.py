@@ -3,8 +3,8 @@ import torch
 load_in_4bit=True
 load_in_8bit=False
 
-bnb_4bit_quant_type, bnb_4bit_compute_dtype, bnb_4bit_use_double_quant = None, None, None
-llm_int8_threshold, llm_int8_skip_modules, llm_int8_has_fp16_weight = None, None, None
+bnb_4bit_quant_type, bnb_4bit_compute_dtype, bnb_4bit_use_double_quant = "", torch.bfloat16, True
+llm_int8_threshold, llm_int8_skip_modules, llm_int8_has_fp16_weight = 0.0, [], True
 
 if load_in_4bit:
     """
