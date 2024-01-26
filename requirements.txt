@@ -6,9 +6,10 @@ peft==0.6.2
 safetensors==0.4.0
 scipy==1.10.1
 tokenizers==0.15.0
-torch==2.1.1
+torch==2.0.1
 tqdm==4.66.1
 wandb==0.16.0
 gradio==3.32.0
 trl
 python-dotenv==1.0.0
+transformers==4.36.2

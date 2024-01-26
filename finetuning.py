@@ -1,4 +1,6 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig,HfArgumentParser,TrainingArguments,pipeline, logging, TextStreamer
+# https://colab.research.google.com/github/adithya-s-k/LLM-Alchemy-Chamber/blob/main/LLMs/Mistral-7b/Mistral_Colab_Finetune_ipynb_Colab_Final.ipynb?source=post_page-----0f39647b20fe--------------------------------#scrollTo=acCr5AZ0831z
+
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig,HfArgumentParser,TrainingArguments,pipeline, logging, TextStreamer, DataCollatorForLanguageModeling
 from peft import LoraConfig, PeftModel, prepare_model_for_kbit_training, get_peft_model
 import os, torch, wandb, platform, gradio, warnings
 import torch
@@ -51,6 +53,8 @@ tokenizer.pad_token = tokenizer.eos_token
 tokenizer.add_eos_token = True
 tokenizer.add_bos_token, tokenizer.add_eos_token
 
+dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
+dataset = dataset.map(lambda samples: tokenizer(samples["text"]), batched=True)
 
 #Adding the adapters in the layers
 """
@@ -67,14 +71,7 @@ peft_config = LoraConfig(
         bias=lora_params.bias,
         task_type=lora_params.task_type,
         target_modules=lora_params.target_modules
-        # r = 16,
-        # lora_alpha = 16,
-        # bias =  "lora_only", # be very careful. if this is set different from "none", will modify all the biases in the model, even the ones that are not in the lora modules
-        # # use_rslora = True,
-        # lora_dropout = 0.05,
-        # task_type="CAUSAL_LM",
-        # target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
-    )
+        )
 model = get_peft_model(model, peft_config)
 
 #Hyperparamter
@@ -95,25 +92,7 @@ training_arguments = TrainingArguments(
     warmup_ratio= training_params.warmup_ratio,
     group_by_length= training_params.group_by_length,
     lr_scheduler_type= training_params.lr_scheduler_type,
-    
     # remove_unused_columns=False
-    
-    # num_train_epochs= 2,
-    # per_device_train_batch_size= 8,
-    # gradient_accumulation_steps= 2,
-    # optim = "paged_adamw_8bit",
-    # save_steps= 1000,
-    # logging_steps= 30,
-    # learning_rate= 2e-4,
-    # weight_decay= 0.001,
-    # fp16= False,
-    # bf16= False,
-    # max_grad_norm= 0.3,
-    # max_steps= -1,
-    # warmup_ratio= 0.3,
-    # group_by_length= True,
-    # lr_scheduler_type= "constant",
-    # report_to="wandb",
 )
 
 
@@ -135,17 +114,8 @@ trainer = SFTTrainer(
     packing=training_params.packing,
     max_seq_length= training_params.max_seq_length,
     dataset_text_field= training_params.dataset_text_field,
+    data_collator= DataCollatorForLanguageModeling(tokenizer, mlm=False),
 )
-# trainer = SFTTrainer(
-#     model=model,
-#     train_dataset=dataset,
-#     peft_config=peft_config,
-#     max_seq_length= None,
-#     dataset_text_field="text",
-#     tokenizer=tokenizer,
-#     args=training_arguments,
-#     packing= False,
-# )
 
 print(dataset)
 print(dataset['text'][0])
