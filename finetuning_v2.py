@@ -9,6 +9,8 @@ from trl import SFTTrainer
 from dotenv import dotenv_values
 from config import training_params, lora_params, model_loading_params, config
 import wandb
+from utils.data_preprocessing import preprocess_data
+
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 WANDB_KEY = dotenv_values(".env.base")['WANDB_KEY']
@@ -18,12 +20,6 @@ FT_MODEL_CHECKPOINT = config.FT_MODEL_CHECKPOINT #Name of the model you will be 
 wandb.login(key = WANDB_KEY)
 run = wandb.init(project='Fine tuning en.layer1', job_type="training", anonymous="allow")
 
-# bnb_config = BitsAndBytesConfig(
-#     load_in_4bit=True,
-#     bnb_4bit_use_double_quant=True,
-#     bnb_4bit_quant_type="nf4",
-#     bnb_4bit_compute_dtype=torch.bfloat16
-# )
 bnb_config = BitsAndBytesConfig(
     load_in_4bit= model_loading_params.load_in_4bit,
     load_in_8bit = model_loading_params.load_in_8bit,
@@ -39,7 +35,6 @@ bnb_config = BitsAndBytesConfig(
 
 model_id = config.BASE_MODEL_CHECKPOINT
 
-# model = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=bnb_config, device_map={"":0})
 model = AutoModelForCausalLM.from_pretrained(
     config.BASE_MODEL_CHECKPOINT,
     quantization_config=bnb_config,
@@ -63,9 +58,10 @@ dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownloa
 dataset = dataset[config.TRAIN_LAYER]
 dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
 dataset = dataset.map(lambda samples: tokenizer(samples["text"]), batched=True)
-# dataset = dataset.train_test_split(test_size=0.2)
-# train_data = dataset["train"]
-# test_data = dataset["test"]
+dataset = preprocess_data(dataset)
+dataset = dataset.train_test_split(test_size=0.2)
+train_data = dataset["train"]
+test_data = dataset["test"]
 
 def find_all_linear_names(model):
   cls = bnb.nn.Linear4bit #if args.bits == 4 else (bnb.nn.Linear8bitLt if args.bits == 8 else torch.nn.Linear)
@@ -79,14 +75,6 @@ def find_all_linear_names(model):
   return list(lora_module_names)
 modules = find_all_linear_names(model)
 
-# lora_config = LoraConfig(
-#     r=8,
-#     lora_alpha=32,
-#     target_modules=modules,
-#     lora_dropout=0.05,
-#     bias="none",
-#     task_type="CAUSAL_LM"
-# )
 lora_config = LoraConfig(
         r=lora_params.r,
         lora_alpha=lora_params.lora_alpha,
@@ -123,22 +111,11 @@ training_arguments = TrainingArguments(
     lr_scheduler_type= training_params.lr_scheduler_type,
     # remove_unused_columns=False
 )
-# training_arguments = TrainingArguments(
-#         per_device_train_batch_size=1,
-#         gradient_accumulation_steps=4,
-#         warmup_steps=0.03,
-#         max_steps=100,
-#         learning_rate=2e-4,
-#         logging_steps=1,
-#         output_dir="outputs",
-#         optim="paged_adamw_8bit",
-#         save_strategy="epoch",
-#     )
 
 trainer = SFTTrainer(
     model=model,
-    train_dataset=dataset,
-    # eval_dataset=test_data,
+    train_dataset=train_data,
+    eval_dataset=test_data,
     dataset_text_field=training_params.dataset_text_field,
     peft_config=lora_config,
     args=training_arguments,
@@ -148,7 +125,6 @@ trainer = SFTTrainer(
 
 trainer.train()
 
-# 
 trainer.model.save_pretrained(f"{config.BASE_MODEL_CHECKPOINT.split('/')[1]}_prova") # save locally
 trainer.model.push_to_hub(config.ADAPTERS_CHECKPOINT, token=HF_TOKEN)
 
