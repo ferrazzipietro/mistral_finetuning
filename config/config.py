@@ -5,6 +5,3 @@ FT_MODEL_CHECKPOINT="ferrazzipietro/ft_tmp" # "ferrazzipietro/mistral-7B-FT-E3C-
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c_finetuning_processed" #"ferrazzipietro/e3c_finetuning"
 TRAIN_LAYER = "en.layer1"
-train_on_subset = False
-if train_on_subset:
-    train_subset_size = 15
