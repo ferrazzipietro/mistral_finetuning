@@ -9,7 +9,7 @@ from trl import SFTTrainer
 from dotenv import dotenv_values
 from config import training_params, lora_params, model_loading_params, config
 import wandb
-from utils.data_preprocessing import preprocess_data
+from utils.data_preprocessor import DataPreprocessor
 
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -55,13 +55,12 @@ tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_
 tokenizer.pad_token = tokenizer.eos_token
 
 dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
-dataset = dataset[config.TRAIN_LAYER]
 dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
 dataset = dataset.map(lambda samples: tokenizer(samples["text"]), batched=True)
-dataset = preprocess_data(dataset)
-dataset = dataset.train_test_split(test_size=0.2)
-train_data = dataset["train"]
-test_data = dataset["test"]
+preprocessor = DataPreprocessor()
+dataset = preprocessor.preprocess_data(dataset)
+dataset = dataset[config.TRAIN_LAYER]
+train_data, test_data = preprocessor.split_layer_into_train_test_(dataset, config.TRAIN_LAYER)
 
 def find_all_linear_names(model):
   cls = bnb.nn.Linear4bit #if args.bits == 4 else (bnb.nn.Linear8bitLt if args.bits == 8 else torch.nn.Linear)

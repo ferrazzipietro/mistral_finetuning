@@ -1,4 +1,7 @@
 from datasets import Dataset
+from config import preprocessing_params
+import os
+
 
 class DataPreprocessor():
 
@@ -153,3 +156,38 @@ Text: <<{query}>>> [/INST]
         # , task, instruction_on_response_format, n_shots, offset, tokenizer, list_of_examples, list_of_responses
         data = data.map(lambda example:  self._apply_to_one_example(example, task, instruction_on_response_format, n_shots, offset, tokenizer, list_of_examples, list_of_responses), num_proc=num_proc) #batched=True)
         return data
+    
+    def preprocess_data(self, hf_dataset):
+        splits = ['en.layer1', 'en.layer2', 'en.layer2.validation', 'en.layer3',
+                'es.layer1', 'es.layer2', 'es.layer2.validation', 'es.layer3',
+                'eu.layer1', 'eu.layer2', 'eu.layer2.validation', 'eu.layer3',
+                'it.layer1', 'it.layer2', 'it.layer2.validation', 'it.layer3',
+                'fr.layer1', 'fr.layer2', 'fr.layer2.validation', 'fr.layer3']
+        for split_name in splits:
+            hf_dataset[split_name] = self.apply(data=hf_dataset[split_name], 
+                                                            task=preprocessing_params.task, 
+                                                            instruction_on_response_format=preprocessing_params.instruction_on_response_format, 
+                                                            n_shots=preprocessing_params.n_shots, 
+                                                            offset=preprocessing_params.offset, 
+                                                            tokenizer=preprocessing_params.tokenizer, 
+                                                            list_of_examples=preprocessing_params.list_of_examples,
+                                                            list_of_responses=preprocessing_params.list_of_responses)
+        return hf_dataset
+    
+    def split_layer_into_train_test_(self, hf_dataset, split_name):
+        mapping = {'en.layer1': 'train_labels_en.txt', 
+                'es.layer1': 'train_labels_es.txt',
+                'eu.layer1': 'train_labels_eu.txt',
+                'it.layer1': 'train_labels_it.txt',
+                'fr.layer1': 'train_labels_fr.txt',}
+        labels_path = mapping[split_name]
+        with open(os.path.join('data', labels_path), 'r') as file:
+            file_content = file.read()
+        labels = file_content.split(", ")
+        labels = [label[1:-1] for label in labels]
+        data = hf_dataset[split_name]
+        idxs_train = [idx for idx, x in enumerate(data['original_id']) if x in labels]
+        idxs_test = [idx for idx, x in enumerate(data['original_id']) if x not in labels]
+        train_data = data.select(idxs_train)
+        test_data = data.select(idxs_test)
+        return train_data, test_data
