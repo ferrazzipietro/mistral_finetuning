@@ -1,0 +1,13 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.46s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:26<00:00, 12.33s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:26<00:00, 13.25s/it]
+Traceback (most recent call last):
+  File "inferenza.py", line 129, in <module>
+    result_NO_ft = get_completion_ita(query=query_ita, 
+  File "inferenza.py", line 56, in get_completion_ita
+    generated_ids = merged_model.generate(**model_inputs, max_new_tokens=750, do_sample=True, pad_token_id=tokenizer.eos_token_id)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/generation/utils.py", line 1520, in generate
+    return self.sample(
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/generation/utils.py", line 2653, in sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+RuntimeError: probability tensor contains either `inf`, `nan` or element < 0

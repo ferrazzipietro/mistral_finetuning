@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=CondaTest
+#SBATCH --job-name=MistralFinetune
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=condatest.err
-#SBATCH --output=condatest.out
+#SBATCH --error=fine_tune.err
+#SBATCH --output=fine_tune.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
