@@ -14,24 +14,19 @@ class DataPreprocessor():
         self.one_shot_example = """[INST] Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.
 {instruction_on_response_format}
 Text: <<<{example_query}>>> [/INST]
-{example_response}
-"""
+{example_response}"""
         self.one_shot_example_no_offset = """[INST] Extract the entities contained in the text. Extract only entities contained in the text.
 {instruction_on_response_format}
 Text: <<<{example_query}>>> [/INST]
-{example_response}
-"""
+{example_response}"""
 
         self.prompt_template = """[INST] Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.
 {instruction_on_response_format}
-Text: <<{query}>>> [/INST]
-"""
+Text: <<{query}>>> [/INST]"""
 
-        self.prompt_template_no_offset = """
-<s>[INST] Extract the entities contained in the text. Extract only entities contained in the text.
+        self.prompt_template_no_offset = """[INST] Extract the entities contained in the text. Extract only entities contained in the text.
 {instruction_on_response_format}
-Text: <<{query}>>> [/INST]
-"""
+Text: <<{query}>>> [/INST]"""
 
 
     def _format_prompt(self, task: str, input: str, instruction_on_response_format:str, n_shots:int, offset: bool, tokenizer=None, output:str='', list_of_examples: [str]=[], list_of_responses:[str]=[]) -> str:
@@ -237,11 +232,12 @@ Text: <<{query}>>> [/INST]
         else:
             prompt_template = self.prompt_template_no_offset
         
-        def remove_answer_from_prompt(example, template):
+        def remove_answer_from_prompt(example):
+            prompt_no_answ = prompt_template.format(instruction_on_response_format=self.instruction_on_response_format, query=example['sentence'])
             example['prompt_with_answer'] = example['prompt']
-            example['prompt'] = template.format(instruction_on_response_format=self.instruction_on_response_format, query=example['sentence'])
+            example['prompt'] = prompt_no_answ
             return example
 
-        test_data.map(lambda x: remove_answer_from_prompt(x, prompt_template), batched=True)
+        test_data = test_data.map(remove_answer_from_prompt, batched=False)
 
         return train_data, val_data, test_data
