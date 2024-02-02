@@ -9,8 +9,8 @@
                 instead of `lora_alpha/r`)
     target_modules - The names of the modules to apply the adapter to. If None, automatic.
 """
-r = 8
-lora_alpha = 16
+r = 16
+lora_alpha = 32
 bias =  "lora_only" # be very careful. if this is set different from "none", will modify all the biases in the model, even the ones that are not in the lora modules
 use_rslora = True
 lora_dropout = 0.05

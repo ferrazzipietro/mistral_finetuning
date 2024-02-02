@@ -10,6 +10,7 @@ from dotenv import dotenv_values
 from config import training_params, lora_params, model_loading_params, config
 import wandb
 from utils.data_preprocessor import DataPreprocessor
+from utils.wandb_callback import LLMSampleCB
 
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -53,14 +54,15 @@ model = prepare_model_for_kbit_training(model)
 
 tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True)
 tokenizer.pad_token = tokenizer.eos_token
+tokenizer.padding_side = 'right'
 
+preprocessor = DataPreprocessor()
 dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
 dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
-dataset = dataset.map(lambda samples: tokenizer(samples["text"]), batched=True)
-preprocessor = DataPreprocessor()
 dataset = preprocessor.preprocess_data(dataset)
+dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), batched=True)
 dataset = dataset[config.TRAIN_LAYER]
-train_data, test_data = preprocessor.split_layer_into_train_test_(dataset, config.TRAIN_LAYER)
+train_data, val_data, test_data = preprocessor.split_layer_into_train_val_test_(dataset, config.TRAIN_LAYER)
 
 def find_all_linear_names(model):
   cls = bnb.nn.Linear4bit #if args.bits == 4 else (bnb.nn.Linear8bitLt if args.bits == 8 else torch.nn.Linear)
@@ -95,9 +97,11 @@ training_arguments = TrainingArguments(
     hub_private_repo=True,
     num_train_epochs= training_params.num_train_epochs,
     per_device_train_batch_size= training_params.per_device_train_batch_size,
+    per_device_eval_batch_size= training_params.per_device_train_batch_size/2,
     gradient_accumulation_steps= training_params.gradient_accumulation_steps,
     optim=  training_params.optim,
     save_steps= training_params.save_steps,
+    logging_strategy=training_params.logging_strategy,
     logging_steps= training_params.logging_steps,
     learning_rate= training_params.learning_rate,
     weight_decay= training_params.weight_decay,
@@ -108,19 +112,31 @@ training_arguments = TrainingArguments(
     warmup_ratio= training_params.warmup_ratio,
     group_by_length= training_params.group_by_length,
     lr_scheduler_type= training_params.lr_scheduler_type,
+    report_to="wandb",
+    #lr_scheduler_type="cosine",
+    #warmup_ratio = 0.1,
+
+    # logging strategies 
     # remove_unused_columns=False
 )
 
 trainer = SFTTrainer(
     model=model,
     train_dataset=train_data,
-    eval_dataset=test_data,
+    eval_dataset=val_data,
     dataset_text_field=training_params.dataset_text_field,
     peft_config=lora_config,
     args=training_arguments,
-    data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
-    max_seq_length = 1024#training_params.max_seq_length
+    max_seq_length = training_params.max_seq_length,
+    # Currently (01/'24) Packing is not supported with Instruction Masking (data_collator argument is not supported with packing=True)
+    # just packing without instruction masking gives good results already
+    data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False), # see here: https://wandb.ai/capecape/alpaca_ft/reports/How-to-Fine-tune-an-LLM-Part-3-The-HuggingFace-Trainer--Vmlldzo1OTEyNjMy#(optional)-preprocessing:-masking-instructions-by-using-the-datacollatorforcompletiononlylm
+    packing=False,# True would create a ConstantLengthDataset so it can iterate over the dataset on fixed-length sequences
+    neftune_noise_alpha=5,
 )
+
+wandb_callback = LLMSampleCB(trainer, test_data, num_samples=10, max_new_tokens=256)
+trainer.add_callback(wandb_callback)
 
 trainer.train()
 

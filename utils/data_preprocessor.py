@@ -1,11 +1,15 @@
 from datasets import Dataset
 from config import preprocessing_params
 import os
-
+import random
 
 class DataPreprocessor():
 
+
     def __init__(self) -> None:
+
+        self.offset = None
+        self.instruction_on_response_format = ''
 
         self.one_shot_example = """[INST] Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.
 {instruction_on_response_format}
@@ -102,9 +106,9 @@ Text: <<{query}>>> [/INST]
         Format the response into a string
 
         Args:
-            response: the response to format
+            entities_list: the list of entities to format
             offset: whether to require the offset in the response
-
+            
         Returns:
             the formatted response
         """
@@ -145,19 +149,38 @@ Text: <<{query}>>> [/INST]
     
     def apply(self, data: Dataset, task: str, instruction_on_response_format:str, n_shots:int, offset: bool, tokenizer=None, list_of_examples: [str]=[], list_of_responses:[str]=[], num_proc: int=1) -> Dataset:
         """
-        Apply the data preprocessing to the dataset
+        Apply the data preprocessing to one split/layer if the dataset
 
         Args:
             data: the dataset to preprocess
+            task: the task for which the prompt is generated, either 'finetuning' or 'inference'
+            instruction_on_response_format: the instruction on the response format to be given to the model. E.g. "The response must be a list of dictionaries, where each dictionary contains the keys 'text' and 'offset'"
+            n_shots: the number of examples to provide as few shot prompting   
+            offset: whether to require the offset in the response  
+            tokenizer: the tokenizer to use
+            list_of_examples: the list of examples to provide as few shot prompting
+            list_of_responses: the list of responses to provide as few shot prompting
+            num_proc: the number of processes to use for the parallel processing
+
+        Returns:
+            the preprocessed split/layer
+        """
+        # , task, instruction_on_response_format, n_shots, offset, tokenizer, list_of_examples, list_of_responses
+        data = data.map(lambda example:  self._apply_to_one_example(example, task, instruction_on_response_format, n_shots, offset, tokenizer, list_of_examples, list_of_responses), num_proc=num_proc) #batched=True)
+        self.offset = offset
+        self.instruction_on_response_format = instruction_on_response_format
+        return data
+    
+    def preprocess_data(self, hf_dataset: Dataset) -> Dataset:
+        """
+        Preprocess the dataset, applying to each split/layer the trasformations defined in self.apply()
+
+        Args:
+            hf_dataset: the dataset to preprocess
 
         Returns:
             the preprocessed dataset
         """
-        # , task, instruction_on_response_format, n_shots, offset, tokenizer, list_of_examples, list_of_responses
-        data = data.map(lambda example:  self._apply_to_one_example(example, task, instruction_on_response_format, n_shots, offset, tokenizer, list_of_examples, list_of_responses), num_proc=num_proc) #batched=True)
-        return data
-    
-    def preprocess_data(self, hf_dataset):
         splits = ['en.layer1', 'en.layer2', 'en.layer2.validation', 'en.layer3',
                 'es.layer1', 'es.layer2', 'es.layer2.validation', 'es.layer3',
                 'eu.layer1', 'eu.layer2', 'eu.layer2.validation', 'eu.layer3',
@@ -174,7 +197,19 @@ Text: <<{query}>>> [/INST]
                                                             list_of_responses=preprocessing_params.list_of_responses)
         return hf_dataset
     
-    def split_layer_into_train_test_(self, hf_dataset, split_name):
+    def split_layer_into_train_val_test_(self, dataset: Dataset, split_name: str, test_subset_of_validation: bool=False) -> (Dataset, Dataset):
+        """
+        Split the layer into train, validation and test sets, according to the split defined at https://github.com/hltfbk/E3C-Corpus/tree/main/documentation
+
+        Args:
+            dataset: the dataset to split. Must be a split of the original Hugging Face dataset
+            split_name: the name of the layer
+            test_subset_of_validation: wether the test set is a subset of the validation set. Set this to True if you want to use the test set as a way of checking on the training throw wandb
+                                to mantain the diviosn it train-test of the original repository. Default is False.
+        
+        Returns:
+            the train and test sets
+        """
         mapping = {'en.layer1': 'train_labels_en.txt', 
                 'es.layer1': 'train_labels_es.txt',
                 'eu.layer1': 'train_labels_eu.txt',
@@ -185,9 +220,28 @@ Text: <<{query}>>> [/INST]
             file_content = file.read()
         labels = file_content.split(", ")
         labels = [label[1:-1] for label in labels]
-        data = hf_dataset[split_name]
-        idxs_train = [idx for idx, x in enumerate(data['original_id']) if x in labels]
-        idxs_test = [idx for idx, x in enumerate(data['original_id']) if x not in labels]
-        train_data = data.select(idxs_train)
-        test_data = data.select(idxs_test)
-        return train_data, test_data
+        idxs_train = [idx for idx, x in enumerate(dataset['original_id']) if x in labels]
+        idxs_val = [idx for idx, x in enumerate(dataset['original_id']) if x not in labels]
+        random.seed(42)
+        idxs_test = random.sample(idxs_val, int(len(idxs_val) * 0.2))
+        train_data = dataset.select(idxs_train)
+        test_data = dataset.select(idxs_test)
+        if test_subset_of_validation:
+            val_data = dataset.select(idxs_val)
+        else:
+            idxs_val = [idx for idx in idxs_val if idx not in idxs_test]
+            val_data = dataset.select(idxs_val)
+
+        if self.offset:
+            prompt_template = self.prompt_template
+        else:
+            prompt_template = self.prompt_template_no_offset
+        
+        def remove_answer_from_prompt(example, template):
+            example['prompt_with_answer'] = example['prompt']
+            example['prompt'] = template.format(instruction_on_response_format=self.instruction_on_response_format, query=example['sentence'])
+            return example
+
+        test_data.map(lambda x: remove_answer_from_prompt(x, prompt_template), batched=True)
+
+        return train_data, val_data, test_data

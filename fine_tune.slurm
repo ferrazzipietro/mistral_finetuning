@@ -41,4 +41,4 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python inferenza.py # finetuning_v2.py
+python finetuning_v2.py # inferenza.py # 

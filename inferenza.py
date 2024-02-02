@@ -11,7 +11,7 @@ print('TEST')
 
 base_model_reload = AutoModelForCausalLM.from_pretrained(
     config.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
-    return_dict=True,torch_dtype=torch.float16,
+    return_dict=True,  load_in_4bit=True, # torch_dtype=torch.float16,
     device_map= "auto")
 
 adp = config.ADAPTERS_CHECKPOINT
@@ -46,7 +46,8 @@ query_ita = """Per un miglior inquadramento diagnostico
 query_eng = "A 46-year-old man with hypertension and dyslipidemia diagnosed 4-months before, as well as new-onset diabetes mellitus unveiled 1-month earlier, was referred to emergency department for hypokalemia"
 
 preprocessor = DataPreprocessor()
-prompt = preprocessor._format_prompt(task='inference', input='input', 
+prompt = preprocessor._format_prompt(task='inference', 
+                                     input=query_eng, 
                                      instruction_on_response_format='Return a json format', 
                                      offset=True, 
                                      tokenizer=tokenizer, 
@@ -55,10 +56,14 @@ prompt = preprocessor._format_prompt(task='inference', input='input',
                                      list_of_examples=[first_input, second_input], 
                                      list_of_responses=[first_response, second_response])
 
+result_NO_ft = get_completion_merged(prompt=query_eng, 
+                               merged_model=base_model_reload, 
+                               tokenizer=tokenizer)
 
-result = get_completion_merged(query=query_eng, 
-                               merged_model=base_model_reload, tokenizer=tokenizer)
-print(result)
+result_ft = get_completion_merged(prompt=query_eng, 
+                               merged_model=merged_model, 
+                               tokenizer=tokenizer)
+print(f"result_ft:\n{result_ft}\n\n\nresult_NO_ft:\n{result_NO_ft}")
 
 
 # offset: [23, 35] text: hypertension ||| offset: [40, 52] text: dyslipidemia ||| offset: [53, 62] text: diagnosed ||| offset: [110, 118] text: mellitus ||| offset: [149, 157] text: referred ||| offset: [186, 197] text: hypokalemia
