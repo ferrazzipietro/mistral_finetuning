@@ -192,6 +192,26 @@ Text: <<{query}>>> [/INST]"""
                                                             list_of_responses=preprocessing_params.list_of_responses)
         return hf_dataset
     
+    def preprocess_data_one_layer(self, hf_dataset: Dataset) -> Dataset:
+        """
+        Preprocess one layer/split of the dataset the trasformations defined in self.apply()
+
+        Args:
+            hf_dataset: one layer/split of the dataset to preprocess
+
+        Returns:
+            the preprocessed dataset
+        """
+        hf_dataset = self.apply(data=hf_dataset, 
+                                task=preprocessing_params.task, 
+                                instruction_on_response_format=preprocessing_params.instruction_on_response_format, 
+                                n_shots=preprocessing_params.n_shots, 
+                                offset=preprocessing_params.offset, 
+                                tokenizer=preprocessing_params.tokenizer, 
+                                list_of_examples=preprocessing_params.list_of_examples,
+                                list_of_responses=preprocessing_params.list_of_responses)
+        return hf_dataset
+    
     def split_layer_into_train_val_test_(self, dataset: Dataset, split_name: str, test_subset_of_validation: bool=False) -> (Dataset, Dataset):
         """
         Split the layer into train, validation and test sets, according to the split defined at https://github.com/hltfbk/E3C-Corpus/tree/main/documentation

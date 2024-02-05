@@ -14,3 +14,4 @@ trl
 python-dotenv==1.0.0
 transformers==4.36.2
 deprecation==2.1.0
+tensorflow==2.13.1

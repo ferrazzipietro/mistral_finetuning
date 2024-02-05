@@ -11,6 +11,7 @@ from config import training_params, lora_params, model_loading_params, config
 import wandb
 from utils.data_preprocessor import DataPreprocessor
 from utils.wandb_callback import LLMSampleCB
+import datetime
 
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -19,7 +20,11 @@ FT_MODEL_CHECKPOINT = config.FT_MODEL_CHECKPOINT #Name of the model you will be 
 
 # Monitering the LLM
 wandb.login(key = WANDB_KEY)
-run = wandb.init(project='Fine tuning en.layer1', job_type="training", anonymous="allow")
+run = wandb.init(project='Fine tuning en.layer1', job_type="training", anonymous="allow",
+                 config={'model': config.BASE_MODEL_CHECKPOINT, 
+                         'dataset': config.DATASET_CHEKPOINT, 
+                         'layer': config.TRAIN_LAYER,
+                         'time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit= model_loading_params.load_in_4bit,
@@ -58,10 +63,10 @@ tokenizer.padding_side = 'right'
 
 preprocessor = DataPreprocessor()
 dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
-dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
-dataset = preprocessor.preprocess_data(dataset)
-dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), batched=True)
 dataset = dataset[config.TRAIN_LAYER]
+dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
+dataset = preprocessor.preprocess_data_one_layer(dataset)
+dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), batched=True)
 train_data, val_data, test_data = preprocessor.split_layer_into_train_val_test_(dataset, config.TRAIN_LAYER)
 
 def find_all_linear_names(model):
@@ -131,12 +136,25 @@ trainer = SFTTrainer(
     # Currently (01/'24) Packing is not supported with Instruction Masking (data_collator argument is not supported with packing=True)
     # just packing without instruction masking gives good results already
     data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False), # see here: https://wandb.ai/capecape/alpaca_ft/reports/How-to-Fine-tune-an-LLM-Part-3-The-HuggingFace-Trainer--Vmlldzo1OTEyNjMy#(optional)-preprocessing:-masking-instructions-by-using-the-datacollatorforcompletiononlylm
-    packing=False,# True would create a ConstantLengthDataset so it can iterate over the dataset on fixed-length sequences
-    neftune_noise_alpha=5,
+ #   packing=False,# True would create a ConstantLengthDataset so it can iterate over the dataset on fixed-length sequences
+ #   neftune_noise_alpha=5,
+)
+# from wandb.keras import WandbCallback
+# # wandb_callback = LLMSampleCB(trainer, test_data, num_samples=10, max_new_tokens=256)
+from utils.wandb_callback import PrinterCallback
+# trainer.add_callback(PrinterCallback)
+from utils.wandb_callback import WandbPredictionProgressCallback
+progress_callback = WandbPredictionProgressCallback(
+    trainer=trainer,
+    tokenizer=tokenizer,
+    val_dataset=test_data,
+    num_samples=10,
+    freq=2,
 )
 
-wandb_callback = LLMSampleCB(trainer, test_data, num_samples=10, max_new_tokens=256)
-trainer.add_callback(wandb_callback)
+# Add the callback to the trainer
+trainer.add_callback(progress_callback)
+
 
 trainer.train()
 
