@@ -10,23 +10,20 @@ class DataPreprocessor():
 
         self.offset = None
         self.instruction_on_response_format = ''
+        self.n_shots = None
 
         self.one_shot_example = """[INST] Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.
-{instruction_on_response_format}
-Text: <<<{example_query}>>> [/INST]
-{example_response}"""
+{instruction_on_response_format} Text: <<<{example_query}>>> [/INST] {example_response}
+"""
         self.one_shot_example_no_offset = """[INST] Extract the entities contained in the text. Extract only entities contained in the text.
-{instruction_on_response_format}
-Text: <<<{example_query}>>> [/INST]
-{example_response}"""
+{instruction_on_response_format} Text: <<<{example_query}>>> [/INST] {example_response}
+"""
 
         self.prompt_template = """[INST] Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.
-{instruction_on_response_format}
-Text: <<{query}>>> [/INST]"""
+{instruction_on_response_format} Text: <<{query}>>> [/INST]"""
 
         self.prompt_template_no_offset = """[INST] Extract the entities contained in the text. Extract only entities contained in the text.
-{instruction_on_response_format}
-Text: <<{query}>>> [/INST]"""
+{instruction_on_response_format} Text: <<{query}>>> [/INST]"""
 
 
     def _format_prompt(self, task: str, input: str, instruction_on_response_format:str, n_shots:int, offset: bool, tokenizer=None, output:str='', list_of_examples: [str]=[], list_of_responses:[str]=[]) -> str:
@@ -164,6 +161,7 @@ Text: <<{query}>>> [/INST]"""
         data = data.map(lambda example:  self._apply_to_one_example(example, task, instruction_on_response_format, n_shots, offset, tokenizer, list_of_examples, list_of_responses), num_proc=num_proc) #batched=True)
         self.offset = offset
         self.instruction_on_response_format = instruction_on_response_format
+        self.n_shots = n_shots
         return data
     
     def preprocess_data(self, hf_dataset: Dataset) -> Dataset:
