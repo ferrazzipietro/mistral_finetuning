@@ -10,7 +10,6 @@ from dotenv import dotenv_values
 from config import training_params, lora_params, model_loading_params, config
 import wandb
 from utils.data_preprocessor import DataPreprocessor
-from utils.wandb_callback import LLMSampleCB
 import datetime
 
 
@@ -20,7 +19,8 @@ FT_MODEL_CHECKPOINT = config.FT_MODEL_CHECKPOINT #Name of the model you will be 
 
 # Monitering the LLM
 wandb.login(key = WANDB_KEY)
-run = wandb.init(project='Fine tuning en.layer1', job_type="training", anonymous="allow",
+run = wandb.init(project=config.ADAPTERS_CHECKPOINT, job_type="training", anonymous="allow",
+                 name=config.TRAIN_LAYER+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                  config={'model': config.BASE_MODEL_CHECKPOINT, 
                          'dataset': config.DATASET_CHEKPOINT, 
                          'layer': config.TRAIN_LAYER,

@@ -1,5 +1,5 @@
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
-TRAIN_LAYER = "en.layer1"
+TRAIN_LAYER = "it.layer1"
 
 ADAPTERS_VERSION = "_v0.2"
 BASE_MODEL_CHECKPOINT="mistralai/Mistral-7B-Instruct-v0.2"
