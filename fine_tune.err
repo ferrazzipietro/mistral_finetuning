@@ -1,10 +1,29 @@
-2024-02-02 16:31:01.369571: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-02-02 16:31:02.292811: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-02-07 12:19:49.673889: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-07 12:19:50.425152: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-02-02 16:31:05.544378: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-07 12:19:53.119645: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 /home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_runtime.py:184: UserWarning: Pydantic is installed but cannot be imported. Please check your installation. `huggingface_hub` will default to not using Pydantic. Error message: '{e}'
   warnings.warn(
+wandb: Currently logged in as: ferrazzipietro. Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/ferrazzi/.netrc
+wandb: ERROR Invalid project name 'ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_it.layer1__v0.2_wandblog': cannot contain characters '/,\\,#,?,%,:', found '/'
 Traceback (most recent call last):
-  File "finetuning_v2.py", line 13, in <module>
-    from utils.wandb_callback import LLMSampleCB
-ImportError: cannot import name 'LLMSampleCB' from 'utils.wandb_callback' (/extra/ferrazzi/mistral_finetuning/utils/wandb_callback.py)
+  File "finetuning_v2.py", line 22, in <module>
+    run = wandb.init(project=config.ADAPTERS_CHECKPOINT, job_type="training", anonymous="allow",
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/wandb/sdk/wandb_init.py", line 1185, in init
+    raise e
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/wandb/sdk/wandb_init.py", line 1162, in init
+    wi.setup(kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/wandb/sdk/wandb_init.py", line 320, in setup
+    settings._apply_init(kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/wandb/sdk/wandb_settings.py", line 1859, in _apply_init
+    self.update(init_settings, source=Source.INIT)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/wandb/sdk/wandb_settings.py", line 1492, in update
+    self.__dict__[key].update(settings.pop(key), source=source)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/wandb/sdk/wandb_settings.py", line 573, in update
+    self._value = self._validate(self._preprocess(value))
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/wandb/sdk/wandb_settings.py", line 543, in _validate
+    if not v(value):
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/wandb/sdk/wandb_settings.py", line 969, in _validate_project
+    raise UsageError(
+wandb.errors.UsageError: Invalid project name 'ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_it.layer1__v0.2_wandblog': cannot contain characters '/,\\,#,?,%,:', found '/'
