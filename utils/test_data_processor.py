@@ -25,7 +25,7 @@ class TestDataProcessor():
                                 'it':{'questions':['In considerazione dell’inefficacia della terapia somministrata, in assenza di ulteriori opzioni terapeutiche standard potenzialmente efficaci e dopo colloquio con i genitori si decide di avviare la paziente a trapianto aploidentico, possibilmente NK allo reattivo, da genitore.',
                                                     'L’esame istologico dimostrava mucosa gastrica atrofica con flogosi cronica, marcato edema ed incremento del connettivo del corion, focale metaplasia intestinale, il tutto sovrastante un tessuto fibromuscolare.'],
                                        'responses':['[{"entity": "inefficacia"}, {"entity": "opzioni"}, {"entity": "colloquio"}, {"entity": "avviare"}, {"entity": "trapianto"}, {"entity": "genitori"}, {"entity": "paziente"}, {"entity": "genitore"}]',
-                                                    ],
+                                                    '[{"entity": "mucosa gastrica atrofica"}, {"entity": "flogosi\r\cronica"}]'],
                                        'responses_offset':['[{"entity": "inefficacia", "offset": [23, 34]}, {"entity": "opzioni", "offset": [88,95]}, {"entity": "colloquio", "offset": [149,158]}, {"entity": "avviare", "offset": [187,194]}, {"entity": "trapianto", "offset": [209,218]}, {"entity": "genitori", "offset": [163,173]}, {"entity": "paziente", "offset": [195,106]}, {"entity": "genitore", "offset": [268,276]}]',
                                                            '[{"entity": "mucosa gastrica atrofica", "offset": [30,54]}, {"entity": "flogosi\r\cronica", "offset": [59,75]}]']}
                                 }
