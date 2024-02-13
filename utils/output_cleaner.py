@@ -1,4 +1,4 @@
-from config import preprocessing_params
+from config.finetuning import preprocessing_params
 from datasets import Dataset
 from tqdm import tqdm
 import json

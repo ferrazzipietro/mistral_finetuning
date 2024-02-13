@@ -1,5 +1,4 @@
 from utils.data_preprocessor import DataPreprocessor
-from config import preprocessing_params
 from datasets import Dataset
 from tqdm import tqdm
 import json
@@ -9,7 +8,7 @@ class TestDataProcessor():
     def __init__(self, test_data: Dataset, preprocessor:DataPreprocessor, n_shots_inference:int, language:str, tokenizer) -> None:
         """
         Initialize the TestDataProcessor class.
-        passs to this the same DataPreprocessor used for the training data. This will ensure that the inference prompt is formatted in the same way as the training prompt.
+        pass to this the same DataPreprocessor used for the training data. This will ensure that the inference prompt is formatted in the same way as the training prompt.
         """
         self.test_data = test_data
         self.preprocessor = preprocessor
@@ -44,6 +43,12 @@ class TestDataProcessor():
             few_shots_responses = self.few_shots_dict[self.language]['responses_offset']
         else:
             few_shots_responses = self.few_shots_dict[self.language]['responses']
+        if self.n_shots_inference == 0:
+            list_of_examples = []
+            list_of_responses = []
+        else:
+            list_of_examples = self.few_shots_dict[self.language]['questions'][0:self.n_shots_inference]
+            list_of_responses = few_shots_responses[0:self.n_shots_inference]
         inference_prompt = self.preprocessor._format_prompt(task='inference', 
                                                         input=sentence, 
                                                         instruction_on_response_format=self.preprocessor.instruction_on_response_format,
@@ -51,8 +56,8 @@ class TestDataProcessor():
                                                         tokenizer=self.tokenizer,
                                                         output='',
                                                         n_shots=self.n_shots_inference,
-                                                        list_of_examples=self.few_shots_dict[self.language]['questions'][0:self.n_shots_inference],
-                                                        list_of_responses=few_shots_responses)
+                                                        list_of_examples=list_of_examples,
+                                                        list_of_responses=list_of_responses)
         return {'inference_prompt': inference_prompt}
     
     def add_inference_prompt_column(self) -> None:
@@ -67,7 +72,7 @@ class TestDataProcessor():
         """
         self.test_data = self.test_data.map(lambda x: self._extract_ground_truth(x['prompt']))
 
-    def _generate_model_response(self, examples, model, tokenizer, max_new_tokens_factor:float=4) -> str:
+    def _generate_model_response(self, examples, model, tokenizer, max_new_tokens_factor:float) -> str:
         device = "cuda"
         tokenizer.padding_side = "left"
         input_sentences = examples['sentence']
@@ -82,7 +87,7 @@ class TestDataProcessor():
         decoded = [self._postprocess_model_output(i) for i in decoded]
         return (decoded)
                 
-    def add_responses_column(self, model, tokenizer, batch_size:int) -> None:
+    def add_responses_column(self, model, tokenizer, batch_size:int, max_new_tokens_factor:float) -> None:
         """
         Adds a column with the response of the model to the actual query.
         
@@ -90,6 +95,7 @@ class TestDataProcessor():
         model: the model to use to generate the response
         tokenizer: the tokenizer to use to generate the response
         batch_size: the batch size to use to process the examples. Increasing this makes it faster but requires more GPU. Default is 8.
+        max_new_tokens_factor: the factor conotrolling the number of new tokens to generate. This is a factor of the length of the input sentence.
         """
         responses_col = []
         total_rows = len(self.test_data)
@@ -100,11 +106,11 @@ class TestDataProcessor():
         with tqdm(total=total_rows, desc="generating responses") as pbar:
             for i, idx in enumerate(indexes[:-1]):
                 indici = list(range(idx, indexes[i+1]))
-                tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer)
+                tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
                 responses_col.extend(tmp)
                 pbar.update(batch_size)
             indici = list(range(indexes[i+1], max_index))
-            tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer)
+            tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
             responses_col.extend(tmp)
             pbar.update(batch_size)
 
