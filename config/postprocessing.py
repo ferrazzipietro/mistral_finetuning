@@ -1,0 +1,7 @@
+adapters_checkpoints_list = ['ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1__v0.2_wandblog']
+base_models_list = ['mistralai/Mistral-7B-Instruct-v0.2']
+splits_list = ['en.layer1']
+max_new_tokens_factor_list = [4]
+n_shots_inference_list = [2]
+similar_is_equal_list=[True, False]
+similar_is_equal_threshold_list=[70]

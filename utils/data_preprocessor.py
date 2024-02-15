@@ -141,7 +141,7 @@ class DataPreprocessor():
     
     def apply(self, data: Dataset, task: str, instruction_on_response_format:str, n_shots:int, offset: bool, tokenizer=None, list_of_examples: [str]=[], list_of_responses:[str]=[], num_proc: int=1) -> Dataset:
         """
-        Apply the data preprocessing to one split/layer if the dataset
+        Apply the data preprocessing to one split/layer if the dataset. It formats the prompt in the right shape, processing the entities.
 
         Args:
             data: the dataset to preprocess

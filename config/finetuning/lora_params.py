@@ -9,10 +9,10 @@
                 instead of `lora_alpha/r`)
     target_modules - The names of the modules to apply the adapter to. If None, automatic.
 """
-r = 16
-lora_alpha = 32
-bias =  "lora_only" # be very careful. if this is set different from "none", will modify all the biases in the model, even the ones that are not in the lora modules
+r = [16]
+lora_alpha = [32]
+lora_dropout = [0.05]
+bias =  "lora_only" 
 use_rslora = True
-lora_dropout = 0.05
 task_type="CAUSAL_LM"
-target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
+# target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]# substituted by the function find_all_linear_names()
