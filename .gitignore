@@ -167,3 +167,6 @@ wandb
 *__pycache__
 ferrazzipietro/
 wandb/
+fine_tune.err
+fine_tune.out
+fine_tune.slurm

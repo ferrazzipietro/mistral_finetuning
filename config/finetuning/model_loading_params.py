@@ -1,5 +1,20 @@
 import torch
 
+
+n_settings = 4
+load_in_4bit=[True, True, False, False]
+bnb_4bit_quant_type = ["nf4", "nf4", "", ""]
+bnb_4bit_compute_dtype = [torch.bfloat16, torch.float32, torch.bfloat16, torch.bfloat16]
+llm_int8_threshold = [0.0, 0.0, 6.0, 10.0]
+
+bnb_4bit_use_double_quant = True
+llm_int8_has_fp16_weight = True
+
+
+
+
+
+
 load_in_4bit=True
 load_in_8bit=False
 
@@ -27,5 +42,5 @@ if load_in_8bit:
                                                                         as the weights do not have to be converted back and forth for the backward pass.
     """
     llm_int8_threshold = 6.0
-    llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
+    # # substituted by the function find_all_linear_names() # llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
     llm_int8_has_fp16_weight = True
