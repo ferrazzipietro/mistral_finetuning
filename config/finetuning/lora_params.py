@@ -9,10 +9,10 @@
                 instead of `lora_alpha/r`)
     target_modules - The names of the modules to apply the adapter to. If None, automatic.
 """
-r = [16]
+r = [16, 32, 64]
 lora_alpha = [32]
-lora_dropout = [0.05]
+lora_dropout = [0.05, 0.01]
 bias =  "lora_only" 
 use_rslora = True
 task_type="CAUSAL_LM"
-# target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]# substituted by the function find_all_linear_names()
+target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]# substituted by the function find_all_linear_names()

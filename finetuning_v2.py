@@ -7,7 +7,7 @@ from peft import LoraConfig, PeftModel, prepare_model_for_kbit_training, get_pef
 import bitsandbytes as bnb
 from trl import SFTTrainer
 from dotenv import dotenv_values
-from config import training_params, lora_params, model_loading_params, config
+from config.finetuning import training_params, lora_params, model_loading_params, config
 import wandb
 from utils.data_preprocessor import DataPreprocessor
 import datetime
@@ -19,24 +19,47 @@ FT_MODEL_CHECKPOINT = config.FT_MODEL_CHECKPOINT #Name of the model you will be 
 
 # Monitering the LLM
 wandb.login(key = WANDB_KEY)
-run = wandb.init(project=config.ADAPTERS_CHECKPOINT, job_type="training", anonymous="allow",
+run = wandb.init(project=config.ADAPTERS_CHECKPOINT.split('/')[1], job_type="training", anonymous="allow",
                  name=config.TRAIN_LAYER+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                  config={'model': config.BASE_MODEL_CHECKPOINT, 
                          'dataset': config.DATASET_CHEKPOINT, 
                          'layer': config.TRAIN_LAYER,
                          'time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
-
+"""Args:
+        load_in_8bit (`bool`, *optional*, defaults to `False`):
+            This flag is used to enable 8-bit quantization with LLM.int8().
+        llm_int8_threshold (`float`, *optional*, defaults to 6.0):
+            This corresponds to the outlier threshold for outlier detection as described in `LLM.int8() : 8-bit Matrix
+            Multiplication for Transformers at Scale` paper: https://arxiv.org/abs/2208.07339 Any hidden states value
+            that is above this threshold will be considered an outlier and the operation on those values will be done
+            in fp16. Values are usually normally distributed, that is, most values are in the range [-3.5, 3.5], but
+            there are some exceptional systematic outliers that are very differently distributed for large models.
+            These outliers are often in the interval [-60, -6] or [6, 60]. Int8 quantization works well for values of
+            magnitude ~5, but beyond that, there is a significant performance penalty. A good default threshold is 6,
+            but a lower threshold might be needed for more unstable models (small models, fine-tuning).
+        llm_int8_skip_modules (`List[str]`, *optional*):
+            An explicit list of the modules that we do not want to convert in 8-bit. This is useful for models such as
+            Jukebox that has several heads in different places and not necessarily at the last position. For example
+            for `CausalLM` models, the last `lm_head` is kept in its original `dtype`.
+        llm_int8_enable_fp32_cpu_offload (`bool`, *optional*, defaults to `False`):
+            This flag is used for advanced use cases and users that are aware of this feature. If you want to split
+            your model in different parts and run some parts in int8 on GPU and some parts in fp32 on CPU, you can use
+            this flag. This is useful for offloading large models such as `google/flan-t5-xxl`. Note that the int8
+            operations will not be run on CPU.
+        llm_int8_has_fp16_weight (`bool`, *optional*, defaults to `False`):
+            This flag runs LLM.int8() with 16-bit main weights. This is useful for fine-tuning as the weights do not
+            have to be converted back and forth for the backward pass."""
 bnb_config = BitsAndBytesConfig(
-    load_in_4bit= model_loading_params.load_in_4bit,
-    load_in_8bit = model_loading_params.load_in_8bit,
+    load_in_4bit= False,# model_loading_params.load_in_4bit,
+    load_in_8bit = True,#  model_loading_params.load_in_8bit,
 
-    bnb_4bit_quant_type= model_loading_params.bnb_4bit_quant_type,
-    bnb_4bit_compute_dtype= model_loading_params.bnb_4bit_compute_dtype,
-    bnb_4bit_use_double_quant= model_loading_params.bnb_4bit_use_double_quant,
+    # bnb_4bit_quant_type= model_loading_params.bnb_4bit_quant_type[0],
+    # bnb_4bit_compute_dtype= model_loading_params.bnb_4bit_compute_dtype[0],
+    # bnb_4bit_use_double_quant= model_loading_params.bnb_4bit_use_double_quant,
 
-    llm_int8_threshold= model_loading_params.llm_int8_threshold,
-    llm_int8_skip_modules= model_loading_params.llm_int8_skip_modules,
-    llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight
+    llm_int8_threshold= 6.0,# model_loading_params.llm_int8_threshold,
+    llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],# model_loading_params.llm_int8_skip_modules,
+    # llm_int8_has_fp16_weight= True# model_loading_params.llm_int8_has_fp16_weight
 )
 
 model_id = config.BASE_MODEL_CHECKPOINT
@@ -81,16 +104,18 @@ def find_all_linear_names(model):
   return list(lora_module_names)
 modules = find_all_linear_names(model)
 
+
 lora_config = LoraConfig(
-        r=lora_params.r,
-        lora_alpha=lora_params.lora_alpha,
-        lora_dropout=lora_params.lora_dropout,
+        r=16,# lora_params.r,
+        lora_alpha=32,#lora_params.lora_alpha,
+        lora_dropout=0.05, #lora_params.lora_dropout,
         bias=lora_params.bias,
         task_type=lora_params.task_type,
         target_modules=lora_params.target_modules
         )
 model = get_peft_model(model, lora_config)
 
+print('model.is_loaded_in_8bit: ', model.is_loaded_in_8bit)
 torch.cuda.empty_cache()
 
 #Hyperparamter
@@ -103,12 +128,12 @@ training_arguments = TrainingArguments(
     num_train_epochs= training_params.num_train_epochs,
     per_device_train_batch_size= training_params.per_device_train_batch_size,
     per_device_eval_batch_size= training_params.per_device_train_batch_size/2,
-    gradient_accumulation_steps= training_params.gradient_accumulation_steps,
+    gradient_accumulation_steps=2, # training_params.gradient_accumulation_steps,
     optim=  training_params.optim,
     save_steps= training_params.save_steps,
     logging_strategy=training_params.logging_strategy,
     logging_steps= training_params.logging_steps,
-    learning_rate= training_params.learning_rate,
+    learning_rate=2e-4, #training_params.learning_rate,
     weight_decay= training_params.weight_decay,
     fp16= training_params.fp16,
     bf16= training_params.bf16,
@@ -155,8 +180,8 @@ progress_callback = WandbPredictionProgressCallback(
 # Add the callback to the trainer
 trainer.add_callback(progress_callback)
 
-
-trainer.train()
+with torch.autocast("cuda"):
+  trainer.train()
 
 trainer.model.save_pretrained(f"{config.BASE_MODEL_CHECKPOINT.split('/')[1]}_prova") # save locally
 trainer.model.push_to_hub(config.ADAPTERS_CHECKPOINT, token=HF_TOKEN)

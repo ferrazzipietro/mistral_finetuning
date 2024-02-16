@@ -3,7 +3,7 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, DataCollatorForLanguageModeling, TrainingArguments
 from datasets import load_dataset
-from peft import LoraConfig, PeftModel, prepare_model_for_kbit_training, get_peft_model
+from peft import LoraConfig, prepare_model_for_kbit_training, get_peft_model
 import bitsandbytes as bnb
 from trl import SFTTrainer
 from dotenv import dotenv_values
@@ -25,27 +25,34 @@ def main(ADAPTERS_CHECKPOINT,
   
   # Monitering the LLM
   wandb.login(key = WANDB_KEY)
-  run = wandb.init(project=ADAPTERS_CHECKPOINT, job_type="training", anonymous="allow",
+  run = wandb.init(project=ADAPTERS_CHECKPOINT.split('/')[1], job_type="training", anonymous="allow",
                   name=config.TRAIN_LAYER+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                   config={'model': config.BASE_MODEL_CHECKPOINT, 
                           'dataset': config.DATASET_CHEKPOINT, 
                           'layer': config.TRAIN_LAYER,
                           'time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
-  def find_all_linear_names(model):
-    cls = bnb.nn.Linear4bit #if args.bits == 4 else (bnb.nn.Linear8bitLt if args.bits == 8 else torch.nn.Linear)
-    lora_module_names = set()
-    for name, module in model.named_modules():
-      if isinstance(module, cls):
-        names = name.split('.')
-        lora_module_names.add(names[0] if len(names) == 1 else names[-1])
-      if 'lm_head' in lora_module_names: # needed for 16-bit
-        lora_module_names.remove('lm_head')
-    return list(lora_module_names)
-  linear_modules = find_all_linear_names(model)
-  llm_int8_skip_modules = []
-  if load_in_8bit:
-    llm_int8_skip_modules = linear_modules
-
+  
+  find_llm_int8_skip_modules = False
+  if find_llm_int8_skip_modules:
+    def find_all_linear_names(model):
+      cls = bnb.nn.Linear4bit #if args.bits == 4 else (bnb.nn.Linear8bitLt if args.bits == 8 else torch.nn.Linear)
+      lora_module_names = set()
+      for name, module in model.named_modules():
+        if isinstance(module, cls):
+          names = name.split('.')
+          lora_module_names.add(names[0] if len(names) == 1 else names[-1])
+        if 'lm_head' in lora_module_names: # needed for 16-bit
+          lora_module_names.remove('lm_head')
+      return list(lora_module_names)
+    linear_modules = find_all_linear_names(model)
+    llm_int8_skip_modules = []
+    if load_in_8bit:
+      llm_int8_skip_modules = linear_modules
+  else:
+    llm_int8_skip_modules = []
+    if load_in_8bit:
+      llm_int8_skip_modules = model_loading_params.llm_int8_skip_modules
+  
   bnb_config = BitsAndBytesConfig(
       load_in_4bit= load_in_4bit,
       load_in_8bit = load_in_8bit,
@@ -93,7 +100,7 @@ def main(ADAPTERS_CHECKPOINT,
           lora_dropout=lora_dropout,
           bias=lora_params.bias,
           task_type=lora_params.task_type,
-          target_modules=modules # lora_params.target_modules
+          target_modules=lora_params.target_modules # lora_params.target_modules
           )
   model = get_peft_model(model, lora_config)
 
@@ -187,15 +194,16 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
   bnb_4bit_quant_type = bnb_4bit_quant_type_list[model_loading_params_idx]
   bnb_4bit_compute_dtype = bnb_4bit_compute_dtype_list[model_loading_params_idx]
   llm_int8_threshold = llm_int8_threshold_list[model_loading_params_idx]
+  
   for r in r_list:
     for lora_alpha in lora_alpha_list:
       for lora_dropout in lora_dropout_list:
         for gradient_accumulation_steps in gradient_accumulation_steps_list:
           for learning_rate in learning_rate_list:
             nbits = 4
-            if load_in_4bit:
+            if load_in_8bit:
               nbits = 8
-            ADAPTERS_CHECKPOINT = f"ferrazzipietro/{config.model_name}_adapters_{config.TRAIN_LAYER}_{nbits}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
+            ADAPTERS_CHECKPOINT = f"ferrazzipietro/{config.model_name}_adapters_{config.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
             main(ADAPTERS_CHECKPOINT,
                   load_in_4bit, bnb_4bit_quant_type, bnb_4bit_compute_dtype, llm_int8_threshold,
                   r, lora_alpha, lora_dropout,

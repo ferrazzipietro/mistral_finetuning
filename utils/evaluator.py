@@ -80,13 +80,13 @@ class Evaluator():
         return list({v['entity']:v for v in model_response}.values())
 
 
-    def _entity_similar_to_ground_thruth_entity(self, entity_in_model_resonse: str, entity_in_ground_truth: str, threshold: int) -> (bool, str):
+    def _entity_similar_to_ground_truth_entity(self, entity_in_model_resonse: str, entity_in_ground_truth: str, threshold: int) -> (bool, str):
         """
         Check if two entities are similar. This is useful when the model output is not exactly the same as the ground truth.
 
         Args:
         entity_in_model_resonse (str): an entity in the model response
-        entity_in_ground_thruth (str): an entity in the ground truth
+        entity_in_ground_truth (str): an entity in the ground truth
         threshold (int): the threshold to consider the entities similar. The default value is 80. 0 is completely different, 100 is the same.
 
         return:
@@ -115,7 +115,7 @@ class Evaluator():
             return True, entity_in_ground_truth
         return False, entity_in_model_resonse
         
-    def entity_in_ground_thruth_list(self, entity_in_model_resonse: str, ground_truth: list, model_response_list: list, threshold: int) -> (bool, str):
+    def entity_in_ground_truth_list(self, entity_in_model_resonse: str, ground_truth: list, model_response_list: list, threshold: int) -> (bool, str):
         """
         Check if an entity is in the ground truth. This is useful when the model output is not exactly the same as the ground truth.
 
@@ -132,7 +132,7 @@ class Evaluator():
         model_response_list
         strings = []
         for entity_in_ground_truth in ground_truth:
-            is_in, string = self._entity_similar_to_ground_thruth_entity(entity_in_model_resonse, entity_in_ground_truth, threshold)
+            is_in, string = self._entity_similar_to_ground_truth_entity(entity_in_model_resonse, entity_in_ground_truth, threshold)
             if is_in:
                 strings.append(string)
         #if entity_in_model_resonse in ground_truth and entity_in_model_resonse
@@ -164,8 +164,8 @@ class Evaluator():
         print('ORIGINAL model_response: ', model_response)
         if similar_is_equal:
             for i, response_entity in enumerate(model_response):
-                model_response[i] = self.entity_in_ground_thruth_list(response_entity, ground_truth, model_response, similar_is_equal_threshold)
-        print('GROUND THRUTH: ', ground_truth)
+                model_response[i] = self.entity_in_ground_truth_list(response_entity, ground_truth, model_response, similar_is_equal_threshold)
+        print('GROUND TRUTH: ', ground_truth)
         print('NEW model_response: ', model_response, '\n\n')
 
         TP = len(set(model_response).intersection(set(ground_truth)))
