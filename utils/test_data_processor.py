@@ -15,11 +15,17 @@ class TestDataProcessor():
         self.language = language
         self.tokenizer = tokenizer
         self.few_shots_dict = {'en':{'questions':['We present a case of a 32-year-old woman with a history of gradual enlargement of the anterior neck.',
-                                                   'Patient information: a 9-month-old boy presented to the emergency room with a 3-day history of refusal to bear weight on the right lower extremity and febrile peaks of up to 38.5°C for 24 hours.'],
+                                                   'Patient information: a 9-month-old boy presented to the emergency room with a 3-day history of refusal to bear weight on the right lower extremity and febrile peaks of up to 38.5°C for 24 hours.',
+                                                   'There was no evidence of lung lesions.',
+                                                   'Locally diminished actin coloration indicated atrophy of smooth muscle fibers.'],
                                         'responses':['[{"entity": "present"}, {"entity": "history"}, {"entity": "enlargement"}]',
-                                                     '[{"entity": "presented"}, {"entity": "refusal"}, {"entity": "bear"}, {"entity": "peaks"}]'],
+                                                     '[{"entity": "presented"}, {"entity": "refusal"}, {"entity": "bear"}, {"entity": "peaks"}]',
+                                                      '[{"entity": "evidence"}, {"entity": "lung lesions"]',
+                                                      '[{"entity": "coloration"}, {"entity": "indicated"}, {"entity": "atrophy"}, {"entity": "atrophy of smooth muscle fibers"}, {"entity": "smooth muscle fibers"'],
                                         'responses_offset': ['[{"entity": "present", "offset": [3, 10]}, {"entity": "history", "offset": [48, 55]}, {"entity": "enlargement", "offset": [67, 78]}]',
-                                                             '[{"entity": "presented", "offset": [39, 48]}, {"entity": "refusal", "offset": [95, 102]}, {"entity": "bear", "offset": [106, 110]}, {"entity": "peaks", "offset": [159, 164]}]']
+                                                             '[{"entity": "presented", "offset": [39, 48]}, {"entity": "refusal", "offset": [95, 102]}, {"entity": "bear", "offset": [106, 110]}, {"entity": "peaks", "offset": [159, 164]}]',
+                                                             '[{ "entity": "evidence", "offsets": [13, 21]}, {"entity": "lung lesions", "offsets": [25, 37]} ]',
+                                                             '[{"entity": "coloration", "offsets": [25, 35]}, {"entity": "indicated", "offsets": [36, 45]}, {"entity": "atrophy","offsets": [46, 53]}, {"entity": "atrophy of smooth muscle fibers", "offsets": [46, 77]}, {"entity": "smooth muscle fibers", "offsets": [57, 77]} ]'],
                                     },
                                 'it':{'questions':['In considerazione dell’inefficacia della terapia somministrata, in assenza di ulteriori opzioni terapeutiche standard potenzialmente efficaci e dopo colloquio con i genitori si decide di avviare la paziente a trapianto aploidentico, possibilmente NK allo reattivo, da genitore.',
                                                     'L’esame istologico dimostrava mucosa gastrica atrofica con flogosi cronica, marcato edema ed incremento del connettivo del corion, focale metaplasia intestinale, il tutto sovrastante un tessuto fibromuscolare.'],

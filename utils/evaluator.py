@@ -106,7 +106,7 @@ class Evaluator():
         normalized_string = __preprocess_string__(entity_in_model_resonse)
         normalized_entity_ground_truth = __preprocess_string__(entity_in_ground_truth)
         if normalized_string == normalized_entity_ground_truth:
-            print('entity_ground_truth:', entity_in_ground_truth)
+            # print('entity_ground_truth:', entity_in_ground_truth)
             return True, entity_in_ground_truth
         
         similarity = fuzz.ratio(entity_in_model_resonse.lower(), entity_in_ground_truth.lower())
@@ -140,7 +140,7 @@ class Evaluator():
             if entity_in_model_resonse in strings: # se ho estratto la stessa, ritorno se stessa
                 return entity_in_model_resonse
             else: #
-                print('sto analizzando: "', entity_in_model_resonse, '" e ho trovato: ', strings)
+                # print('sto analizzando: "', entity_in_model_resonse, '" e ho trovato: ', strings)
                 return strings[-1]
         return entity_in_model_resonse
     
@@ -161,12 +161,12 @@ class Evaluator():
         ground_truth = self._parse_json(ground_truth)
         model_response = model_response["entities"]
         ground_truth = ground_truth["entities"]
-        print('ORIGINAL model_response: ', model_response)
+        # print('ORIGINAL model_response: ', model_response)
         if similar_is_equal:
             for i, response_entity in enumerate(model_response):
                 model_response[i] = self.entity_in_ground_truth_list(response_entity, ground_truth, model_response, similar_is_equal_threshold)
-        print('GROUND TRUTH: ', ground_truth)
-        print('NEW model_response: ', model_response, '\n\n')
+        # print('GROUND TRUTH: ', ground_truth)
+        # print('NEW model_response: ', model_response, '\n\n')
 
         TP = len(set(model_response).intersection(set(ground_truth)))
         FP = len(set(model_response).difference(set(ground_truth)))
@@ -195,4 +195,5 @@ class Evaluator():
         precision = summary['TP'] / (summary['TP'] + summary['FP'])
         recall = summary['TP'] / (summary['TP'] + summary['FN'])
         f1 = 2 * (precision * recall) / (precision + recall)
+        self.evaluation_table = {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
         return {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
