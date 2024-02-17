@@ -54,7 +54,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             tokenizer.padding_side = "left"
 
             # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
-            postprocessor = TestDataProcessor(test_data=val_data.select(range(6)), 
+            postprocessor = TestDataProcessor(test_data=val_data, 
                                               preprocessor=preprocessor, 
                                               n_shots_inference=n_shots_inference, 
                                               language=language, 
