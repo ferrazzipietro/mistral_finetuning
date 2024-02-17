@@ -64,7 +64,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             try:
                 postprocessor.add_responses_column(model=merged_model, 
                                                 tokenizer=tokenizer, 
-                                                batch_size=3, 
+                                                batch_size=24, 
                                                 max_new_tokens_factor=max_new_tokens_factor)
                 postprocessor.test_data.to_csv(f"data/test_data_processed/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             except Exception as e:
