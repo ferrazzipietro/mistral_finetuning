@@ -7,3 +7,53 @@ This job will be executed on th following nodes: vgpu5-1
 /home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
 Python 3.8.18
 PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_8_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_8_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_4_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_4_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_4_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_2_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_2_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_2_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_4_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_4_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_4_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_2_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_2_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_2_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.002
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.002
