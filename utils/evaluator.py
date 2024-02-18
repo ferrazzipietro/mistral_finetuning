@@ -7,9 +7,10 @@ from fuzzywuzzy import fuzz
 
 class Evaluator():
 
-    def __init__(self,  data: Dataset, offset:bool) -> None:
+    def __init__(self,  data: Dataset, offset:bool, output_cleaner) -> None:
         self.offset = offset
         self.data = data
+        self.cleaner = output_cleaner
         pass
     
     def _assess_model_output(self, model_response: str) -> (bool, str):
@@ -57,27 +58,18 @@ class Evaluator():
         if self.offset and good_format:
             output = json.loads(model_response)
             if drop_duplicates:
-                output = self._drop_duplicates(output)
+                output = self.cleaner._drop_duplicates(output)
             entities = [entity["entity"] for entity in output]
             offsets = [entity["offset"] for entity in output]
             return {"entities": entities, "offsets": offsets}
         elif (not self.offset) and good_format:
             output = json.loads(model_response)
             if drop_duplicates:
-                output = self._drop_duplicates(output)
+                output = self.cleaner._drop_duplicates(output)
             entities = [entity["entity"] for entity in output]
             return {"entities": entities}
         if not good_format:
             return {"entities": []}
-        
-    def _drop_duplicates(self, model_response: list) -> str:
-        """
-        Drop the duplicates from a list. This is useful when the model output contains the same entity multiple times.
-
-        Args:
-        model_response (str): the model response with no duplicates
-        """
-        return list({v['entity']:v for v in model_response}.values())
 
 
     def _entity_similar_to_ground_truth_entity(self, entity_in_model_resonse: str, entity_in_ground_truth: str, threshold: int) -> (bool, str):
@@ -157,7 +149,13 @@ class Evaluator():
         similar_is_equal_threshold (int): the threshold to consider the entities similar. The default value is 80. 0 is completely different, 100 is the same.
 
         """
-        model_response = self._parse_json(model_response)
+        try:
+            model_response = self._parse_json(model_response)
+        except Exception as error:
+            # print("EXCOOOOOOO", error, ':   ', model_response)
+            # print('MODEL RESPONSE: ', model_response)
+            model_response = self._parse_json(model_response)
+        # model_response = self._parse_json(model_response)
         ground_truth = self._parse_json(ground_truth)
         model_response = model_response["entities"]
         ground_truth = ground_truth["entities"]
@@ -187,7 +185,8 @@ class Evaluator():
         dict: the evaluation table
         """
         metrics_list = []
-        for i, res in enumerate(self.data['model_responses']):
+        for i, res in enumerate(self.data['model_output']):
+            print(self.data[i])
             metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], similar_is_equal, similar_is_equal_threshold))
 
         metrics_dataframe = pd.DataFrame(metrics_list, columns=['TP', 'FP', 'FN'])
