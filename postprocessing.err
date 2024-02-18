@@ -4,244 +4,930 @@
   warnings.warn('Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning')
 adapters_list:   0%|          | 0/36 [00:00<?, ?it/s]
 Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
-Loading checkpoint shards:  33%|███▎      | 1/3 [00:07<00:14,  7.24s/it][A
-Loading checkpoint shards:  67%|██████▋   | 2/3 [00:14<00:07,  7.28s/it][A
-Loading checkpoint shards: 100%|██████████| 3/3 [00:21<00:00,  6.97s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:21<00:00,  7.05s/it]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:07<00:15,  7.79s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:15<00:07,  7.86s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:22<00:00,  7.56s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:22<00:00,  7.63s/it]
 
-Map:   0%|          | 0/681 [00:00<?, ? examples/s][A
-Map:  81%|████████  | 551/681 [00:00<00:00, 5388.48 examples/s][AMap: 100%|██████████| 681/681 [00:00<00:00, 3517.68 examples/s]
-
-Map:   0%|          | 0/681 [00:00<?, ? examples/s][A
-Map: 100%|██████████| 681/681 [00:00<00:00, 5561.12 examples/s][AMap: 100%|██████████| 681/681 [00:00<00:00, 4982.05 examples/s]
-
-generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A2024-02-17 11:41:21.876792: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-02-17 11:41:21.969297: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A2024-02-17 12:35:56.627769: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-17 12:35:56.729054: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-02-17 11:41:25.291029: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-02-17 12:36:00.148623: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 
-generating responses:   0%|          | 3/681 [00:23<1:26:40,  7.67s/it][A
-generating responses:   1%|          | 6/681 [00:36<1:04:44,  5.75s/it][A
-generating responses:   1%|▏         | 9/681 [00:49<57:37,  5.15s/it]  [A
-generating responses:   2%|▏         | 12/681 [01:02<54:10,  4.86s/it][A
-generating responses:   2%|▏         | 15/681 [01:16<52:12,  4.70s/it][A
-generating responses:   3%|▎         | 18/681 [01:29<50:52,  4.60s/it][A
-generating responses:   3%|▎         | 21/681 [01:42<49:57,  4.54s/it][A
-generating responses:   4%|▎         | 24/681 [01:55<49:18,  4.50s/it][A
-generating responses:   4%|▍         | 27/681 [02:09<48:49,  4.48s/it][A
-generating responses:   4%|▍         | 30/681 [02:22<48:22,  4.46s/it][A
-generating responses:   5%|▍         | 33/681 [02:35<48:00,  4.45s/it][A
-generating responses:   5%|▌         | 36/681 [02:48<47:43,  4.44s/it][A
-generating responses:   6%|▌         | 39/681 [03:02<47:26,  4.43s/it][A
-generating responses:   6%|▌         | 42/681 [03:15<47:11,  4.43s/it][A
-generating responses:   7%|▋         | 45/681 [03:28<46:58,  4.43s/it][A
-generating responses:   7%|▋         | 48/681 [03:41<46:44,  4.43s/it][A
-generating responses:   7%|▋         | 51/681 [03:55<46:30,  4.43s/it][A
-generating responses:   8%|▊         | 54/681 [04:08<46:15,  4.43s/it][A
-generating responses:   8%|▊         | 57/681 [04:21<46:01,  4.43s/it][A
-generating responses:   9%|▉         | 60/681 [04:35<45:46,  4.42s/it][A
-generating responses:   9%|▉         | 63/681 [04:48<45:33,  4.42s/it][A
-generating responses:  10%|▉         | 66/681 [05:01<45:19,  4.42s/it][A
-generating responses:  10%|█         | 69/681 [05:14<45:05,  4.42s/it][A
-generating responses:  11%|█         | 72/681 [05:28<44:51,  4.42s/it][A
-generating responses:  11%|█         | 75/681 [05:41<44:39,  4.42s/it][A
-generating responses:  11%|█▏        | 78/681 [05:54<44:28,  4.42s/it][A
-generating responses:  12%|█▏        | 81/681 [06:07<44:14,  4.42s/it][A
-generating responses:  12%|█▏        | 84/681 [06:21<44:00,  4.42s/it][A
-generating responses:  13%|█▎        | 87/681 [06:34<43:47,  4.42s/it][A
-generating responses:  13%|█▎        | 90/681 [06:47<43:36,  4.43s/it][A
-generating responses:  14%|█▎        | 93/681 [07:01<43:23,  4.43s/it][A
-generating responses:  14%|█▍        | 96/681 [07:14<43:09,  4.43s/it][A
-generating responses:  15%|█▍        | 99/681 [07:27<42:53,  4.42s/it][A
-generating responses:  15%|█▍        | 102/681 [07:40<42:39,  4.42s/it][A
-generating responses:  15%|█▌        | 105/681 [07:54<42:25,  4.42s/it][A
-generating responses:  16%|█▌        | 108/681 [08:07<42:12,  4.42s/it][A
-generating responses:  16%|█▋        | 111/681 [08:20<42:00,  4.42s/it][A
-generating responses:  17%|█▋        | 114/681 [08:33<41:48,  4.42s/it][A
-generating responses:  17%|█▋        | 117/681 [08:47<41:34,  4.42s/it][A
-generating responses:  18%|█▊        | 120/681 [09:00<41:24,  4.43s/it][A
-generating responses:  18%|█▊        | 123/681 [09:13<41:09,  4.43s/it][A
-generating responses:  19%|█▊        | 126/681 [09:26<40:55,  4.42s/it][A
-generating responses:  19%|█▉        | 129/681 [09:40<40:42,  4.42s/it][A
-generating responses:  19%|█▉        | 132/681 [09:53<40:28,  4.42s/it][A
-generating responses:  20%|█▉        | 135/681 [10:06<40:14,  4.42s/it][A
-generating responses:  20%|██        | 138/681 [10:20<40:01,  4.42s/it][A
-generating responses:  21%|██        | 141/681 [10:33<39:49,  4.43s/it][A
-generating responses:  21%|██        | 144/681 [10:46<39:37,  4.43s/it][A
-generating responses:  22%|██▏       | 147/681 [10:59<39:23,  4.43s/it][A
-generating responses:  22%|██▏       | 150/681 [11:13<39:09,  4.43s/it][A
-generating responses:  22%|██▏       | 153/681 [11:26<38:55,  4.42s/it][A
-generating responses:  23%|██▎       | 156/681 [11:39<38:41,  4.42s/it][A
-generating responses:  23%|██▎       | 159/681 [11:52<38:28,  4.42s/it][A
-generating responses:  24%|██▍       | 162/681 [12:06<38:13,  4.42s/it][A
-generating responses:  24%|██▍       | 165/681 [12:19<38:02,  4.42s/it][A
-generating responses:  25%|██▍       | 168/681 [12:32<37:48,  4.42s/it][A
-generating responses:  25%|██▌       | 171/681 [12:46<37:35,  4.42s/it][A
-generating responses:  26%|██▌       | 174/681 [12:59<37:22,  4.42s/it][A
-generating responses:  26%|██▌       | 177/681 [13:12<37:07,  4.42s/it][A
-generating responses:  26%|██▋       | 180/681 [13:25<36:55,  4.42s/it][A
-generating responses:  27%|██▋       | 183/681 [13:39<36:41,  4.42s/it][A
-generating responses:  27%|██▋       | 186/681 [13:52<36:25,  4.42s/it][A
-generating responses:  28%|██▊       | 189/681 [14:05<36:09,  4.41s/it][A
-generating responses:  28%|██▊       | 192/681 [14:18<35:54,  4.41s/it][A
-generating responses:  29%|██▊       | 195/681 [14:31<35:42,  4.41s/it][A
-generating responses:  29%|██▉       | 198/681 [14:45<35:30,  4.41s/it][A
-generating responses:  30%|██▉       | 201/681 [14:58<35:19,  4.42s/it][A
-generating responses:  30%|██▉       | 204/681 [15:11<35:11,  4.43s/it][A
-generating responses:  30%|███       | 207/681 [15:25<34:58,  4.43s/it][A
-generating responses:  31%|███       | 210/681 [15:38<34:43,  4.42s/it][A
-generating responses:  31%|███▏      | 213/681 [15:51<34:31,  4.43s/it][A
-generating responses:  32%|███▏      | 216/681 [16:04<34:17,  4.42s/it][A
-generating responses:  32%|███▏      | 219/681 [16:18<34:03,  4.42s/it][A
-generating responses:  33%|███▎      | 222/681 [16:31<33:46,  4.42s/it][A
-generating responses:  33%|███▎      | 225/681 [16:44<33:32,  4.41s/it][A
-generating responses:  33%|███▎      | 228/681 [16:57<33:18,  4.41s/it][A
-generating responses:  34%|███▍      | 231/681 [17:10<33:03,  4.41s/it][A
-generating responses:  34%|███▍      | 234/681 [17:24<32:49,  4.41s/it][A
-generating responses:  35%|███▍      | 237/681 [17:37<32:35,  4.40s/it][A
-generating responses:  35%|███▌      | 240/681 [17:50<32:22,  4.41s/it][A
-generating responses:  36%|███▌      | 243/681 [18:03<32:09,  4.41s/it][A
-generating responses:  36%|███▌      | 246/681 [18:17<31:58,  4.41s/it][A
-generating responses:  37%|███▋      | 249/681 [18:30<31:47,  4.42s/it][A
-generating responses:  37%|███▋      | 252/681 [18:43<31:32,  4.41s/it][A
-generating responses:  37%|███▋      | 255/681 [18:56<31:18,  4.41s/it][A
-generating responses:  38%|███▊      | 258/681 [19:10<31:04,  4.41s/it][A
-generating responses:  38%|███▊      | 261/681 [19:23<30:51,  4.41s/it][A
-generating responses:  39%|███▉      | 264/681 [19:36<30:38,  4.41s/it][A
-generating responses:  39%|███▉      | 267/681 [19:49<30:24,  4.41s/it][A
-generating responses:  40%|███▉      | 270/681 [20:02<30:14,  4.41s/it][A
-generating responses:  40%|████      | 273/681 [20:16<29:59,  4.41s/it][A
-generating responses:  41%|████      | 276/681 [20:29<29:45,  4.41s/it][A
-generating responses:  41%|████      | 279/681 [20:42<29:31,  4.41s/it][A
-generating responses:  41%|████▏     | 282/681 [20:55<29:18,  4.41s/it][A
-generating responses:  42%|████▏     | 285/681 [21:08<29:03,  4.40s/it][A
-generating responses:  42%|████▏     | 288/681 [21:22<28:51,  4.41s/it][A
-generating responses:  43%|████▎     | 291/681 [21:35<28:37,  4.40s/it][A
-generating responses:  43%|████▎     | 294/681 [21:48<28:25,  4.41s/it][A
-generating responses:  44%|████▎     | 297/681 [22:01<28:11,  4.41s/it][A
-generating responses:  44%|████▍     | 300/681 [22:15<27:59,  4.41s/it][A
-generating responses:  44%|████▍     | 303/681 [22:28<27:45,  4.41s/it][A
-generating responses:  45%|████▍     | 306/681 [22:41<27:31,  4.40s/it][A
-generating responses:  45%|████▌     | 309/681 [22:54<27:18,  4.41s/it][A
-generating responses:  46%|████▌     | 312/681 [23:07<27:05,  4.40s/it][A
-generating responses:  46%|████▋     | 315/681 [23:21<26:52,  4.40s/it][A
-generating responses:  47%|████▋     | 318/681 [23:34<26:38,  4.40s/it][A
-generating responses:  47%|████▋     | 321/681 [23:47<26:25,  4.40s/it][A
-generating responses:  48%|████▊     | 324/681 [24:00<26:12,  4.40s/it][A
-generating responses:  48%|████▊     | 327/681 [24:14<26:00,  4.41s/it][A
-generating responses:  48%|████▊     | 330/681 [24:27<25:46,  4.41s/it][A
-generating responses:  49%|████▉     | 333/681 [24:40<25:32,  4.40s/it][A
-generating responses:  49%|████▉     | 336/681 [24:53<25:19,  4.40s/it][A
-generating responses:  50%|████▉     | 339/681 [25:06<25:06,  4.40s/it][A
-generating responses:  50%|█████     | 342/681 [25:20<24:54,  4.41s/it][A
-generating responses:  51%|█████     | 345/681 [25:33<24:38,  4.40s/it][A
-generating responses:  51%|█████     | 348/681 [25:46<24:25,  4.40s/it][A
-generating responses:  52%|█████▏    | 351/681 [25:59<24:11,  4.40s/it][A
-generating responses:  52%|█████▏    | 354/681 [26:12<23:57,  4.40s/it][A
-generating responses:  52%|█████▏    | 357/681 [26:26<23:43,  4.39s/it][A
-generating responses:  53%|█████▎    | 360/681 [26:39<23:32,  4.40s/it][A
-generating responses:  53%|█████▎    | 363/681 [26:52<23:19,  4.40s/it][A
-generating responses:  54%|█████▎    | 366/681 [27:05<23:08,  4.41s/it][A
-generating responses:  54%|█████▍    | 369/681 [27:18<22:54,  4.41s/it][A
-generating responses:  55%|█████▍    | 372/681 [27:32<22:40,  4.40s/it][A
-generating responses:  55%|█████▌    | 375/681 [27:45<22:25,  4.40s/it][A
-generating responses:  56%|█████▌    | 378/681 [27:58<22:11,  4.39s/it][A
-generating responses:  56%|█████▌    | 381/681 [28:11<21:58,  4.40s/it][A
-generating responses:  56%|█████▋    | 384/681 [28:24<21:44,  4.39s/it][A
-generating responses:  57%|█████▋    | 387/681 [28:37<21:32,  4.40s/it][A
-generating responses:  57%|█████▋    | 390/681 [28:51<21:19,  4.40s/it][A
-generating responses:  58%|█████▊    | 393/681 [29:04<21:06,  4.40s/it][A
-generating responses:  58%|█████▊    | 396/681 [29:17<20:53,  4.40s/it][A
-generating responses:  59%|█████▊    | 399/681 [29:30<20:38,  4.39s/it][A
-generating responses:  59%|█████▉    | 402/681 [29:43<20:26,  4.40s/it][A
-generating responses:  59%|█████▉    | 405/681 [29:57<20:13,  4.40s/it][A
-generating responses:  60%|█████▉    | 408/681 [30:10<19:59,  4.39s/it][A
-generating responses:  60%|██████    | 411/681 [30:23<19:49,  4.40s/it][A
-generating responses:  61%|██████    | 414/681 [30:36<19:34,  4.40s/it][A
-generating responses:  61%|██████    | 417/681 [30:49<19:21,  4.40s/it][A
-generating responses:  62%|██████▏   | 420/681 [31:03<19:07,  4.40s/it][A
-generating responses:  62%|██████▏   | 423/681 [31:16<18:55,  4.40s/it][A
-generating responses:  63%|██████▎   | 426/681 [31:29<18:42,  4.40s/it][A
-generating responses:  63%|██████▎   | 429/681 [31:42<18:29,  4.40s/it][A
-generating responses:  63%|██████▎   | 432/681 [31:55<18:15,  4.40s/it][A
-generating responses:  64%|██████▍   | 435/681 [32:09<18:02,  4.40s/it][A
-generating responses:  64%|██████▍   | 438/681 [32:22<17:49,  4.40s/it][A
-generating responses:  65%|██████▍   | 441/681 [32:35<17:37,  4.41s/it][A
-generating responses:  65%|██████▌   | 444/681 [32:48<17:25,  4.41s/it][A
-generating responses:  66%|██████▌   | 447/681 [33:02<17:11,  4.41s/it][A
-generating responses:  66%|██████▌   | 450/681 [33:15<16:58,  4.41s/it][A
-generating responses:  67%|██████▋   | 453/681 [33:28<16:44,  4.41s/it][A
-generating responses:  67%|██████▋   | 456/681 [33:41<16:31,  4.41s/it][A
-generating responses:  67%|██████▋   | 459/681 [33:54<16:18,  4.41s/it][A
-generating responses:  68%|██████▊   | 462/681 [34:08<16:04,  4.41s/it][A
-generating responses:  68%|██████▊   | 465/681 [34:21<15:51,  4.40s/it][A
-generating responses:  69%|██████▊   | 468/681 [34:34<15:38,  4.40s/it][A
-generating responses:  69%|██████▉   | 471/681 [34:47<15:24,  4.40s/it][A
-generating responses:  70%|██████▉   | 474/681 [35:01<15:12,  4.41s/it][A
-generating responses:  70%|███████   | 477/681 [35:14<14:59,  4.41s/it][A
-generating responses:  70%|███████   | 480/681 [35:27<14:45,  4.41s/it][A
-generating responses:  71%|███████   | 483/681 [35:40<14:31,  4.40s/it][A
-generating responses:  71%|███████▏  | 486/681 [35:53<14:18,  4.40s/it][A
-generating responses:  72%|███████▏  | 489/681 [36:07<14:04,  4.40s/it][A
-generating responses:  72%|███████▏  | 492/681 [36:20<13:52,  4.40s/it][A
-generating responses:  73%|███████▎  | 495/681 [36:33<13:39,  4.40s/it][A
-generating responses:  73%|███████▎  | 498/681 [36:46<13:25,  4.40s/it][A
-generating responses:  74%|███████▎  | 501/681 [36:59<13:12,  4.40s/it][A
-generating responses:  74%|███████▍  | 504/681 [37:13<12:58,  4.40s/it][A
-generating responses:  74%|███████▍  | 507/681 [37:26<12:45,  4.40s/it][A
-generating responses:  75%|███████▍  | 510/681 [37:39<12:32,  4.40s/it][A
-generating responses:  75%|███████▌  | 513/681 [37:52<12:19,  4.40s/it][A
-generating responses:  76%|███████▌  | 516/681 [38:05<12:06,  4.40s/it][A
-generating responses:  76%|███████▌  | 519/681 [38:19<11:53,  4.40s/it][A
-generating responses:  77%|███████▋  | 522/681 [38:32<11:39,  4.40s/it][A
-generating responses:  77%|███████▋  | 525/681 [38:45<11:26,  4.40s/it][A
-generating responses:  78%|███████▊  | 528/681 [38:58<11:13,  4.40s/it][A
-generating responses:  78%|███████▊  | 531/681 [39:11<10:59,  4.40s/it][A
-generating responses:  78%|███████▊  | 534/681 [39:25<10:46,  4.40s/it][A
-generating responses:  79%|███████▉  | 537/681 [39:38<10:33,  4.40s/it][A
-generating responses:  79%|███████▉  | 540/681 [39:51<10:20,  4.40s/it][A
-generating responses:  80%|███████▉  | 543/681 [40:04<10:06,  4.40s/it][A
-generating responses:  80%|████████  | 546/681 [40:17<09:53,  4.39s/it][A
-generating responses:  81%|████████  | 549/681 [40:31<09:40,  4.39s/it][A
-generating responses:  81%|████████  | 552/681 [40:44<09:27,  4.40s/it][A
-generating responses:  81%|████████▏ | 555/681 [40:57<09:14,  4.40s/it][A
-generating responses:  82%|████████▏ | 558/681 [41:10<09:01,  4.40s/it][A
-generating responses:  82%|████████▏ | 561/681 [41:23<08:47,  4.40s/it][A
-generating responses:  83%|████████▎ | 564/681 [41:37<08:34,  4.40s/it][A
-generating responses:  83%|████████▎ | 567/681 [41:50<08:21,  4.40s/it][A
-generating responses:  84%|████████▎ | 570/681 [42:03<08:08,  4.40s/it][A
-generating responses:  84%|████████▍ | 573/681 [42:16<07:55,  4.41s/it][A
-generating responses:  85%|████████▍ | 576/681 [42:29<07:42,  4.41s/it][A
-generating responses:  85%|████████▌ | 579/681 [42:43<07:29,  4.41s/it][A
-generating responses:  85%|████████▌ | 582/681 [42:56<07:15,  4.40s/it][A
-generating responses:  86%|████████▌ | 585/681 [43:09<07:02,  4.40s/it][A
-generating responses:  86%|████████▋ | 588/681 [43:22<06:48,  4.39s/it][A
-generating responses:  87%|████████▋ | 591/681 [43:35<06:35,  4.39s/it][A
-generating responses:  87%|████████▋ | 594/681 [43:48<06:22,  4.39s/it][A
-generating responses:  88%|████████▊ | 597/681 [44:02<06:09,  4.40s/it][A
-generating responses:  88%|████████▊ | 600/681 [44:15<05:56,  4.40s/it][A
-generating responses:  89%|████████▊ | 603/681 [44:28<05:42,  4.40s/it][A
-generating responses:  89%|████████▉ | 606/681 [44:41<05:29,  4.40s/it][A
-generating responses:  89%|████████▉ | 609/681 [44:54<05:16,  4.40s/it][A
-generating responses:  90%|████████▉ | 612/681 [45:08<05:03,  4.40s/it][A
-generating responses:  90%|█████████ | 615/681 [45:21<04:50,  4.40s/it][A
-generating responses:  91%|█████████ | 618/681 [45:34<04:37,  4.40s/it][A
-generating responses:  91%|█████████ | 621/681 [45:47<04:24,  4.40s/it][A
-generating responses:  92%|█████████▏| 624/681 [46:01<04:11,  4.41s/it][A
-generating responses:  92%|█████████▏| 627/681 [46:14<03:57,  4.40s/it][A
-generating responses:  93%|█████████▎| 630/681 [46:27<03:44,  4.40s/it][A
-generating responses:  93%|█████████▎| 633/681 [46:40<03:31,  4.41s/it][A
-generating responses:  93%|█████████▎| 636/681 [46:54<03:18,  4.42s/it][A
-generating responses:  94%|█████████▍| 639/681 [47:07<03:05,  4.41s/it][A
-generating responses:  94%|█████████▍| 642/681 [47:20<02:51,  4.41s/it][A
-generating responses:  95%|█████████▍| 645/681 [47:33<02:38,  4.40s/it][A
-generating responses:  95%|█████████▌| 648/681 [47:46<02:25,  4.40s/it][A
-generating responses:  96%|█████████▌| 651/681 [47:59<02:11,  4.40s/it][A
-generating responses:  96%|█████████▌| 654/681 [48:13<01:58,  4.39s/it][A
-generating responses:  96%|█████████▋| 657/681 [48:26<01:45,  4.39s/it][A
-generating responses:  97%|█████████▋| 660/681 [48:39<01:32,  4.39s/it][A
-generating responses:  97%|█████████▋| 663/681 [48:52<01:19,  4.40s/it][A
-generating responses:  98%|█████████▊| 666/681 [49:05<01:06,  4.40s/it][A
-generating responses:  98%|█████████▊| 669/681 [49:19<00:52,  4.40s/it][A
-generating responses:  99%|█████████▊| 672/681 [49:32<00:39,  4.40s/it][A
-generating responses:  99%|█████████▉| 675/681 [49:45<00:26,  4.40s/it][A
-generating responses: 100%|█████████▉| 678/681 [49:58<00:13,  4.39s/it][A
+generating responses:   4%|▎         | 24/681 [00:27<12:30,  1.14s/it][A
+generating responses:   7%|▋         | 48/681 [00:42<08:52,  1.19it/s][A
+generating responses:  11%|█         | 72/681 [00:57<07:33,  1.34it/s][A
+generating responses:  14%|█▍        | 96/681 [01:12<06:50,  1.42it/s][A
+generating responses:  18%|█▊        | 120/681 [01:28<06:21,  1.47it/s][A
+generating responses:  21%|██        | 144/681 [01:43<05:57,  1.50it/s][A
+generating responses:  25%|██▍       | 168/681 [01:58<05:36,  1.52it/s][A
+generating responses:  28%|██▊       | 192/681 [02:14<05:17,  1.54it/s][A
+generating responses:  32%|███▏      | 216/681 [02:30<05:03,  1.53it/s][A
+generating responses:  35%|███▌      | 240/681 [02:45<04:44,  1.55it/s][A
+generating responses:  39%|███▉      | 264/681 [03:00<04:29,  1.55it/s][A
+generating responses:  42%|████▏     | 288/681 [03:16<04:13,  1.55it/s][A
+generating responses:  46%|████▌     | 312/681 [03:31<03:56,  1.56it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:41,  1.56it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:25,  1.56it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:17<03:10,  1.56it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:32<02:54,  1.57it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:48<02:39,  1.56it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:03<02:23,  1.57it/s][A
+generating responses:  70%|███████   | 480/681 [05:18<02:08,  1.57it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:33<01:52,  1.57it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:49<01:37,  1.57it/s][A
+generating responses:  81%|████████  | 552/681 [06:04<01:21,  1.57it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:19<01:06,  1.57it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:34<00:51,  1.57it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:50<00:36,  1.56it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:05<00:21,  1.56it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:21<00:05,  1.55it/s][A
+generating responses: 696it [07:35,  1.61it/s]                         [Agenerating responses: 696it [07:35,  1.53it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.34ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.34ba/s]
+adapters_list:   3%|▎         | 1/36 [08:06<4:43:59, 486.85s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:07<00:15,  7.69s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:15<00:07,  7.76s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:22<00:00,  7.40s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:22<00:00,  7.49s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:   6%|▌         | 2/36 [08:38<2:04:05, 219.00s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.83s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.31s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.23s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.21s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<06:54,  1.58it/s][A
+generating responses:   7%|▋         | 48/681 [00:30<06:39,  1.58it/s][A
+generating responses:  11%|█         | 72/681 [00:45<06:24,  1.58it/s][A
+generating responses:  14%|█▍        | 96/681 [01:00<06:10,  1.58it/s][A
+generating responses:  18%|█▊        | 120/681 [01:16<05:56,  1.57it/s][A
+generating responses:  21%|██        | 144/681 [01:31<05:42,  1.57it/s][A
+generating responses:  25%|██▍       | 168/681 [01:46<05:26,  1.57it/s][A
+generating responses:  28%|██▊       | 192/681 [02:01<05:11,  1.57it/s][A
+generating responses:  32%|███▏      | 216/681 [02:17<04:59,  1.55it/s][A
+generating responses:  35%|███▌      | 240/681 [02:32<04:42,  1.56it/s][A
+generating responses:  39%|███▉      | 264/681 [02:48<04:27,  1.56it/s][A
+generating responses:  42%|████▏     | 288/681 [03:03<04:12,  1.56it/s][A
+generating responses:  46%|████▌     | 312/681 [03:19<03:56,  1.56it/s][A
+generating responses:  49%|████▉     | 336/681 [03:34<03:40,  1.56it/s][A
+generating responses:  53%|█████▎    | 360/681 [03:49<03:25,  1.56it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:05<03:10,  1.56it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:20<02:54,  1.57it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:35<02:39,  1.56it/s][A
+generating responses:  67%|██████▋   | 456/681 [04:51<02:23,  1.56it/s][A
+generating responses:  70%|███████   | 480/681 [05:06<02:08,  1.56it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:21<01:52,  1.57it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:36<01:37,  1.57it/s][A
+generating responses:  81%|████████  | 552/681 [05:52<01:22,  1.57it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:07<01:06,  1.57it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:22<00:51,  1.57it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:38<00:36,  1.56it/s][A
+generating responses:  95%|█████████▌| 648/681 [06:53<00:21,  1.56it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:09<00:05,  1.55it/s][A
+generating responses: 696it [07:23,  1.61it/s]                         [Agenerating responses: 696it [07:23,  1.57it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.44ba/s]
+adapters_list:   8%|▊         | 3/36 [16:25<3:02:53, 332.52s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:07<00:14,  7.11s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:14<00:07,  7.24s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:21<00:00,  7.00s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:21<00:00,  7.05s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  11%|█         | 4/36 [16:54<1:53:25, 212.68s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.71s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.24s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.18s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.14s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<06:54,  1.58it/s][A
+generating responses:   7%|▋         | 48/681 [00:30<06:39,  1.58it/s][A
+generating responses:  11%|█         | 72/681 [00:45<06:24,  1.58it/s][A
+generating responses:  14%|█▍        | 96/681 [01:00<06:10,  1.58it/s][A
+generating responses:  18%|█▊        | 120/681 [01:16<05:56,  1.57it/s][A
+generating responses:  21%|██        | 144/681 [01:31<05:42,  1.57it/s][A
+generating responses:  25%|██▍       | 168/681 [01:46<05:26,  1.57it/s][A
+generating responses:  28%|██▊       | 192/681 [02:02<05:11,  1.57it/s][A
+generating responses:  32%|███▏      | 216/681 [02:18<04:59,  1.55it/s][A
+generating responses:  35%|███▌      | 240/681 [02:33<04:42,  1.56it/s][A
+generating responses:  39%|███▉      | 264/681 [02:48<04:27,  1.56it/s][A
+generating responses:  42%|████▏     | 288/681 [03:04<04:12,  1.56it/s][A
+generating responses:  46%|████▌     | 312/681 [03:19<03:56,  1.56it/s][A
+generating responses:  49%|████▉     | 336/681 [03:34<03:41,  1.56it/s][A
+generating responses:  53%|█████▎    | 360/681 [03:50<03:26,  1.55it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:05<03:11,  1.55it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:21<02:55,  1.55it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:36<02:40,  1.55it/s][A
+generating responses:  67%|██████▋   | 456/681 [04:52<02:24,  1.55it/s][A
+generating responses:  70%|███████   | 480/681 [05:07<02:09,  1.55it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:23<01:53,  1.56it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:38<01:38,  1.56it/s][A
+generating responses:  81%|████████  | 552/681 [05:53<01:22,  1.56it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:09<01:07,  1.56it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:24<00:51,  1.56it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:40<00:36,  1.55it/s][A
+generating responses:  95%|█████████▌| 648/681 [06:55<00:21,  1.55it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:11<00:05,  1.54it/s][A
+generating responses: 696it [07:25,  1.60it/s]                         [Agenerating responses: 696it [07:25,  1.56it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s]
+adapters_list:  14%|█▍        | 5/36 [24:44<2:37:43, 305.28s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:13,  6.96s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:14<00:07,  7.47s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:21<00:00,  7.34s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:21<00:00,  7.33s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:00,  1.56it/s][A
+generating responses:   7%|▋         | 48/681 [00:30<06:46,  1.56it/s][A
+generating responses:  11%|█         | 72/681 [00:46<06:29,  1.56it/s][A
+generating responses:  14%|█▍        | 96/681 [01:01<06:15,  1.56it/s][A
+generating responses:  18%|█▊        | 120/681 [01:17<06:01,  1.55it/s][A
+generating responses:  21%|██        | 144/681 [01:32<05:46,  1.55it/s][A
+generating responses:  25%|██▍       | 168/681 [01:47<05:29,  1.56it/s][A
+generating responses:  28%|██▊       | 192/681 [02:03<05:14,  1.56it/s][A
+generating responses:  32%|███▏      | 216/681 [02:19<05:02,  1.54it/s][A
+generating responses:  35%|███▌      | 240/681 [02:34<04:44,  1.55it/s][A
+generating responses:  39%|███▉      | 264/681 [02:50<04:29,  1.55it/s][A
+generating responses:  42%|████▏     | 288/681 [03:05<04:14,  1.54it/s][A
+generating responses:  46%|████▌     | 312/681 [03:21<03:57,  1.55it/s][A
+generating responses:  49%|████▉     | 336/681 [03:36<03:42,  1.55it/s][A
+generating responses:  53%|█████▎    | 360/681 [03:52<03:26,  1.55it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:07<03:11,  1.55it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:22<02:55,  1.55it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:38<02:40,  1.55it/s][A
+generating responses:  67%|██████▋   | 456/681 [04:53<02:24,  1.55it/s][A
+generating responses:  70%|███████   | 480/681 [05:09<02:09,  1.55it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:24<01:53,  1.56it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:40<01:38,  1.56it/s][A
+generating responses:  81%|████████  | 552/681 [05:55<01:22,  1.56it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:10<01:07,  1.56it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:26<00:51,  1.56it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:41<00:36,  1.55it/s][A
+generating responses:  95%|█████████▌| 648/681 [06:57<00:21,  1.55it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:13<00:05,  1.54it/s][A
+generating responses: 696it [07:26,  1.60it/s]                         [Agenerating responses: 696it [07:26,  1.56it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.37ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.37ba/s]
+adapters_list:  17%|█▋        | 6/36 [32:39<3:01:31, 363.05s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:07<00:14,  7.46s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:15<00:07,  7.86s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:23<00:00,  7.68s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:23<00:00,  7.69s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<06:58,  1.57it/s][A
+generating responses:   7%|▋         | 48/681 [00:30<06:43,  1.57it/s][A
+generating responses:  11%|█         | 72/681 [00:45<06:28,  1.57it/s][A
+generating responses:  14%|█▍        | 96/681 [01:01<06:14,  1.56it/s][A
+generating responses:  18%|█▊        | 120/681 [01:16<05:59,  1.56it/s][A
+generating responses:  21%|██        | 144/681 [01:32<05:45,  1.56it/s][A
+generating responses:  25%|██▍       | 168/681 [01:47<05:29,  1.56it/s][A
+generating responses:  28%|██▊       | 192/681 [02:03<05:14,  1.56it/s][A
+generating responses:  32%|███▏      | 216/681 [02:19<05:02,  1.54it/s][A
+generating responses:  35%|███▌      | 240/681 [02:34<04:44,  1.55it/s][A
+generating responses:  39%|███▉      | 264/681 [02:49<04:29,  1.55it/s][A
+generating responses:  42%|████▏     | 288/681 [03:05<04:14,  1.54it/s][A
+generating responses:  46%|████▌     | 312/681 [03:20<03:58,  1.55it/s][A
+generating responses:  49%|████▉     | 336/681 [03:36<03:42,  1.55it/s][A
+generating responses:  53%|█████▎    | 360/681 [03:51<03:27,  1.55it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:07<03:11,  1.55it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:22<02:55,  1.55it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:38<02:40,  1.55it/s][A
+generating responses:  67%|██████▋   | 456/681 [04:53<02:24,  1.55it/s][A
+generating responses:  70%|███████   | 480/681 [05:09<02:09,  1.55it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:24<01:53,  1.56it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:39<01:38,  1.56it/s][A
+generating responses:  81%|████████  | 552/681 [05:55<01:22,  1.56it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:10<01:07,  1.56it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:25<00:51,  1.56it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:41<00:36,  1.55it/s][A
+generating responses:  95%|█████████▌| 648/681 [06:57<00:21,  1.55it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:13<00:05,  1.54it/s][A
+generating responses: 696it [07:26,  1.60it/s]                         [Agenerating responses: 696it [07:26,  1.56it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s]
+adapters_list:  19%|█▉        | 7/36 [40:36<3:13:26, 400.24s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.37s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.87s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.80s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.77s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  22%|██▏       | 8/36 [41:04<2:11:30, 281.80s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.63s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.24s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.18s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.13s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<06:53,  1.59it/s][A
+generating responses:   7%|▋         | 48/681 [00:30<06:38,  1.59it/s][A
+generating responses:  11%|█         | 72/681 [00:45<06:23,  1.59it/s][A
+generating responses:  14%|█▍        | 96/681 [01:00<06:09,  1.58it/s][A
+generating responses:  18%|█▊        | 120/681 [01:15<05:55,  1.58it/s][A
+generating responses:  21%|██        | 144/681 [01:31<05:41,  1.57it/s][A
+generating responses:  25%|██▍       | 168/681 [01:46<05:26,  1.57it/s][A
+generating responses:  28%|██▊       | 192/681 [02:01<05:10,  1.57it/s][A
+generating responses:  32%|███▏      | 216/681 [02:17<04:59,  1.55it/s][A
+generating responses:  35%|███▌      | 240/681 [02:32<04:41,  1.56it/s][A
+generating responses:  39%|███▉      | 264/681 [02:48<04:27,  1.56it/s][A
+generating responses:  42%|████▏     | 288/681 [03:03<04:12,  1.56it/s][A
+generating responses:  46%|████▌     | 312/681 [03:18<03:55,  1.57it/s][A
+generating responses:  49%|████▉     | 336/681 [03:34<03:40,  1.57it/s][A
+generating responses:  53%|█████▎    | 360/681 [03:49<03:24,  1.57it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:04<03:09,  1.57it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:20<02:54,  1.57it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:35<02:39,  1.56it/s][A
+generating responses:  67%|██████▋   | 456/681 [04:50<02:23,  1.57it/s][A
+generating responses:  70%|███████   | 480/681 [05:06<02:08,  1.57it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:21<01:52,  1.57it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:36<01:37,  1.57it/s][A
+generating responses:  81%|████████  | 552/681 [05:51<01:21,  1.58it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:06<01:06,  1.57it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:22<00:51,  1.58it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:37<00:36,  1.56it/s][A
+generating responses:  95%|█████████▌| 648/681 [06:53<00:21,  1.56it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:08<00:05,  1.55it/s][A
+generating responses: 696it [07:22,  1.61it/s]                         [Agenerating responses: 696it [07:22,  1.57it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.47ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.47ba/s]
+adapters_list:  25%|██▌       | 9/36 [48:50<2:32:46, 339.50s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.38s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.89s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.72s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.71s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  28%|██▊       | 10/36 [49:19<1:45:30, 243.50s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.72s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.26s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.16s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.13s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<06:53,  1.59it/s][A
+generating responses:   7%|▋         | 48/681 [00:30<06:38,  1.59it/s][A
+generating responses:  11%|█         | 72/681 [00:45<06:23,  1.59it/s][A
+generating responses:  14%|█▍        | 96/681 [01:00<06:09,  1.58it/s][A
+generating responses:  18%|█▊        | 120/681 [01:15<05:55,  1.58it/s][A
+generating responses:  21%|██        | 144/681 [01:31<05:41,  1.57it/s][A
+generating responses:  25%|██▍       | 168/681 [01:46<05:25,  1.58it/s][A
+generating responses:  28%|██▊       | 192/681 [02:01<05:10,  1.58it/s][A
+generating responses:  32%|███▏      | 216/681 [02:17<04:58,  1.56it/s][A
+generating responses:  35%|███▌      | 240/681 [02:32<04:41,  1.57it/s][A
+generating responses:  39%|███▉      | 264/681 [02:48<04:26,  1.56it/s][A
+generating responses:  42%|████▏     | 288/681 [03:03<04:11,  1.56it/s][A
+generating responses:  46%|████▌     | 312/681 [03:18<03:55,  1.57it/s][A
+generating responses:  49%|████▉     | 336/681 [03:33<03:39,  1.57it/s][A
+generating responses:  53%|█████▎    | 360/681 [03:49<03:24,  1.57it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:04<03:09,  1.57it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:19<02:54,  1.57it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:35<02:39,  1.56it/s][A
+generating responses:  67%|██████▋   | 456/681 [04:50<02:23,  1.57it/s][A
+generating responses:  70%|███████   | 480/681 [05:05<02:08,  1.57it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:20<01:52,  1.57it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:36<01:37,  1.58it/s][A
+generating responses:  81%|████████  | 552/681 [05:51<01:21,  1.58it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:06<01:06,  1.58it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:21<00:51,  1.58it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:37<00:36,  1.57it/s][A
+generating responses:  95%|█████████▌| 648/681 [06:52<00:21,  1.56it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:08<00:05,  1.56it/s][A
+generating responses: 696it [07:21,  1.62it/s]                         [Agenerating responses: 696it [07:21,  1.58it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s]
+adapters_list:  31%|███       | 11/36 [57:05<2:09:50, 311.61s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.44s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.91s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.81s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.79s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  33%|███▎      | 12/36 [57:34<1:30:15, 225.65s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.88s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.34s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.25s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.23s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:17,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:32<07:02,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:48<06:46,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:31,  1.49it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:17,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:02,  1.48it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:45,  1.48it/s][A
+generating responses:  28%|██▊       | 192/681 [02:09<05:29,  1.48it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:16,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:58,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:58<04:42,  1.47it/s][A
+generating responses:  42%|████▏     | 288/681 [03:14<04:26,  1.47it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:53,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:19<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:35<03:04,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:23<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:59,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:56<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:12<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:28<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:44<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:17<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:33<00:06,  1.47it/s][A
+generating responses: 696it [07:47,  1.55it/s]                         [Agenerating responses: 696it [07:47,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.46ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.46ba/s]
+adapters_list:  36%|███▌      | 13/36 [1:05:46<1:57:28, 306.44s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.69s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.56s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.54s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  39%|███▉      | 14/36 [1:06:15<1:21:32, 222.38s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.72s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.26s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.17s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.14s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:16,  1.51it/s][A
+generating responses:   7%|▋         | 48/681 [00:31<07:00,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:47<06:45,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:30,  1.50it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:15,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:00,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:44,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:28,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:15,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:57,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:41,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:13<04:25,  1.48it/s][A
+generating responses:  46%|████▌     | 312/681 [03:29<04:08,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:45<03:52,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:18<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:34<03:03,  1.49it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:50<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:06<02:31,  1.49it/s][A
+generating responses:  70%|███████   | 480/681 [05:22<02:15,  1.49it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:58,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:54<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:11<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:27<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:43<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:59<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:15<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:32<00:06,  1.47it/s][A
+generating responses: 696it [07:45,  1.55it/s]                         [Agenerating responses: 696it [07:45,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.47ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.47ba/s]
+adapters_list:  42%|████▏     | 15/36 [1:14:25<1:46:09, 303.29s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.93s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.53s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.47s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.43s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  44%|████▍     | 16/36 [1:14:53<1:13:26, 220.35s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.49s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.17s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.13s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.07s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:16,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:31<07:01,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:47<06:45,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:31,  1.50it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:16,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:01,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:44,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:28,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:15,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:57,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:42,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:13<04:26,  1.48it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:08,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:52,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:18<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:34<03:03,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:23<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:58,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:55<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:11<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:27<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:43<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:16<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:32<00:06,  1.47it/s][A
+generating responses: 696it [07:46,  1.55it/s]                         [Agenerating responses: 696it [07:46,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.44ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.44ba/s]
+adapters_list:  47%|████▋     | 17/36 [1:23:04<1:35:33, 301.75s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:13,  6.71s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.93s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.69s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:20<00:00,  6.73s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  50%|█████     | 18/36 [1:23:33<1:05:53, 219.63s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:10,  5.41s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.10s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.04s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:17,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:31<07:01,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:47<06:46,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:31,  1.50it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:16,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:01,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:45,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:28,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:16,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:58,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:42,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:14<04:26,  1.47it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:53,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:18<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:35<03:04,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:23<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:59,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:55<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:11<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:28<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:44<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:16<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:33<00:06,  1.47it/s][A
+generating responses: 696it [07:47,  1.55it/s]                         [Agenerating responses: 696it [07:47,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.45ba/s]
+adapters_list:  53%|█████▎    | 19/36 [1:31:44<1:25:20, 301.19s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.06s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.54s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.45s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.42s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  56%|█████▌    | 20/36 [1:32:12<58:25, 219.11s/it]  
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.65s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.22s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.15s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.11s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:17,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:31<07:01,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:48<06:46,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:31,  1.49it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:16,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:01,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:44,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:28,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:15,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:57,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:41,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:13<04:26,  1.48it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:52,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:18<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:34<03:04,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:23<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:59,  1.48it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:55<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:11<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:27<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:43<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:16<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:33<00:06,  1.47it/s][A
+generating responses: 696it [07:46,  1.55it/s]                         [Agenerating responses: 696it [07:46,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.51ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.50ba/s]
+adapters_list:  58%|█████▊    | 21/36 [1:40:23<1:15:12, 300.82s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.16s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.59s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.47s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.46s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:16<07:18,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:32<07:02,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:48<06:46,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:31,  1.49it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:16,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:01,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:44,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:28,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:16,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:57,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:42,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:14<04:26,  1.48it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:52,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:18<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:34<03:04,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:23<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:59,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:55<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:11<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:27<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:43<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:16<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:33<00:06,  1.47it/s][A
+generating responses: 696it [07:46,  1.55it/s]                         [Agenerating responses: 696it [07:46,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.44ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.43ba/s]
+adapters_list:  61%|██████    | 22/36 [1:48:36<1:23:37, 358.41s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.72s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.37s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.32s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.27s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:16<07:18,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:32<07:03,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:48<06:47,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:32,  1.49it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:17,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:01,  1.48it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:45,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:09<05:29,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:16,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:58,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:58<04:42,  1.47it/s][A
+generating responses:  42%|████▏     | 288/681 [03:14<04:26,  1.47it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:53,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:19<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:35<03:04,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:23<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:59,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:55<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:12<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:28<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:44<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:17<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:33<00:06,  1.47it/s][A
+generating responses: 696it [07:47,  1.55it/s]                         [Agenerating responses: 696it [07:47,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.48ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.48ba/s]
+adapters_list:  64%|██████▍   | 23/36 [1:56:48<1:26:22, 398.64s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:13,  6.62s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.84s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.61s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.65s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  67%|██████▋   | 24/36 [1:57:16<57:30, 287.51s/it]  
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.95s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.36s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.25s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.24s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:16<07:19,  1.49it/s][A
+generating responses:   7%|▋         | 48/681 [00:32<07:03,  1.49it/s][A
+generating responses:  11%|█         | 72/681 [00:48<06:48,  1.49it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:33,  1.49it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:18,  1.48it/s][A
+generating responses:  21%|██        | 144/681 [01:37<06:03,  1.48it/s][A
+generating responses:  25%|██▍       | 168/681 [01:53<05:46,  1.48it/s][A
+generating responses:  28%|██▊       | 192/681 [02:09<05:30,  1.48it/s][A
+generating responses:  32%|███▏      | 216/681 [02:26<05:17,  1.46it/s][A
+generating responses:  35%|███▌      | 240/681 [02:42<04:59,  1.47it/s][A
+generating responses:  39%|███▉      | 264/681 [02:58<04:43,  1.47it/s][A
+generating responses:  42%|████▏     | 288/681 [03:15<04:27,  1.47it/s][A
+generating responses:  46%|████▌     | 312/681 [03:31<04:10,  1.47it/s][A
+generating responses:  49%|████▉     | 336/681 [03:47<03:53,  1.47it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:03<03:37,  1.47it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:20<03:21,  1.47it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:36<03:05,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:52<02:49,  1.47it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:08<02:32,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:25<02:16,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:41<01:59,  1.48it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:57<01:43,  1.48it/s][A
+generating responses:  81%|████████  | 552/681 [06:13<01:27,  1.48it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:29<01:10,  1.48it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:46<00:54,  1.48it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:02<00:38,  1.47it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:19<00:22,  1.47it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:35<00:06,  1.46it/s][A
+generating responses: 696it [07:50,  1.51it/s]                         [Agenerating responses: 696it [07:50,  1.48it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.46ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.46ba/s]
+adapters_list:  69%|██████▉   | 25/36 [2:05:33<1:04:11, 350.18s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.16s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.60s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.48s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.47s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  72%|███████▏  | 26/36 [2:06:01<42:16, 253.61s/it]  
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.70s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.28s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.22s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.18s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:16<07:18,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:32<07:02,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:48<06:46,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:31,  1.49it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:16,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:01,  1.48it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:45,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:28,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:16,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:58,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:42,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:14<04:26,  1.47it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:53,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:37,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:19<03:21,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:35<03:04,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.47it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:32,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:24<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:40<01:59,  1.48it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:56<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:12<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:28<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:44<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:01<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:17<00:22,  1.47it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:34<00:06,  1.47it/s][A
+generating responses: 696it [07:48,  1.51it/s]                         [Agenerating responses: 696it [07:48,  1.48it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.43ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.43ba/s]
+adapters_list:  75%|███████▌  | 27/36 [2:14:15<48:52, 325.84s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.07s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.57s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.45s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.43s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  78%|███████▊  | 28/36 [2:14:44<31:34, 236.78s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.91s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.33s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.24s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.22s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:16<07:18,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:32<07:02,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:48<06:46,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:32,  1.49it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:17,  1.48it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:02,  1.48it/s][A
+generating responses:  25%|██▍       | 168/681 [01:53<05:45,  1.48it/s][A
+generating responses:  28%|██▊       | 192/681 [02:09<05:29,  1.48it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:17,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:58,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:58<04:43,  1.47it/s][A
+generating responses:  42%|████▏     | 288/681 [03:14<04:27,  1.47it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:47<03:53,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:03<03:37,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:19<03:21,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:35<03:04,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:52<02:48,  1.47it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:08<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:24<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:40<01:59,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:56<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:12<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:28<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:44<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:17<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:33<00:06,  1.47it/s][A
+generating responses: 696it [07:48,  1.52it/s]                         [Agenerating responses: 696it [07:48,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.47ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.47ba/s]
+adapters_list:  81%|████████  | 29/36 [2:22:59<36:37, 313.99s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.43s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.71s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.53s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.55s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  83%|████████▎ | 30/36 [2:23:28<22:51, 228.62s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.56s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.18s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.12s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.07s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:15,  1.51it/s][A
+generating responses:   7%|▋         | 48/681 [00:31<07:00,  1.51it/s][A
+generating responses:  11%|█         | 72/681 [00:47<06:44,  1.51it/s][A
+generating responses:  14%|█▍        | 96/681 [01:03<06:30,  1.50it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:15,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:00,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:43,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:27,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:15,  1.48it/s][A
+generating responses:  35%|███▌      | 240/681 [02:40<04:56,  1.49it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:41,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:13<04:25,  1.48it/s][A
+generating responses:  46%|████▌     | 312/681 [03:29<04:08,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:45<03:52,  1.49it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:01<03:36,  1.49it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:18<03:19,  1.49it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:34<03:03,  1.49it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:50<02:47,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:06<02:31,  1.49it/s][A
+generating responses:  70%|███████   | 480/681 [05:22<02:15,  1.49it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:38<01:58,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:54<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:10<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:26<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:42<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:59<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:15<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:32<00:06,  1.47it/s][A
+generating responses: 696it [07:46,  1.52it/s]                         [Agenerating responses: 696it [07:46,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.48ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.48ba/s]
+adapters_list:  86%|████████▌ | 31/36 [2:31:40<25:38, 307.66s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:12,  6.14s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:13<00:06,  6.59s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.47s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.46s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  89%|████████▉ | 32/36 [2:32:08<14:55, 223.81s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:09,  4.70s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:11<00:05,  5.82s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:17<00:00,  5.92s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:17<00:00,  5.78s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:16,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:31<07:01,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:47<06:45,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:31,  1.50it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:16,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:00,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:44,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:28,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:15,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:57,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:42,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:13<04:26,  1.48it/s][A
+generating responses:  46%|████▌     | 312/681 [03:29<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:52,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:18<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:34<03:03,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:23<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:59,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:55<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:11<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:27<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:43<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:16<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:32<00:06,  1.47it/s][A
+generating responses: 696it [07:47,  1.51it/s]                         [Agenerating responses: 696it [07:47,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.49ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.49ba/s]
+adapters_list:  92%|█████████▏| 33/36 [2:40:20<15:12, 304.32s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.86s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.45s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.36s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.32s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/681 [00:02<?, ?it/s]
+adapters_list:  94%|█████████▍| 34/36 [2:40:48<07:22, 221.37s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.75s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.26s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.18s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.15s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:17,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:31<07:01,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:47<06:45,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:04<06:31,  1.50it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:16,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:01,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:44,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:28,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:15,  1.47it/s][A
+generating responses:  35%|███▌      | 240/681 [02:41<04:57,  1.48it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:42,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:14<04:26,  1.48it/s][A
+generating responses:  46%|████▌     | 312/681 [03:30<04:09,  1.48it/s][A
+generating responses:  49%|████▉     | 336/681 [03:46<03:52,  1.48it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:02<03:36,  1.48it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:18<03:20,  1.48it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:34<03:03,  1.48it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:51<02:48,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:07<02:31,  1.48it/s][A
+generating responses:  70%|███████   | 480/681 [05:23<02:15,  1.48it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:39<01:59,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:55<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:11<01:26,  1.49it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:27<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:43<00:54,  1.49it/s][A
+generating responses:  92%|█████████▏| 624/681 [07:00<00:38,  1.48it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:16<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:32<00:06,  1.47it/s][A
+generating responses: 696it [07:47,  1.52it/s]                         [Agenerating responses: 696it [07:47,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.47ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.47ba/s]
+adapters_list:  97%|█████████▋| 35/36 [2:49:01<05:02, 302.88s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.81s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:06,  6.42s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.34s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:18<00:00,  6.30s/it]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A
+generating responses:   4%|▎         | 24/681 [00:15<07:16,  1.50it/s][A
+generating responses:   7%|▋         | 48/681 [00:31<07:00,  1.50it/s][A
+generating responses:  11%|█         | 72/681 [00:47<06:45,  1.50it/s][A
+generating responses:  14%|█▍        | 96/681 [01:03<06:30,  1.50it/s][A
+generating responses:  18%|█▊        | 120/681 [01:20<06:15,  1.49it/s][A
+generating responses:  21%|██        | 144/681 [01:36<06:00,  1.49it/s][A
+generating responses:  25%|██▍       | 168/681 [01:52<05:43,  1.49it/s][A
+generating responses:  28%|██▊       | 192/681 [02:08<05:27,  1.49it/s][A
+generating responses:  32%|███▏      | 216/681 [02:25<05:14,  1.48it/s][A
+generating responses:  35%|███▌      | 240/681 [02:40<04:56,  1.49it/s][A
+generating responses:  39%|███▉      | 264/681 [02:57<04:41,  1.48it/s][A
+generating responses:  42%|████▏     | 288/681 [03:13<04:25,  1.48it/s][A
+generating responses:  46%|████▌     | 312/681 [03:29<04:08,  1.49it/s][A
+generating responses:  49%|████▉     | 336/681 [03:45<03:51,  1.49it/s][A
+generating responses:  53%|█████▎    | 360/681 [04:01<03:35,  1.49it/s][A
+generating responses:  56%|█████▋    | 384/681 [04:17<03:19,  1.49it/s][A
+generating responses:  60%|█████▉    | 408/681 [04:33<03:03,  1.49it/s][A
+generating responses:  63%|██████▎   | 432/681 [04:50<02:47,  1.48it/s][A
+generating responses:  67%|██████▋   | 456/681 [05:06<02:31,  1.49it/s][A
+generating responses:  70%|███████   | 480/681 [05:22<02:15,  1.49it/s][A
+generating responses:  74%|███████▍  | 504/681 [05:38<01:58,  1.49it/s][A
+generating responses:  78%|███████▊  | 528/681 [05:54<01:42,  1.49it/s][A
+generating responses:  81%|████████  | 552/681 [06:10<01:26,  1.50it/s][A
+generating responses:  85%|████████▍ | 576/681 [06:26<01:10,  1.49it/s][A
+generating responses:  88%|████████▊ | 600/681 [06:42<00:54,  1.50it/s][A
+generating responses:  92%|█████████▏| 624/681 [06:58<00:38,  1.49it/s][A
+generating responses:  95%|█████████▌| 648/681 [07:15<00:22,  1.48it/s][A
+generating responses:  99%|█████████▊| 672/681 [07:31<00:06,  1.48it/s][A
+generating responses: 696it [07:46,  1.52it/s]                         [Agenerating responses: 696it [07:46,  1.49it/s]
+
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s][A
+Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.44ba/s][ACreating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  2.44ba/s]
+adapters_list: 100%|██████████| 36/36 [2:57:14<00:00, 359.80s/it]adapters_list: 100%|██████████| 36/36 [2:57:14<00:00, 295.40s/it]
