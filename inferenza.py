@@ -1,7 +1,7 @@
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
-from config.finetuning_llama2 import config
+from config.finetuning import config
 from dotenv import dotenv_values
 from utils.data_preprocessor import DataPreprocessor
 
@@ -80,11 +80,11 @@ result_NO_ft = get_completion_merged(prompt=prompt,
                                tokenizer=tokenizer)
 
 
-print('\n\n', result_NO_ft)
-# result_ft = get_completion_merged(prompt=query_eng, 
-#                                merged_model=merged_model, 
-#                                tokenizer=tokenizer)
-# print(f"result_ft:\n{result_ft}") #\n\n\nresult_NO_ft:\n{result_NO_ft}")
+# print('\n\n', result_NO_ft)
+result_ft = get_completion_merged(prompt=prompt, 
+                               merged_model=merged_model, 
+                               tokenizer=tokenizer)
+print(f"result_ft:\n{result_ft.split('[/INST]')[-1]}\n\n\nresult_NO_ft:\n{result_NO_ft.split('[/INST]')[-1]}")
 
 
-# offset: [23, 35] text: hypertension ||| offset: [40, 52] text: dyslipidemia ||| offset: [53, 62] text: diagnosed ||| offset: [110, 118] text: mellitus ||| offset: [149, 157] text: referred ||| offset: [186, 197] text: hypokalemia
+# hypertension |||  dyslipidemia ||| diagnosed ||| mellitus ||| referred |||  hypokalemia
