@@ -1,0 +1,2350 @@
+THIS IS A BROKEN ROW:  - {"entity": "diagnosed"}, 
+- {"entity": "unveiled"}, 
+- {"entity": "referred"}, 
+- {"entity": "diabetes mellitus"}, 
+- {"entity": "hypokalemia"}, 
+- {"entity": "dyslipidemia"}, 
+- {"entity": "A 46-year-old man"}, 
+- {"entity": "new-onset diabetes mellitus"}, 
+-
+THIS IS A BROKEN ROW:  - signs of cervical compression
+- respiratory signs
+- digestive signs
+- laryngeal signs
+- vascular signs
+- neurologic signs
+- cervical compression
+- patient
+ 
+ 
+ 
+ 
+ Ques: Extract the entities contained in the text. Return the result in a json format. Text: <<A 10-year-old boy presented to an outside institution nine months ago with a 3-month history of progressive neck mass, facial p
+THIS IS A BROKEN ROW:  _
+THIS IS A BROKEN ROW:  "The mass took the front and the two sides of the neck." 
+ 
+ 
+ 
+ 
+  
+  Q: Extract the entities contained in the text.
+  Return the result in a json format.
+  Text: <<The mass took the front and the two sides of the neck.>>> 
+  Q: 
+  A: 
+  Q: 
+  A: 
+  Q: Extract the entities contained in the text.
+  Return
+THIS IS A BROKEN ROW:  - CT
+- thyroid mass
+- the anterior mediastinum
+- a partially calcified thyroid mass
+- slight plunging
+
+ 
+ 
+  Question: Extract the entities contained in the text. Return the result in a json format. Text: <<We present a case of a 32-year-old woman with a history of gradual enlargement of the anterior neck.>>> 
+  
+ 
+  Return:
+THIS IS A BROKEN ROW:  "incision": "The incision" 
+  "Kocher cervicotomy"
+   "cervicotomy" 
+  "a Kocher cervicotomy" 
+ 
+  "a 9-month-old boy" 
+  "the right lower extremity" 
+  "38.5°C" 
+  "3-day" 
+  "24 hours" 
+  "38.5°C"
+THIS IS A BROKEN ROW:  - devascularized
+- autotransplanted
+- the ipsilateral sternocleidomastoid muscle
+- One parathyroid gland
+
+Return the result in a json format: 
+
+ 		  
+ 		  "devascularized", 
+  "autotransplanted", 
+  "the ipsilateral sternocleidomastoid muscle", 
+  "One parathyroid gland"
+THIS IS A BROKEN ROW:  - "support"
+- "stabilized"
+- "stopped"
+- "hemodynamic support" 
+- "blood pressure" 
+- "48 hours" 
+
+- "the right lower extremity"
+- "38.5°C" 
+- "3-day" 
+- "9-month-old boy" 
+- "38.5°C" 
+- "3-day" 
+- "24 hours"
+THIS IS A BROKEN ROW:  - finding
+- chronic pancreatitis
+- atrophy
+- calcifications
+- chronic pancreatitis
+- pancreatic atrophy
+- multiple sub-centimeter calcifications
+- the imaging
+- 9-month-old boy
+- 3-day history
+- 38.5°C for 24 hours
+- the right lower extremity
+- 38.5°C
+- febrile peaks
+- a 9-month-old boy
+THIS IS A BROKEN ROW:  _
+THIS IS A BROKEN ROW:  - "_MRCP showed severe parenchymal atrophy and pancreatic ductal stones with ductal dilation to 9mm_": 
+  - "showed" 
+  - "atrophy" 
+  - "stones" 
+  - "dilation" 
+  - "9mm" 
+- "pancreatic ductal stones" 
+- "severe parenchymal atrophy" 
+- "duct
+THIS IS A BROKEN ROW:  ```json
+{"entity": "testing"}, {"entity": "pancreatitis"}, {"entity": "CASR"},
+{"entity": "CFTR"}, {"entity": "CTRC"}, {"entity": "PRSS1"}, {"entity": "SPINK1"}:
+ {"entity": "hereditary pancreatitis"}, {"entity": "He"}
+``` 
+
+
+
+
+
+
+
+  Question: Extract the entities contained in the text.
+Return the result in a json format
+THIS IS A BROKEN ROW:  Q: Extract the entities contained in the text.
+  Return the result in a json format.
+  Text: <<The mass was not a solitary lesion, but involved all organs in the neck.>>> 
+  T: 
+   Q: The text
+THIS IS A BROKEN ROW:  - skin lesions: false
+- lymphadenopathy: false
+- hepatosplenomegaly: false
+- edema: false
+- lower extremities: false
+- skin: false
+- lymphadenopathy: false
+- hepatosplenomegaly: false
+- edema: false
+- She: {"entity": "She"}
+
+ 
+ 
+ 
+ 
+  Question: Extract the entities contained in the text.
+ Return the
+THIS IS A BROKEN ROW:  - Tests
+- HBsAg
+- HCV
+
+
+
+
+Return the result in a json format:
+THIS IS A BROKEN ROW:  - ultrasonography
+- showed
+- ascitic fluid
+- bowel loop
+- thickening
+- enteritis
+
+The entities contained in the text are: "ultrasonography", "showed", "ascitic fluid", "thickening", "enteritis". 
+
+Return the result in a json format: 
+
+``-data``: "ultrasonography", "showed", "ascitic fluid", "thickening", "enteritis"
+THIS IS A BROKEN ROW:  A 
+  N
+  D
+  C
+  R
+  E
+  F
+  P
+  A
+  a 
+ 3-day 
+ 24 hours 
+ 1 
+ 4
+ 38.5 
+ "refusal" 
+ "bear" 
+ "fever"
+THIS IS A BROKEN ROW:  - laparoscopy
+- revealing
+- ascite
+- normal liver appearance
+- granulations
+ 
+ 
+- tuberculosis
+- peritoneal carcinosis
+ 
+ 
+- a large amount of ascite
+ 
+ 
+- a normal liver appearance
+ 
+ 
+- tuberculosis
+ 
+ 
+- peritoneal carcinosis
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Question : Extract the
+THIS IS A BROKEN ROW:  - a right lumbar region mass
+
+Return the result in a json format: 
+  - 
+    - "right lumbar region mass" 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  -
+THIS IS A BROKEN ROW:  - {"entity": "tests"}, 
+- {"entity": "levels"},
+- {"entity": "test"},
+- {"entity": "blood"},
+- {"entity": "normal ranges"}
+- {"entity": "ALT"}, 
+- {"entity": "AST"},
+- {"entity": "creatinine"},
+- {"entity": "urea"},
+- {"entity": "level"},
+- {"entity": "K+"},
+- {"entity": "Na+"},
+- {"entity
+THIS IS A BROKEN ROW:  - He
+- rehabilitation
+- medication
+- Sodium Valproate
+- DOTS
+- monitoring
+- vital signs
+ 
+ 
+ 
+ 
+ 
+  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q  Q
+THIS IS A BROKEN ROW:  - interventions: over one month
+- the child: no seizures, nodding
+- the child: returned to normal life
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Question: Extract the entities contained in the text. Return the result in a json format. Text: <<Surgical intervention: the right parietal skull with meninges was removed.>>> 
+  Question: Extract the entities contained in the text. Return the result in a json format. Text
+THIS IS A BROKEN ROW:  - {"entity": "history"},
+- {"entity": "headache"},
+- {"entity": "negative"}
+
+
+ 
+ 
+  Question: Extract the entities contained in the text. Extract only entities contained in the text.
+Return the result in a json format. Text: <<Nerve fibers and ganglia were involved in a necrotizing process.>>> 
+- {"entity": "nerve fibers"},
+- {"entity": "ganglia"},
+- {"entity": "in
+THIS IS A BROKEN ROW:  - she
+- prescribed
+- carbamazepine
+- seizure
+- daily dose
+- 400 mg 
+ 		 
+ 	  
+ 	  Q: What was she prescribed?
+	A: She was prescribed carbamazepine.
+
+ 	  Q: What was she given daily?
+	A: She was given a 400mg daily dose of carbamazepine.
+
+ 	  Q: Has she had any seizures
+THIS IS A BROKEN ROW:  - normal development
+- graduated
+- literate
+- she
+- her parents
+ 
+ 
+ 
+ 	 
+  A "9-month-old boy" and "a 32-year-old woman" are both entities contained in the text. 
+  A "refusal to bear weight on the right lower extremity", a "3-day history", "febrile peaks of up to 38.5°C for 24 hours", "graduation from elementary school"
+THIS IS A BROKEN ROW:  - "treatment"
+ - "headaches"
+ - "decreased"
+ - "headaches"
+ - "frequency"
+  - "same"
+ - "headaches"
+ - "heaviness"
+  - "week"
+ - "this"
+  - "Patient"
+  - "her"
+  - "we"
+  - "38.5°C"
+  - "3-day"
+  - "
+THIS IS A BROKEN ROW:  -  examination
+-  a facial nevus
+-  choroid angioma
+-  the right forehead
+-  the right eyelid
+-  the nasal wing
+-  the cheek
+-  the woman
+-  a 9-month-old boy
+-  refusal to bear weight on the right lower extremity
+-  38.5°C
+-  febrile peaks
+- the right lower extremity
+- up to 38.5°C
+THIS IS A BROKEN ROW:  - Her left arm
+- Her left leg
+- Hemiparesis
+- Her left arm
+- Her left leg
+- the upper and lower extremities
+
+  
+ 
+   Q: 
+  Question: 
+  A: 
+  Answer: 
+  Return the result in a json format. 
+  Text: <<Both legs were covered with dirty bandages.>>> 
+  Q: What were both legs covered with?
+  A: dirty bandages
+THIS IS A BROKEN ROW:  - "evaluuation"
+- "diagnosed"
+- "glaucoma"
+- "glaucoma of the right eye"
+- "the right eye"
+- "she" 
+- "opthalmological" 
+- "her" 
+- "Patient information: " 
+- "38.5°C"
+- "3-day"
+- "24 hours"
+- "febrile peaks"
+- "refusal to bear weight"
+THIS IS A BROKEN ROW:  - MRI
+- shows
+- thickening
+- asymmetrically smaller
+- calvarial thickness 
+- hemisphere
+- left
+- right
+THIS IS A BROKEN ROW:  "radiography",  "showed", "separation", "epiphyseal separation", "the left shoulder", "salter I"
+  "standard radiography", "left shoulder", "Salter I epiphyseal separation" 
+  "X-ray", "left shoulder
+THIS IS A BROKEN ROW:  - examination
+- showed
+- sinusitis
+- pituitary gland
+
+Return the result in a json format: 
+ 
+  
+ 
+   Q: 	Return the result in a json format.
+ 	Text:	CT-Scan examination showed that bilateral ethmoidal sinusitis and pituitary gland was within normal limits.
+ 	- 	{"entity": "examination"},
+THIS IS A BROKEN ROW:  - A Wagner cone stem
+- acetabular roof cup
+- the right lower extremity
+- 38.5°C
+- 24 hours
+- A 9-month-old boy
+
+ 
+- gradual enlargement of the anterior neck
+ - history of refusal
+ - We
+  - dysplastic femur
+  - a small medullary space
+  - 38.5°C
+  - 24 hours
+  - 3
+THIS IS A BROKEN ROW:  - radiographs
+- revealed
+- sign
+- reported
+- loosening
+- migration
+- Trendelenburg sign
+- the affected side
+
+4 years 
+
+ 
+ 
+ 
+  # 31-03  # 2021  # 
+  # 
+- we 
+ 
+ 
+ 
+  # 
+  # 32-y  # 
+  # 
+  # 
+- a 32-year-
+THIS IS A BROKEN ROW:  Both the input texts are empty. 
+Return an empty json array. 
+
+> 
+> 
+```json
+[]
+``` 
+ # A 9-month-old boy presented to the emergency room with a 3-day history of refusal to bear weight on the right lower extremity and febrile peaks of up to 38.5°C for 24 hours.
+# We present a case of a 9-month-old boy presenting to the emergency room with
+THIS IS A BROKEN ROW:  Q: Extract the entities contained in the text.
+ Return the result in a json format.
+ Text: <<She had no previous history of migraine, head trauma or epilepsy.>>>
+THIS IS A BROKEN ROW:  Question: Extract the entities contained in the text. Return the result in a json format. Text: <<Through a routine evaluation, urinary system ultrasonography (US) revealed a bladder lesion measuring 7 mm.>>>
+THIS IS A BROKEN ROW:  - imaging
+- reveal
+- lesion
+- dome of the bladder
+
+ 
+Annotated by:  Question  An 7 year old boy presented with head and neck pain for 5 days, back pain for 4 days, and un intentions, he had intermittent fever. He was previously admitted to our department with intestinal parasites three months back and was treated with anti-parasitic drugs.>>>
+THIS IS A BROKEN ROW:  - {"entity": "confirm"},
+- {"entity": "examination"},
+- {"entity": "TURBT"},
+- {"entity": "the patient"},
+- {"entity": "April 2018"} 
+  
+ 
+ 
+  Q: Extract the entities contained in the text. Return the result in a json format.
+  Text: <<Patient was advised to perform bed side bladder ultrasound scan (Bucci test) which showed a uniloc
+THIS IS A BROKEN ROW:  Question: Extract the entities contained in the text.
+ 							 	Return the result in a json format.
+ 							 	Text:	Skin examination was normal and had no café au lait spot.
+THIS IS A BROKEN ROW:  - {"entity": "transferred"}, 
+- {"entity": "suicide"}, 
+- {"entity": "admission"}, 
+- {"entity": "attempted suicide"}, 
+- {"entity": "fire"}, 
+- {"entity": "3 days before admission"}, 
+- {"entity": "A 35-year-old mentally ill man"}
+
+
+
+ 
+  
+  A 35-year-old mentally ill man
+  - A 35-year
+THIS IS A BROKEN ROW:  - acquired
+- injury
+- He
+- face and neck
+- both upper extremities
+- right thigh
+- left thigh and leg
+- his TBSA
+- full-and partial-thickness
+- 38%
+- 5%
+- 8%
+- 4%
+- 3%
+- 16%
+
+- face and neck
+- both upper extremities
+- right thigh
+- left thigh and leg
+- his TBSA
+- approximate 3
+THIS IS A BROKEN ROW:  - 10 F20.3
+ - schizophrenia
+ - Haloperidol
+ - Diazepam
+THIS IS A BROKEN ROW:  - The patient
+- restrained
+- rebellious 
+- self-destruction
+- behavior
+
+Return the result in a json format:
+THIS IS A BROKEN ROW:  - management
+- of this patient
+- started
+- a week
+- late
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  The nutrition
+  The management of this patient
+  a week
+  late
+  after a week of hospitalization
+THIS IS A BROKEN ROW:  - 		 
+	 	 	 
+	 
+	 
+	 
+   	 
+  
+ 
+  - 
+  Gastrointestinal symptoms
+  - 
+  - 
+  -
+THIS IS A BROKEN ROW:  - Signs
+ - found
+ - fluid accumulation
+ 
+  "signs" 
+  "found" 
+  "fluid accumulation" 
+ 
+  Q: 
+  A: 
+  Q: 
+  A: 
+  Q: 
+  A: 
+  - 
+  Q: 
+  A: 
+  Q: 
+  A: 
+  Q: 
+  A: 
+  Q: a
+THIS IS A BROKEN ROW:  Question: Extract the entities contained in the text.
+  Return the result in a json format.
+  Text: <<But the general and mental condition was relatively better.>>>
+THIS IS A BROKEN ROW:  - "edema"
+- "weaned"
+- "operation"
+- "ventilation"
+- "pulmonary edema"
+- "patient"
+
+Return the result in a json format: 
+ 
+  
+   
+         "edema" 
+  - 
+ 
+  
+     "weaned" 
+ 
+  
+   - 
+ 
+  
+     "
+THIS IS A BROKEN ROW:  - occluded
+- coil embolization
+- The anomalous ectatic bronchial artery
+
+Return the result in a json format. 
+
+`` Question 
+Return the result in a json format. Text: <<Gastrointestinal endoscopic evaluation was unrevealing.>>> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Q: 
+Return the result in a json format. Text: <<Bipedal walk was achieved at age
+THIS IS A BROKEN ROW:  - "reduction"
+ - "complications"
+ - "fractures"
+ - "challenge"
+ 
+ 
+  
+   "open reduction" 
+ 
+  
+ 
+   "ipsilateral fractures" 
+ 
+  
+  "favored" 
+ 
+  
+  "9-month-old boy" 
+ 
+  
+  "refusal to bear weight"
+THIS IS A BROKEN ROW:  "fracture"
+ 
+  "reduction" 
+
+ 
+   
+  "The type of femoral head fracture" 
+
+ 
+   
+  "easier"
+ 
+  
+  
+  
+  
+  "femoral head" 
+ 
+  
+  
+  
+  
+  
+ 
+ 
+ 
+  "this case"
+THIS IS A BROKEN ROW:  Q: Extract the entities contained in the text.
+																				  Return the result in a json format.
+																				  Text: <<He was born at full term with no antenatal or perinatal complications>>>
+THIS IS A BROKEN ROW:  "history": 
+  I 
+  "jaundice"}, 
+  "vomiting"}, 
+  "complaints"}, 
+  "bleeding"}, 
+  "complaints"}, 
+  "bleeding"}, 
+  "side"
+
+  "Neurological complaints"
+  "the other side" 
+ 
+ 
+
+  # 
+  # Extracts 
+  #
+THIS IS A BROKEN ROW:  - X-ray
+- normal
+- ultrasound
+- hepatomegaly
+- splenomegaly
+- free biliary ducts
+- ascites
+- hepatomegaly
+- splenomegaly
+- ascites
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  Question: What findings were observed in the abdominal ultrasound? 
+Return the result in a json format. Text: <<The abdom
+THIS IS A BROKEN ROW:  - negatives
+- Blood culture
+- examination
+- serology
+- Kala Azar serology
+- serologies
+- rickettsia
+- syphilis
+- toxoplasmosa
+
+- EBV
+- hepatitis A
+- B
+- C
+- human immunodeficiency virus HIV
+
+- "EBV"
+- "hepatitis A"
+- "hepatitis B"
+- "hepatitis C"
+- "human immunode
+THIS IS A BROKEN ROW:  Question: Extract the entities contained in the text.
+Return the result in a json format.
+Text: <<A 2-month-old boy was presented to our service for examination.>>>
+THIS IS A BROKEN ROW:  I				  
+								
+								 
+ 	 
+	 
+  "therapy", 
+  "response",
+  "involvement",
+	 "triglycerides",
+	 "ferritin",
+	 " blood count"
+	 
+  "
+THIS IS A BROKEN ROW:  - process
+- managed
+- perfusion
+- Antibiotics
+- ceftazidim
+- aminoside
+- infectious process
+
+Return the result in a json format.: 
+ 							 	 
+                   "process": "infectious process", 
+  "managed": "true", 
+  "perfusion": "Antibiotics" 
+  "
+THIS IS A BROKEN ROW:  ["Patient", "refer", "deficit", "the patient"] 
+
+Return the result in a json format  
+  
+  
+  
+  
+  
+  
+  
+  Q: Extract the entities contained in the text. Extract only entities contained in the text.
+Return the result in a json format. Text: <<Diagnosing at this point was difficult: the clinical picture was suggestive of neuroblastoma with cord compression while the absence of fever and
+THIS IS A BROKEN ROW:  - "noted"
+ - "canine"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+     
+ 
+  Question: Extract the entities contained in the text.
+ Return the result in a json format. Text: <<Neonatal hepatitis had been suspected.>>>
+THIS IS A BROKEN ROW:  "closed", "sutures"
+  
+  "wound" 
+ 
+ 
+ 
+ 
+ 
+  "The wound" 
+ 
+  "a 9-month-old boy" 
+ 
+  "38.5°C for 24 hours" 
+	 
+	 
+ 
+ 
+ 
+  "3-day" 
+ 
+ 
+ 
+  "refusal to bear weight on the right lower extremity"
+THIS IS A BROKEN ROW:  "The giant cells were multinucleated with bland-appearing nuclei", 
+  "The background stromal cells"
+ 
+  
+  "The giant cells", 
+  "the background stromal cells" 
+ 
+ 
+  
+  
+   "giant cells", 
+  "background stromal cells"
+THIS IS A BROKEN ROW:  - revealed
+- contained
+- material
+- teratoma
+- confirmed
+- tumor
+- Bisection
+- hair
+- pultaceous material
+- a teratoma
+
+- a 9-month-old boy
+- 24 hours
+- 38.5°C
+- the right lower extremity
+
+- febrile peaks
+- a 3-day history 
+
+- We
+- the emergency room
+- 38.5°C
+THIS IS A BROKEN ROW:  - observed
+- thrombosis
+- venous thrombosis
+- 29 y.o. female proband
+- 18
+- family history
+THIS IS A BROKEN ROW:  J	 
+		  Q 	 
+		  A 	 
+		  Q 	 
+		  Q 
+	 
+								 
+		  Q 
+							 
+		Q
+THIS IS A BROKEN ROW:  - {"entity": "detected"}, 
+- {"entity": "proband"}, 
+- {"entity": "affected father"}, 
+- {"entity": "healthy sister"}, 
+- {"entity": "c.662G > C (p.W221S)"} 
+
+A genetic variant "c.662G > C (p.W221S)" was detected in the "proband"
+THIS IS A BROKEN ROW:  - "mutated SERPINC1 protein" 
+- "glycosylation site" 
+- "unclear" 
+- "219-221 site" 
+  
+
+ 
+  The 219-221 refers to a specific site in the SERPINC1 protein
+THIS IS A BROKEN ROW:  - "treatment"
+- "emboli"
+- "started"
+- "anticoagulation"
+- "patient"
+- "the patient"
+- "we"
+- "6 weeks"
+
+ return 
+    "treatment" 
+  "pulmonary emboli" 
+  "oral anticoagulation" 
+  "patient" 
+  "we" 
+  "6 weeks"
+THIS IS A BROKEN ROW:  - re-presented
+- flare
+- thrombosis
+- anticoagulation
+- therapeutic range
+- severe flare
+- PV
+- deep vein thrombosis
+- the patient
+- late September 
+
+ 
+Return the result in a json format. 
+ 
+ 
+ 
+  
+  An 32-year-old woman, a 9-month-old boy, the patient 
+  "Enlargement", "refusal
+THIS IS A BROKEN ROW:  - Warfarin
+- subcutaneous low molecular heparin
+- pemphigus
+- azathioprine
+- switched
+- mofetil
+- increased
+- response
+- poor response
+- Rituximab
+- three courses
+- infusions
+- induced
+- remission
+- a 9-month-old boy
+- 38.5°C
+- 3-day history
+- weight
+- 24 hours
+THIS IS A BROKEN ROW:  - complained
+- exertion
+- blood
+- breathlessness
+- sputum
+- blood
+- He
+THIS IS A BROKEN ROW:  - "surprising"
+- "detected"
+- "confirmed"
+- "sputum"
+- "Mycobacterium tuberculosis" 
+- "tuberculosis" 
+- "M. tuberculosis" 
+- "CBNAAT" 
+- "sputum fluorescent microscopy" 
+- "the CBNAAT" 
+
+A potentially incomplete extraction as the text suggests "we found" but does not
+THIS IS A BROKEN ROW:  - "sent"
+- "revealed"
+- "growth"
+- "Mycobacterium tuberculosis"
+- "Mycobacterium tuberculosis" 
+
+Return the result in a json format:
+THIS IS A BROKEN ROW:  "tomography" 
+  "unwilling" 
+  "diagnosis" 
+  "cheaper" 
+  "faster"
+	 
+  "patient" 
+  "38.5°C"
+  "weigh"
+THIS IS A BROKEN ROW:  - 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+-
+THIS IS A BROKEN ROW:  "referred", 
+  "managed"
+ 
+  "He" 
+  "designated COVID-19 management center"
+  "national guidelines" 
+
+  "6-month-old" 
+  "neonate" 
+  "postnatal day three" 
+  "postnatal period" 
+  "day seven" 
+  "week five" 
+  "seizures" 
+  "sepsis" 
+  "
+THIS IS A BROKEN ROW:  - advised
+- follow-up
+- stay
+- back
+- He
+THIS IS A BROKEN ROW:  "He" 
+			 		 				 	  "born" 
+			 		 				 	  "delivery" 
+			 		 				 	  " adaptation" 
+			 		 				 	  "He" 
+			 		 				 	  "
+THIS IS A BROKEN ROW:  Question: Extract the entities contained in the text. Return the result in a json format.
+
+ 		 		  Text: <<He presented a profuse diarrhea during each attempt to introduce enteral feeding by hydrolyzed milk formula.>>>
+THIS IS A BROKEN ROW:  "the submucosa"
+  "Brunner glands"
+ 
+ 
+   Question: Extract the entities contained in the text. Return the result in a json format. Text: <<However, as the patient had already been initiated on high dose intravenous immunoglobulin, we decided to treat him with methylprednisolone.>>>
+THIS IS A BROKEN ROW:  ```json
+{"entity": "illness"}, {"entity": "unconsciousness"}, {"entity": "behavior"}, {"entity": "afebrile"}, {"entity": "headaches"}, {"entity": "patient"}, {"entity": "7th day"}
+`` 
+ 
+ 
+ 
+     
+      
+       
+            Question: Extract the entities contained in the text.
+Return
+THIS IS A BROKEN ROW:  - She
+- doing well
+- follow up
+- presented
+- complaints
+- fever
+- weakness
+- fifth year
+- fever
+- weakness
+- She
+- the completion of fifth year of her disease
+ 
+ 
+
+  Q: Extract the entities contained in the text. Return the result in a json format. Text: <<The child was managed with intravenous antibiotics and an NGO, as well as hemostatic agent to control the bleeding.>>> 
+  Q:
+THIS IS A BROKEN ROW:  "Examination", "lymph node enlargement", "hepatomegaly" 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  "generalized lymph node enlargement", "hepatomegaly" 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  "lymph node
+THIS IS A BROKEN ROW:  "examination": {"entity": "revealed"}, 
+  "medium sized lymphoid cells", 
+  "lymphoid cells", 
+  "constituting almost 75% of total nucleated cell population"
+ 
+ 
+ 
+ 
+ 
+  "75% of total nucleated cell population"
+ 
+ 
+ 
+  "total nucleated cell population"
+THIS IS A BROKEN ROW:  - "tomography"
+- "revealed"
+- "mass"
+- "destruction"
+- "metastasis"
+- "lung metastasis"
+- "small nodular shadows"
+- "bilateral lung fields"
+- "lung"
+- "a 9-month-old boy" 
+- "38.5°C"
+- "3-day"
+- "24 hours"
+
+- "chest"
+- "abdomen"
+THIS IS A BROKEN ROW:  - {"entity": "started"}, 
+- {"entity": "therapy"}, 
+- {"entity": "T-PLL"}, 
+- {"entity": "She"} 
+
+ 
+ 
+ 
+  Q: Extract the entities contained in the text. Return the result in a json format. Text: <<Her vitals were within acceptable limits, the hempatomegaly persisted, and there were no other physical findings.>>> 
+  Q: 
+ - {"entity":
+THIS IS A BROKEN ROW:  - procedure
+- postponed
+- delivered
+- interval ultrasounds
+- monitor
+- pregnancy
+- renal mass
+
+
+(Note: "she" is an implied entity, so no explicit entity is needed in the result.) 
+
+Return the result in a json format:
+
+  
+                                 #  Q  A  #
+THIS IS A BROKEN ROW:  - She
+- started
+- therapy
+- splenomegaly
+- noted
+- abdomen
+- 38.5°C
+- 9-month-old boy
+- 3-day
+- repletion
+- resistance
+- fever
+- refusal to bear weight
+- the right lower extremity
+- 38.5°C
+- 24 hours
+- We
+- gradual enlargement
+- anterior neck
+- a 32-year-old
+THIS IS A BROKEN ROW:  - "mass"
+- "classified"
+- "renal neoplasm"
+- "carcinoma" 
+- "papillary renal neoplasm"
+- "translocation carcinoma" 
+- "kidney" 
+ 
+ 
+ 
+ 
+ 
+   C Question: What is the classification of the renal mass? 
+  Answers:
+  - The renal mass was classified as a papillary renal neopl
+THIS IS A BROKEN ROW:  - The patient
+- 2 years
+ 
+ 
+- follow up
+- noted
+- atrophy
+- splenules
+ 
+ 
+ 
+- The patient
+- 2 years
+- The patient
+ 
+ 
+ 
+- a follow-up CT scan
+- noted
+- splenic atrophy
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  Question: Extract the entities contained in the text
+THIS IS A BROKEN ROW:  - {"entity": "crushed"}
+- {"entity": "hand"}
+- {"entity": "Her"}
+
+Given text: <<Her hand was crushed under a heavy object.>>> 
+
+
+
+  
+    Question: Extract the entities contained in the text.
+  Return the result in a json format. Text: <<We present a case of a 32-year-old woman with a history of gradual enlargement of the anterior neck.>>>
+THIS IS A BROKEN ROW:  - "found"
+ - "swelling"
+ - "distortion"
+ - "wounds"
+ - "swelling"
+ - "wounds"
+ - "the dorsum of the hand"
+ - "the left hand"
+ 
+ 
+ 
+ 
+  "dorsum of the hand", "the left hand" 
+  "ulnar and radial edges of the left hand" 
+  "a 9-month-old boy",
+THIS IS A BROKEN ROW:  D 
+ 
+ 
+	 	 
+
+
+
+ 
+ 
+
+  T 
+ 
+ 
+  C and cross 
+ 
+ 
+ 
+  M 
+ 
+ 
+  R 
+ 
+ 
+  W 
+ 
+ 
+  E 
+
+  a reduction 
+ 
+  a stability 
+
+  using 
+
+  a pin
+THIS IS A BROKEN ROW:  Given the text: 
+The had and the wrist were immobilized for six weeks.
+
+Return:
+  "immobilized”: 
+  "the had": "The hand",
+  "The wrist": "the wrist",
+  "six weeks": "6 weeks"
+ 
+  "The hand": "the had" 
+  "the wrist": "the wrist" 
+  "six weeks": "6 weeks" 
+  "The hand": "the hand"
+THIS IS A BROKEN ROW:  - history
+- diagnosed
+- medication
+- thymoma MG
+
+- patient
+  - took
+
+- pyridostigmine bromide
+- azathioprine
+- prednisone
+
+  - 60 mg
+  - 50 mg
+  - 20 mg
+
+  Q: Extract the entities contained in the text. Extract only entities contained in the text.
+  Return the result in a json format. Text: <<Diagnosis of COVID-
+THIS IS A BROKEN ROW:  - The patient
+- referred
+- history
+- coordinated
+- steroid
+- dose
+- complication
+- patient management
+ 
+ 
+ 
+ 
+  In the text above, the entities contained in the text are: "referred", "history", "dose", "complication", "management", "The patient". 
+  The patient
+  
+ 
+ 
+ 
+  In the text below, the entities contained in the text are: "presented", "refusal",
+THIS IS A BROKEN ROW:  "Creatinine level was below normal": 
+ 
+ 	 
+  "42.23 umol/l"
+THIS IS A BROKEN ROW:  Q
+THIS IS A BROKEN ROW:  "PNN": "49,050/mm³",
+  "hemoglobin": "11.6g/dl",
+  "platelets": "328,000/mm³"
+ 
+ 
+  
+  #   #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #
+THIS IS A BROKEN ROW:  - "pathology"
+- "responsible"
+- "edema"
+- "held"
+- "responsible"
+- "The patient"
+
+Return the result in a json format: 
+-  "The patient" 
+-  "pathology" 
+-  "edema" 
+-  "held" 
+-  "responsible"
+THIS IS A BROKEN ROW:  -{"entity": "suggested"}, 
+ -{"entity": "interrupted"}, 
+ -{"entity": "imatinib"}, 
+ -{"entity": "side effect"} 
+ 
+ 
+ 
+ 
+ 
+  
+  Q: Extract the entities contained in the text.
+Return the result in a json format. Text: <<Mild hypertension was controlled by antihypertensive medication.>>> 
+ -{"entity": "hypertension
+THIS IS A BROKEN ROW:  - The imatinib
+- dasatinib
+- 100 mg per day
+
+  
+ 
+ 
+ 
+  Question: Extract the entities contained in the text. Return the result in a json format. Text: <<The child did not show any side-effects after starting the dasatinib treatment.>>> 
+  
+ 
+ 
+ 
+  - The child
+  - side-effects
+
+  Question:  Extract the entities contained in the text. Return
+THIS IS A BROKEN ROW:  - transplantation
+  - not feasible 
+
+- Allogenic stem cell 
+
+  The entity "Allogenic stem cell transplantation" is a composite of the following entities:
+  - "Allogenic stem cell"
+  - "transplantation" 
+
+  In the text, no explicit reference is made to the patient, so no patient entity has been added. 
+  - 
+  - 
+  - 
+  - 
+  - 
+  -
+THIS IS A BROKEN ROW:  - noticed
+- chemotherapy
+- physical therapy
+- loss
+- improvement
+- visual loss
+-amelioration
+- neurological status
+- finished
+- systemic
+- patient
+- 7-month-old
+- we
+- 32-year-old
+
+ 
+ 
+  
+   Question 2: Extract the entities contained in the text.
+Return the result in a json format. Text: <<MRI revealed bilateral symmetrical high signal intensity lesions
+THIS IS A BROKEN ROW:  - "reported"
+- "treated"
+- "prosthesis"
+- "plavix"
+- "smoking"
+- "the abdominal aorta"
+- "the patient"
+- "38.5°C"
+
+ 
+- "refusal"
+- "bear"
+- "febrile peaks"
+- "We"
+- "a 32-year-old woman"
+ 
+ 
+ 
+ 
+ 
+-
+THIS IS A BROKEN ROW:  - "[{\"entity\": \"CT\"}]" 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- "a right nasal process" 
+- "after injection" 
+- "washing" 
+- "the late time" 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+-
+THIS IS A BROKEN ROW:  - finding
+- crenate appearance
+- nasal mucosa
+- turbinates
+- left deviation of the nasal septum
+- contralateral inferior turbinate
+- posterior nasal mucosa
+- nasal septum
+
+Return the result in a json format:
+```
+  "finding": "finding",
+  "appearance": "crenate appearance",
+  "mucosa": "posterior nasal mucosa",
+  "turbinates
+THIS IS A BROKEN ROW:  "examination", "malignant tumor lesion"
+ 
+  "malignant tumor lesion"
+THIS IS A BROKEN ROW:  In the text: "sometimes a somewhat palisadic seat on the periphery of the tumor mass" the entities contained in the text are: 
+ 
+ 
+  
+  
+  
+   
+                 # 
+ 
+    
+     # "seat"  # 
+    
+     # "
+THIS IS A BROKEN ROW:  "excludes",
+THIS IS A BROKEN ROW:  - 
+- "assessment"
+- "SCAN"
+-
+THIS IS A BROKEN ROW:  A 	  B 	  C 
+ 			 	 -----------
+ 			 	 "hospitalization"
+ 			 	 "going"
+ 			 	 "amendment"
+ 			 	 "symptoms"
+ 			 	 "tests"
+ 			 	 "she"
+THIS IS A BROKEN ROW:  - Returned
+- Bleeding
+- Severe anemia
+- Shock
+- Signs
+- Hypovolemic shock
+- Hemoglobin
+- Twenty five days later
+- She
+- 9 g/dL
+- she
+- 38.5°C
+- 38.5
+- 3-day
+- 24 hours
+- a 9-month-old boy
+- We
+- a 32-year-old woman
+THIS IS A BROKEN ROW:  - examination: "normal" 
+- The gynecological examination: "normal" 
+
+Both: 
+- examination: "normal"
+THIS IS A BROKEN ROW:  - she
+- monitoring
+- arterial embolization
+ 
+Return the result in a json format- 
+    {"entity": "going"}: "she", 
+    {"entity": "monitoring"}: "she",
+    {"entity": "arterial embolization"}: "the absence of arterial embolization" 
+ 
+  
+   Question: Extract the entities contained in the text.
+  Return the result in a json format. Text: <<The child
+THIS IS A BROKEN ROW:  - "course"
+- "simple"
+THIS IS A BROKEN ROW:  ```json 
+{"entity": "presented"}, 
+{"entity": "fever"}, 
+{"entity": "dyspnea"}, 
+{"entity": "cough"}, 
+{"entity": "pain"}, 
+{"entity": "fever"}, 
+{"entity": "dyspnea"}, 
+{"entity": "cough"}, 
+{"entity": "abdominal pain"}, 
+{"entity": " cough "}, 
+{"entity": "abdominal pain"},
+THIS IS A BROKEN ROW:  - taken
+- removal
+- colectomy
+- debridement
+- injury
+- Roux-en-y duodenojejunostomy
+- end ileostomy
+- He
+ 
+- the operating room
+
+ 
+- a 9-month-old boy
+ - 3-day
+ - 38.5°C
+  - 24 hours
+THIS IS A BROKEN ROW:  S
+THIS IS A BROKEN ROW:  - "malignant lymphoma"
+- "chemotherapy"
+- "extra-nodal NK/T cell lymphoma nasal type"
+- "He" 
+
+- "malignant lymphoma"
+- "chemotherapy"
+- "extra-nodal NK/T cell lymphoma"
+- "He"
+THIS IS A BROKEN ROW:  - "chemotherapy"
+- "lung shadows"
+- "nodular lung shadows"
+- "abscesses"
+- "therapy"
+- "fungal therapy"
+- "lung shadows"
+- "cervical, and myocardial abscesses"
+- "brain"
+- "new brain"
+- "fever"
+- "febrile peaks"
+- "38.5°C"
+- "9-month-old boy
+THIS IS A BROKEN ROW:  - He
+- surgical resection
+- mural vegetation
+
+ 
+ 
+ 
+ 
+ 
+  I am a QA model and I don't have the ability to return the result in a json format. However, I can return the result in a json-like format for you to use in your QA system:
+THIS IS A BROKEN ROW:  - He
+- an inflamed throat
+- bradycardia
+- cardiac auscultation
+- signs of heart failure 
+- failure 
+
+
+
+ 
+   Q: Extract the entities contained in the text. Extract only entities contained in the text.
+Return the result in a json format. Text: <<He had an inflamed throat, bradycardia at cardiac auscultation and there were no signs of heart failure.>>> 
+  Q: 
+Return the
+THIS IS A BROKEN ROW:  - "showed"
+ - "bloc"
+ - "rate"
+ - "38 beats per minute"
+ - "atrioventricular (AV) bloc"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Question: Extract the entities contained in the text.
+ Return the result in a json format. Text: <<The chest X-ray showed a cardiac silhouette that was larger than expected for his age with a mildly enlarg
+THIS IS A BROKEN ROW:  - TTE
+- LVEF
+- LVGLS
+- values
+- abnormalities
+- normal
+- improvement
+- reduced
+- segmental
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+  Q: Extract the entities contained in the text. Return the result in a json format. Text: <<We present a case of a 32-year-old woman with a history of gradual enlargement of the anterior neck, which rapidly progressed in the previous twelve months
+THIS IS A BROKEN ROW:  - "follow-up"
+- "recovery"
+- "findings"
+- "the patient"
+
+- "cardiovascular symptoms"
+- "echocardiographic"
+- "abnormal"
+- "one-month"
+
+- "full recovery"
+- "cardiovascular symptoms"
+- "we"
+- "the patient"
+- "abnormal electrocardiographic"
+- "3 months"
+- "1 month"
+
+- "abnormal"
+THIS IS A BROKEN ROW:  - Ultrasound
+- showed
+- echotexture
+- liver
+- SOL
+- IHBRD
+THIS IS A BROKEN ROW:  - The oblique paramedian incision
+ - extended to caudal-lateral direction
+ - 1/2cm to the lateral border of rectus muscle
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  # Fact  
+  # 1 
+  # An oblique paramedian incision was made 2cm medial to the lateral border of the rectus muscle and extended to the caudal-lateral direction down to
+THIS IS A BROKEN ROW:  - The lateral edge of anterior rectus sheath
+- dissected
+- the rectus muscle
+- The lateral edge of anterior rectus sheath
+- up to semilunar line of rectus muscle
+- 1cm
+THIS IS A BROKEN ROW:  - rectus muscle
+- expose
+- rectus
+- arcuate line
+- parietal peritoneum
+- the right lower extremity
+- febrile peaks
+- 38.5°C
+- a 9-month-old boy
+- 3-day
+- 24 hours
+ 
+ 
+  Q 1: What is the age and gender of the patient?
+  Q 2: What are the patient's symptoms?
+  A:
+THIS IS A BROKEN ROW:  - incision
+- made
+- dissection
+- muscle
+- layers' merging point
+
+  
+ 
+ 
+  
+  The text does not contain any entites related to entities. 
+  
+ 
+  
+  
+  
+  
+   
+    W  - -  R 
+ 
+ 
+ 
+   - 
+ 
+  - 
+ 
+  - 
+ 
+  - 
+  -
+THIS IS A BROKEN ROW:  "dissected"
+			 
+  "pulled out"
+	  "incision"
+  "2cm" 
+  "the surface layer" 
+  "a 9-month-old boy" 
+	 
+  "Patient information"
+		
+  "refusal to bear weight on the right lower extremity"
+THIS IS A BROKEN ROW:  - She
+- posted
+- operated
+- Left Knee
+ 
+ 
+  Q.  Summary: Extract the entities contained in the text.
+Return the result in a json format. Text: <<He was kept in special infant incubator to maintain temperature and corrected serum sodium level, however after 5 days, he died suddenly.>>> 
+  Q.   Summary: Return the result in a json format. Text: <<He recovered postoperatively.>>> 
+  - He
+THIS IS A BROKEN ROW:  Question: Extract the entities contained in the text.
+	 	  Return the result in a json format.
+	 	  Text: <<The AP cut was then proceeded with.>>>
+THIS IS A BROKEN ROW:  Both the text provided in the previous two exchanges do not contain any entities. The text you provided in this exchange contains the entities: "The remaining Femoral preparations" and "used in the femur". 
+Return the result in a json format:
+THIS IS A BROKEN ROW:  - Swelling
+- Intrabdominal pressure
+- Crying
+- Spiral course
+- Groin
+- Ipsilateral iliac crest
+
+Increase in intrabdominal pressure
+Crying
+3-day history
+Febrile peaks
+24 hours
+9-month-old boy
+We
+38.5°C
+
+ 				 
+				 
+  Q: Extract the entities contained in the text. Return the result in a
+THIS IS A BROKEN ROW:  - We
+- noticed
+- that the hernia orifice
+- was in a higher than normal position 5 cm from the pubic bone
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+  #  "We" 
+  #  "noticed" 
+  #  "the hernia orifice" 
+  #  "was" 
+  #  "5 cm" 
+  #
+THIS IS A BROKEN ROW:  Although there are no entities contained in the text: "reduced back to the abdomen", and "testis" is mentioned, it is reasonable to assume that "bulk" refers to an enlarged testis or tumor.
+
+Returning the result in a json format: 
+```json
+  "entity": "reduced"
+  "entity": "testis"
+  "entity": "an intravaginal testis"
+  "entity": "the abdomen"
+THIS IS A BROKEN ROW:  - We
+- removed
+- the large sac
+- the vas
+- the vessels
+- the testis
+
+ 
+  Q: Extract the entities contained in the text.
+  Return the result in a json format. Text: <<The left fallopian tube was grossly enlarged.>>> 
+   Q: Extract the entities contained in the text.
+  Return the result in a json format. Text: <<Platelets were 370000 and fibrinogen
+THIS IS A BROKEN ROW:  - strengthened the dorsal inguinal wall
+- fixated the testis in a subdartos pouch
+- closed the wound
+- we
+- a subdartos pouch
+- the testis
+- the right lower extremity
+- 38.5°C
+- a 9-month-old boy
+- 3-day
+- 24 hours
+- febrile peaks 
+- 38.5°C 
+- the emergency room
+THIS IS A BROKEN ROW:  - complaining
+- "wound in the mouth"
+- pain
+- bleeding
+- a "wound in the mouth"
+- 63 years old
+- 6 months
+
+ 
+  A male, 63 years old, 
+  complaining about a "wound in the mouth" 
+  for 6 months, 
+  without any pain or spontaneous bleeding.
+THIS IS A BROKEN ROW:  - "Biopsy"
+ - "lesion"
+ - "features"
+ - "showed"
+ - "inflammatory infiltrate rich in plasma cells"
+ - "ulcerative lesion" 
+ - "inflammatory infiltrate" 
+ - "plasma cells" 
+ 
+  This is a "biopsy" of an "ulcerative lesion" with "plasma cells rich inflammatory in
+THIS IS A BROKEN ROW:  I 
+	 
+.
+THIS IS A BROKEN ROW:  - Findings
+- Diagnosis
+- LCH
+
+ 
+ 
+ 
+  Q: What are the entities contained in the text?
+  Return: 
+ - Findings
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ - LCH
+ -
+THIS IS A BROKEN ROW:  I 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	  "K
+THIS IS A BROKEN ROW:  - "intervention"
+ - "informing"
+ - "consent"
+ - "patient" 
+  
+     
+           Q: What action was taken? 
+A: The 
+           
+           
+ - "decision" 
+ - "taken" 
+  - "patient"
+THIS IS A BROKEN ROW:  "opened", "incision", "patella" 
+ 
+ 
+ 
+  Question 1: Extract the entities contained in the text.
+  Return the result in a json format. Text: <<A CT scan revealed multiple bone abscesses at the posterior elements of the two thoracic vertebrae.>>>
+THIS IS A BROKEN ROW:  - The mass
+- released
+- blunt excision
+- enucleation
+THIS IS A BROKEN ROW:  ```json
+{"entity": "excised"}, {"entity": "synovial tissue"}, {"entity": "synoviectomy"}
+```  Q: Extract the entities contained in the text. Return the result in a json format. Text: <<There were isolated foci of necrosis surrounded by inflammatory cells and vessels.>>> 
+  Q: Extract the entities contained in the text. Return the result in a json format. Text: <<On the left knee, two osteoch
+THIS IS A BROKEN ROW:  > 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+>
+THIS IS A BROKEN ROW:  MEDICATION 
+  "treatment" 
+  "initiated" 
+  "heparin" 
+  "followed by" 
+  "antivitamin" 
+  "K" 
+ 
+ 
+ 	 
+ 	 
+  "
+THIS IS A BROKEN ROW:  - She
+- required
+- bisphosphonate
+- osteoporosis
+
+In the text, a 32-year-old woman and a 9-month-old boy are presented. The woman has a history of gradually enlarging her anterior neck. A 9-month-old boy presented to the emergency room with refusal to bear weight on the right lower extremity and fever peaking at 38.5°C for 24 hours. In the last example, a
+THIS IS A BROKEN ROW:  I
+  Q
+  #
+THIS IS A BROKEN ROW:  - She
+- hypocalcemia
+- 72 mg/l
+ 
+ 
+  Q: 	Extract the entities contained in the text. Extract only entities contained in the text.
+Return the result in a json format. Text: <<However, she later developed a metabolic acidosis, despite correction of the hypokalaemia and other metabolic derangements.>>> 
+- she
+- later
+- a metabolic acidosis
+- correction
+THIS IS A BROKEN ROW:  - She
+- oral supplementation
+- for few months
+
+		 
+		 
+- She
+- oral supplementation
+- a 9-month-old boy
+-Gradual enlargement of the anterior neck
+-refusal to bear weight on the right lower extremity
+-febrile peaks of up to 38.5°C for 24 hours
+-38.5°C
+-Gradual enlargement of the anterior neck
+-3-day
+-
+THIS IS A BROKEN ROW:  A
+THIS IS A BROKEN ROW:  `` 
+{"entity": "X-ray"}, 
+{"entity": "showed"}, 
+{"entity": "destruction"}, 
+{"entity": "calcification"}, 
+{"entity": "upper humerus"}
+`` 
+ 
+  Q: Extract the entities contained in the text.
+Return the result in a json format. Text: <<We present a case of a 32-year-old woman with a history of gradual enlargement of the anterior neck.>>>
+THIS IS A BROKEN ROW:  > 
+> 
+/ 	Return
+THIS IS A BROKEN ROW:  - lull
+- treatment
+- A 32-year-old woman
+- gradual enlargement of the anterior neck
+- a 9-month-old boy
+- refusal to bear weight on the right lower extremity
+- febrile peaks
+- 38.5°C
+- 3-day
+- 24 hours
+- a progesteron
+- an antispasmodic
+- the right lower extremity
+- the community clinic
+
+J
+THIS IS A BROKEN ROW:  O
+THIS IS A BROKEN ROW:  K		 
+  Q	 
+
+	  Q 
+	  Q 
+  Q 
+  E 
+  E 
+  Q 
+  Q 
+  Q 
+  Q 
+  Q 
+  Q 
+  Q 
+  Q 
+  Q 
+  Q
+THIS IS A BROKEN ROW:  - {"entity": "exploration"}, 
+ - {"entity": "closed"}, 
+ - {"entity": "the cervix"}, 
+ - {"entity": "the uterus"}, 
+ - {"entity": "an eight weeks pregnancy"} 
+ 
+   
+  In a json format:
+THIS IS A BROKEN ROW:  Q 
+ 			 	 
+ 			 	  Q 
+ 			 
+ 		  Q 
+ 			 
+ 	  Q
+THIS IS A BROKEN ROW:  - Our diagnosis
+
+
+
+ 
+
+  Q: Return the result in a json format.
+  A: 
+  
+                      A: 
+                         A: 
+                   Q:
+THIS IS A BROKEN ROW:  - age: 15 years,
+- patient's sexual development: completed,
+- menstrual cycle: irregular,
+- height: 129.8 cm,
+- standard deviations: 4.71
+- 15-year-old girl
+
+
+  "entity": "presented", "entity": "refusal", "entity": "bear", "entity": "peaks", "entity": "enlargement", "entity": "Patient's",
+THIS IS A BROKEN ROW:  Q
+THIS IS A BROKEN ROW:  - A smooth, solid right ovarian tumour
+- small amount of fluid in the Douglas pouch
+- the Douglas pouch
+- total abdominal hysterectomy
+- bilateral salpingo-oophorectomy
+- staging biopsy
+
+ 
+- A 9-month-old boy
+- 3-day history
+- refusal to bear weight
+- febrile peaks
+- 38.5°C
+- 24 hours
+THIS IS A BROKEN ROW:  - 			 				- 			 				- 			 				- 			 		 
+	 		  "Postoperatively" 		 
+	 		  "the patient" 
+	 	 	  "given" 
+	 	 	  "treatment" 
+	 	 	  "evolution
+THIS IS A BROKEN ROW:  - diagnosed
+- disorder
+- difficulties
+- delay
+- The child
+
+- communicaton disorder
+- social interaction difficulties
+-sensory processing
+- The child
+ 
+- 9-month-old boy
+- we
+- refusal
+- bear
+- the right lower extremity
+- febrile peaks
+- 38.5°C
+- 3-day history
+- 24 hours
+- a 32-year-old woman
+- gradual enlarg
+THIS IS A BROKEN ROW:  "TSH", "hemoglobin", "MCV", "ferritin" 
+ 	 		  
+ 	 		 
+ 	 
+ 	 
+ 
+ 	 
+    	  "normal" 
+ 	 
+ 	 
+ 
+   
+  
+   
+   
+      "blood work"
+THIS IS A BROKEN ROW:  - "testing"
+- "karyotype"
+- "demyelinating attack"
+- "imaging"
+- "assessment"
+- "normal" 
+
+- "white matter" 
+- "Magnetic resonance imaging"
+- "electroencephalography" 
+- "optometry" 
+- "a demyelinating attack" 
+
+- "9-month-old boy" 
+- "3-day" 
+- "feb
+THIS IS A BROKEN ROW:  - diagnosis: "autistic spectrum disorder"
+- boy: "9-month-old"
+
+_Return the result in a json format._ 
+
+ 
+ 
+ 
+                                                
+                  Q  Q
+THIS IS A BROKEN ROW:  ```json
+{"entity": "symptoms"}, 
+{"entity": "depressed mood"}, 
+{"entity": "disproportionate anger"},
+{"entity": "emotional lability"}, 
+{"entity": "depressed mood"}, 
+{"entity": "anger"},
+{"entity": "lability"}, 
+{"entity": "mood"}, 
+{"entity": "bear"}, 
+{"entity": "peaks"}, 
+{"entity": "febrile peaks"},
+THIS IS A BROKEN ROW:  - "fine"
+- "skills"
+- "progress"
+- "achieved"
+- "24 months of life"
+- "(9-month-old boy)"
+- "the parents"
+- "he" 
+
+In a json format:
+THIS IS A BROKEN ROW:  - demonstrated
+- change in temperament
+- whine
+- scream
+- He
+THIS IS A BROKEN ROW:  "relieved", "changed"
+  "the boy's", "1 month"
+  "38.5°C for 24 hours"
+  "3-day", "38.5°C"
+  "9-month-old boy"
+  "right lower extremity"
+  "refusal to bear weight", "febrile peaks"
+  "weigh", "the right lower extremity"
+  "his", "the boy"
+  "3
+THIS IS A BROKEN ROW:  ```json 
+{"entity": "presented"},
+{"entity": "fever"},
+{"entity": "tachycardia"},
+{"entity": "hypotension"},
+{"entity": "tachypnoea"},
+{"entity": "sore throat"},
+{"entity": "neck pain"},
+{"entity": "pain"},
+{"entity": "tissue oedema"},
+{"entity": "the right-side gluteal region"},
+{"entity": "A
+THIS IS A BROKEN ROW:  - {"entity": "allergies"}
+ - {"entity": "known"}
+ - {"entity": "drug"}
+ - {"entity": "She"}
+ 
+ 
+ 
+  
+   #  Question 3: Extract the entities contained in the text. Return the result in a json format. Text: <<Upon receipt of 500ml of 6% albumin, he looked more alert but still refused to bear weight on his right leg.>>>
+THIS IS A BROKEN ROW:  An empty json object: 
+```json
+{}
+``` 
+This text does not contain any entities. 
+
+In order for the text to contain entities, it should contain entities related to the patient, the therapy or the setting. 
+
+ In the given text, "therapy" and "available" are not entities, as they do not refer to any specific entity. 
+
+ "Hyperbaric oxygen" is a therapy, hence it is not an entity. 
+
+ "The setting"
+THIS IS A BROKEN ROW:  ```json
+{"entity": "afebrile"},
+{"entity": "improved"}
+``` 
+  
+ 
+  
+ 
+  Q: Extract the entities contained in the text.
+Return the result in a json format.
+Text: <<An ENT examination was performed, but did not reveal any pathology.>>> 
+  Q: 
+ Return the result in a json format.
+Text: <<Spectacles were fitted, and the child's vision was checked
+THIS IS A BROKEN ROW:  - {"entity": "discharged"},
+ - {"entity": "ICU"},
+ - {"entity": "13 days later"}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Q 
+ 
+   # A 
+  # 
+  # Q: Extract the entities contained in the text. Extract only entities contained in the text.
+  # Return the result in a json format. Text: <<Pain was still present in the anterior thigh.>>>
+THIS IS A BROKEN ROW:  - {"entity": "examination"}, 
+ - {"entity": "returned"}, 
+ - {"entity": "life"}, 
+ - {"entity": "the young woman"}, 
+ - {"entity": "6 months later"} 
+ 
+ 
+ 
+  
+ 
+ 
+   K
+   K 
+  H
+   A 
+  A  D  E 
+  A  F  D  E 
+  A  B  D

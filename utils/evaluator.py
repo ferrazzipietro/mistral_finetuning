@@ -186,8 +186,11 @@ class Evaluator():
         """
         metrics_list = []
         for i, res in enumerate(self.data['model_output']):
-            print(self.data[i])
-            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], similar_is_equal, similar_is_equal_threshold))
+            try:
+                metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], similar_is_equal, similar_is_equal_threshold))
+            except Exception as error:
+                print(print(self.data[i]))
+                metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], similar_is_equal, similar_is_equal_threshold))
 
         metrics_dataframe = pd.DataFrame(metrics_list, columns=['TP', 'FP', 'FN'])
         summary = metrics_dataframe.sum()
