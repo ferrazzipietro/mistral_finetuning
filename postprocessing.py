@@ -30,13 +30,17 @@ dataset = preprocessor.preprocess_data_one_layer(dataset)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.bfloat16)
+            load_in_4bit=False,
+            load_in_8bit=True,
+            #bnb_4bit_use_double_quant=True,
+            #bnb_4bit_quant_type="nf4",
+            #bnb_4bit_compute_dtype=torch.bfloat16,
+            llm_int8_threshold= True,
+            llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],
+            )
 
 
-adapters_list = generate_ft_adapters_list("enlayer1_3epochs_4bits__ft_params")
+adapters_list = generate_ft_adapters_list("enlayer1_3epochs_8bits__ft_params")
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
