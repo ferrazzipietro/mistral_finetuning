@@ -15,10 +15,13 @@ import datetime
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 WANDB_KEY = dotenv_values(".env.base")['WANDB_KEY']
+LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
 FT_MODEL_CHECKPOINT = config.FT_MODEL_CHECKPOINT #Name of the model you will be pushing to huggingface model hub
+
 
 # Monitering the LLM
 wandb.login(key = WANDB_KEY)
+print('MODELLO -------> ', config.BASE_MODEL_CHECKPOINT)
 run = wandb.init(project=config.ADAPTERS_CHECKPOINT.split('/')[1], job_type="training", anonymous="allow",
                  name=config.TRAIN_LAYER+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                  config={'model': config.BASE_MODEL_CHECKPOINT, 
@@ -67,7 +70,8 @@ model_id = config.BASE_MODEL_CHECKPOINT
 model = AutoModelForCausalLM.from_pretrained(
     config.BASE_MODEL_CHECKPOINT,
     quantization_config=bnb_config,
-    device_map="auto"
+    device_map="auto",
+    token=LLAMA_TOKEN
 )
 model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
 model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
@@ -80,7 +84,7 @@ prepare_model_for_kbit_training wraps the entire protocol for preparing a model 
 """
 model = prepare_model_for_kbit_training(model)
 
-tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True)
+tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = 'right'
 

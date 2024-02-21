@@ -1,7 +1,7 @@
 from datetime import datetime
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
-BASE_MODEL_CHECKPOINT="mistralai/Mistral-7B-Instruct-v0.2"
+BASE_MODEL_CHECKPOINT="meta-llama/Llama-2-13b-chat" #"meta-llama/Llama-2-7b-chat-hf" #
 model_name=BASE_MODEL_CHECKPOINT.split('/')[1]
 
 TRAIN_LAYER = "en.layer1"
