@@ -37,8 +37,9 @@ model = AutoModelForCausalLM.from_pretrained(
             quantization_config = bnb_config,
             return_dict=True,  load_in_4bit=True, 
             #torch_dtype=torch.float16,
-            device_map= "auto")
-tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True)
+            device_map= "auto",
+            token=HF_TOKEN)
+tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=HF_TOKEN)
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
 
