@@ -55,12 +55,12 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
         postprocessor.add_inference_prompt_column()
         postprocessor.add_ground_truth_column()
         print('TRY: ', f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv")
-        try:
-            postprocessor.add_responses_column(model=model, 
-                                            tokenizer=tokenizer, 
-                                            batch_size=28, 
-                                            max_new_tokens_factor=max_new_tokens_factor)
-            postprocessor.test_data.to_csv(f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv", index=False)
-        except Exception as e: 
-            print("ERROR IN PROCESSING: ", Exception)
+        # try:
+        postprocessor.add_responses_column(model=model, 
+                                        tokenizer=tokenizer, 
+                                        batch_size=28, 
+                                        max_new_tokens_factor=max_new_tokens_factor)
+        postprocessor.test_data.to_csv(f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv", index=False)
+        # except Exception as e: 
+        #     print("ERROR IN PROCESSING: ", Exception)
 

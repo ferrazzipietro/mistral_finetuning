@@ -12,7 +12,7 @@ wandb==0.16.0
 gradio==3.32.0
 trl
 python-dotenv==1.0.0
-transformers==4.36.2
+transformers==4.36.2 # 4.38.1
 deprecation==2.1.0
 tensorflow==2.13.1
 uzzywuzzy==0.18.0
