@@ -35,7 +35,7 @@ bnb_config = BitsAndBytesConfig(
 model = AutoModelForCausalLM.from_pretrained(
             base_model.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
             quantization_config = bnb_config,
-            return_dict=True,  load_in_4bit=True, 
+            return_dict=True, 
             #torch_dtype=torch.float16,
             device_map= "auto",
             token=HF_TOKEN)

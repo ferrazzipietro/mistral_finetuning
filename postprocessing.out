@@ -57,3 +57,11 @@ PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.b
 PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_2_0.0002
 PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_2_0.0008
 PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_4_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_4_0.0008
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_8_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_8_0.0008
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_2_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_2_0.0008
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_4_0.0002
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_4_0.0008
+PROCESSING: ferrazzipietro/Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_8_0.0002
