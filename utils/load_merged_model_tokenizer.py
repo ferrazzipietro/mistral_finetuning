@@ -5,7 +5,7 @@ from dotenv import dotenv_values
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 
-def load_mergedModel_tokenizer(adapters_checkpoint, base_model, task:str = "inference", device_map:str="auto"):
+def load_mergedModel_tokenizer(adapters_checkpoint, base_model, task:str = "inference", device_map:str="auto", llama_key:str=""):
 
     if isinstance(base_model, str):
         bnb_config = BitsAndBytesConfig(
@@ -18,7 +18,8 @@ def load_mergedModel_tokenizer(adapters_checkpoint, base_model, task:str = "infe
             base_model, low_cpu_mem_usage=True,
             quantization_config = bnb_config,
             return_dict=True,  load_in_4bit=True, #torch_dtype=torch.float16,
-            device_map= device_map)
+            device_map= device_map,
+            token=llama_key)
         
     model_checkpoint = base_model.config._name_or_path
         
