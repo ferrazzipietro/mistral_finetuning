@@ -1,0 +1,9 @@
+WARNING: grid.env NOT FOUND
+NO Enviroment
+Date: Fri 23 Feb 2024 03:58:51 PM UTC
+Directory: /home/ferrazzi/llm/mistral_finetuning
+This job will be executed on th following nodes: vgpu5-1
+
+/home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
+Python 3.8.18
+PROCESSING: ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_2_0.0002

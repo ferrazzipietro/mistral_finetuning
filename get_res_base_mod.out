@@ -1,18 +1,9 @@
 WARNING: grid.env NOT FOUND
 NO Enviroment
-Date: Thu 22 Feb 2024 01:39:00 PM UTC
+Date: Thu 22 Feb 2024 02:04:00 PM UTC
 Directory: /home/ferrazzi/llm/mistral_finetuning
 This job will be executed on th following nodes: vgpu1-1
 
 /home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
 Python 3.8.18
 TRY:  data/gemma/test_data_processed/maxNewTokensFactor8_nShotsInference0_BaseModel.csv
-ERROR IN PROCESSING:  <class 'Exception'>
-TRY:  data/gemma/test_data_processed/maxNewTokensFactor8_nShotsInference1_BaseModel.csv
-ERROR IN PROCESSING:  <class 'Exception'>
-TRY:  data/gemma/test_data_processed/maxNewTokensFactor8_nShotsInference2_BaseModel.csv
-ERROR IN PROCESSING:  <class 'Exception'>
-TRY:  data/gemma/test_data_processed/maxNewTokensFactor8_nShotsInference3_BaseModel.csv
-ERROR IN PROCESSING:  <class 'Exception'>
-TRY:  data/gemma/test_data_processed/maxNewTokensFactor8_nShotsInference4_BaseModel.csv
-ERROR IN PROCESSING:  <class 'Exception'>

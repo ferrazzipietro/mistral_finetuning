@@ -1,9 +1,32 @@
 /home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_runtime.py:184: UserWarning: Pydantic is installed but cannot be imported. Please check your installation. `huggingface_hub` will default to not using Pydantic. Error message: '{e}'
   warnings.warn(
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:07<00:21,  7.08s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:13<00:13,  6.92s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:06,  6.90s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:23<00:00,  5.36s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:23<00:00,  5.94s/it]
-You are calling `save_pretrained` to a 4-bit converted model, but your `bitsandbytes` version doesn't support it. If you want to save 4-bit models, make sure to have `bitsandbytes>=0.41.3` installed.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:07<00:22,  7.37s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:14<00:14,  7.39s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:22<00:07,  7.57s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:26<00:00,  6.10s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:26<00:00,  6.60s/it]
 generating responses:   0%|          | 0/681 [00:00<?, ?it/s]generating responses:   0%|          | 0/681 [00:00<?, ?it/s]
-generating responses:   0%|          | 0/681 [00:00<?, ?it/s]generating responses:   0%|          | 0/681 [00:00<?, ?it/s]
-generating responses:   0%|          | 0/681 [00:00<?, ?it/s]generating responses:   0%|          | 0/681 [00:00<?, ?it/s]
-generating responses:   0%|          | 0/681 [00:00<?, ?it/s]generating responses:   0%|          | 0/681 [00:00<?, ?it/s]
-generating responses:   0%|          | 0/681 [00:00<?, ?it/s]generating responses:   0%|          | 0/681 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "get_results_base_model.py", line 59, in <module>
+    postprocessor.add_responses_column(model=model, 
+  File "/extra/ferrazzi/llm/mistral_finetuning/utils/test_data_processor.py", line 115, in add_responses_column
+    tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
+  File "/extra/ferrazzi/llm/mistral_finetuning/utils/test_data_processor.py", line 91, in _generate_model_response
+    generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  pad_token_id=tokenizer.eos_token_id) # max_new_tokens=max_new_tokens,
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/generation/utils.py", line 1592, in generate
+    return self.sample(
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/generation/utils.py", line 2696, in sample
+    outputs = self(
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/models/gemma/modeling_gemma.py", line 1067, in forward
+    outputs = self.model(
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/models/gemma/modeling_gemma.py", line 876, in forward
+    causal_mask = self._update_causal_mask(attention_mask, inputs_embeds)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/models/gemma/modeling_gemma.py", line 960, in _update_causal_mask
+    self.causal_mask[None, None, :, :].repeat(batch_size, 1, 1, 1).to(dtype) * torch.finfo(dtype).min
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.50 GiB (GPU 0; 23.69 GiB total capacity; 19.73 GiB already allocated; 3.36 GiB free; 19.74 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

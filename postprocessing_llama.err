@@ -1,0 +1,58 @@
+/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_runtime.py:184: UserWarning: Pydantic is installed but cannot be imported. Please check your installation. `huggingface_hub` will default to not using Pydantic. Error message: '{e}'
+  warnings.warn(
+/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/fuzzywuzzy/fuzz.py:11: UserWarning: Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning
+  warnings.warn('Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning')
+adapters_list:   0%|          | 0/36 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:28<00:28, 28.23s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 18.38s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.86s/it]
+
+adapter_config.json:   0%|          | 0.00/547 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 547/547 [00:00<00:00, 48.3kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/98.1M [00:00<?, ?B/s][A
+adapter_model.safetensors:  11%|█         | 10.5M/98.1M [00:00<00:07, 11.0MB/s][A
+adapter_model.safetensors:  21%|██▏       | 21.0M/98.1M [00:01<00:06, 11.5MB/s][A
+adapter_model.safetensors:  32%|███▏      | 31.5M/98.1M [00:02<00:05, 11.6MB/s][A
+adapter_model.safetensors:  43%|████▎     | 41.9M/98.1M [00:03<00:04, 11.6MB/s][A
+adapter_model.safetensors:  53%|█████▎    | 52.4M/98.1M [00:04<00:03, 11.7MB/s][A
+adapter_model.safetensors:  64%|██████▍   | 62.9M/98.1M [00:05<00:03, 11.7MB/s][A
+adapter_model.safetensors:  75%|███████▍  | 73.4M/98.1M [00:06<00:02, 11.7MB/s][A
+adapter_model.safetensors:  86%|████████▌ | 83.9M/98.1M [00:07<00:01, 11.7MB/s][A
+adapter_model.safetensors:  96%|█████████▌| 94.4M/98.1M [00:08<00:00, 11.7MB/s][A
+adapter_model.safetensors: 100%|██████████| 98.1M/98.1M [00:08<00:00, 11.7MB/s][Aadapter_model.safetensors: 100%|██████████| 98.1M/98.1M [00:08<00:00, 11.6MB/s]
+
+Map:   0%|          | 0/681 [00:00<?, ? examples/s][A
+Map:  42%|████▏     | 284/681 [00:00<00:00, 2760.86 examples/s][A
+Map: 100%|██████████| 681/681 [00:00<00:00, 2565.40 examples/s][AMap: 100%|██████████| 681/681 [00:00<00:00, 2404.96 examples/s]
+
+Map:   0%|          | 0/681 [00:00<?, ? examples/s][A
+Map: 100%|██████████| 681/681 [00:00<00:00, 5364.19 examples/s][AMap: 100%|██████████| 681/681 [00:00<00:00, 4738.99 examples/s]
+
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s][A2024-02-23 16:00:39.575595: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-23 16:00:41.458360: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-23 16:00:46.806831: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+
+generating responses:   2%|▏         | 12/681 [00:45<42:02,  3.77s/it][A
+generating responses:   4%|▎         | 24/681 [01:08<29:34,  2.70s/it][A
+generating responses:   5%|▌         | 36/681 [01:32<25:21,  2.36s/it][A
+generating responses:   7%|▋         | 48/681 [01:55<23:04,  2.19s/it][A
+generating responses:   9%|▉         | 60/681 [02:18<21:50,  2.11s/it][A
+generating responses:  11%|█         | 72/681 [02:42<20:51,  2.05s/it][A
+generating responses:  12%|█▏        | 84/681 [03:05<20:01,  2.01s/it][A
+generating responses:  14%|█▍        | 96/681 [03:28<19:23,  1.99s/it][A
+generating responses:  16%|█▌        | 108/681 [03:51<18:47,  1.97s/it][A
+generating responses:  18%|█▊        | 120/681 [04:15<18:20,  1.96s/it][A
+generating responses:  19%|█▉        | 132/681 [04:38<17:52,  1.95s/it][A
+generating responses:  21%|██        | 144/681 [05:01<17:25,  1.95s/it][A
+generating responses:  23%|██▎       | 156/681 [05:25<17:06,  1.95s/it][A
+generating responses:  25%|██▍       | 168/681 [05:48<16:42,  1.95s/it][A
+generating responses:  26%|██▋       | 180/681 [06:11<16:18,  1.95s/it][A
+generating responses:  28%|██▊       | 192/681 [06:35<15:58,  1.96s/it][A
+generating responses:  30%|██▉       | 204/681 [06:59<15:35,  1.96s/it][A
+generating responses:  32%|███▏      | 216/681 [07:22<15:12,  1.96s/it][A
+generating responses:  33%|███▎      | 228/681 [07:46<14:46,  1.96s/it][A
+generating responses:  35%|███▌      | 240/681 [08:09<14:21,  1.95s/it][A
+generating responses:  37%|███▋      | 252/681 [08:33<14:00,  1.96s/it][A
+generating responses:  39%|███▉      | 264/681 [08:56<13:38,  1.96s/it][A
+generating responses:  41%|████      | 276/681 [09:20<13:14,  1.96s/it][A
