@@ -1,8 +1,6 @@
 from utils.data_preprocessor import DataPreprocessor
 from datasets import Dataset
 from tqdm import tqdm
-import json
-import re
 
 class TestDataProcessor():
     def __init__(self, test_data: Dataset, preprocessor:DataPreprocessor, n_shots_inference:int, language:str, tokenizer) -> None:
@@ -41,9 +39,73 @@ class TestDataProcessor():
         self.n_shots_inference = n_shots_inference
     
     def _extract_ground_truth(self, prompt:str) -> str:
-        out = prompt.split('[/INST]', 1)
+        end_of_prompt_string = self.preprocessor.special_tokens_instruction['user_end'] + self.preprocessor.special_tokens_instruction['model_start']
+        out = prompt.split(end_of_prompt_string, 1)
         return {'ground_truth': out[1][0:-4].strip()}
+    
+    def _format_prompt_inference(self, input: str, instruction_on_response_format:str, n_shots:int, offset: bool, output:str='', list_of_examples: [str]=[], list_of_responses:[str]=[]) -> str:
+        """
+        Format the input and output into a prompt for the finetuning
+
+        Args:
+            task: the task for which the prompt is generated, either 'finetuning' or 'inference'
+            input: the input text
+            instruction_on_response_format: the instruction on the response format. E.g. "The response must be a list of dictionaries, where each dictionary contains the keys 'text' and 'offset'"
+            n_shots: the number of examples to provide as few shot prompting
+            offset: whether to require the offset in the response
+            tokenizer: the tokenizer to use
+            output: the output text
+            list_of_examples: the list of examples to provide as few shot prompting
+            list_of_responses: the list of responses to provide as few shot prompting
+
+        Returns:
+            the formatted prompt
+        """
+        if output != '':
+            raise ValueError("The output must be an empty string when generating prompts for the inference")
+
+        if len(list_of_examples) != len(list_of_responses):
+            raise ValueError("The number of examples and responses must be the same")
+        if n_shots != len(list_of_examples):
+            raise ValueError("The number of examples and shots must be the same")
+        if n_shots != len(list_of_responses):
+            raise ValueError("The number of responses and shots must be the same")
         
+        if offset:
+            base_prompt = self.preprocessor.prompt_template.format(
+                instruction_on_response_format=instruction_on_response_format, 
+                query=input,
+                user_start=self.preprocessor.special_tokens_instruction['user_start'],
+                user_end=self.preprocessor.special_tokens_instruction['user_end'],
+                model_start=self.preprocessor.special_tokens_instruction['model_start'],
+                model_end=self.preprocessor.special_tokens_instruction['model_end']) 
+            one_shot_example = self.preprocessor.one_shot_example
+        else:
+            base_prompt = self.preprocessor.prompt_template_no_offset.format(
+                instruction_on_response_format=instruction_on_response_format, 
+                query=input,
+                user_start=self.preprocessor.special_tokens_instruction['user_start'],
+                user_end=self.preprocessor.special_tokens_instruction['user_end'],
+                model_start=self.preprocessor.special_tokens_instruction['model_start'],
+                model_end=self.preprocessor.special_tokens_instruction['model_end'])
+            one_shot_example = self.preprocessor.one_shot_example_no_offset
+            
+        prompt = ''
+        for shot_example in range(n_shots):
+            prompt += one_shot_example.format(
+                instruction_on_response_format=instruction_on_response_format, 
+                example_query=list_of_examples[shot_example], 
+                example_response=list_of_responses[shot_example],
+                user_start=self.preprocessor.special_tokens_instruction['user_start'],
+                user_end=self.preprocessor.special_tokens_instruction['user_end'],
+                model_start=self.preprocessor.special_tokens_instruction['model_start'],
+                model_end=self.preprocessor.special_tokens_instruction['model_end'])
+        
+        bos_token = self.preprocessor.tokenizer.bos_token
+        prompt = bos_token + prompt + base_prompt + output 
+                            
+        return prompt
+    
     def _extract_inference_prompt(self, sentence:str) -> str:
         if self.preprocessor.offset:
             few_shots_responses = self.few_shots_dict[self.language]['responses_offset']
@@ -55,11 +117,9 @@ class TestDataProcessor():
         else:
             list_of_examples = self.few_shots_dict[self.language]['questions'][0:self.n_shots_inference]
             list_of_responses = few_shots_responses[0:self.n_shots_inference]
-        inference_prompt = self.preprocessor._format_prompt(task='inference', 
-                                                        input=sentence, 
+        inference_prompt = self._format_prompt_inference(input=sentence, 
                                                         instruction_on_response_format=self.preprocessor.instruction_on_response_format,
                                                         offset=self.preprocessor.offset,
-                                                        tokenizer=self.tokenizer,
                                                         output='',
                                                         n_shots=self.n_shots_inference,
                                                         list_of_examples=list_of_examples,
@@ -85,7 +145,8 @@ class TestDataProcessor():
         prompts = examples['inference_prompt']
         input_sentences_tokenized = tokenizer(input_sentences, return_tensors="pt", padding=True)
         max_new_tokens = int(len(max(input_sentences_tokenized, key=len)) * max_new_tokens_factor)
-
+        # if self.preprocessor.model_type == 'gemma':
+        #     add_special_tokens = True
         encodeds = tokenizer(prompts, return_tensors="pt", add_special_tokens=False, padding=True)
         model_inputs = encodeds.to(device)
         generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  pad_token_id=tokenizer.eos_token_id) # max_new_tokens=max_new_tokens,
@@ -133,4 +194,5 @@ class TestDataProcessor():
         str: the model response, i.e. the model output without the instruction
 
         """
-        return model_output.split('[/INST]')[-1].strip()
+        end_of_prompt_string = self.preprocessor.special_tokens_instruction['user_end'] + self.preprocessor.special_tokens_instruction['model_start']
+        return model_output.split(end_of_prompt_string, 1)[-1].strip()

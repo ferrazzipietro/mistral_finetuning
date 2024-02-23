@@ -30,7 +30,19 @@ class Evaluator():
             if isinstance(out, dict):
                 model_response = '[' + model_response + ']'
         except Exception as error:
-            good_format = False
+            #print(error)
+            if hasattr(error, 'msg'):
+                if error.msg.startswith('Expecting property name enclosed in double quotes'):
+                    model_response = model_response.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(": \'", ": \"")
+                    out = json.loads(model_response)
+                    # print('out ', out)
+                    if isinstance(out, dict):
+                        model_response = '[' + model_response + ']'
+                        good_format = True
+                # if error.msg.startswith('Extra data'):
+            else:
+                #print('MODEL RESPNSE: ', model_response)
+                good_format = False
         if not good_format:
             model_response = re.findall(r'\[\{(.+?)\}\]', model_response)
             if len(model_response) != 0:
@@ -54,7 +66,7 @@ class Evaluator():
         """
         good_format, model_response = self._assess_model_output(model_response)
         if model_response == []:
-            model_response = "[{'entity':''}]"
+            model_response = '[{"entity":""}]'
         if self.offset and good_format:
             output = json.loads(model_response)
             if drop_duplicates:
@@ -64,9 +76,11 @@ class Evaluator():
             return {"entities": entities, "offsets": offsets}
         elif (not self.offset) and good_format:
             output = json.loads(model_response)
+            # print('OUTPUT: ', type(output))
             if drop_duplicates:
                 output = self.cleaner._drop_duplicates(output)
             entities = [entity["entity"] for entity in output]
+            # print('ENTITIES: ', entities)
             return {"entities": entities}
         if not good_format:
             return {"entities": []}
@@ -149,22 +163,17 @@ class Evaluator():
         similar_is_equal_threshold (int): the threshold to consider the entities similar. The default value is 80. 0 is completely different, 100 is the same.
 
         """
-        try:
-            model_response = self._parse_json(model_response)
-        except Exception as error:
-            # print("EXCOOOOOOO", error, ':   ', model_response)
-            # print('MODEL RESPONSE: ', model_response)
-            model_response = self._parse_json(model_response)
-        # model_response = self._parse_json(model_response)
+        # print('ORIGINAL model_response: ', model_response)
+        model_response = self._parse_json(model_response)
         ground_truth = self._parse_json(ground_truth)
         model_response = model_response["entities"]
         ground_truth = ground_truth["entities"]
-        # print('ORIGINAL model_response: ', model_response)
+        # print('PARSED model_response: ', model_response)
         if similar_is_equal:
             for i, response_entity in enumerate(model_response):
                 model_response[i] = self.entity_in_ground_truth_list(response_entity, ground_truth, model_response, similar_is_equal_threshold)
-        # print('GROUND TRUTH: ', ground_truth)
-        # print('NEW model_response: ', model_response, '\n\n')
+        # print('NEW model_response: ', model_response)
+        # print('PARSED GROUND TRUTH: ', ground_truth, '\n\n')
 
         TP = len(set(model_response).intersection(set(ground_truth)))
         FP = len(set(model_response).difference(set(ground_truth)))
@@ -187,9 +196,10 @@ class Evaluator():
         metrics_list = []
         for i, res in enumerate(self.data['model_output']):
             try:
+                # print('FINAL OUTPUT: ', res)
                 metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], similar_is_equal, similar_is_equal_threshold))
             except Exception as error:
-                print(print(self.data[i]))
+                # print(print(self.data[i]))
                 metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], similar_is_equal, similar_is_equal_threshold))
 
         metrics_dataframe = pd.DataFrame(metrics_list, columns=['TP', 'FP', 'FN'])

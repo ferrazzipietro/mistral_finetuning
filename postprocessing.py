@@ -49,7 +49,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             base_model = AutoModelForCausalLM.from_pretrained(
                 models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                 quantization_config = bnb_config,
-                return_dict=True,  load_in_4bit=True, 
+                return_dict=True,  
                 #torch_dtype=torch.float16,
                 device_map= "auto")
             merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')

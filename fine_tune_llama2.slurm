@@ -41,4 +41,4 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python  finetuning_llama2.py
+python  finetuning_v2_iterative_llama2.py

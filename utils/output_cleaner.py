@@ -1,5 +1,7 @@
 import json
 import re
+from typing import Tuple
+from typing import List
 
 class OutputCleaner():
     def __init__(self) -> None:
@@ -146,6 +148,13 @@ class OutputCleaner():
                     return True
             return False
         
+        def is_numeric(string:str)  -> bool:
+            if self._assess_model_output(string):
+                tmp = json.loads(string)
+                if isinstance(tmp, (int, float)):
+                    return True
+            return False
+        
         def are_entities_extracted_as_dict_keys_instead_of_values(string:str, example:dict) -> bool:
             if is_list_of_dicts(string):
                 tmp = json.loads(string)
@@ -156,7 +165,8 @@ class OutputCleaner():
             return False
         
         
-        def convert_wrong_keys_into_entity(string:str) -> list[str]:
+        
+        def convert_wrong_keys_into_entity(string:str) -> List[str]:
             if is_list_of_dicts(string):
                 tmp = json.loads(string)
                 tmp = [str({"entity":v}) for el in tmp for v in el.values()]
@@ -165,7 +175,7 @@ class OutputCleaner():
                 return []
 
 
-        def only_dicts_with_key_entity(string:str, wrong_keys_to_entity:bool) -> (bool, str):
+        def only_dicts_with_key_entity(string:str, wrong_keys_to_entity:bool) -> Tuple[bool, str]:
             """
             Extract only the dictionaries with the key 'entity' in the list of dictionaries in the string
             
@@ -182,7 +192,7 @@ class OutputCleaner():
                 dirty = ['{' + el + '}' for el in dirty]
                 dirty = '[' + ', '.join(dirty) + ']'
                 cleaned_dirty = convert_wrong_keys_into_entity(dirty)
-                out = '[' + ', '.join(clean) + ', '.join(cleaned_dirty) +  ']' # 
+                out = '[' + ', '.join(clean) + ', '.join(cleaned_dirty) +  ']'
             else:
                 out = '[' + ', '.join(clean) + ']'
             out = out.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(" \'", " \"")
@@ -196,7 +206,7 @@ class OutputCleaner():
 
         model_output = example['model_responses']
         
-        # print('ORIGINAL MODEL OUTPUT: ', model_output)
+        # print('ORIGINAL MODEL OUTPUT: ', model_output)
         
         if model_output is None or is_empty_list(model_output):
             return {'model_output':'[{"entity":""}]'}
@@ -208,6 +218,10 @@ class OutputCleaner():
             tmp = [{"entity":k} for el in tmp for k in el.keys() ]
             tmp = str(tmp)
             return {'model_output':tmp}
+        
+
+        if is_numeric(model_output):
+            return {'model_output':'[{"entity":""}]'}
         
         if is_list_of_lists_and_dict(model_output):
             tmp = json.loads(model_output)

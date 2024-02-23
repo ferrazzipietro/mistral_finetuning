@@ -5,11 +5,12 @@ from dotenv import dotenv_values
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 
-def load_mergedModel_tokenizer(adapters_checkpoint, base_model, task:str = "inference", device_map:str="auto", llama_key:str=""):
+def load_mergedModel_tokenizer_deprecated(adapters_checkpoint, base_model, load_in_4bit:bool, load_in_8bit:bool, task:str = "inference", device_map:str="auto", llama_key:str=""):
 
     if isinstance(base_model, str):
         bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
+            load_in_4bit=load_in_4bit,
+            load_in_8bit=load_in_8bit,
             bnb_4bit_use_double_quant=True,
             bnb_4bit_quant_type="nf4",
             bnb_4bit_compute_dtype=torch.bfloat16)
@@ -17,7 +18,7 @@ def load_mergedModel_tokenizer(adapters_checkpoint, base_model, task:str = "infe
         base_model = AutoModelForCausalLM.from_pretrained(
             base_model, low_cpu_mem_usage=True,
             quantization_config = bnb_config,
-            return_dict=True,  load_in_4bit=True, #torch_dtype=torch.float16,
+            return_dict=True,
             device_map= device_map,
             token=llama_key)
         
