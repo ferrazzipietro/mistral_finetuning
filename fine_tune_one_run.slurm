@@ -41,4 +41,4 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python  fine_tune_mistral.py
+python  finetuning_mistral.py
