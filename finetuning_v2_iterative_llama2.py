@@ -197,7 +197,7 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
   bnb_4bit_quant_type = bnb_4bit_quant_type_list[model_loading_params_idx]
   bnb_4bit_compute_dtype = bnb_4bit_compute_dtype_list[model_loading_params_idx]
   llm_int8_threshold = llm_int8_threshold_list[model_loading_params_idx]
-  
+  print('I AM LOADING A MODEL IN load_in_4bit=', load_in_4bit, 'load_in_8bit=', load_in_8bit, 'bnb_4bit_quant_type=', bnb_4bit_quant_type, 'bnb_4bit_compute_dtype=', bnb_4bit_compute_dtype, 'llm_int8_threshold=', llm_int8_threshold)
   for r in r_list:
     for lora_alpha in lora_alpha_list:
       for lora_dropout in lora_dropout_list:
