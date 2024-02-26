@@ -9,9 +9,9 @@
                 instead of `lora_alpha/r`)
     target_modules - The names of the modules to apply the adapter to. If None, automatic.
 """
-r = [16, 32, 64]
+r = [32]# [16, 32, 64]
 lora_alpha = [32]
-lora_dropout = [0.05, 0.01]
+lora_dropout = [0.01]#[0.05, 0.01]
 bias =  "lora_only" 
 use_rslora = True
 task_type="CAUSAL_LM"

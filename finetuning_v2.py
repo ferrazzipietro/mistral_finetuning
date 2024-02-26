@@ -7,7 +7,7 @@ from peft import LoraConfig, PeftModel, prepare_model_for_kbit_training, get_pef
 import bitsandbytes as bnb
 from trl import SFTTrainer
 from dotenv import dotenv_values
-from config.finetuning import training_params, lora_params, model_loading_params, config
+from config.finetuning import training_params, lora_params, model_loading_params, config, preprocessing_params
 import wandb
 from utils.data_preprocessor import DataPreprocessor
 import datetime
@@ -50,15 +50,15 @@ run = wandb.init(project=config.ADAPTERS_CHECKPOINT.split('/')[1], job_type="tra
             This flag runs LLM.int8() with 16-bit main weights. This is useful for fine-tuning as the weights do not
             have to be converted back and forth for the backward pass."""
 bnb_config = BitsAndBytesConfig(
-    load_in_4bit= False,# model_loading_params.load_in_4bit,
-    load_in_8bit = True,#  model_loading_params.load_in_8bit,
+    load_in_4bit= True,# model_loading_params.load_in_4bit,
+    load_in_8bit = False,#  model_loading_params.load_in_8bit,
 
-    # bnb_4bit_quant_type= model_loading_params.bnb_4bit_quant_type[0],
-    # bnb_4bit_compute_dtype= model_loading_params.bnb_4bit_compute_dtype[0],
-    # bnb_4bit_use_double_quant= model_loading_params.bnb_4bit_use_double_quant,
+    bnb_4bit_quant_type= model_loading_params.bnb_4bit_quant_type[0],
+    bnb_4bit_compute_dtype= model_loading_params.bnb_4bit_compute_dtype[0],
+    bnb_4bit_use_double_quant= model_loading_params.bnb_4bit_use_double_quant,
 
-    llm_int8_threshold= 6.0,# model_loading_params.llm_int8_threshold,
-    llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],# model_loading_params.llm_int8_skip_modules,
+    # llm_int8_threshold= 6.0,# model_loading_params.llm_int8_threshold,
+    # llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],# model_loading_params.llm_int8_skip_modules,
     # llm_int8_has_fp16_weight= True# model_loading_params.llm_int8_has_fp16_weight
 )
 
@@ -84,11 +84,12 @@ tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = 'right'
 
-preprocessor = DataPreprocessor()
+preprocessor = DataPreprocessor(config.BASE_MODEL_CHECKPOINT, 
+                                tokenizer)
 dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
 dataset = dataset[config.TRAIN_LAYER]
 dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
-dataset = preprocessor.preprocess_data_one_layer(dataset)
+dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=preprocessing_params.instruction_on_response_format)
 dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), batched=True)
 train_data, val_data, test_data = preprocessor.split_layer_into_train_val_test_(dataset, config.TRAIN_LAYER)
 
@@ -106,9 +107,9 @@ modules = find_all_linear_names(model)
 
 
 lora_config = LoraConfig(
-        r=16,# lora_params.r,
-        lora_alpha=32,#lora_params.lora_alpha,
-        lora_dropout=0.05, #lora_params.lora_dropout,
+        r=lora_params.r,
+        lora_alpha=lora_params.lora_alpha,
+        lora_dropout=lora_params.lora_dropout,
         bias=lora_params.bias,
         task_type=lora_params.task_type,
         target_modules=lora_params.target_modules
@@ -133,7 +134,7 @@ training_arguments = TrainingArguments(
     save_steps= training_params.save_steps,
     logging_strategy=training_params.logging_strategy,
     logging_steps= training_params.logging_steps,
-    learning_rate=2e-4, #training_params.learning_rate,
+    learning_rate=training_params.learning_rate,
     weight_decay= training_params.weight_decay,
     fp16= training_params.fp16,
     bf16= training_params.bf16,
