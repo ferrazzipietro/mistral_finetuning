@@ -1,12 +1,12 @@
 ### TrainingArguments
 num_train_epochs= 3
 per_device_train_batch_size= 8
-gradient_accumulation_steps= [8] # [2,4,8]
+gradient_accumulation_steps= [4] # [2,4,8]
 optim = "paged_adamw_8bit"
 save_steps= 1000
 logging_strategy="steps"
 logging_steps= 10
-learning_rate= [2e-4, 8e-4]
+learning_rate= [2e-4]
 weight_decay= 0.001
 fp16= True 
 bf16= False

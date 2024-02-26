@@ -25,4 +25,3 @@ lr_scheduler_type= "constant"
 """
 max_seq_length= 2048
 dataset_text_field="prompt"
-packing=False

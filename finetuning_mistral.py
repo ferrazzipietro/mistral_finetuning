@@ -89,8 +89,10 @@ preprocessor = DataPreprocessor(config.BASE_MODEL_CHECKPOINT,
 dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
 dataset = dataset[config.TRAIN_LAYER]
 dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
-dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=preprocessing_params.instruction_on_response_format)
-dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), batched=True)
+dataset = preprocessor.preprocess_data_one_layer(dataset, 
+                                                 instruction_on_response_format=preprocessing_params.instruction_on_response_format)
+dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), 
+                      batched=True)
 train_data, val_data, test_data = preprocessor.split_layer_into_train_val_test_(dataset, config.TRAIN_LAYER)
 
 def find_all_linear_names(model):
@@ -107,16 +109,15 @@ modules = find_all_linear_names(model)
 
 
 lora_config = LoraConfig(
-        r=lora_params.r,
-        lora_alpha=lora_params.lora_alpha,
-        lora_dropout=lora_params.lora_dropout,
+        r=lora_params.r[0],
+        lora_alpha=lora_params.lora_alpha[0],
+        lora_dropout=lora_params.lora_dropout[0],
         bias=lora_params.bias,
         task_type=lora_params.task_type,
         target_modules=lora_params.target_modules
         )
 model = get_peft_model(model, lora_config)
 
-print('model.is_loaded_in_8bit: ', model.is_loaded_in_8bit)
 torch.cuda.empty_cache()
 
 #Hyperparamter
@@ -129,12 +130,12 @@ training_arguments = TrainingArguments(
     num_train_epochs= training_params.num_train_epochs,
     per_device_train_batch_size= training_params.per_device_train_batch_size,
     per_device_eval_batch_size= training_params.per_device_train_batch_size/2,
-    gradient_accumulation_steps=2, # training_params.gradient_accumulation_steps,
+    gradient_accumulation_steps=training_params.gradient_accumulation_steps[0],
     optim=  training_params.optim,
     save_steps= training_params.save_steps,
     logging_strategy=training_params.logging_strategy,
     logging_steps= training_params.logging_steps,
-    learning_rate=training_params.learning_rate,
+    learning_rate=training_params.learning_rate[0],
     weight_decay= training_params.weight_decay,
     fp16= training_params.fp16,
     bf16= training_params.bf16,
