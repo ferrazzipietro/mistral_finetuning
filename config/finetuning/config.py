@@ -6,6 +6,9 @@ model_name=BASE_MODEL_CHECKPOINT.split('/')[1]
 
 TRAIN_LAYER = "en.layer1"
 ADAPTERS_CHECKPOINT= f"ferrazzipietro/{model_name}_adapters_{TRAIN_LAYER}"
+basic_propmt=True
+if basic_propmt:
+    ADAPTERS_CHECKPOINT=ADAPTERS_CHECKPOINT + "_basic_prompt"
 FT_MODEL_CHECKPOINT="ferrazzipietro/ft_tmp" 
 
 WANDB_PROJECT_NAME = f'finetune {model_name} {TRAIN_LAYER}'
