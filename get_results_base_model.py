@@ -21,7 +21,7 @@ dataset = dataset[layer]
 preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
                                 tokenizer=base_model.BASE_MODEL_CHECKPOINT)
 
-dataset = preprocessor.preprocess_data_one_layer(dataset)
+dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 bnb_config = BitsAndBytesConfig(
