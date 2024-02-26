@@ -167,7 +167,6 @@ trainer = SFTTrainer(
 )
 # from wandb.keras import WandbCallback
 # # wandb_callback = LLMSampleCB(trainer, test_data, num_samples=10, max_new_tokens=256)
-from utils.wandb_callback import PrinterCallback
 # trainer.add_callback(PrinterCallback)
 from utils.wandb_callback import WandbPredictionProgressCallback
 progress_callback = WandbPredictionProgressCallback(
@@ -184,7 +183,7 @@ trainer.add_callback(progress_callback)
 with torch.autocast("cuda"):
   trainer.train()
 
-trainer.model.save_pretrained(f"{config.BASE_MODEL_CHECKPOINT.split('/')[1]}_prova") # save locally
+# trainer.model.save_pretrained(f"{config.BASE_MODEL_CHECKPOINT.split('/')[1]}_prova") # save locally
 trainer.model.push_to_hub(config.ADAPTERS_CHECKPOINT, token=HF_TOKEN)
 
 

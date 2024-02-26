@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=get_results_base_model
+#SBATCH --job-name=fine_tune_one_run
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=get_results_base_model.err
-#SBATCH --output=get_results_base_model.out
+#SBATCH --error=fine_tune_one_run.err
+#SBATCH --output=fine_tune_one_run.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
@@ -18,7 +18,7 @@
 #SBATCH --mem=32G
 
 ### Time limit for our job (ten minutes here: HH:MM:SS)
-#SBATCH --time=24:00:00
+#SBATCH --time=12:00:00
 
 ### GPU request
 #SBATCH --gres=gpu
@@ -41,4 +41,4 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python  get_results_base_model.py
+python  fine_tune_mistral.py
