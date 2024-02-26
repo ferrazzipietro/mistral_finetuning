@@ -82,7 +82,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             #try:
             postprocessor.add_responses_column(model=merged_model, 
                                             tokenizer=tokenizer, 
-                                            batch_size=12, 
+                                            batch_size=28, 
                                             max_new_tokens_factor=max_new_tokens_factor)
             postprocessor.test_data.to_csv(f"data/llama/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             # except Exception as e:
