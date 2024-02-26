@@ -6,7 +6,7 @@ optim = "paged_adamw_8bit"
 save_steps= 1000
 logging_strategy="steps"
 logging_steps= 10
-learning_rate= [2e-4, 8e-4]
+learning_rate= [2e-4]
 weight_decay= 0.001
 fp16= True 
 bf16= False
@@ -23,6 +23,6 @@ lr_scheduler_type= "constant"
     dataset_text_field - The name of the field containing the text to be used for the dataset. Defaults to "text".
     packing - Used only in case dataset_text_field is passed. This argument is used by the ConstantLengthDataset to pack the sequences of the dataset.
 """
-max_seq_length= 1024
+max_seq_length= 2048
 dataset_text_field="prompt"
 packing=False
