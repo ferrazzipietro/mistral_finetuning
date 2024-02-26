@@ -5,7 +5,7 @@ from utils.evaluator import Evaluator
 from config import postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from log import enlayer1_3epochs_8bits__ft_params_llama as models_params
+from log import enlayer1_3epochs_4bits__ft_params_llama13B as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
@@ -14,6 +14,7 @@ from peft import PeftModel
 from tqdm import tqdm
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
+LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
 
 max_new_tokens_factor_list = postprocessing.max_new_tokens_factor_list
 n_shots_inference_list = postprocessing.n_shots_inference_list
@@ -25,18 +26,28 @@ dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
 dataset = dataset[layer]
 preprocessor = DataPreprocessor(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 
                                 tokenizer = models_params.BASE_MODEL_CHECKPOINT)
-dataset = preprocessor.preprocess_data_one_layer(dataset,models_params.instruction_on_response_format)
+dataset = preprocessor.preprocess_data_one_layer(dataset,
+                                                 models_params.instruction_on_response_format)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
+load_in_4bit = models_params.load_in_4bit
+load_in_8bit = not load_in_4bit
+bnb_4bit_use_double_quant = models_params.bnb_4bit_use_double_quant
+bnb_4bit_quant_type = models_params.bnb_4bit_quant_type
+bnb_4bit_compute_dtype = models_params.bnb_4bit_compute_dtype
+llm_int8_threshold = models_params.llm_int8_threshold
+llm_int8_has_fp16_weight = models_params.llm_int8_has_fp16_weight
+llm_int8_skip_modules = models_params.llm_int8_skip_modules
+
 bnb_config = BitsAndBytesConfig(
-            load_in_4bit=False,
-            load_in_8bit=True,
-            #bnb_4bit_use_double_quant=True,
-            #bnb_4bit_quant_type="nf4",
-            #bnb_4bit_compute_dtype=torch.bfloat16,
-            llm_int8_threshold= 6.0,
-            llm_int8_has_fp16_weight = False,
-            llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],
+            load_in_4bit=load_in_4bit,
+            load_in_8bit=load_in_8bit,
+            bnb_4bit_use_double_quant=bnb_4bit_use_double_quant,
+            bnb_4bit_quant_type=bnb_4bit_quant_type,
+            bnb_4bit_compute_dtype=bnb_4bit_compute_dtype,
+            llm_int8_threshold=llm_int8_threshold ,
+            llm_int8_has_fp16_weight =llm_int8_has_fp16_weight ,
+            llm_int8_skip_modules=llm_int8_skip_modules
             )
 
 
@@ -47,13 +58,16 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
         for adapters in tqdm(adapters_list, desc="adapters_list"):
             print("PROCESSING:", adapters)
             base_model = AutoModelForCausalLM.from_pretrained(
-                models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
+                models_params.BASE_MODEL_CHECKPOINT, 
+                low_cpu_mem_usage=True,
                 quantization_config = bnb_config,
                 return_dict=True, 
                 #torch_dtype=torch.float16,
-                device_map= "auto")
+                device_map= "auto",
+                token=LLAMA_TOKEN)
             merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
-            tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False)
+            tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
+                                                      token=LLAMA_TOKEN)
             tokenizer.pad_token = tokenizer.unk_token
             tokenizer.padding_side = "left"
 

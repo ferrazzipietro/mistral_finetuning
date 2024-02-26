@@ -7,7 +7,7 @@ from utils.load_merged_model_tokenizer import load_mergedModel_tokenizer
 from config import postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from log import enlayer1_3epochs_4bits__ft_params as models_params
+from log import enlayer1_3epochs_4bits__ft_params_mistral as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
