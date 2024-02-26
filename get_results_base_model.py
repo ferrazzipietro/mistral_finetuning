@@ -18,7 +18,9 @@ save_directory = base_model.save_directory
 
 dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
 dataset = dataset[layer]
-preprocessor = DataPreprocessor()
+preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
+                                tokenizer=base_model.BASE_MODEL_CHECKPOINT)
+
 dataset = preprocessor.preprocess_data_one_layer(dataset)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
@@ -58,7 +60,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
         # try:
         postprocessor.add_responses_column(model=model, 
                                         tokenizer=tokenizer, 
-                                        batch_size=28, 
+                                        batch_size=12, 
                                         max_new_tokens_factor=max_new_tokens_factor)
         postprocessor.test_data.to_csv(f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv", index=False)
         # except Exception as e: 
