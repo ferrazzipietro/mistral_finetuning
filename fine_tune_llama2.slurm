@@ -18,12 +18,12 @@
 #SBATCH --mem=32G
 
 ### Time limit for our job (ten minutes here: HH:MM:SS)
-#SBATCH --time=12:00:00
+#SBATCH --time=96:00:00
 
 ### GPU request
 #SBATCH --gres=gpu
-####SBATCH --constraint=A6000
-#SBATCH --constraint=vgpu2-1
+#SBATCH --constraint=A6000
+####SBATCH --constraint=vgpu1-1
 
 ### Some useful informative commands
 echo -n 'Date: '
@@ -41,4 +41,4 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python  finetuning_v2_iterative_llama2.py
+python  finetuning_iterative_llama2.py
