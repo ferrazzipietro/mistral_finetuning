@@ -1,0 +1,17 @@
+2024-02-27 16:30:46.664554: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-27 16:30:46.717880: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-27 16:30:50.746609: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_runtime.py:184: UserWarning: Pydantic is installed but cannot be imported. Please check your installation. `huggingface_hub` will default to not using Pydantic. Error message: '{e}'
+  warnings.warn(
+wandb: Currently logged in as: ferrazzipietro. Use `wandb login --relogin` to force relogin
+wandb: Appending key for api.wandb.ai to your netrc file: /home/ferrazzi/.netrc
+wandb: wandb version 0.16.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.0
+wandb: Run data is saved locally in /extra/ferrazzi/llm/mistral_finetuning/wandb/run-20240227_163105-cr0mvfh9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run en.layer12024-02-27 16:31:05
+wandb: ⭐️ View project at https://wandb.ai/ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.0002
+wandb: 🚀 View run at https://wandb.ai/ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.0002/runs/cr0mvfh9
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]

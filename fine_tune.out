@@ -1,0 +1,15 @@
+WARNING: grid.env NOT FOUND
+NO Enviroment
+Date: Tue 27 Feb 2024 01:30:03 PM UTC
+Directory: /home/ferrazzi/llm/mistral_finetuning
+This job will be executed on th following nodes: vgpu8-0
+
+/home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
+Python 3.8.18
+{'loss': 1.5314, 'grad_norm': 1.1425491571426392, 'learning_rate': 0.0002, 'epoch': 0.48}
+{'loss': 1.1876, 'grad_norm': 0.8842127919197083, 'learning_rate': 0.0002, 'epoch': 0.95}
+{'loss': 0.9716, 'grad_norm': 0.7730273008346558, 'learning_rate': 0.0002, 'epoch': 1.43}
+{'loss': 0.8256, 'grad_norm': 2.287327289581299, 'learning_rate': 0.0002, 'epoch': 1.9}
+{'loss': 0.5589, 'grad_norm': 1.1557751893997192, 'learning_rate': 0.0002, 'epoch': 2.38}
+{'loss': 0.483, 'grad_norm': 0.9367403984069824, 'learning_rate': 0.0002, 'epoch': 2.86}
+{'train_runtime': 298.5122, 'train_samples_per_second': 6.723, 'train_steps_per_second': 0.211, 'train_loss': 0.9074521291823614, 'epoch': 3.0}

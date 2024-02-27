@@ -6,8 +6,8 @@
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=fine_tune.err
-#SBATCH --output=fine_tune.out
+#SBATCH --error=finetuning_iterative_mistral.err
+#SBATCH --output=finetuning_iterative_mistral.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
@@ -22,7 +22,7 @@
 
 ### GPU request
 #SBATCH --gres=gpu
-#SBATCH --constraint=A6000
+####SBATCH --constraint=A6000
 ####SBATCH --constraint=vgpu1-1
 
 ### Some useful informative commands
@@ -41,4 +41,4 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python  finetuning_v2_iterative_hyperparams.py  #finetuning_v2.py # 
+python  finetuning_iterative_mistral.py  #finetuning_v2.py # 
