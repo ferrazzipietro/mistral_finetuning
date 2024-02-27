@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=postprocess
+#SBATCH --job-name=postprocess_mistral
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=postprocessing.err
-#SBATCH --output=postprocessing.out
+#SBATCH --error=postprocessing_mistral.err
+#SBATCH --output=postprocessing_mistral.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
@@ -41,4 +41,4 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python  postprocessing.py
+python  postprocessing_mistral.py
