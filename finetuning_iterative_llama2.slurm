@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=fine_tune_llama2
+#SBATCH --job-name=finetuning_iterative_llama2
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=fine_tune_llama2.err
-#SBATCH --output=fine_tune_llama2.out
+#SBATCH --error=finetuning_iterative_llama2.err
+#SBATCH --output=finetuning_iterative_llama2.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing

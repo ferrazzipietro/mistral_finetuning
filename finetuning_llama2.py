@@ -7,7 +7,7 @@ from peft import LoraConfig, PeftModel, prepare_model_for_kbit_training, get_pef
 import bitsandbytes as bnb
 from trl import SFTTrainer
 from dotenv import dotenv_values
-from config.finetuning_llama2 import training_params, lora_params, model_loading_params, config
+from config.finetuning_llama2 import training_params, lora_params, model_loading_params, config, preprocessing_params
 import wandb
 from utils.data_preprocessor import DataPreprocessor
 import datetime
@@ -92,7 +92,9 @@ preprocessor = DataPreprocessor()
 dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
 dataset = dataset[config.TRAIN_LAYER]
 dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
-dataset = preprocessor.preprocess_data_one_layer(dataset)
+dataset = preprocessor.preprocess_data_one_layer(dataset, 
+                                                   instruction_on_response_format=preprocessing_params.instruction_on_response_format,
+                                                   simplest_prompt=preprocessing_params.simplest_prompt)
 dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), batched=True)
 train_data, val_data, test_data = preprocessor.split_layer_into_train_val_test_(dataset, config.TRAIN_LAYER)
 
