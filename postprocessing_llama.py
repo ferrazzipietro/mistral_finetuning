@@ -5,7 +5,7 @@ from utils.evaluator import Evaluator
 from config import postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from log import enlayer1_3epochs_4bits__ft_params_llama13B as models_params
+from log import enlayer1_3epochs_8bits__ft_params_llama13B as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
@@ -51,7 +51,9 @@ bnb_config = BitsAndBytesConfig(
             )
 
 
-adapters_list = generate_ft_adapters_list("enlayer1_3epochs_4bits__ft_params_llama13B")
+#adapters_list = generate_ft_adapters_list("enlayer1_3epochs_4bits__ft_params_llama13B")
+adapters_list = ['ferrazzipietro/Llama-2-13b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002']
+
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
