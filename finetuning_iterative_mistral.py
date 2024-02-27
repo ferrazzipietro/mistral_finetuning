@@ -206,7 +206,10 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
             nbits = 4
             if load_in_8bit:
               nbits = 8
-            ADAPTERS_CHECKPOINT = f"ferrazzipietro/{config.model_name}_adapters_{config.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
+	    extra_str = ""
+	    if preprocessing_params.simplest_prompt:
+	      extra_str = "simplest_prompt"
+            ADAPTERS_CHECKPOINT = f"ferrazzipietro/{config.model_name}_{extra_str}_adapters_{config.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
             main(ADAPTERS_CHECKPOINT,
                   load_in_4bit, bnb_4bit_quant_type, bnb_4bit_compute_dtype, llm_int8_threshold,
                   r, lora_alpha, lora_dropout,
