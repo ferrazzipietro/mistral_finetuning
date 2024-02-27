@@ -23,5 +23,5 @@ lr_scheduler_type= "constant"
     dataset_text_field - The name of the field containing the text to be used for the dataset. Defaults to "text".
     packing - Used only in case dataset_text_field is passed. This argument is used by the ConstantLengthDataset to pack the sequences of the dataset.
 """
-max_seq_length= 2048
+max_seq_length= 1024
 dataset_text_field="prompt"
