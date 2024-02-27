@@ -93,7 +93,9 @@ def main(ADAPTERS_CHECKPOINT,
   dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
   dataset = dataset[config.TRAIN_LAYER]
   dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
-  dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=preprocessing_params.instruction_on_response_format)
+  dataset = preprocessor.preprocess_data_one_layer(dataset, 
+                                                   instruction_on_response_format=preprocessing_params.instruction_on_response_format,
+                                                   simplest_prompt=preprocessing_params.simplest_prompt)
   dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), batched=True)
   train_data, val_data, test_data = preprocessor.split_layer_into_train_val_test_(dataset, config.TRAIN_LAYER)
 
