@@ -1,0 +1,24 @@
+/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_runtime.py:184: UserWarning: Pydantic is installed but cannot be imported. Please check your installation. `huggingface_hub` will default to not using Pydantic. Error message: '{e}'
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:19<00:19, 19.22s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 12.57s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 13.56s/it]
+Map:   0%|          | 0/681 [00:00<?, ? examples/s]Map:  87%|████████▋ | 595/681 [00:00<00:00, 5859.81 examples/s]Map: 100%|██████████| 681/681 [00:00<00:00, 3121.98 examples/s]
+Map:   0%|          | 0/681 [00:00<?, ? examples/s]Map: 100%|██████████| 681/681 [00:00<00:00, 6083.43 examples/s]
+generating responses:   0%|          | 0/681 [00:00<?, ?it/s]2024-02-27 11:54:04.380258: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-02-27 11:54:06.387922: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-02-27 11:54:12.298349: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+generating responses:   0%|          | 0/681 [00:24<?, ?it/s]
+Traceback (most recent call last):
+  File "get_results_base_model_llama.py", line 61, in <module>
+    postprocessor.add_responses_column(model=model, 
+  File "/extra/ferrazzi/llm/mistral_finetuning/utils/test_data_processor.py", line 176, in add_responses_column
+    tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
+  File "/extra/ferrazzi/llm/mistral_finetuning/utils/test_data_processor.py", line 152, in _generate_model_response
+    generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  pad_token_id=tokenizer.eos_token_id) # max_new_tokens=max_new_tokens,
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/generation/utils.py", line 1592, in generate
+    return self.sample(
+  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/generation/utils.py", line 2734, in sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+RuntimeError: probability tensor contains either `inf`, `nan` or element < 0

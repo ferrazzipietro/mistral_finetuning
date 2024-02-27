@@ -41,4 +41,4 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python  get_results_base_model.py
+python  get_results_base_model_llama.py
