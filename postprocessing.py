@@ -39,8 +39,7 @@ bnb_config = BitsAndBytesConfig(
             )
 
 
-#adapters_list = generate_ft_adapters_list("enlayer1_3epochs_8bits__ft_params")
-adapters_list = ['ferrazzipietro/Llama-2-13b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002']
+adapters_list = generate_ft_adapters_list("enlayer1_3epochs_8bits__ft_params")
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:

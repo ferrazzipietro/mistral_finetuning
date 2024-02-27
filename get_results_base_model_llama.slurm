@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=get_results_base_model
+#SBATCH --job-name=get_results_base_model_llama
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=get_results_base_model.err
-#SBATCH --output=get_results_base_model.out
+#SBATCH --error=get_results_base_model_llama.err
+#SBATCH --output=get_results_base_model_llama.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
