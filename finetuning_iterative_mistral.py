@@ -11,6 +11,7 @@ from config.finetuning import training_params, lora_params, model_loading_params
 import wandb
 from utils.data_preprocessor import DataPreprocessor
 import datetime
+import gc
 
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -174,6 +175,11 @@ def main(ADAPTERS_CHECKPOINT,
   trainer.model.push_to_hub(ADAPTERS_CHECKPOINT, token=HF_TOKEN)
 
   wandb.finish()
+  del model
+  del trainer
+  del tokenizer
+  gc.collect()
+  torch.cuda.empty_cache()
 
 
 load_in_4bit_list = model_loading_params.load_in_4bit
