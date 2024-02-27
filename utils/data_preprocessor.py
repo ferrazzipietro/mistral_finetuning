@@ -2,6 +2,7 @@ from datasets import Dataset
 import os
 import random
 from transformers import AutoTokenizer
+import warnings
 
 class DataPreprocessor():
 
@@ -47,8 +48,42 @@ class DataPreprocessor():
         self.prompt_template_no_offset = """{user_start} Extract the entities contained in the text. Extract only entities contained in the text.
 {instruction_on_response_format} Text: <<{query}>>> {user_end}{model_start}"""
 
+    def _format_base_prompt_input(self, input: str, instruction_on_response_format:str) -> str:
+        """
+        Format the input into a base prompt for the finetuning
 
-    def _format_prompt(self, input: str, instruction_on_response_format:str, offset: bool, output:str='') -> str:
+        Args:
+            input: the input text
+            instruction_on_response_format: the instruction on the response format. E.g. "The response must be a list of dictionaries, where each dictionary contains the keys 'text' and 'offset'"
+
+        Returns:
+            the formatted base prompt
+        """
+        base_prompt = self.prompt_template_no_offset.format(
+            instruction_on_response_format=instruction_on_response_format, 
+            query=input,
+            user_start=self.special_tokens_instruction['user_start'],
+            user_end=self.special_tokens_instruction['user_end'],
+            model_start=self.special_tokens_instruction['model_start'],
+            model_end=self.special_tokens_instruction['model_end'])
+            
+        return base_prompt
+
+    def _simplest_prompt_input(self, input: str) -> str:
+        """
+        Format the input and output into a prompt for the finetuning, in the simplest way possible, containing only the sentence and the response
+
+        Args:
+            input: the input text
+            output: the output text
+
+        Returns:
+            the formatted prompt
+        """
+        base_prompt = self.special_tokens_instruction['user_start'] + input + self.special_tokens_instruction['user_end'] + self.special_tokens_instruction['model_start']
+        return base_prompt
+
+    def _format_prompt(self, input: str, instruction_on_response_format:str, simplest_prompt: bool, output:str='') -> str:
         """
         Format the input and output into a prompt for the finetuning
 
@@ -63,31 +98,15 @@ class DataPreprocessor():
         """
         if output == '':
             raise ValueError("The output must be provided when generating prompts for the finetuning")
-
-        if offset:
-            base_prompt = self.prompt_template.format(
-                instruction_on_response_format=instruction_on_response_format, 
-                query=input,
-                user_start=self.special_tokens_instruction['user_start'],
-                user_end=self.special_tokens_instruction['user_end'],
-                model_start=self.special_tokens_instruction['model_start'],
-                model_end=self.special_tokens_instruction['model_end']) 
-            one_shot_example = self.one_shot_example
+        
+        if simplest_prompt:
+            prompt_input = self._simplest_prompt_input(input)
         else:
-            base_prompt = self.prompt_template_no_offset.format(
-                instruction_on_response_format=instruction_on_response_format, 
-                query=input,
-                user_start=self.special_tokens_instruction['user_start'],
-                user_end=self.special_tokens_instruction['user_end'],
-                model_start=self.special_tokens_instruction['model_start'],
-                model_end=self.special_tokens_instruction['model_end'])
-            one_shot_example = self.one_shot_example_no_offset
-            
-        prompt = ''
+            prompt_input = self._format_base_prompt_input(input, instruction_on_response_format)
         
         bos_token = self.tokenizer.bos_token
         eos_token = self.tokenizer.eos_token
-        prompt = bos_token + prompt + base_prompt + output + eos_token
+        prompt = bos_token + prompt_input + output + self.special_tokens_instruction['model_end'] + eos_token
                             
         return prompt
 
@@ -114,7 +133,7 @@ class DataPreprocessor():
         formatted_response = formatted_response + '] '
         return formatted_response
     
-    def _apply_to_one_example(self, example, instruction_on_response_format:str, offset: bool) -> dict:
+    def _apply_to_one_example(self, example, offset: bool, simplest_prompt: bool, instruction_on_response_format:str) -> dict:
         """
         Apply the data preprocessing to one example
 
@@ -122,16 +141,20 @@ class DataPreprocessor():
             example: the example (data row) to preprocess
             instruction_on_response_format: the instruction on the response format. E.g. "The response must be a list of dictionaries, where each dictionary contains the keys 'text' and 'offset'"
             offset: whether to require the offset in the response
+            simplest_prompt: whether to generate the prompt or just concatenate the sentence and the response
 
         Returns:
             the preprocessed example
         """
         output = self._format_entities_in_response(entities_list=example['entities'], offset=offset)
-        prompt = self._format_prompt(input=example['sentence'], instruction_on_response_format=instruction_on_response_format, offset=offset, output=output)
+        prompt = self._format_prompt(input=example['sentence'], 
+                                     simplest_prompt=simplest_prompt,
+                                     instruction_on_response_format=instruction_on_response_format,
+                                     output=output)
         example['prompt'] = prompt
         return example
     
-    def apply(self, data: Dataset, instruction_on_response_format:str, offset: bool,  num_proc: int=1) -> Dataset:
+    def apply(self, data: Dataset, instruction_on_response_format:str, offset: bool,  simplest_prompt, num_proc: int=1) -> Dataset:
         """
         Apply the data preprocessing to one split/layer if the dataset. It formats the prompt in the right shape, processing the entities.
 
@@ -145,13 +168,17 @@ class DataPreprocessor():
         Returns:
             the preprocessed split/layer
         """
-        data = data.map(lambda example:  self._apply_to_one_example(example, instruction_on_response_format, offset), num_proc=num_proc) #batched=True)
+        data = data.map(lambda example:  self._apply_to_one_example(example=example, 
+                                                                    simplest_prompt=simplest_prompt,
+                                                                    instruction_on_response_format = instruction_on_response_format, 
+                                                                    offset = offset), 
+                        num_proc=num_proc) #batched=True)
         self.offset = offset
         self.instruction_on_response_format = instruction_on_response_format
         return data
 
     
-    def preprocess_data_one_layer(self, hf_dataset: Dataset, instruction_on_response_format:str, offset:bool=False) -> Dataset:
+    def preprocess_data_one_layer(self, hf_dataset: Dataset, instruction_on_response_format:str='', offset:bool=False, simplest_prompt:bool=False) -> Dataset:
         """
         Preprocess one layer/split of the dataset the trasformations defined in self.apply()
 
@@ -161,10 +188,13 @@ class DataPreprocessor():
         Returns:
             the preprocessed dataset
         """
+        if not simplest_prompt and instruction_on_response_format == '':
+            raise ValueError("The instruction_on_response_format must be provided when not using the simplest_prompt")
+            
         hf_dataset = self.apply(data=hf_dataset, 
                                 instruction_on_response_format=instruction_on_response_format, 
-                                offset=offset
-                                )
+                                offset=offset,
+                                simplest_prompt=simplest_prompt)
         return hf_dataset
     
     def split_layer_into_train_val_test_(self, dataset: Dataset, split_name: str, test_subset_of_validation: bool=False) -> (Dataset, Dataset):
