@@ -16,7 +16,7 @@ base_model_reload = AutoModelForCausalLM.from_pretrained(
     return_dict=True,  load_in_4bit=True, # torch_dtype=torch.float16,
     device_map= "auto", token=LLAMA_TOKEN)
 
-adp = config.ADAPTERS_CHECKPOINT
+adp = 'ferrazzipietro/Mistral-7B-v0.1_adapters_en.layer1_simplest_prompt'
 merged_model = PeftModel.from_pretrained(base_model_reload, adp, token=HF_TOKEN, device_map="auto")
 tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
 tokenizer.pad_token = tokenizer.eos_token
