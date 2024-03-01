@@ -25,13 +25,13 @@ dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_respons
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            # load_in_8bit=True,
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.bfloat16,
-            # llm_int8_threshold= 6.0,
-            # llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],
+            # load_in_4bit=True,
+            load_in_8bit=True,
+            # bnb_4bit_use_double_quant=True,
+            # bnb_4bit_quant_type="nf4",
+            # bnb_4bit_compute_dtype=torch.bfloat16,
+            llm_int8_threshold= 6.0,
+            llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],
             )
 
 model = AutoModelForCausalLM.from_pretrained(
@@ -60,7 +60,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
         # try:
         postprocessor.add_responses_column(model=model, 
                                         tokenizer=tokenizer, 
-                                        batch_size=1, 
+                                        batch_size=12, 
                                         max_new_tokens_factor=max_new_tokens_factor)
         postprocessor.test_data.to_csv(f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv", index=False)
         # except Exception as e: 
