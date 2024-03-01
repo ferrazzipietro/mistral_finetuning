@@ -5,7 +5,7 @@ from utils.evaluator import Evaluator
 from config import postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from log import enlayer1_3epochs_8bits__ft_params_llama13B as models_params
+from log import enlayer1_3epochs_4bits__ft_params_llama13B as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
@@ -84,7 +84,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             #try:
             postprocessor.add_responses_column(model=merged_model, 
                                             tokenizer=tokenizer, 
-                                            batch_size=28, 
+                                            batch_size=12, 
                                             max_new_tokens_factor=max_new_tokens_factor)
             postprocessor.test_data.to_csv(f"data/llama/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             # except Exception as e:
