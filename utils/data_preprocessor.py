@@ -35,20 +35,16 @@ class DataPreprocessor():
                                                           'model_end':'<end_of_turn>'}}
         self.special_tokens_instruction = self.special_tokens_instruction_dict[self.model_type]
 
-        self.one_shot_example = """{user_start} Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.
-{instruction_on_response_format} Text: <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
+        self.one_shot_example = """{user_start}{instruction_on_response_format} <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
 """
-        self.one_shot_example_no_offset = """{user_start} Extract the entities contained in the text. Extract only entities contained in the text.
-{instruction_on_response_format} Text: <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
+        self.one_shot_example_no_offset = """{user_start}{instruction_on_response_format} <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
 """
 
-        self.prompt_template = """{user_start} Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.
-{instruction_on_response_format} Text: <<{query}>>> {user_end}{model_start}"""
+        self.prompt_template = """{user_start}{instruction_on_response_format} <<{query}>>> {user_end}{model_start}"""
 
-        self.prompt_template_no_offset = """{user_start} Extract the entities contained in the text. Extract only entities contained in the text.
-{instruction_on_response_format} Text: <<{query}>>> {user_end}{model_start}"""
+        self.prompt_template_no_offset = """{user_start}{instruction_on_response_format} <<{query}>>> {user_end}{model_start}"""
 
-    def _format_base_prompt_input(self, input: str, instruction_on_response_format:str) -> str:
+    def _base_prompt_input(self, input: str, instruction_on_response_format:str) -> str:
         """
         Format the input into a base prompt for the finetuning
 
@@ -69,7 +65,7 @@ class DataPreprocessor():
             
         return base_prompt
 
-    def _simplest_prompt_input(self, input: str) -> str:
+    def _simplest_base_prompt_input(self, input: str) -> str:
         """
         Format the input and output into a prompt for the finetuning, in the simplest way possible, containing only the sentence and the response
 
@@ -100,9 +96,9 @@ class DataPreprocessor():
             raise ValueError("The output must be provided when generating prompts for the finetuning")
         
         if simplest_prompt:
-            prompt_input = self._simplest_prompt_input(input)
+            prompt_input = self._simplest_base_prompt_input(input)
         else:
-            prompt_input = self._format_base_prompt_input(input, instruction_on_response_format)
+            prompt_input = self._base_prompt_input(input, instruction_on_response_format)
         
         bos_token = self.tokenizer.bos_token
         eos_token = self.tokenizer.eos_token
@@ -154,7 +150,7 @@ class DataPreprocessor():
         example['prompt'] = prompt
         return example
     
-    def apply(self, data: Dataset, instruction_on_response_format:str, offset: bool,  simplest_prompt, num_proc: int=1) -> Dataset:
+    def apply(self, data: Dataset, instruction_on_response_format:str, offset: bool,  simplest_prompt:bool, num_proc: int=1) -> Dataset:
         """
         Apply the data preprocessing to one split/layer if the dataset. It formats the prompt in the right shape, processing the entities.
 
@@ -175,6 +171,7 @@ class DataPreprocessor():
                         num_proc=num_proc) #batched=True)
         self.offset = offset
         self.instruction_on_response_format = instruction_on_response_format
+        self.simplest_prompt = simplest_prompt
         return data
 
     

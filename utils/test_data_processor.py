@@ -43,7 +43,7 @@ class TestDataProcessor():
         out = prompt.split(end_of_prompt_string, 1)
         return {'ground_truth': out[1][0:-4].strip()}
     
-    def _format_prompt_inference(self, input: str, instruction_on_response_format:str, n_shots:int, offset: bool, output:str='', list_of_examples: [str]=[], list_of_responses:[str]=[]) -> str:
+    def _format_prompt_inference(self, input: str, instruction_on_response_format:str, n_shots:int, offset: bool, simplest_prompt:bool, output:str='', list_of_examples: [str]=[], list_of_responses:[str]=[]) -> str:
         """
         Format the input and output into a prompt for the finetuning
 
@@ -71,24 +71,12 @@ class TestDataProcessor():
         if n_shots != len(list_of_responses):
             raise ValueError("The number of responses and shots must be the same")
         
-        if offset:
-            base_prompt = self.preprocessor.prompt_template.format(
-                instruction_on_response_format=instruction_on_response_format, 
-                query=input,
-                user_start=self.preprocessor.special_tokens_instruction['user_start'],
-                user_end=self.preprocessor.special_tokens_instruction['user_end'],
-                model_start=self.preprocessor.special_tokens_instruction['model_start'],
-                model_end=self.preprocessor.special_tokens_instruction['model_end']) 
-            one_shot_example = self.preprocessor.one_shot_example
-        else:
-            base_prompt = self.preprocessor.prompt_template_no_offset.format(
-                instruction_on_response_format=instruction_on_response_format, 
-                query=input,
-                user_start=self.preprocessor.special_tokens_instruction['user_start'],
-                user_end=self.preprocessor.special_tokens_instruction['user_end'],
-                model_start=self.preprocessor.special_tokens_instruction['model_start'],
-                model_end=self.preprocessor.special_tokens_instruction['model_end'])
-            one_shot_example = self.preprocessor.one_shot_example_no_offset
+        if simplest_prompt:
+            base_prompt = self.preprocessor._simplest_base_prompt_input(input)
+        elif not simplest_prompt:
+            base_prompt = self.preprocessor._base_prompt_input(input, instruction_on_response_format)
+
+        one_shot_example = self.preprocessor.one_shot_example_no_offset if not offset else self.preprocessor.one_shot_example
             
         prompt = ''
         for shot_example in range(n_shots):
@@ -106,7 +94,7 @@ class TestDataProcessor():
                             
         return prompt
     
-    def _extract_inference_prompt(self, sentence:str) -> str:
+    def _extract_inference_prompt(self, sentence:str, simplest_prompt:bool) -> str:
         if self.preprocessor.offset:
             few_shots_responses = self.few_shots_dict[self.language]['responses_offset']
         else:
@@ -122,15 +110,16 @@ class TestDataProcessor():
                                                         offset=self.preprocessor.offset,
                                                         output='',
                                                         n_shots=self.n_shots_inference,
+                                                        simplest_prompt=simplest_prompt,
                                                         list_of_examples=list_of_examples,
                                                         list_of_responses=list_of_responses)
         return {'inference_prompt': inference_prompt}
     
-    def add_inference_prompt_column(self) -> None:
+    def add_inference_prompt_column(self, simplest_prompt:bool) -> None:
         """
         Add the inferencePrompt and groundTruth columns to the test_data dataframe.
         """
-        self.test_data = self.test_data.map(lambda x: self._extract_inference_prompt(x['sentence']))
+        self.test_data = self.test_data.map(lambda x: self._extract_inference_prompt(x['sentence'], simplest_prompt=simplest_prompt))
     
     def add_ground_truth_column(self) -> None:
         """

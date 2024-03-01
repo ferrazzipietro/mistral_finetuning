@@ -1,7 +1,7 @@
 ### TrainingArguments
 num_train_epochs= 3
 per_device_train_batch_size= 8
-gradient_accumulation_steps= [4,8]
+gradient_accumulation_steps= [2,4,8]
 optim = "paged_adamw_8bit"
 save_steps= 1000
 logging_strategy="steps"
@@ -25,3 +25,4 @@ lr_scheduler_type= "constant"
 """
 max_seq_length= 1024
 dataset_text_field="prompt"
+packing=False

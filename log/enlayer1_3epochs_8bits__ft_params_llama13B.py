@@ -58,7 +58,7 @@ llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
 
 offset=False
-instruction_on_response_format='Return the result in a json format: [{"entity":"entity_name"}].'
+instruction_on_response_format='Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
 
 ### TrainingArguments
 num_train_epochs= 3

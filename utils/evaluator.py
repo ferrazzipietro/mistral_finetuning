@@ -119,7 +119,7 @@ class Evaluator():
         FN_words = 0
         TP_words = 0
         if entity_in_model_response.lower() == entity_in_ground_truth.lower():
-            print('SIMILI CASE: ', entity_in_model_response, ' e ', entity_in_ground_truth)
+            # print('SIMILI CASE: ', entity_in_model_response, ' e ', entity_in_ground_truth)
             TP_words = len(entity_in_ground_truth.split())
             return True, entity_in_ground_truth, FP_words, FN_words, TP_words
         return False, entity_in_model_response, FP_words, FN_words, TP_words
@@ -156,7 +156,7 @@ class Evaluator():
             FP_words = max(0, n_words_model_response - n_words_ground_truth)
             FN_words = max(0, n_words_ground_truth - n_words_model_response)
             TP_words = self._count_common_words(entity_in_model_response, entity_in_ground_truth)
-            print('SIMILI NORMALIZED: ', entity_in_model_response, ' e ', entity_in_ground_truth, ' -> FP_words:', FP_words,' FN_words:', FN_words,'TP_words:', TP_words)
+            #print('SIMILI NORMALIZED: ', entity_in_model_response, ' e ', entity_in_ground_truth, ' -> FP_words:', FP_words,' FN_words:', FN_words,'TP_words:', TP_words)
             return True, entity_in_ground_truth, FP_words, FN_words, TP_words
         return False, entity_in_model_response, FP_words, FN_words, TP_words
 
@@ -183,7 +183,7 @@ class Evaluator():
             if entity_in_model_response.lower() in entity_in_ground_truth.lower():
                 FN_words = entity_in_ground_truth.strip().count(" ") - entity_in_model_response.strip().count(" ")
                 TP_words = self._count_common_words(entity_in_model_response, entity_in_ground_truth)
-                print('SIMILI Subset: ', entity_in_model_response, ' e ', entity_in_ground_truth, ' -> FP_words:', FP_words,' FN_words:', FN_words,'TP_words:', TP_words)
+                # print('SIMILI Subset: ', entity_in_model_response, ' e ', entity_in_ground_truth, ' -> FP_words:', FP_words,' FN_words:', FN_words,'TP_words:', TP_words)
                 return True, entity_in_ground_truth, FP_words, FN_words, TP_words
         return False, entity_in_model_response, FP_words, FN_words, TP_words
 
@@ -210,7 +210,7 @@ class Evaluator():
             if entity_in_ground_truth.lower() in entity_in_model_response.lower():
                 FP_words = entity_in_model_response.strip().count(" ") - entity_in_ground_truth.strip().count(" ")
                 TP_words = self._count_common_words(entity_in_model_response, entity_in_ground_truth)
-                print('SIMILI Superset: ', entity_in_model_response, ' e ', entity_in_ground_truth, ' -> FP_words:', FP_words,' FN_words:', FN_words,'TP_words:', TP_words)
+                # print('SIMILI Superset: ', entity_in_model_response, ' e ', entity_in_ground_truth, ' -> FP_words:', FP_words,' FN_words:', FN_words,'TP_words:', TP_words)
                 return True, entity_in_ground_truth, FP_words, FN_words, TP_words
         return False, entity_in_model_response, FP_words, FN_words, TP_words
 
@@ -230,7 +230,7 @@ class Evaluator():
         """
         similarity = fuzz.ratio(entity_in_model_response.lower(), entity_in_ground_truth.lower())
         if similarity >= threshold:
-            print('SIMILI LEVESHTEIN: ', entity_in_model_response, ' e ', entity_in_ground_truth)
+            # print('SIMILI LEVESHTEIN: ', entity_in_model_response, ' e ', entity_in_ground_truth)
             return True, entity_in_ground_truth
         return False, entity_in_model_response
     
@@ -385,7 +385,7 @@ class Evaluator():
         ground_truth = self._parse_json(ground_truth)
         model_response = model_response["entities"]
         ground_truth = ground_truth["entities"]
-        print('PARSED ORIGINAL model_response: ', model_response)
+        #print('PARSED ORIGINAL model_response: ', model_response)
         if not similar_is_equal:
             similarity_types = []
 
@@ -403,16 +403,16 @@ class Evaluator():
             FN_entities = set(ground_truth).difference(set(identified_entities_list))
             FN_entities = [entity.split() for entity in FN_entities]
             FN_entities = [item for row in FN_entities for item in row]
-            print('FALSE NEGATIVES: ', FN_entities)
+            # print('FALSE NEGATIVES: ', FN_entities)
             FN_sum += len(FN_entities)
-            print('PARSED GROUND TRUTH: ', ground_truth, 'TP_sum:', TP_sum, 'FP_sum:', FP_sum, 'FN_sum:', FN_sum, '\n\n')
+            #print('PARSED GROUND TRUTH: ', ground_truth, 'TP_sum:', TP_sum, 'FP_sum:', FP_sum, 'FN_sum:', FN_sum, '\n\n')
             return [TP_sum, FP_sum, FN_sum]
            
         elif not words_level:
             for i, response_entity in enumerate(model_response):
                 model_response[i], _, _, _= self.entity_in_ground_truth_list(response_entity, ground_truth, model_response, similar_is_equal_threshold, similarity_types)
-            print('PARSED GROUND TRUTH: ', ground_truth)
-            print('NEW model_response to calculate TP, FP, FN: ', model_response, '\n\n')
+            #print('PARSED GROUND TRUTH: ', ground_truth)
+            #print('NEW model_response to calculate TP, FP, FN: ', model_response, '\n\n')
 
             TP = len(set(model_response).intersection(set(ground_truth)))
             FP = len(set(model_response).difference(set(ground_truth)))
