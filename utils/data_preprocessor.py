@@ -107,6 +107,10 @@ class DataPreprocessor():
         
         bos_token = self.tokenizer.bos_token
         eos_token = self.tokenizer.eos_token
+        if self.model_type == 'qwen':
+            bos_token = ''
+            eos_token = ''
+        # print(bos_token, prompt_input, output, self.special_tokens_instruction['model_end'], eos_token)
         prompt = bos_token + prompt_input + output + self.special_tokens_instruction['model_end'] + eos_token
                             
         return prompt
