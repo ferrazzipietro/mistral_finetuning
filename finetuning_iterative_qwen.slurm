@@ -18,11 +18,11 @@
 #SBATCH --mem=32G
 
 ### Time limit for our job (ten minutes here: HH:MM:SS)
-#SBATCH --time=12:00:00
+#SBATCH --time=48:00:00
 
 ### GPU request
 #SBATCH --gres=gpu
-####SBATCH --constraint=A6000
+#SBATCH --constraint=A6000
 ####SBATCH --constraint=vgpu1-1
 
 ### Some useful informative commands
