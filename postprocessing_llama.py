@@ -79,7 +79,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                               n_shots_inference=n_shots_inference, 
                                               language=language, 
                                               tokenizer=tokenizer)
-            postprocessor.add_inference_prompt_column()
+            postprocessor.add_inference_prompt_column(simplest_prompt=False)
             postprocessor.add_ground_truth_column()
             #try:
             postprocessor.add_responses_column(model=merged_model, 

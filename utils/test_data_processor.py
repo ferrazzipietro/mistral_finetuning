@@ -12,6 +12,7 @@ class TestDataProcessor():
         self.preprocessor = preprocessor
         self.language = language
         self.tokenizer = tokenizer
+        self.model_type = preprocessor.model_type
         self.few_shots_dict = {'en':{'questions':['We present a case of a 32-year-old woman with a history of gradual enlargement of the anterior neck.',
                                                    'Patient information: a 9-month-old boy presented to the emergency room with a 3-day history of refusal to bear weight on the right lower extremity and febrile peaks of up to 38.5°C for 24 hours.',
                                                    'There was no evidence of lung lesions.',
@@ -90,6 +91,8 @@ class TestDataProcessor():
                 model_end=self.preprocessor.special_tokens_instruction['model_end'])
         
         bos_token = self.preprocessor.tokenizer.bos_token
+        if self.model_type == 'qwen':
+            bos_token = ''
         prompt = bos_token + prompt + base_prompt + output 
                             
         return prompt

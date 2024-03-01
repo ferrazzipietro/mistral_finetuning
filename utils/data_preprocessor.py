@@ -12,9 +12,10 @@ class DataPreprocessor():
         self.offset = None
         self.instruction_on_response_format = ''
         self.n_shots = None
-        self.model_type = model_checkpoint.split('/')[1].lower().split('-')[0]
-        if self.model_type not in ['mistral', 'llama', 'gemma']:
-            raise ValueError("The model type must be either 'mistral', 'llama' or 'gemma'")
+        #self.model_type = model_checkpoint.split('/')[1].lower().split('-')[0]
+        self.model_type = 'qwen' if model_checkpoint.split('/')[0] == 'Qwen' else model_checkpoint.split('/')[1].lower().split('-')[0]
+        if self.model_type not in ['mistral', 'llama', 'gemma', 'qwen']:
+            raise ValueError("The model type must be either 'mistral', 'llama', 'gemma' or 'qwen'")
 
         if isinstance(tokenizer, str):
             self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
@@ -32,17 +33,21 @@ class DataPreprocessor():
                                                 'gemma': {'user_start':'<start_of_turn>user',
                                                           'user_end':'<end_of_turn>',
                                                           'model_start':'<start_of_turn>model',
-                                                          'model_end':'<end_of_turn>'}}
+                                                          'model_end':'<end_of_turn>'},
+                                                'qwen': {'user_start':'<|im_start|>user',
+                                                          'user_end':'<|im_end|>',
+                                                          'model_start':'<|im_start|>assistant',
+                                                          'model_end':'<|im_end|>'}}
         self.special_tokens_instruction = self.special_tokens_instruction_dict[self.model_type]
 
-        self.one_shot_example = """{user_start}{instruction_on_response_format} <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
+        self.one_shot_example = """{user_start} {instruction_on_response_format} <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
 """
-        self.one_shot_example_no_offset = """{user_start}{instruction_on_response_format} <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
+        self.one_shot_example_no_offset = """{user_start} {instruction_on_response_format} <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
 """
 
-        self.prompt_template = """{user_start}{instruction_on_response_format} <<{query}>>> {user_end}{model_start}"""
+        self.prompt_template = """{user_start} {instruction_on_response_format} <<{query}>>> {user_end}{model_start}"""
 
-        self.prompt_template_no_offset = """{user_start}{instruction_on_response_format} <<{query}>>> {user_end}{model_start}"""
+        self.prompt_template_no_offset = """{user_start} {instruction_on_response_format} <<{query}>>> {user_end}{model_start}"""
 
     def _base_prompt_input(self, input: str, instruction_on_response_format:str) -> str:
         """
