@@ -23,8 +23,8 @@
 ### GPU request
 #SBATCH --gres=gpu
 #SBATCH --constraint=A6000
-####SBATCH --constraint=vgpu1-1
-
+####SBATCH --constraint=vgpu9-0
+#SBATCH --exclusive 
 ### Some useful informative commands
 echo -n 'Date: '
 date

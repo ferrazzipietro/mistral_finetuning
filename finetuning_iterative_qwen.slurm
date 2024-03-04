@@ -1,6 +1,6 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=finetuning_iterative_qwen
+#SBATCH --job-name=qwen_finetuning_iterative_qwen
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
