@@ -71,7 +71,7 @@ def main(ADAPTERS_CHECKPOINT,
       config.BASE_MODEL_CHECKPOINT,
       quantization_config=bnb_config,
       device_map="auto",
-      cache_dir='/data/disk1/share/pferrazzi/.cache'
+      #cache_dir='/data/disk1/share/pferrazzi/.cache'
   )
   model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
   model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
