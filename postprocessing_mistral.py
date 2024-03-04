@@ -41,7 +41,7 @@ bnb_config = BitsAndBytesConfig(
             )
 
 
-adapters_list = generate_ft_adapters_list("enlayer1_3epochs_8bits__ft_params")
+adapters_list = generate_ft_adapters_list("mistral_noInstruct_4bit")
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
