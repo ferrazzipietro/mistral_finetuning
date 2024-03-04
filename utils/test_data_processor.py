@@ -134,7 +134,7 @@ class TestDataProcessor():
         device = "cuda"
         tokenizer.padding_side = "left"
         if self.model_type == 'qwen':
-            tokenizer.pad_token = '<unk>'
+            tokenizer.pad_token = '<unk>' # tokenizer.special_tokens['<extra_0>']
         print('PRINTTTTTTTTTT: ', self.model_type, tokenizer.pad_token)
         input_sentences = examples['sentence']
         prompts = examples['inference_prompt']
