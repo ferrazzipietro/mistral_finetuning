@@ -17,14 +17,15 @@ from tqdm import tqdm
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 
 max_new_tokens_factor_list = postprocessing.max_new_tokens_factor_list
-n_shots_inference_list = postprocessing.n_shots_inference_list
+n_shots_inference_list = [0,2,4] # postprocessing.n_shots_inference_list
 layer = models_params.TRAIN_LAYER
 language = layer.split('.')[0]
 
 
 dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
 dataset = dataset[layer]
-preprocessor = DataPreprocessor()
+preprocessor = DataPreprocessor(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 
+                                tokenizer = models_params.BASE_MODEL_CHECKPOINT)
 dataset = preprocessor.preprocess_data_one_layer(dataset)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
