@@ -1,5 +1,10 @@
+offset=False
+instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'# 'Return the result in a json format.'
+simplest_prompt=True
+
+
 from datetime import datetime
-from .preprocessing_params import simplest_prompt
+
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
 BASE_MODEL_CHECKPOINT="mistralai/Mistral-7B-v0.1"  # "mistralai/Mistral-7B-Instruct-v0.2" # "mistralai/Mistral-7B-v0.1" # "mistralai/Mistral-7B-Instruct-v0.2"
@@ -35,9 +40,7 @@ bnb_4bit_use_double_quant = True
 llm_int8_has_fp16_weight = True
 llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
-offset=False
-instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'# 'Return the result in a json format.'
-simplest_prompt=True
+
 
 
 ### TrainingArguments
