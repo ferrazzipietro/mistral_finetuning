@@ -34,7 +34,7 @@ def generate_ft_adapters_list(log_run_name: str, simplest_prompt:bool=False) -> 
                                 nbits = 8
                             ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name}_adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
                             if simplest_prompt:
-                                ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name}_simplest_prompt_adapters_{models_params.TRAIN_LAYER}_simplest_prompt_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
+                                ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name}_simplest_prompt_adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
                             
                             adapters_list.append(ADAPTERS_CHECKPOINT)
     return adapters_list
