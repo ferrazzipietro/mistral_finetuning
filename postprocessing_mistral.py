@@ -6,7 +6,7 @@ from config.finetuning import config
 from config import postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from log import enlayer1_3epochs_8bits__ft_params_llama13B as models_params
+from log import mistral_noInstruct_4bit as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
