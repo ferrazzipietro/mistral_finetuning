@@ -3,7 +3,7 @@ import re
 from typing import Tuple
 from typing import List
 
-class OutputCleaner():
+class OutputCleaner1():
     def __init__(self) -> None:
         pass
   
