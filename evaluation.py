@@ -1,7 +1,7 @@
 from datasets import Dataset
 from config import postprocessing
 from utils.evaluator import Evaluator
-from utils.output_cleaner1 import OutputCleaner1
+from utils.output_cleaner import OutputCleaner
 import glob
 import pandas as pd
 #adapters_list = generate_ft_adapters_list("enlayer1_3epochs_4bits__ft_params")
@@ -30,7 +30,7 @@ def evaluate(input_data_path:str,
     for file in csv_files:
         print("FILE: " , file)
         eval_data = Dataset.from_csv(file) 
-        output_cleaner = OutputCleaner1()
+        output_cleaner = OutputCleaner()
         cleaned_data = output_cleaner.apply_cleaning(eval_data, wrong_keys_to_entity=wrong_keys_to_entity)
         for similar_is_equal_threshold in similar_is_equal_threshold_list:
             evaluator = Evaluator(data=cleaned_data, offset=offset, output_cleaner=output_cleaner)
