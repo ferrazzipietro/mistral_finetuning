@@ -140,6 +140,20 @@ class OutputCleaner():
                 if isinstance(tmp, list) and all(isinstance(item, str) for item in tmp):
                     return True
             return False
+        
+        def is_list_of_dict_numeric_values(string:str)  -> bool:
+            #print('STRING: ', string)
+            if self._assess_model_output(string):
+                tmp = json.loads(string)
+                #print('TMP: ', tmp)
+                if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
+                    for item in tmp:
+                        print('value: ', item.values())
+                        if len(item.values()) > 0:
+                            val = list(item.values())[0] 
+                            if isinstance(val, int) or isinstance(val, float):
+                                return True
+            return False
 
         def is_list_of_dicts_and_strings(string:str)  -> bool:
             if self._assess_model_output(string):
@@ -161,6 +175,18 @@ class OutputCleaner():
                 tmp = json.loads(string)
                 if isinstance(tmp, str):
                     return True
+            return False
+        
+        def is_list_of_strings_representing_dicts(string:str)  -> bool:
+            if self._assess_model_output(string):
+                tmp = json.loads(string)
+                if isinstance(tmp, list) and all(isinstance(item, str) for item in tmp):
+                    tmp_list = []
+                    for item in tmp:
+                        if self._assess_model_output(item):
+                          tmp_list.append(json.loads(item))
+                    if all(isinstance(item, dict) for item in tmp_list):
+                        return True
             return False
         
         def is_numeric(string:str)  -> bool:
@@ -220,7 +246,6 @@ class OutputCleaner():
         
 
         model_output = example['model_responses']        
-        print('TESTTT')
         print('ORIGINAL MODEL OUTPUT: ', model_output)
         
         if model_output is None or is_empty_list(model_output):
@@ -238,6 +263,16 @@ class OutputCleaner():
         if is_numeric(model_output):
             print('IS NUMERIC')
             return {'model_output':'[{"entity":""}]'}
+        
+        if is_list_of_strings_representing_dicts(model_output):
+            print('is_list_of_strings_representing_dicts')                
+            tmp = json.loads(model_output)
+            tmp_list = []
+            for item in tmp:
+                if self._assess_model_output(item):
+                  tmp_list.append(json.loads(item))
+            return {'model_output':str(tmp_list)}
+        
         
         if is_list_of_lists_and_dict(model_output):
             print('is_list_of_lists_and_dict')
@@ -284,6 +319,16 @@ class OutputCleaner():
             model_output = self._extract_text_between_curl_brackets(model_output)
             #last attempt to clean 
             model_output = self._clean_text_between_curl_brackets(model_output)
+            print('PRE CLEANED: ', model_output)
+            print('type: ', type(model_output))
+                    
+            if is_list_of_dict_numeric_values(model_output):
+                print('is_list_of_dict_int_values')
+                tmp = json.loads(model_output)
+                tmp = [str({"entity":str(v)}) for el in tmp for v in el.values()]
+                model_output = str(tmp)
+
+            print('CLEANED:  ', model_output)
             cleaning_done, cleaned_model_output = only_dicts_with_key_entity(model_output, wrong_keys_to_entity=wrong_keys_to_entity)
             if cleaning_done:
                 model_output = cleaned_model_output
@@ -298,41 +343,41 @@ class OutputCleaner():
                 return {'model_output':'[{"entity":""}]'}
         
 
-        if not latest_version:
-            if has_unopen_square_brackets(model_output):
-                last_bracket_index = model_output.rfind('],') # keep the closed list
-                model_output = '[' + model_output[:last_bracket_index+1] 
-                return {'model_output':model_output} 
+        # if not latest_version:
+        #     if has_unopen_square_brackets(model_output):
+        #         last_bracket_index = model_output.rfind('],') # keep the closed list
+        #         model_output = '[' + model_output[:last_bracket_index+1] 
+        #         return {'model_output':model_output} 
             
-            tmp = re.findall(r'\[\{(.+?)\}\]', model_output)
-            if len(tmp) != 0:
-                tmp = '[{' + tmp[0] + '}]'
-                if self._assess_model_output(tmp):
-                    return {'model_output':tmp}
+        #     tmp = re.findall(r'\[\{(.+?)\}\]', model_output)
+        #     if len(tmp) != 0:
+        #         tmp = '[{' + tmp[0] + '}]'
+        #         if self._assess_model_output(tmp):
+        #             return {'model_output':tmp}
                 
-            if has_unclosed_square_brackets(model_output):
-                last_bracket_index = model_output.rfind('},') # find the last complete entity
-                model_output = model_output[:last_bracket_index+1] + ']' 
-                return {'model_output':model_output} 
+        #     if has_unclosed_square_brackets(model_output):
+        #         last_bracket_index = model_output.rfind('},') # find the last complete entity
+        #         model_output = model_output[:last_bracket_index+1] + ']' 
+        #         return {'model_output':model_output} 
 
 
-            if model_output.strip()[0] == '{':
-                tmp = '[' + model_output + ']'
-                if self._assess_model_output(tmp):
-                    return {'model_output':tmp}
-                else:
-                    last_bracket_index = model_output.rfind('},') # find the last complete entity
-                    model_output = '[' + model_output[:last_bracket_index+1] + ']'
-                    return {'model_output':model_output}
+        #     if model_output.strip()[0] == '{':
+        #         tmp = '[' + model_output + ']'
+        #         if self._assess_model_output(tmp):
+        #             return {'model_output':tmp}
+        #         else:
+        #             last_bracket_index = model_output.rfind('},') # find the last complete entity
+        #             model_output = '[' + model_output[:last_bracket_index+1] + ']'
+        #             return {'model_output':model_output}
                 
-            if model_output.strip().startswith('[['):
-                tmp = model_output[1:]
-                if self._assess_model_output(tmp):
-                    return {'model_output':tmp}
+        #     if model_output.strip().startswith('[['):
+        #         tmp = model_output[1:]
+        #         if self._assess_model_output(tmp):
+        #             return {'model_output':tmp}
 
-            # print('THIS IS A BROKEN ROW: ', model_output)
+        #     # print('THIS IS A BROKEN ROW: ', model_output)
 
-            return {'model_output':model_output}
+        #     return {'model_output':model_output}
     
     def _extract_text_between_curl_brackets(self, model_output: str) -> str:
         """
