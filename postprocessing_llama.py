@@ -21,7 +21,6 @@ n_shots_inference_list = postprocessing.n_shots_inference_list
 layer = models_params.TRAIN_LAYER
 language = layer.split('.')[0]
 
-
 dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
 dataset = dataset[layer]
 preprocessor = DataPreprocessor(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 

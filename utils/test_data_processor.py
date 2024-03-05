@@ -135,7 +135,6 @@ class TestDataProcessor():
         tokenizer.padding_side = "left"
         if self.model_type == 'qwen':
             tokenizer.pad_token = '<unk>' # tokenizer.special_tokens['<extra_0>']
-        print('PRINTTTTTTTTTT: ', self.model_type, tokenizer.pad_token)
         input_sentences = examples['sentence']
         prompts = examples['inference_prompt']
         input_sentences_tokenized = tokenizer(input_sentences, return_tensors="pt", padding=True)
