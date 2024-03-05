@@ -6,7 +6,7 @@ from config.finetuning import config
 from config import postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from log import mistral_noInstruct_4bit as models_params
+from log import mistral_noInstruct_8bit as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
@@ -41,7 +41,7 @@ bnb_config = BitsAndBytesConfig(
             )
 
 
-adapters_list = generate_ft_adapters_list("mistral_noInstruct_4bit", simplest_prompt=models_params.simplest_prompt)
+adapters_list = generate_ft_adapters_list("mistral_noInstruct_8bit", simplest_prompt=models_params.simplest_prompt)
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
