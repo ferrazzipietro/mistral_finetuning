@@ -1,7 +1,7 @@
 from datetime import datetime
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
-BASE_MODEL_CHECKPOINT="meta-llama/Llama-2-7b-chat-hf"  #"meta-llama/Llama-2-7b-chat-hf" # 
+BASE_MODEL_CHECKPOINT="meta-llama/Llama-2-7b-chat-hf" # 
 model_name=BASE_MODEL_CHECKPOINT.split('/')[1]
 
 TRAIN_LAYER = "en.layer1"
@@ -47,13 +47,13 @@ from transformers import AutoTokenizer
 
 task='finetuning'
 offset=False
-instruction_on_response_format='Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text. \nReturn the result in a json format: [{"entity":"entity_name"}].'
+instruction_on_response_format='Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
 n_shots = 0
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT)
 list_of_examples=[]
 list_of_responses=[]
 
-### TrainingArguments
+
 num_train_epochs= 3
 per_device_train_batch_size= 8
 gradient_accumulation_steps= [2,4,8]
