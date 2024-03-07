@@ -220,7 +220,6 @@ class OutputCleaner():
         
 
         model_output = example['model_responses']        
-        print('TESTTT')
         print('ORIGINAL MODEL OUTPUT: ', model_output)
         
         if model_output is None or is_empty_list(model_output):
@@ -284,6 +283,8 @@ class OutputCleaner():
             model_output = self._extract_text_between_curl_brackets(model_output)
             #last attempt to clean 
             model_output = self._clean_text_between_curl_brackets(model_output)
+
+            print('CLEANED: ', model_output)
             cleaning_done, cleaned_model_output = only_dicts_with_key_entity(model_output, wrong_keys_to_entity=wrong_keys_to_entity)
             if cleaning_done:
                 model_output = cleaned_model_output
