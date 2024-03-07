@@ -12,6 +12,25 @@ class Evaluator():
         self.data = data
         self.cleaner = output_cleaner
         pass
+
+    def _change_apexes(self, model_output: str) -> str:
+        """
+        Extract the text between the curl brackets of the model output, and change the apexes from double single \'.
+
+        Args:
+        model_output (str): the example from the dataset
+
+        """
+        text_between_curl_brackets = re.findall(r'\{(.+?)\}', model_output)
+        cleaned_output = '['
+        for el in text_between_curl_brackets:
+            key_part, value_part = el.split(': ', 1)
+            first_occurrence = value_part.find('"')
+            last_occurrence = value_part.rfind('"')
+            tmp = '{' + key_part + ': "' + value_part[first_occurrence+1:last_occurrence].replace('"', "'") + '"' + '}'
+            cleaned_output += tmp + ', '
+        cleaned_output = cleaned_output[:-2] + ']'
+        return cleaned_output
     
     def _assess_model_output(self, model_response: str) -> (bool, str):
         """
@@ -30,16 +49,19 @@ class Evaluator():
             if isinstance(out, dict):
                 model_response = '[' + model_response + ']'
         except Exception as error:
-            #print(error)
             if hasattr(error, 'msg'):
                 if error.msg.startswith('Expecting property name enclosed in double quotes'):
                     model_response = model_response.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(": \'", ": \"")
-                    out = json.loads(model_response)
-                    # print('out ', out)
-                    if isinstance(out, dict):
-                        model_response = '[' + model_response + ']'
-                        good_format = True
-                # if error.msg.startswith('Extra data'):
+                    try:
+                        out = json.loads(model_response)
+                        if isinstance(out, dict):
+                            model_response = '[' + model_response + ']'
+                            good_format = True
+                    except Exception as error2:
+                        if isinstance(error2, json.decoder.JSONDecodeError):
+                            if error2.msg == "Expecting ',' delimiter":
+                                model_response = self._change_apexes(model_response)
+                                good_format = True
             else:
                 #print('MODEL RESPNSE: ', model_response)
                 good_format = False
@@ -75,6 +97,7 @@ class Evaluator():
             offsets = [entity["offset"] for entity in output]
             return {"entities": entities, "offsets": offsets}
         elif (not self.offset) and good_format:
+            print('ORA STO PARSANDO: ', model_response)
             output = json.loads(model_response)
             # print('OUTPUT: ', type(output))
             if drop_duplicates:

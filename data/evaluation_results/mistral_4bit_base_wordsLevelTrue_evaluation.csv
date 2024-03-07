@@ -1,11 +1,11 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
-data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,True,80,0.0118146575595348,0.42105263157894735,0.00599138738064033
-data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,True,100,0.0118146575595348,0.42105263157894735,0.00599138738064033
-data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel.csv,True,80,0.5644011953107042,0.5397918804045141,0.5913615928066795
-data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel.csv,True,100,0.5644011953107042,0.5397918804045141,0.5913615928066795
-data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,True,80,0.5270382007607078,0.5842346471127406,0.4800421750263594
-data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,True,100,0.5270382007607078,0.5842346471127406,0.4800421750263594
 data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv,True,80,0.5412651864264768,0.5717826163922818,0.5138402799872733
 data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv,True,100,0.5412651864264768,0.5717826163922818,0.5138402799872733
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel.csv,True,80,0.564350360484737,0.5401556305975628,0.5908141962421712
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel.csv,True,100,0.564350360484737,0.5401556305975628,0.5908141962421712
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,True,80,0.0118146575595348,0.42105263157894735,0.00599138738064033
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,True,100,0.0118146575595348,0.42105263157894735,0.00599138738064033
 data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv,True,80,0.540843655841982,0.571858407079646,0.5130200063512226
 data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv,True,100,0.540843655841982,0.571858407079646,0.5130200063512226
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,True,80,0.5270035563642378,0.5842655419035393,0.4799638445314854
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,True,100,0.5270035563642378,0.5842655419035393,0.4799638445314854

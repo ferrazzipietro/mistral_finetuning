@@ -8,8 +8,6 @@ similarity_types = postprocessing.similarity_types
 wrong_keys_to_entity = postprocessing.wrong_keys_to_entity
 offset = postprocessing.offset
 
-
-
 if __name__ == "__main__":
     data_dir = 'data/'
     directories = [d for d in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, d))]
@@ -35,5 +33,6 @@ if __name__ == "__main__":
                         offset = offset)
             except Exception as e:
                 errors.append({input_dir_path: e})
+                continue
 
     print('errors:', errors)
