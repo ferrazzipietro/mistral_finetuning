@@ -84,7 +84,7 @@ def main(ADAPTERS_CHECKPOINT,
   """
   model = prepare_model_for_kbit_training(model)
 
-  tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, cache_dir=#'/data/disk1/share/pferrazzi/.cache')
+  tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
   tokenizer.pad_token = '<unk>'
   tokenizer.padding_side = 'right'
 
