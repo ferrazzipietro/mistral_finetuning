@@ -1,9 +1,5 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
-data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv,True,80,0.2722591137010435,0.23105232892466934,0.33135411512452584
-data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv,True,100,0.2722591137010435,0.23105232892466934,0.33135411512452584
-data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,True,80,0.352760736196319,0.6127886323268206,0.24766690595836324
-data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,True,100,0.352760736196319,0.6127886323268206,0.24766690595836324
-data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv,True,80,0.33045084375787087,0.3364677722687639,0.32464533157373804
-data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv,True,100,0.33045084375787087,0.3364677722687639,0.32464533157373804
-data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,True,80,0.24304091867141506,0.21400230385255345,0.2811974436596031
-data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,True,100,0.24304091867141506,0.21400230385255345,0.2811974436596031
+data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,,100,0.352760736196319,0.6127886323268206,0.24766690595836324
+data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,,100,0.24304091867141506,0.21400230385255345,0.2811974436596031
+data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv,,100,0.2722591137010435,0.23105232892466934,0.33135411512452584
+data/llama/7B_8bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv,,100,0.33045084375787087,0.3364677722687639,0.32464533157373804
