@@ -11,7 +11,7 @@
 """
 r = [16, 32, 64]
 lora_alpha = [32, 64]
-lora_dropout = [0.05, 0.01]
+lora_dropout = [0.05] # [0.05, 0.01]
 bias =  "lora_only" 
 use_rslora = True
 task_type="CAUSAL_LM"
