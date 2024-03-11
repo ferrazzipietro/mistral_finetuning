@@ -66,8 +66,9 @@ model_id = config.BASE_MODEL_CHECKPOINT
 
 model = AutoModelForCausalLM.from_pretrained(
     config.BASE_MODEL_CHECKPOINT,
-    quantization_config=bnb_config,
-    device_map="auto"
+    # quantization_config=bnb_config,
+    device_map="auto",
+    dtype=torch.bfloat16,
 )
 model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
 model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
