@@ -227,3 +227,5 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
                   load_in_4bit, bnb_4bit_quant_type, bnb_4bit_compute_dtype, llm_int8_threshold,
                   r, lora_alpha, lora_dropout,
                   gradient_accumulation_steps,learning_rate)
+            gc.collect()
+            torch.cuda.empty_cache()
