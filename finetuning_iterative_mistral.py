@@ -67,11 +67,18 @@ def main(ADAPTERS_CHECKPOINT,
       #llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight
   )
 
-  model = AutoModelForCausalLM.from_pretrained(
+
+  if not model_loading_params.quantization:
+    model = AutoModelForCausalLM.from_pretrained(
       config.BASE_MODEL_CHECKPOINT,
-      quantization_config=bnb_config,
       device_map="auto"
-  )
+      )
+  else:
+    model = AutoModelForCausalLM.from_pretrained(
+        config.BASE_MODEL_CHECKPOINT,
+        quantization_config=bnb_config,
+        device_map="auto"
+    )
   model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
   model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
   #Adding the adapters in the layers
