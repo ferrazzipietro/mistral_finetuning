@@ -1,6 +1,6 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=finetuning_iterative_llama2
+#SBATCH --job-name=llama_finetuning_iterative
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it

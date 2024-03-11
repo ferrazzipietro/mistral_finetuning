@@ -1,8 +1,8 @@
 WARNING: grid.env NOT FOUND
 NO Enviroment
-Date: Tue 05 Mar 2024 06:00:50 PM UTC
+Date: Mon 11 Mar 2024 08:44:12 AM UTC
 Directory: /home/ferrazzi/llm/mistral_finetuning
-This job will be executed on th following nodes: vgpu0-1
+This job will be executed on th following nodes: vgpu4-1
 
 /home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
 Python 3.8.18
@@ -13,6 +13,3 @@ TRY:  data/qwen/7B_4bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel.csv
 TRY:  data/qwen/7B_4bit_base/maxNewTokensFactor4_nShotsInference4_BaseModel.csv
 TRY:  data/qwen/7B_4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv
 TRY:  data/qwen/7B_4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv
-TRY:  data/qwen/7B_4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv
-TRY:  data/qwen/7B_4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv
-TRY:  data/qwen/7B_4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel.csv
