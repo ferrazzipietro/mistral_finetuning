@@ -2,7 +2,7 @@ from dotenv import dotenv_values
 from datasets import load_dataset, Dataset
 from utils.data_preprocessor import DataPreprocessor
 from utils.evaluator import Evaluator
-from config import postprocessing
+from config import postprocessing_params_qwen as postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
 from log import qwen_14B_4bit as models_params
@@ -85,7 +85,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                             tokenizer=tokenizer, 
                                             batch_size=12, 
                                             max_new_tokens_factor=max_new_tokens_factor)
-            postprocessor.test_data.to_csv(f"data/llama/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
+            postprocessor.test_data.to_csv(f"{postprocessing.save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             # except Exception as e:
             #     print("ERROR IN PROCESSING: ", Exception, adapters)
             del merged_model

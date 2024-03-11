@@ -40,9 +40,13 @@ class TestDataProcessor():
         self.n_shots_inference = n_shots_inference
     
     def _extract_ground_truth(self, prompt:str) -> str:
+        print('PROMPT: ', prompt)
         end_of_prompt_string = self.preprocessor.special_tokens_instruction['user_end'] + self.preprocessor.special_tokens_instruction['model_start']
+        print('end_of_prompt_string: ', end_of_prompt_string)
         out = prompt.split(end_of_prompt_string, 1)
-        return {'ground_truth': out[1][0:-4].strip()}
+        out = out[1].strip().replace(self.preprocessor.special_tokens_instruction['model_start'], '').replace(self.preprocessor.special_tokens_instruction['model_end'], '')
+        print('OUT: ', out)
+        return {'ground_truth': out}
     
     def _format_prompt_inference(self, input: str, instruction_on_response_format:str, n_shots:int, offset: bool, simplest_prompt:bool, output:str='', list_of_examples: [str]=[], list_of_responses:[str]=[]) -> str:
         """
@@ -144,8 +148,9 @@ class TestDataProcessor():
         encodeds = tokenizer(prompts, return_tensors="pt", add_special_tokens=False, padding=True)
         model_inputs = encodeds.to(device)
         generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  pad_token_id=tokenizer.eos_token_id) # max_new_tokens=max_new_tokens,
+        generated_ids = generated_ids[:, encodeds.input_ids.shape[1]:]
         decoded = tokenizer.batch_decode(generated_ids)
-        decoded = [self._postprocess_model_output(i) for i in decoded]
+        # decoded = [self._postprocess_model_output(i) for i in decoded]
         return (decoded)
                 
     def add_responses_column(self, model, tokenizer, batch_size:int, max_new_tokens_factor:float) -> None:
@@ -177,7 +182,7 @@ class TestDataProcessor():
 
         self.test_data = self.test_data.add_column('model_responses', responses_col)
     
-    def _postprocess_model_output(self, model_output: str) -> str:
+    def _postprocess_model_output_deprecated(self, model_output: str) -> str:
         """
         Postprocess the model output to remove the instruction and return the model response.
 

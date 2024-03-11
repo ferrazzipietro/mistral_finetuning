@@ -3,7 +3,7 @@ from datasets import load_dataset, Dataset
 from utils.data_preprocessor import DataPreprocessor
 from utils.evaluator import Evaluator
 from config.finetuning import config
-from config import postprocessing
+from config import postprocessing_params_mistral as postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
 from log import mistral_noInstruct_8bit as models_params
@@ -71,7 +71,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                                 tokenizer=tokenizer, 
                                                 batch_size=36, 
                                                 max_new_tokens_factor=max_new_tokens_factor)
-                postprocessor.test_data.to_csv(f"data/mistral/noInstr_4bit/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
+                postprocessor.test_data.to_csv(f"{postprocessing.save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             except Exception as e:
                 print("ERROR IN PROCESSING: ", Exception, adapters)
             del merged_model

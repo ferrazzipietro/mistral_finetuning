@@ -4,8 +4,8 @@ from typing import Tuple
 from typing import List
 
 class OutputCleaner():
-    def __init__(self) -> None:
-        pass
+    def __init__(self, verbose=False) -> None:
+        self.verbose = verbose
   
     def _remove_space_from_dict_keys(self, model_ouput_list: list) -> list:
         """
@@ -55,7 +55,7 @@ class OutputCleaner():
 
             
     def _remove_json_special_chars(self, string):
-        chars = ['\xa0']
+        chars = ['\xa0', '\x80' '\x93']
         for char in chars:
             string = string.replace(char, ' ')
         return string
@@ -148,10 +148,20 @@ class OutputCleaner():
                 #print('TMP: ', tmp)
                 if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
                     for item in tmp:
-                        #print('value: ', item.values())
                         if len(item.values()) > 0:
                             val = list(item.values())[0] 
                             if isinstance(val, int) or isinstance(val, float):
+                                return True
+            return False
+        
+        def is_list_of_dicts_none_values(string:str) -> bool:
+            if self._assess_model_output(string):
+                tmp = json.loads(string)
+                if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
+                    for item in tmp:
+                        if len(item.values()) > 0:
+                            val = list(item.values())[0] 
+                            if val is None:
                                 return True
             return False
 
@@ -187,6 +197,15 @@ class OutputCleaner():
                           tmp_list.append(json.loads(item))
                     if all(isinstance(item, dict) for item in tmp_list):
                         return True
+            return False
+        
+        def is_list_of_dicts_of_lists(string:str)  -> bool:
+            if self._assess_model_output(string):
+                tmp = json.loads(string)
+                if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
+                    for item in tmp:
+                        if isinstance(list(item.values())[0], list):
+                            return True
             return False
         
         def is_numeric(string:str)  -> bool:
@@ -245,8 +264,9 @@ class OutputCleaner():
             return operations_performed, str(out)
         
 
-        model_output = example['model_responses']        
-        # print('ORIGINAL MODEL OUTPUT: ', model_output)
+        model_output = example['model_responses']      
+        if self.verbose: print('ORIGINAL MODEL OUTPUT:  ', model_output)
+        # model_output = self._exceptions_handler(model_output)
         
         if model_output is None or is_empty_list(model_output):
             return {'model_output':'[{"entity":""}]'}
@@ -254,28 +274,28 @@ class OutputCleaner():
         model_output = self._remove_json_special_chars(model_output)
                 
         if are_entities_extracted_as_dict_keys_instead_of_values(model_output, example):
-            print('ENTITIES EXTRACTED AS DICT KEYS INSTEAD OF VALUES')
+            # print('ENTITIES EXTRACTED AS DICT KEYS INSTEAD OF VALUES')
             tmp = json.loads(model_output)
             tmp = [{"entity":k} for el in tmp for k in el.keys() ]
             tmp = str(tmp)
             return {'model_output':tmp}
 
         if is_numeric(model_output):
-            print('IS NUMERIC')
+            # print('IS NUMERIC')
             return {'model_output':'[{"entity":""}]'}
         
         if is_list_of_strings_representing_dicts(model_output):
-            print('is_list_of_strings_representing_dicts')                
+            # print('is_list_of_strings_representing_dicts')                
             tmp = json.loads(model_output)
             tmp_list = []
             for item in tmp:
                 if self._assess_model_output(item):
                   tmp_list.append(json.loads(item))
             return {'model_output':str(tmp_list)}
-        
+      
         
         if is_list_of_lists_and_dict(model_output):
-            print('is_list_of_lists_and_dict')
+            # print('is_list_of_lists_and_dict')
             tmp = json.loads(model_output)
             for el in tmp:
                 if isinstance(el, list):
@@ -284,19 +304,18 @@ class OutputCleaner():
                     return {'model_output':tmp}
                 
         if is_list_of_lists(model_output):
-            print('is_list_of_lists')
+            # print('is_list_of_lists')
             tmp = json.loads(model_output)
             tmp2 = str(tmp[0]).replace("'", "\"")
             if is_list_of_dicts_and_strings(tmp2):
                 tmp = tmp[0]
                 out = [item for item in tmp if isinstance(item, dict)]
-                print('questo:', out)
                 return {'model_output':str(out)} 
             tmp = str(tmp[0])
             return {'model_output':tmp}
 
         if is_list_of_strings(model_output):
-            print('is_list_of_strings')
+            if self.verbose: print('is_list_of_strings')
             tmp = json.loads(model_output)
             tmp = [{"entity":el} for el in tmp]
             tmp = str(tmp)
@@ -305,7 +324,7 @@ class OutputCleaner():
         
         if is_string(model_output):
             # model_output = model_output.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(" \'", " \"")
-            print('PULITO: ', model_output)
+            # print('PULITO: ', model_output)
             tmp = json.loads(model_output)
             if all(el in tmp for el in ['{', 'entity', '}']):
                 return {'model_output':tmp}
@@ -317,71 +336,65 @@ class OutputCleaner():
         
         if latest_version:
             model_output = self._extract_text_between_curl_brackets(model_output)
-            #last attempt to clean 
             model_output = self._clean_text_between_curl_brackets(model_output)
-            #print('PRE CLEANED: ', model_output)
-            #print('type: ', type(model_output))
                     
             if is_list_of_dict_numeric_values(model_output):
-                print('is_list_of_dict_int_values')
+                #print('is_list_of_dict_int_values')
                 tmp = json.loads(model_output)
                 tmp = [str({"entity":str(v)}) for el in tmp for v in el.values()]
                 model_output = str(tmp)
-
-            # print('CLEANED:  ', model_output)
+            
+            if is_list_of_dicts_none_values(model_output):
+                if self.verbose: print('is_list_of_dicts_none_values')
+                tmp = json.loads(model_output)
+                tmp = [str({"entity":v}) for el in tmp for v in el.values() if v is not None]
+                model_output = str(tmp)
+            
+            if is_list_of_dicts_of_lists(model_output):
+                if self.verbose: print('is_list_of_dicts_of_lists')
+                tmp = json.loads(model_output)
+                tmp = [{"entity":v} for el in tmp for v in el.values() if not isinstance(v, list)]
+                return {'model_output':str(tmp)}  
+            
+            # print('CLEANED:  ', model_output)
             cleaning_done, cleaned_model_output = only_dicts_with_key_entity(model_output, wrong_keys_to_entity=wrong_keys_to_entity)
             if cleaning_done:
                 model_output = cleaned_model_output
             
             if is_list_of_dicts(model_output):
+                #print('PRE CLEANED: ', model_output)
                 tmp = json.loads(model_output)
-                #tmp = [item for item in tmp if 'entity' in item.keys()]
                 return {'model_output':str(tmp)}
             
             else: 
                 # print('NOT CLEANED: ', model_output, '\n\n')
                 return {'model_output':'[{"entity":""}]'}
         
-
-        # if not latest_version:
-        #     if has_unopen_square_brackets(model_output):
-        #         last_bracket_index = model_output.rfind('],') # keep the closed list
-        #         model_output = '[' + model_output[:last_bracket_index+1] 
-        #         return {'model_output':model_output} 
             
-        #     tmp = re.findall(r'\[\{(.+?)\}\]', model_output)
-        #     if len(tmp) != 0:
-        #         tmp = '[{' + tmp[0] + '}]'
-        #         if self._assess_model_output(tmp):
-        #             return {'model_output':tmp}
-                
-        #     if has_unclosed_square_brackets(model_output):
-        #         last_bracket_index = model_output.rfind('},') # find the last complete entity
-        #         model_output = model_output[:last_bracket_index+1] + ']' 
-        #         return {'model_output':model_output} 
-
-
-        #     if model_output.strip()[0] == '{':
-        #         tmp = '[' + model_output + ']'
-        #         if self._assess_model_output(tmp):
-        #             return {'model_output':tmp}
-        #         else:
-        #             last_bracket_index = model_output.rfind('},') # find the last complete entity
-        #             model_output = '[' + model_output[:last_bracket_index+1] + ']'
-        #             return {'model_output':model_output}
-                
-        #     if model_output.strip().startswith('[['):
-        #         tmp = model_output[1:]
-        #         if self._assess_model_output(tmp):
-        #             return {'model_output':tmp}
-
-        #     # print('THIS IS A BROKEN ROW: ', model_output)
-
-        #     return {'model_output':model_output}
+    def _exceptions_handler(self, model_output: str, error) -> str:
+        # if hasattr(error, 'msg'):
+        #     if error.msg.startswith('Expecting property name enclosed in double quotes'):
+        #         model_output = model_output.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(": \'", ": \"")
+        
+        try:
+            json.loads(model_output)
+        except Exception as error:
+            if isinstance(error, json.decoder.JSONDecodeError):
+                #if error.msg == "Expecting ',' delimiter":
+                key_part, value_part = model_output.split(': ', 1)
+                first_occurrence = value_part.find('"')
+                last_occurrence = value_part.rfind('"')
+                model_output = key_part + ': "' + value_part[first_occurrence+1:last_occurrence].replace("'", r'\'') + '"' + '}'
+        return model_output
+    
+    def _substitute_apexes(self, model_output: str) -> str:
+        model_output = model_output.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(": \'", ": \"")
+        return model_output
+    
     
     def _extract_text_between_curl_brackets(self, model_output: str) -> str:
         """
-        Extract the text between the curl brackets of the model output, as enitties are usually outputted in this format: {"entity": "value"}
+        Extract the text between the curl brackets of the model output, as enities are usually outputted in this format: {"entity": "value"}
 
         Args:
         model_output (str): the example from the dataset
@@ -402,18 +415,7 @@ class OutputCleaner():
 
         """
         text_between_curl_brackets = re.sub(r'",(.+?)}', r'"}', text_between_curl_brackets)
-        return(text_between_curl_brackets)
-
-        # list_of_dicts = json.loads(text_between_curl_brackets)
-        # list_of_dicts_str = [str(item) for item in list_of_dicts]
-        # out = []
-        # print('list_of_dicts: ', list_of_dicts_str)
-        # if ' '.join(list_of_dicts_str).count(':') > len(list_of_dicts):
-        #     for item in list_of_dicts:
-        #         if len(item) > 1:
-        #             item = self._keep_only_one_keyVal_from_dict(item)
-        #         out.append(item)
-        #return str(out)
+        return text_between_curl_brackets
 
     # def _keep_only_one_keyVal_from_dict(dict: dict) -> dict:
     #     """

@@ -388,7 +388,7 @@ class Evaluator():
     
 
 
-    def _extract_TP_FP_FN(self, model_response: str, ground_truth: str, similar_is_equal:bool, similar_is_equal_threshold: int, similarity_types:'list[str]', words_level:bool) -> [int, int, int]:
+    def _extract_TP_FP_FN(self, model_response: str, ground_truth: str, similar_is_equal:bool=True, similar_is_equal_threshold: int=100, similarity_types:'list[str]'=['case', 'stop_words', 'subset', 'superset', 'leveshtein'], words_level:bool=True) -> [int, int, int]:
         """
         Compute the F1 score, the precision and the recall between the model output and the ground truth
 
@@ -403,7 +403,7 @@ class Evaluator():
         similarity_types: the list of similarity types to consider. Must contain elements in ['case', 'stop_words', 'subset', 'superset', 'leveshtein']
 
         """
-        # print('ORIGINAL model_response: ', model_response)
+        if self.cleaner.verbose: print('ORIGINAL model_response: ', model_response)
         model_response = self._parse_json(model_response)
         ground_truth = self._parse_json(ground_truth)
         model_response = model_response["entities"]
@@ -443,12 +443,11 @@ class Evaluator():
             # F1 = 2 * TP / (2 * TP + FN + FP)
             return [TP, FP, FN]
     
-    def generate_evaluation_table(self, similar_is_equal:bool, similar_is_equal_threshold: int, words_level:bool, similarity_types:'list[str]') -> dict:
+    def generate_evaluation_table(self, similar_is_equal_threshold: int, words_level:bool, similarity_types:'list[str]') -> dict:
         """
         Generate the evaluation table for the model output and the ground truth.
 
         Args:
-        similar_is_equal (bool): if True, the function will consider similar entities as equal. The default value is False.
         similar_is_equal_threshold (int): the threshold to consider the entities similar by the Leveshtein distance. The default value is 80. 0 is completely
         different, 100 is the same. 
         words_level (bool): if True, the function will consider as base elements the words. If False, the function will consider as base elements the entity. 
@@ -461,7 +460,7 @@ class Evaluator():
         """
         metrics_list = []
         for i, res in enumerate(self.data['model_output']):
-            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], similar_is_equal, similar_is_equal_threshold, similarity_types, words_level))
+            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, similar_is_equal_threshold, similarity_types, words_level))
 
         metrics_dataframe = pd.DataFrame(metrics_list, columns=['TP', 'FP', 'FN'])
         summary = metrics_dataframe.sum()

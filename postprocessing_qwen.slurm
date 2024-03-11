@@ -41,6 +41,6 @@ conda activate gpu_venv_lates
 which python
 
 python --version
-python  postprocessing_llama.py
+python  postprocessing_qwen.py
 echo -n 'Date: '
 date
