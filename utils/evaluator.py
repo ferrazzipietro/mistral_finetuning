@@ -97,7 +97,7 @@ class Evaluator():
             offsets = [entity["offset"] for entity in output]
             return {"entities": entities, "offsets": offsets}
         elif (not self.offset) and good_format:
-            print('ORA STO PARSANDO: ', model_response)
+            # print('ORA STO PARSANDO: ', model_response)
             output = json.loads(model_response)
             # print('OUTPUT: ', type(output))
             if drop_duplicates:
@@ -403,12 +403,12 @@ class Evaluator():
         similarity_types: the list of similarity types to consider. Must contain elements in ['case', 'stop_words', 'subset', 'superset', 'leveshtein']
 
         """
-        print('ORIGINAL model_response: ', model_response)
+        # print('ORIGINAL model_response: ', model_response)
         model_response = self._parse_json(model_response)
         ground_truth = self._parse_json(ground_truth)
         model_response = model_response["entities"]
         ground_truth = ground_truth["entities"]
-        print('PARSED ORIGINAL model_response: ', model_response)
+        # print('PARSED ORIGINAL model_response: ', model_response)
         if not similar_is_equal:
             similarity_types = []
 

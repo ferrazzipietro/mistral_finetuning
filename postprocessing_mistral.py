@@ -31,8 +31,8 @@ dataset = preprocessor.preprocess_data_one_layer(dataset,
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 bnb_config = BitsAndBytesConfig(
-            load_in_4bit=False,
-            load_in_8bit=True,
+            load_in_4bit=True,
+            load_in_8bit=False,
             #bnb_4bit_use_double_quant=True,
             #bnb_4bit_quant_type="nf4",
             #bnb_4bit_compute_dtype=torch.bfloat16,

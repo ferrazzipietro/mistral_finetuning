@@ -148,7 +148,7 @@ class OutputCleaner():
                 #print('TMP: ', tmp)
                 if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
                     for item in tmp:
-                        print('value: ', item.values())
+                        #print('value: ', item.values())
                         if len(item.values()) > 0:
                             val = list(item.values())[0] 
                             if isinstance(val, int) or isinstance(val, float):
@@ -246,7 +246,7 @@ class OutputCleaner():
         
 
         model_output = example['model_responses']        
-        print('ORIGINAL MODEL OUTPUT: ', model_output)
+        # print('ORIGINAL MODEL OUTPUT: ', model_output)
         
         if model_output is None or is_empty_list(model_output):
             return {'model_output':'[{"entity":""}]'}
@@ -319,8 +319,8 @@ class OutputCleaner():
             model_output = self._extract_text_between_curl_brackets(model_output)
             #last attempt to clean 
             model_output = self._clean_text_between_curl_brackets(model_output)
-            print('PRE CLEANED: ', model_output)
-            print('type: ', type(model_output))
+            #print('PRE CLEANED: ', model_output)
+            #print('type: ', type(model_output))
                     
             if is_list_of_dict_numeric_values(model_output):
                 print('is_list_of_dict_int_values')
@@ -328,7 +328,7 @@ class OutputCleaner():
                 tmp = [str({"entity":str(v)}) for el in tmp for v in el.values()]
                 model_output = str(tmp)
 
-            print('CLEANED:  ', model_output)
+            # print('CLEANED:  ', model_output)
             cleaning_done, cleaned_model_output = only_dicts_with_key_entity(model_output, wrong_keys_to_entity=wrong_keys_to_entity)
             if cleaning_done:
                 model_output = cleaned_model_output
