@@ -1,7 +1,7 @@
 from datetime import datetime
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
-BASE_MODEL_CHECKPOINT="Qwen/Qwen1.5-14B-Chat" #  "Qwen/Qwen1.5-14B" "meta-llama/Llama-2-7b-chat-hf"  # 
+BASE_MODEL_CHECKPOINT="Qwen/Qwen1.5-7B-Chat" #  "Qwen/Qwen1.5-14B" "meta-llama/Llama-2-7b-chat-hf"  # 
 model_name=BASE_MODEL_CHECKPOINT.split('/')[1]
 
 TRAIN_LAYER = "en.layer1"
