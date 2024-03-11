@@ -30,14 +30,16 @@ dataset = preprocessor.preprocess_data_one_layer(dataset,
                                                  simplest_prompt=True)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
+load_in_8bit = not models_params.load_in_4bit
 bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            load_in_8bit=False,
-            #bnb_4bit_use_double_quant=True,
-            #bnb_4bit_quant_type="nf4",
-            #bnb_4bit_compute_dtype=torch.bfloat16,
-            llm_int8_threshold= 6.0,
-            llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],
+            load_in_4bit = models_params.load_in_4bit[0],
+            load_in_8bit = load_in_8bit,
+            bnb_4bit_use_double_quant = models_params.bnb_4bit_use_double_quant,
+            bnb_4bit_quant_type = models_params.bnb_4bit_quant_type[0],
+            bnb_4bit_compute_dtype = models_params.bnb_4bit_compute_dtype[0],
+            llm_int8_threshold = models_params.llm_int8_threshold[0],
+            llm_int8_has_fp16_weight = models_params.llm_int8_has_fp16_weight,
+            llm_int8_skip_modules = models_params.llm_int8_skip_modules
             )
 
 
@@ -71,7 +73,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                                 tokenizer=tokenizer, 
                                                 batch_size=36, 
                                                 max_new_tokens_factor=max_new_tokens_factor)
-                postprocessor.test_data.to_csv(f"{postprocessing.save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
+                postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             except Exception as e:
                 print("ERROR IN PROCESSING: ", Exception, adapters)
             del merged_model
