@@ -21,9 +21,13 @@ dataset = dataset[layer]
 preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
                                 tokenizer=base_model.BASE_MODEL_CHECKPOINT)
 
-dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,)
-_, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
+
+
+
+
+
+simplest_prompt = False
 bnb_config = BitsAndBytesConfig(
             # load_in_4bit=True,
             load_in_8bit=True,
@@ -34,6 +38,11 @@ bnb_config = BitsAndBytesConfig(
             llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],
             )
 
+
+
+dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,
+                                                 simplest_prompt=simplest_prompt)
+_, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 model = AutoModelForCausalLM.from_pretrained(
             base_model.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
             quantization_config = bnb_config,
@@ -54,7 +63,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                           n_shots_inference=n_shots_inference, 
                                           language=language, 
                                           tokenizer=tokenizer)
-        postprocessor.add_inference_prompt_column()
+        postprocessor.add_inference_prompt_column(simplest_prompt=simplest_prompt)
         postprocessor.add_ground_truth_column()
         print('TRY: ', f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv")
         # try:
