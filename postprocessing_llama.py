@@ -5,14 +5,14 @@ from utils.evaluator import Evaluator
 from config import postprocessing_params_llama as postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from log import llama13B_8bits as models_params
+from log import enlayer1_3epochs_4bits__ft_params_llama13B as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 import gc
 from peft import PeftModel
 from tqdm import tqdm
-adapters_list = generate_ft_adapters_list("llama13B_8bits")
+adapters_list = generate_ft_adapters_list("enlayer1_3epochs_4bits__ft_params_llama13B")
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
@@ -42,9 +42,9 @@ llm_int8_skip_modules = models_params.llm_int8_skip_modules
 bnb_config = BitsAndBytesConfig(
             load_in_4bit=load_in_4bit,
             load_in_8bit=load_in_8bit,
-            bnb_4bit_use_double_quant=bnb_4bit_use_double_quant,
-            bnb_4bit_quant_type=bnb_4bit_quant_type,
-            bnb_4bit_compute_dtype=bnb_4bit_compute_dtype,
+            # bnb_4bit_use_double_quant=bnb_4bit_use_double_quant,
+            # bnb_4bit_quant_type=bnb_4bit_quant_type,
+            # bnb_4bit_compute_dtype=bnb_4bit_compute_dtype,
             llm_int8_threshold=llm_int8_threshold ,
             llm_int8_has_fp16_weight =llm_int8_has_fp16_weight ,
             llm_int8_skip_modules=llm_int8_skip_modules
