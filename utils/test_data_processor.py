@@ -40,12 +40,12 @@ class TestDataProcessor():
         self.n_shots_inference = n_shots_inference
     
     def _extract_ground_truth(self, prompt:str) -> str:
-        print('PROMPT: ', prompt)
+        # print('PROMPT: ', prompt)
         end_of_prompt_string = self.preprocessor.special_tokens_instruction['user_end'] + self.preprocessor.special_tokens_instruction['model_start']
         print('end_of_prompt_string: ', end_of_prompt_string)
         out = prompt.split(end_of_prompt_string, 1)
         out = out[1].strip().replace(self.preprocessor.special_tokens_instruction['model_start'], '').replace(self.preprocessor.special_tokens_instruction['model_end'], '')
-        print('OUT: ', out)
+        # print('OUT: ', out)
         return {'ground_truth': out}
     
     def _format_prompt_inference(self, input: str, instruction_on_response_format:str, n_shots:int, offset: bool, simplest_prompt:bool, output:str='', list_of_examples: [str]=[], list_of_responses:[str]=[]) -> str:
