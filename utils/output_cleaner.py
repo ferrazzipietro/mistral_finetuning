@@ -55,7 +55,8 @@ class OutputCleaner():
 
             
     def _remove_json_special_chars(self, string):
-        chars = ['\xa0', '\x80' '\x93']
+        # print('sto pulendo: ', string)
+        chars = ['\xa0', '\x80', '\x93']
         for char in chars:
             string = string.replace(char, ' ')
         return string
@@ -200,12 +201,15 @@ class OutputCleaner():
             return False
         
         def is_list_of_dicts_of_lists(string:str)  -> bool:
+            print('STRING: ', string)
             if self._assess_model_output(string):
                 tmp = json.loads(string)
                 if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
                     for item in tmp:
-                        if isinstance(list(item.values())[0], list):
-                            return True
+                        tmp2 = list(item.values())[0]
+                        if len(tmp2) > 0:
+                            if isinstance(list(item.values())[0], list):
+                                return True
             return False
         
         def is_numeric(string:str)  -> bool:
@@ -272,6 +276,7 @@ class OutputCleaner():
             return {'model_output':'[{"entity":""}]'}
         
         model_output = self._remove_json_special_chars(model_output)
+        # print('PULITO: ', model_output)
                 
         if are_entities_extracted_as_dict_keys_instead_of_values(model_output, example):
             # print('ENTITIES EXTRACTED AS DICT KEYS INSTEAD OF VALUES')
