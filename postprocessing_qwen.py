@@ -13,6 +13,7 @@ from peft import PeftModel
 from tqdm import tqdm
 from log import qwen_14B_4bit as models_params
 adapters_list = generate_ft_adapters_list("qwen_14B_4bit")
+print(adapters_list)
 
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
