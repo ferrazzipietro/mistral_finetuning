@@ -45,9 +45,10 @@ llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
 from transformers import AutoTokenizer
 
+simplest_prompt = False
 task='finetuning'
 offset=False
-instruction_on_response_format='Extract the entities contained in the text and the offset, i.e. the position of that entity in the string. Extract only entities contained in the text.\nReturn the result in a json format.'
+instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format.'
 n_shots = 0
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT)
 list_of_examples=[]
