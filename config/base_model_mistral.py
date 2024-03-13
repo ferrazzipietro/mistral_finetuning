@@ -7,3 +7,5 @@ save_directory = f"data/mistral/7B_{n_bit}bit_base"
 BASE_MODEL_CHECKPOINT = "mistralai/Mistral-7B-Instruct-v0.2"# "google/gemma-7b-it" # "mistralai/Mistral-7B-Instruct-v0.2"
 instruction_on_response_format = 'Extract the entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
 simplest_prompt = False
+
+batch_size = 16
