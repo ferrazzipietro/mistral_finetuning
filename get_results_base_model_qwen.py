@@ -27,7 +27,7 @@ _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 
 load_in_4bit = False
-load_in_4bit = False
+load_in_8bit = False
 if base_model.n_bit==4:
     load_in_4bit = True
 if base_model.n_bit==8:
