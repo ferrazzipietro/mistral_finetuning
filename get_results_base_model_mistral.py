@@ -21,7 +21,8 @@ dataset = dataset[layer]
 preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
                                 tokenizer=base_model.BASE_MODEL_CHECKPOINT)
 
-dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,)
+dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,
+                                                 simplest_prompt=base_model.simplest_prompt)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 
@@ -65,7 +66,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                           n_shots_inference=n_shots_inference, 
                                           language=language, 
                                           tokenizer=tokenizer)
-        postprocessor.add_inference_prompt_column()
+        postprocessor.add_inference_prompt_column(simplest_prompt=base_model.simplest_prompt)
         postprocessor.add_ground_truth_column()
         print('TRY: ', f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv")
         postprocessor.add_responses_column(model=model, 
