@@ -22,7 +22,7 @@ preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOIN
 
 
 load_in_4bit = False
-load_in_4bit = False
+load_in_8bit = False
 if base_model.n_bit==4:
     load_in_4bit = True
 if base_model.n_bit==8:
