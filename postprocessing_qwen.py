@@ -5,13 +5,15 @@ from utils.evaluator import Evaluator
 from config import postprocessing_params_qwen as postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from log import qwen_14B_4bit as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 import gc
 from peft import PeftModel
 from tqdm import tqdm
+from log import qwen_14B_4bit as models_params
+adapters_list = generate_ft_adapters_list("qwen_14B_4bit")
+
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
@@ -50,7 +52,7 @@ bnb_config = BitsAndBytesConfig(
             )
 
 
-adapters_list = generate_ft_adapters_list("qwen_14B_4bit")
+
 # adapters_list = ['ferrazzipietro/Llama-2-13b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002']
 
 
@@ -83,7 +85,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             #try:
             postprocessor.add_responses_column(model=merged_model, 
                                             tokenizer=tokenizer, 
-                                            batch_size=12, 
+                                            batch_size=24, 
                                             max_new_tokens_factor=max_new_tokens_factor)
             postprocessor.test_data.to_csv(f"{postprocessing.save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             # except Exception as e:
