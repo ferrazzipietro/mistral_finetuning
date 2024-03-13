@@ -60,7 +60,6 @@ tokenizer.padding_side = "left"
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
         
-        # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
         postprocessor = TestDataProcessor(test_data=val_data, 
                                           preprocessor=preprocessor, 
                                           n_shots_inference=n_shots_inference, 
@@ -69,12 +68,9 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
         postprocessor.add_inference_prompt_column()
         postprocessor.add_ground_truth_column()
         print('TRY: ', f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv")
-        # try:
         postprocessor.add_responses_column(model=model, 
                                         tokenizer=tokenizer, 
                                         batch_size=base_model.batch_size, 
                                         max_new_tokens_factor=max_new_tokens_factor)
         postprocessor.test_data.to_csv(f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv", index=False)
-        # except Exception as e: 
-        #     print("ERROR IN PROCESSING: ", Exception)
-
+        print(f"Saved {save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv")

@@ -57,7 +57,7 @@ else:
                                                 return_dict=True, device_map= "auto", token=HF_TOKEN)
 
 tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=HF_TOKEN)
-tokenizer.pad_token = '<pad>'
+tokenizer.pad_token = '<unk>'
 tokenizer.padding_side = "left"
 
 
