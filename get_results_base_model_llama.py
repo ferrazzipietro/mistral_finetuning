@@ -29,6 +29,7 @@ if base_model.n_bit==8:
     load_in_8bit = True
 
 if load_in_4bit or load_in_8bit: 
+    print("Loading model with quantization: ", base_model.n_bit, " bit")
     bnb_config = BitsAndBytesConfig(
                 load_in_4bit=load_in_4bit,
                 load_in_8bit=load_in_8bit,
@@ -46,6 +47,7 @@ if load_in_4bit or load_in_8bit:
                 device_map= "auto",
                 token=HF_TOKEN)
 else:
+    print("Loading model without quantization")
     model = AutoModelForCausalLM.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                                                 return_dict=True, device_map= "auto", token=HF_TOKEN)
     
@@ -55,7 +57,7 @@ dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_respons
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=HF_TOKEN)
-tokenizer.pad_token = tokenizer.eos_token
+tokenizer.pad_token = tokenizer.unk_token
 tokenizer.padding_side = "left"
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
