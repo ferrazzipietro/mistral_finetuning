@@ -12,7 +12,7 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 from log import qwen_14B_4bit as models_params
-adapters_list = generate_ft_adapters_list("qwen_14B_4bit")
+adapters_list = generate_ft_adapters_list("qwen_14B_4bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 
@@ -89,6 +89,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                             batch_size=12, 
                                             max_new_tokens_factor=max_new_tokens_factor)
             postprocessor.test_data.to_csv(f"{postprocessing.save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
+            print('saved: ', f"{postprocessing.save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv")
             # except Exception as e:
             #     print("ERROR IN PROCESSING: ", Exception, adapters)
             del merged_model

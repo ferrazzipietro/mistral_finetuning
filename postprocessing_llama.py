@@ -10,7 +10,7 @@ import torch
 import gc
 from peft import PeftModel
 from tqdm import tqdm
-adapters_list = generate_ft_adapters_list("llama13B_4bits")
+adapters_list = generate_ft_adapters_list("llama13B_4bits", simplest_prompt=models_params.simplest_prompt)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
