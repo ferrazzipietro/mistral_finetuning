@@ -16,14 +16,14 @@ language = layer.split('.')[0]
 save_directory = base_model.save_directory 
 
 
-# dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
-# dataset = dataset[layer]
-# preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
-#                                 tokenizer=base_model.BASE_MODEL_CHECKPOINT)
+dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
+dataset = dataset[layer]
+preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
+                                tokenizer=base_model.BASE_MODEL_CHECKPOINT)
 
-# dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,
-#                                                  simplest_prompt=base_model.simplest_prompt)
-# _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
+dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,
+                                                 simplest_prompt=base_model.simplest_prompt)
+_, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 
 load_in_4bit = False
