@@ -1,5 +1,6 @@
 from datetime import datetime
-from .preprocessing_params import simplest_prompt
+
+simplest_prompt=False
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
 BASE_MODEL_CHECKPOINT="mistralai/Mistral-7B-Instruct-v0.2" #  "mistralai/Mistral-7B-v0.1"  # "mistralai/Mistral-7B-v0.1" # "mistralai/Mistral-7B-Instruct-v0.2"
@@ -23,12 +24,12 @@ bias =  "lora_only"
 task_type="CAUSAL_LM"
 target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]# substituted by the function find_all_linear_names()
 
-
+import torch
 quantization = False
-load_in_4bit=[True, False]
-bnb_4bit_quant_type = ["nf4","nf4"]
-bnb_4bit_compute_dtype = [torch.bfloat16, torch.bfloat16]
-llm_int8_threshold = [6.0, 6.0]
+load_in_4bit=[False]
+bnb_4bit_quant_type = ["nf4"]
+bnb_4bit_compute_dtype = [torch.bfloat16]
+llm_int8_threshold = [6.0]
 
 bnb_4bit_use_double_quant = True
 llm_int8_has_fp16_weight = True
@@ -37,7 +38,7 @@ llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
 offset=False
 instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'# 'Return the result in a json format.'
-simplest_prompt=False
+
 ### TrainingArguments
 num_train_epochs= 3
 per_device_train_batch_size= 8
