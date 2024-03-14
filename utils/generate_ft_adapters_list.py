@@ -8,6 +8,7 @@ def generate_ft_adapters_list(log_run_name: str, simplest_prompt:bool=False) -> 
     module_name = f"log.{log_run_name}"
     models_params = importlib.import_module(module_name)
     
+    quantization = models_params.quantization
     load_in_4bit_list = models_params.load_in_4bit
     bnb_4bit_quant_type_list = models_params.bnb_4bit_quant_type
     bnb_4bit_compute_dtype_list = models_params.bnb_4bit_compute_dtype
@@ -31,7 +32,9 @@ def generate_ft_adapters_list(log_run_name: str, simplest_prompt:bool=False) -> 
                         for learning_rate in learning_rate_list:
                             nbits = 4
                             if load_in_8bit:
-                                nbits = 8    
+                                nbits = 8   
+                            if not quantization:
+                                nbits = 'NoQuant'
                             if models_params.model_name.lower().startswith('qwen'):
                                 ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name.lower()}__adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
                             else:
