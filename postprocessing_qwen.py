@@ -11,8 +11,8 @@ import torch
 import gc
 from peft import PeftModel
 from tqdm import tqdm
-from log import qwen_14B_4bit as models_params
-adapters_list = generate_ft_adapters_list("qwen_14B_4bit", simplest_prompt=models_params.simplest_prompt)
+from log import qwen_7B_8bit as models_params
+adapters_list = generate_ft_adapters_list("qwen_7B_8bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 
@@ -29,7 +29,8 @@ dataset = dataset[layer]
 preprocessor = DataPreprocessor(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 
                                 tokenizer = models_params.BASE_MODEL_CHECKPOINT)
 dataset = preprocessor.preprocess_data_one_layer(dataset,
-                                                 models_params.instruction_on_response_format)
+                                                 models_params.instruction_on_response_format,
+                                                 simplest_prompt=models_params.simplest_prompt)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 load_in_4bit = models_params.load_in_4bit[0]
@@ -81,12 +82,12 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                               n_shots_inference=n_shots_inference, 
                                               language=language, 
                                               tokenizer=tokenizer)
-            postprocessor.add_inference_prompt_column(simplest_prompt=False)
+            postprocessor.add_inference_prompt_column(simplest_prompt=models_params.simplest_prompt)
             postprocessor.add_ground_truth_column()
             #try:
             postprocessor.add_responses_column(model=merged_model, 
                                             tokenizer=tokenizer, 
-                                            batch_size=36, 
+                                            batch_size=models_params.batch_size, 
                                             max_new_tokens_factor=max_new_tokens_factor)
             postprocessor.test_data.to_csv(f"{postprocessing.save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             print('saved: ', f"{postprocessing.save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv")
