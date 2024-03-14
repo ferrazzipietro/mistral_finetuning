@@ -32,6 +32,7 @@ def main(ADAPTERS_CHECKPOINT,
                           'time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
   
   find_llm_int8_skip_modules = False
+  load_in_8bit = not load_in_4bit
   if find_llm_int8_skip_modules:
     def find_all_linear_names(model):
       cls = bnb.nn.Linear4bit #if args.bits == 4 else (bnb.nn.Linear8bitLt if args.bits == 8 else torch.nn.Linear)
