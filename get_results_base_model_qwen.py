@@ -72,7 +72,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                           tokenizer=tokenizer)
         postprocessor.add_inference_prompt_column(simplest_prompt=False)
         postprocessor.add_ground_truth_column()
-        print('TRY: ', f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel.csv")
+        print('TRY: ', f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel_{base_model.BASE_MODEL_CHECKPOINT.split('/')[1]}_{base_model.n_bit}.csv")
         # try:
         postprocessor.add_responses_column(model=model, 
                                         tokenizer=tokenizer, 

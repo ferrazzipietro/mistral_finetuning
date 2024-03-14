@@ -201,7 +201,7 @@ class OutputCleaner():
             return False
         
         def is_list_of_dicts_of_lists(string:str)  -> bool:
-            print('STRING: ', string)
+            # print('STRING: ', string)
             if self._assess_model_output(string):
                 tmp = json.loads(string)
                 if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
