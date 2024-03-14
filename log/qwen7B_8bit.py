@@ -55,6 +55,7 @@ bnb_4bit_use_double_quant = True
 llm_int8_has_fp16_weight = True
 llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
+quantization=True
 
 
 offset=False

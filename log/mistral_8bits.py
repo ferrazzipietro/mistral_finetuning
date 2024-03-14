@@ -44,6 +44,7 @@ llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
 
 from transformers import AutoTokenizer
+quantization=True
 
 simplest_prompt = False
 task='finetuning'

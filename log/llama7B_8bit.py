@@ -34,6 +34,7 @@ target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]# substituted
 import torch
 
 simplest_prompt = False
+quantization=True
 load_in_4bit=[False]
 bnb_4bit_quant_type = ["nf4"]
 bnb_4bit_compute_dtype = [torch.bfloat16]

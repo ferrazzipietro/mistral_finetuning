@@ -36,6 +36,8 @@ import torch
     llm_int8_has_fp16_weight (bool, optional, defaults to False) – This flag runs LLM.int8() with 16-bit main weights. This is useful for fine-tuning 
                                                                     as the weights do not have to be converted back and forth for the backward pass.
 """
+quantization=True
+
 load_in_4bit=[True]
 bnb_4bit_quant_type = ["nf4"]
 bnb_4bit_compute_dtype = [torch.bfloat16]
