@@ -39,6 +39,7 @@ SHELL=/bin/bash
 ### Jobs execution commands
 conda activate gpu_venv_lates
 which python
+export 'PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512'
 
 python --version
 python  finetuning_iterative_qwen.py  #finetuning_v2.py # 
