@@ -1,6 +1,6 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=get_results_base_model_mistral
+#SBATCH --job-name=mistral_get_results_base_model_mistral
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it

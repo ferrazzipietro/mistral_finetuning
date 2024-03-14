@@ -6,8 +6,8 @@
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=qwen_postprocessing.err
-#SBATCH --output=qwen_postprocessing.out
+#SBATCH --error=postprocessing_qwen.err
+#SBATCH --output=postprocessing_qwen.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
@@ -22,7 +22,7 @@
 
 ### GPU request
 #SBATCH --gres=gpu
-####SBATCH --constraint=A6000
+#SBATCH --constraint=A6000
 ####SBATCH --constraint=vgpu5-1
 
 ### Some useful informative commands

@@ -8,4 +8,4 @@ BASE_MODEL_CHECKPOINT = "meta-llama/Llama-2-7b-chat-hf"# "google/gemma-7b-it" # 
 instruction_on_response_format = 'Extract the entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
 simplest_prompt = False
 
-batch_size = 16
+batch_size = 6

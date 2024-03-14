@@ -1,6 +1,6 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=get_results_base_model_llama
+#SBATCH --job-name=llama_get_results_base_model_llama
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
@@ -22,7 +22,7 @@
 
 ### GPU request
 #SBATCH --gres=gpu
-#SBATCH --constraint=A6000
+####SBATCH --constraint=A6000
 ####SBATCH --constraint=vgpu1-1
 
 ### Some useful informative commands

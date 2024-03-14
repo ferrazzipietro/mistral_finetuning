@@ -1,6 +1,6 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=get_results_base_model_qwen
+#SBATCH --job-name=qwen_get_results_base_model_qwen
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
@@ -22,8 +22,8 @@
 
 ### GPU request
 #SBATCH --gres=gpu
-####SBATCH --constraint=A6000
-####SBATCH --constraint=vgpu1-1
+#SBATCH --constraint=A6000
+#####SBATCH --constraint=vgpu2-1
 
 ### Some useful informative commands
 echo -n 'Date: '
