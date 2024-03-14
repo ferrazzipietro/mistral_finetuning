@@ -94,7 +94,7 @@ def main(ADAPTERS_CHECKPOINT,
   model = prepare_model_for_kbit_training(model)
 
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
-  tokenizer.pad_token = tokenizer.eos_token
+  tokenizer.pad_token = tokenizer.unk_token
   tokenizer.padding_side = 'right'
 
   preprocessor = DataPreprocessor(config.BASE_MODEL_CHECKPOINT, 
@@ -185,7 +185,6 @@ def main(ADAPTERS_CHECKPOINT,
   trainer.model.push_to_hub(ADAPTERS_CHECKPOINT, token=HF_TOKEN)
 
   wandb.finish()
-  wandb.finish()
   del model
   del trainer
   del tokenizer
@@ -234,3 +233,5 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
                   load_in_4bit, bnb_4bit_quant_type, bnb_4bit_compute_dtype, llm_int8_threshold,
                   r, lora_alpha, lora_dropout,
                   gradient_accumulation_steps,learning_rate)
+            gc.collect()
+            torch.cuda.empty_cache()
