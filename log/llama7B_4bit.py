@@ -32,6 +32,7 @@ task_type="CAUSAL_LM"
 target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]# substituted by the function find_all_linear_names()
 
 import torch
+simplest_prompt = False
 
 quantization=True
 load_in_4bit=[True]

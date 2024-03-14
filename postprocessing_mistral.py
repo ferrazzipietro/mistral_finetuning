@@ -86,7 +86,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             except Exception as e:
                 print("ERROR IN PROCESSING: ", Exception, adapters)
             del merged_model
-            if not models_params.quantization: del base_model
+            if models_params.quantization: del base_model
             del tokenizer
             gc.collect()
             torch.cuda.empty_cache()
