@@ -3,14 +3,15 @@ from datasets import load_dataset, Dataset
 from utils.data_preprocessor import DataPreprocessor
 from config import postprocessing_params_llama as postprocessing
 from utils.test_data_processor import TestDataProcessor
-from log import llama13B_4bits as models_params
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 import gc
 from peft import PeftModel
 from tqdm import tqdm
-adapters_list = generate_ft_adapters_list("llama13B_4bits", simplest_prompt=models_params.simplest_prompt)
+
+from log import llama7B_8bit as models_params
+adapters_list = generate_ft_adapters_list("llama7B_8bit", simplest_prompt=models_params.simplest_prompt)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
@@ -78,7 +79,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             #try:
             postprocessor.add_responses_column(model=merged_model, 
                                             tokenizer=tokenizer, 
-                                            batch_size=24, 
+                                            batch_size=models_params.batch_size, 
                                             max_new_tokens_factor=max_new_tokens_factor)
             postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             # except Exception as e:

@@ -49,7 +49,7 @@ task='finetuning'
 offset=False
 instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
 n_shots = 0
-tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT)
+#tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT)
 list_of_examples=[]
 list_of_responses=[]
 
