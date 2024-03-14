@@ -71,13 +71,15 @@ def main(ADAPTERS_CHECKPOINT,
   if not model_loading_params.quantization:
     model = AutoModelForCausalLM.from_pretrained(
       config.BASE_MODEL_CHECKPOINT,
-      device_map="auto"
+      device_map="auto",
+      token=LLAMA_TOKEN
       )
   else:
     model = AutoModelForCausalLM.from_pretrained(
         config.BASE_MODEL_CHECKPOINT,
         quantization_config=bnb_config,
-        device_map="auto"
+        device_map="auto",
+        token=LLAMA_TOKEN
     )
 
   model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
