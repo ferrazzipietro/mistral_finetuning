@@ -81,17 +81,18 @@ def main(ADAPTERS_CHECKPOINT,
         device_map="auto",
         token=LLAMA_TOKEN
     )
+    """
+    prepare_model_for_kbit_training wraps the entire protocol for preparing a model before running a training. 
+            This includes:  1- Cast the layernorm in fp32 
+                            2- making output embedding layer require gradient (needed as you are going to train (finetune) the model)
+                            3- upcasting the model's head to fp32 for numerical stability
+    """
+    model = prepare_model_for_kbit_training(model)
 
   model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
   model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
   #Adding the adapters in the layers
-  """
-  prepare_model_for_kbit_training wraps the entire protocol for preparing a model before running a training. 
-          This includes:  1- Cast the layernorm in fp32 
-                          2- making output embedding layer require gradient (needed as you are going to train (finetune) the model)
-                          3- upcasting the model's head to fp32 for numerical stability
-  """
-  model = prepare_model_for_kbit_training(model)
+
 
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
   tokenizer.pad_token = tokenizer.unk_token
