@@ -39,7 +39,7 @@ SHELL=/bin/bash
 ### Jobs execution commands
 conda activate gpu_venv_lates
 which python
-export 'PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512'
+export 'PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:256'
 
 python --version
 python  get_results_base_model_mistral.py
