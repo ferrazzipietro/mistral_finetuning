@@ -61,16 +61,19 @@ bnb_config = BitsAndBytesConfig(
     # llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],# model_loading_params.llm_int8_skip_modules,
     # llm_int8_has_fp16_weight= True# model_loading_params.llm_int8_has_fp16_weight
 )
+if not model_loading_params.quantization:
+    model = AutoModelForCausalLM.from_pretrained(
+      config.BASE_MODEL_CHECKPOINT,
+      device_map="auto"
+      )
+else:
+    model = AutoModelForCausalLM.from_pretrained(
+        config.BASE_MODEL_CHECKPOINT,
+        quantization_config=bnb_config,
+        device_map="auto"
+    )
+    model = prepare_model_for_kbit_training(model)
 
-model_id = config.BASE_MODEL_CHECKPOINT
-
-model = AutoModelForCausalLM.from_pretrained(
-    config.BASE_MODEL_CHECKPOINT,
-    # quantization_config=bnb_config,
-    device_map="auto",
-    # d_type=torch.bfloat16,
-#    cache_dir='/data/disk1/share/pferrazzi/.cache'
-)
 model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
 model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
 #Adding the adapters in the layers
@@ -80,7 +83,7 @@ prepare_model_for_kbit_training wraps the entire protocol for preparing a model 
                         2- making output embedding layer require gradient (needed as you are going to train (finetune) the model)
                         3- upcasting the model's head to fp32 for numerical stability
 """
-model = prepare_model_for_kbit_training(model)
+
 
 tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, 
                                           add_eos_token=True)
