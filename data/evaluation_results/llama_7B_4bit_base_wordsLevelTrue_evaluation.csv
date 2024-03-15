@@ -1,16 +1,1 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
-data/llama/7B_4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,,100,0.047593865679534636,0.7142857142857143,0.02461706783369803
-data/llama/7B_4bit_base/maxNewTokensFactor2_nShotsInference0_BaseModel.csv,,100,0.004016797516888807,0.5789473684210527,0.002015390252839868
-data/llama/7B_4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel.csv,,100,0.24580698377783888,0.16792937198672594,0.4583831823619894
-data/llama/7B_4bit_base/maxNewTokensFactor2_nShotsInference4_BaseModel.csv,,100,0.1492583918813427,0.10477095053700591,0.2594066570188133
-data/llama/7B_4bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel.csv,,100,0.26136889876817637,0.28626496246703187,0.24045671438309474
-data/llama/7B_4bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel.csv,,100,0.15673679139232377,0.14208764012228856,0.1747538048343778
-data/llama/7B_4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,,100,0.17339149400218104,0.15687103594080337,0.19380114922514366
-data/llama/7B_4bit_base/maxNewTokensFactor4_nShotsInference4_BaseModel.csv,,100,0.22440459246607838,0.15463580489080686,0.4088865836791148
-data/llama/7B_4bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel.csv,,100,0.2556776063077027,0.20924332671519966,0.32859864888272994
-data/llama/7B_4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel.csv,,100,0.011613137361640356,0.5818181818181818,0.005865102639296188
-data/llama/7B_4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv,,100,0.27499511496124535,0.22286739864864866,0.35895255908859036
-data/llama/7B_4bit_base/maxNewTokensFactor2_nShotsInference3_BaseModel.csv,,100,0.1907280875762251,0.16134244872591672,0.233201581027668
-data/llama/7B_4bit_base/maxNewTokensFactor2_nShotsInference2_BaseModel.csv,,100,0.12218972001671542,0.11305289205072688,0.13293326059283506
-data/llama/7B_4bit_base/maxNewTokensFactor2_nShotsInference1_BaseModel.csv,,100,0.1823290665001561,0.21518054532056005,0.1581798483206934
-data/llama/7B_4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv,,100,0.2979331204839523,0.3132508833922262,0.2840435757769946
