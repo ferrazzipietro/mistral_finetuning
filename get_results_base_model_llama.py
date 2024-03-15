@@ -2,7 +2,7 @@ from dotenv import dotenv_values
 from datasets import load_dataset
 from utils.data_preprocessor import DataPreprocessor
 from utils.test_data_processor import TestDataProcessor
-from data.mistral.noQuant import base_model_llama as base_model
+from config import base_model_llama as base_model
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 
