@@ -7,7 +7,7 @@ import warnings
 class DataPreprocessor():
 
 
-    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer) -> None:
+    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='') -> None:
 
         self.offset = None
         self.instruction_on_response_format = ''
@@ -18,7 +18,7 @@ class DataPreprocessor():
             raise ValueError("The model type must be either 'mistral', 'llama', 'gemma' or 'qwen'")
 
         if isinstance(tokenizer, str):
-            self.tokenizer = AutoTokenizer.from_pretrained(tokenizer)
+            self.tokenizer = AutoTokenizer.from_pretrained(tokenizer, token = token_llama)
         else:
             self.tokenizer = tokenizer
         

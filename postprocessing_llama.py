@@ -10,8 +10,8 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-from log import llama7B_4bit as models_params
-adapters_list = generate_ft_adapters_list("llama7B_4bit", simplest_prompt=models_params.simplest_prompt)
+from log import llama13B_4bit as models_params
+adapters_list = generate_ft_adapters_list("llama13B_4bit", simplest_prompt=models_params.simplest_prompt)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
@@ -23,8 +23,10 @@ language = layer.split('.')[0]
 
 dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
 dataset = dataset[layer]
+tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
+                                         token=LLAMA_TOKEN)
 preprocessor = DataPreprocessor(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 
-                                tokenizer = models_params.BASE_MODEL_CHECKPOINT)
+                                tokenizer = tokenizer)
 dataset = preprocessor.preprocess_data_one_layer(dataset,
                                                  models_params.instruction_on_response_format)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
@@ -33,6 +35,8 @@ _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
         for adapters in tqdm(adapters_list, desc="adapters_list"):
+            if adapters.endswith("0.0008"):
+                continue
             print("PROCESSING:", adapters)
             if not models_params.quantization:
                 print("NO QUANTIZATION")
@@ -40,7 +44,8 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                     return_dict=True,  
                     torch_dtype=postprocessing.torch_dtype,
-                    device_map= "auto")    
+                    device_map= "auto",
+                    token=LLAMA_TOKEN)    
             else:
                 print("QUANTIZATION")
                 load_in_8bit = not models_params.load_in_4bit[0]
@@ -68,7 +73,8 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     quantization_config = bnb_config,
                     return_dict=True,  
                     #torch_dtype=torch.float16,
-                    device_map= "auto")
+                    device_map= "auto",
+                    token=LLAMA_TOKEN)
                 merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                                       token=LLAMA_TOKEN)
