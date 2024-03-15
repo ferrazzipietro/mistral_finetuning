@@ -7,18 +7,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
+LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
 
 max_new_tokens_factor_list = base_model.max_new_tokens_factor_list
 n_shots_inference_list = base_model.n_shots_inference_list
 layer = base_model.TRAIN_LAYER
 language = layer.split('.')[0]
 save_directory = base_model.save_directory 
-
-
-dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
-dataset = dataset[layer]
-preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
-                                tokenizer=base_model.BASE_MODEL_CHECKPOINT)
 
 
 load_in_4bit = False
@@ -45,20 +40,28 @@ if load_in_4bit or load_in_8bit:
                 return_dict=True, 
                 #torch_dtype=torch.float16,
                 device_map= "auto",
-                token=HF_TOKEN)
+                token=LLAMA_TOKEN)
 else:
     print("Loading model without quantization")
     model = AutoModelForCausalLM.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
-                                                return_dict=True, device_map= "auto", token=HF_TOKEN)
-    
+                                                return_dict=True, 
+                                                device_map= "auto", 
+                                                token=LLAMA_TOKEN,
+                                                torch_dtype=base_model.torch_dtype)
+
+tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
+tokenizer.pad_token = tokenizer.unk_token
+tokenizer.padding_side = "left"
+preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
+                                tokenizer=tokenizer)
+
+
+dataset = load_dataset("ferrazzipietro/e3c-sentences", token=LLAMA_TOKEN)
+dataset = dataset[layer]
 dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,
                                                  simplest_prompt=base_model.simplest_prompt)
 
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
-
-tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=HF_TOKEN)
-tokenizer.pad_token = tokenizer.unk_token
-tokenizer.padding_side = "left"
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
