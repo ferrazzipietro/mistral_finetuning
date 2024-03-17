@@ -35,7 +35,7 @@ def generate_ft_adapters_list(log_run_name: str, simplest_prompt:bool=False) -> 
                                 nbits = 8   
                             if not quantization:
                                 nbits = 'NoQuant'
-                            if models_params.model_name.lower().startswith('qwen'):
+                            if models_params.model_name.lower().startswith('qwen') or (not quantization and models_params.BASE_MODEL_CHECKPOINT == "mistralai/Mistral-7B-Instruct-v0.2"):
                                 ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name.lower()}__adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
                             else:
                                 ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name.lower()}_adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
