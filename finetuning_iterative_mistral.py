@@ -219,6 +219,8 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
             nbits = 4
             if load_in_8bit:
               nbits = 8
+            if not model_loading_params.quantization:
+              nbits = 'NoQuant'
             extra_str = ""
             if preprocessing_params.simplest_prompt:
               extra_str = "simplest_prompt"
