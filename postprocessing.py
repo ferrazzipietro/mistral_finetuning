@@ -78,7 +78,7 @@ postprocessor.add_ground_truth_column()
 try:
         postprocessor.add_responses_column(model=merged_model, 
                                         tokenizer=tokenizer, 
-                                        batch_size=34, 
+                                        batch_size=46, 
                                         max_new_tokens_factor=max_new_tokens_factor)
         postprocessor.test_data.to_csv(f"data/TMP_maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
 except Exception as e:
