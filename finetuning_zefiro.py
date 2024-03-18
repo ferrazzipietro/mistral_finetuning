@@ -155,6 +155,8 @@ training_arguments = TrainingArguments(
     # remove_unused_columns=False
 )
 
+print("ESEMPIO DEI DATI: ", train_data[0])
+
 trainer = SFTTrainer(
     model=model,
     train_dataset=train_data,

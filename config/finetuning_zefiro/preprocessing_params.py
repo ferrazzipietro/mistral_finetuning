@@ -1,3 +1,3 @@
 offset=False
-instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'# 'Return the result in a json format.'
+instruction_on_response_format='Estrai le entità contenute nel testo.\nRiporta i risultati in formato json: [{"entity":"nome_entità"}].'# 'Return the result in a json format.'
 simplest_prompt=False
