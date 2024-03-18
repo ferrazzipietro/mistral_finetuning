@@ -37,7 +37,7 @@ _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 if not quantization:
     print("NO QUANTIZATION")
-    merged_model = AutoModelForCausalLM.from_pretrained(
+    base_model = AutoModelForCausalLM.from_pretrained(
         BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
         return_dict=True,  
         torch_dtype=postprocessing.torch_dtype,
@@ -61,7 +61,7 @@ if not quantization:
     #     return_dict=True,  
     #     #torch_dtype=torch.float16,
     #     device_map= "auto")
-    # merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
+merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, add_eos_token=True)
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
