@@ -6,8 +6,8 @@
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=zefiro_finetuning_iterative.err
-#SBATCH --output=zefiro_finetuning_iterative.out
+#SBATCH --error=finetuning_iterative_zefiro.err
+#SBATCH --output=finetuning_iterative_zefiro.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
