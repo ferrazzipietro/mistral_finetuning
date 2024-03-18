@@ -1,1 +1,16 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/llama/13B_4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,,100,0.4068312083284595,0.5925042589437819,0.3097613110081938
+data/llama/13B_4bit_base/maxNewTokensFactor2_nShotsInference0_BaseModel.csv,,100,0.058368495077355836,0.7063829787234043,0.030441958554923897
+data/llama/13B_4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel.csv,,100,0.5387867647058823,0.619661733615222,0.4765853658536585
+data/llama/13B_4bit_base/maxNewTokensFactor2_nShotsInference4_BaseModel.csv,,100,0.37367088607594934,0.6502202643171806,0.26216696269982237
+data/llama/13B_4bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel.csv,,100,0.4229240282685512,0.634315998675058,0.31721053503395724
+data/llama/13B_4bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel.csv,,100,0.39138553466948833,0.6867627785058977,0.2736768802228412
+data/llama/13B_4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,,100,0.39536847183693163,0.6792374637380854,0.2788363388907792
+data/llama/13B_4bit_base/maxNewTokensFactor4_nShotsInference4_BaseModel.csv,,100,0.5173470396362558,0.6355026711996115,0.43623937322887146
+data/llama/13B_4bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel.csv,,100,0.4489527360456191,0.6481950601646612,0.34339875859755076
+data/llama/13B_4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel.csv,,100,0.3336449846400427,0.6292191435768262,0.22700836059614685
+data/llama/13B_4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv,,100,0.46226712977581313,0.6455026455026455,0.3600590260698475
+data/llama/13B_4bit_base/maxNewTokensFactor2_nShotsInference3_BaseModel.csv,,100,0.35197710718002084,0.6580739299610895,0.240234375
+data/llama/13B_4bit_base/maxNewTokensFactor2_nShotsInference2_BaseModel.csv,,100,0.3295890410958904,0.7006406523005242,0.21547555077915098
+data/llama/13B_4bit_base/maxNewTokensFactor2_nShotsInference1_BaseModel.csv,,100,0.32879200726612173,0.6319201995012469,0.22220273588214662
+data/llama/13B_4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv,,100,0.43414076307308447,0.6240286909742977,0.3328550932568149

@@ -1,3 +1,0 @@
-file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
-data/mistral/noQuant/maxNewTokensFactor6_nShotsInference0_BaseModel.csv,,100,0.48605108055009827,0.5590960451977401,0.42988705473501304
-data/mistral/noQuant/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,,100,0.3715747583854463,0.3016429758168728,0.4837181764357608

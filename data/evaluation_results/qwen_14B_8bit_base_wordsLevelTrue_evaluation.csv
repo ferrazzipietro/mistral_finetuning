@@ -1,1 +1,2 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/qwen/14B_8bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel.csv,,100,0.18377381684081126,0.573346116970278,0.10942360475754803

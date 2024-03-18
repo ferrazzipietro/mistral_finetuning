@@ -1,1 +1,3 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/qwen/7B_8bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel.csv,,100,0.463520197856554,0.560568295114656,0.39511595221363316
+data/qwen/7B_8bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.4676719686015286,0.5652933832709114,0.3988021842522459

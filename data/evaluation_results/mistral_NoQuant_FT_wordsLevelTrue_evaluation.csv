@@ -1,0 +1,3 @@
+file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference0_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_2_0.0002.csv,,100,0.6596727622714148,0.7384184443007973,0.5961036702035136
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference0_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_4_0.0002.csv,,100,0.6360190494703081,0.7279199110122359,0.5647221263375906

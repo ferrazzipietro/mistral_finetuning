@@ -63,9 +63,13 @@ class OutputCleaner():
     
     def _clean_ground_truth(self, example: dict) -> dict:
         ground_truth = example['ground_truth']
+        # print('inner ground truth: ', ground_truth)
         ground_truth = self._remove_json_special_chars(ground_truth)
-        if ground_truth == ']':
-            ground_truth = '[' + ground_truth
+        if '</s>' in ground_truth:
+            ground_truth = ground_truth.replace('</s>', '')
+        if ground_truth.strip() == ']':
+            ground_truth = '[]'
+        # print('mid ground truth: ', ground_truth)
         return({'ground_truth': ground_truth})
 
     def _clean_model_output(self, example: dict,  wrong_keys_to_entity:bool, latest_version:bool=True) -> dict:
@@ -141,6 +145,22 @@ class OutputCleaner():
                 if isinstance(tmp, list) and all(isinstance(item, str) for item in tmp):
                     return True
             return False
+
+        def is_list_of_empty_dict(string:str)  -> bool:
+            if self._assess_model_output(string):
+                tmp = json.loads(string)
+                print('TMP: ', tmp)
+                if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
+                    if all(str(item) == "{}" for item in tmp):
+                        return True
+            return False
+
+        def is_list_with_one_empty_dict(string:str)  -> bool:
+            if self._assess_model_output(string):
+                tmp = json.loads(string)
+                if isinstance(tmp, list) and len(tmp) == 1 and isinstance(tmp[0], dict) and tmp[0] == {}:
+                    return True
+            return False
         
         def is_list_of_dict_numeric_values(string:str)  -> bool:
             #print('STRING: ', string)
@@ -204,8 +224,10 @@ class OutputCleaner():
             # print('STRING: ', string)
             if self._assess_model_output(string):
                 tmp = json.loads(string)
+                # print('TMP: ', tmp)
                 if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
                     for item in tmp:
+                        # print('item: ',item)
                         tmp2 = list(item.values())[0]
                         if len(tmp2) > 0:
                             if isinstance(list(item.values())[0], list):
@@ -268,8 +290,9 @@ class OutputCleaner():
             return operations_performed, str(out)
         
 
-        model_output = example['model_responses']      
+        model_output = example['model_responses']   
         if self.verbose: print('ORIGINAL MODEL OUTPUT:  ', model_output)
+        if self.verbose: print('GROUND TRUTH: ', example['ground_truth'])
         # model_output = self._exceptions_handler(model_output)
         
         if model_output is None or is_empty_list(model_output):
@@ -288,6 +311,7 @@ class OutputCleaner():
         if is_numeric(model_output):
             # print('IS NUMERIC')
             return {'model_output':'[{"entity":""}]'}
+
         
         if is_list_of_strings_representing_dicts(model_output):
             # print('is_list_of_strings_representing_dicts')                
@@ -354,13 +378,17 @@ class OutputCleaner():
                 tmp = json.loads(model_output)
                 tmp = [str({"entity":v}) for el in tmp for v in el.values() if v is not None]
                 model_output = str(tmp)
+                    
+            if is_list_of_empty_dict(model_output):
+                # print('is_list_of_empty_dict')
+                return {'model_output':'[{"entity":""}]'}
             
             if is_list_of_dicts_of_lists(model_output):
                 if self.verbose: print('is_list_of_dicts_of_lists')
                 tmp = json.loads(model_output)
                 tmp = [{"entity":v} for el in tmp for v in el.values() if not isinstance(v, list)]
                 return {'model_output':str(tmp)}  
-            
+                
             # print('CLEANED:  ', model_output)
             cleaning_done, cleaned_model_output = only_dicts_with_key_entity(model_output, wrong_keys_to_entity=wrong_keys_to_entity)
             if cleaning_done:
@@ -449,6 +477,7 @@ class OutputCleaner():
         return:
         str: the model response, i.e. the model output without the instruction
         """
+        print('sAPPLY CLEANING')
         data = data.map(lambda x: self._clean_ground_truth(x), remove_columns=['ground_truth'])
         data = data.map(lambda x: self._clean_model_output(x, wrong_keys_to_entity)) 
         return data
