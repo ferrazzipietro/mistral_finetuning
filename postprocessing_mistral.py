@@ -30,7 +30,7 @@ dataset = dataset[layer]
 preprocessor = DataPreprocessor(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 
                                 tokenizer = models_params.BASE_MODEL_CHECKPOINT)
 dataset = preprocessor.preprocess_data_one_layer(dataset,
-                                                 simplest_prompt=simplest_prompt=models_params.simplest_prompt)
+                                                 simplest_prompt=models_params.simplest_prompt)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 
