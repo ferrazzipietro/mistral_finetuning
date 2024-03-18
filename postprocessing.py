@@ -13,7 +13,7 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-adapters = "ferrazzipietro/Mistral-7B-Instruct-v0.2__adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.0002"
+adapters = "ferrazzipietro/Mistral-7B-Instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002"
 print(adapters)
 BASE_MODEL_CHECKPOINT = 'mistralai/Mistral-7B-Instruct-v0.2'
 
