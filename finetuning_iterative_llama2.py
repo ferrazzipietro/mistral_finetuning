@@ -99,7 +99,7 @@ def main(ADAPTERS_CHECKPOINT,
   tokenizer.add_special_tokens({"pad_token":"<pad>"})
   model.resize_token_embeddings(len(tokenizer))
   model.config.pad_token_id = tokenizer.pad_token_id
-  model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
+  # model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
   # tokenizer.pad_token = tokenizer.unk_token
   tokenizer.padding_side = 'right'
 
