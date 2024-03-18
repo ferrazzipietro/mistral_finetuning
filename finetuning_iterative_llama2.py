@@ -95,8 +95,9 @@ def main(ADAPTERS_CHECKPOINT,
 
   import torch.nn as nn
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
+ 
   tokenizer.add_special_tokens({"pad_token":"<pad>"})
-  tokenizer.resize_token_embeddings(len(tokenizer))
+  model.resize_token_embeddings(len(tokenizer))
   model.config.pad_token_id = tokenizer.pad_token_id
   model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
   # tokenizer.pad_token = tokenizer.unk_token
