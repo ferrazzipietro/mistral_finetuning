@@ -6,16 +6,15 @@ from config.finetuning import config
 from config import postprocessing_params_mistral as postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
-from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-adapters = "ferrazzipietro/Mistral-7B-Instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002"
+adapters = "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002" # "ferrazzipietro/Mistral-7B-Instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002"
 print(adapters)
-BASE_MODEL_CHECKPOINT = 'mistralai/Mistral-7B-Instruct-v0.2'
+BASE_MODEL_CHECKPOINT = "meta-llama/Llama-2-7b-chat-hf"  # 'mistralai/Mistral-7B-Instruct-v0.2'
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 
