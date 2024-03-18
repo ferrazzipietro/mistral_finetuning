@@ -13,8 +13,8 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-from log import mistral_8bit as models_params
-adapters_list = generate_ft_adapters_list("mistral_8bit", simplest_prompt=models_params.simplest_prompt)
+from log import mistralNoQuant as models_params
+adapters_list = generate_ft_adapters_list("mistralNoQuant", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -40,7 +40,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             print("PROCESSING:", adapters)
             if not models_params.quantization:
                 print("NO QUANTIZATION")
-                merged_model = AutoModelForCausalLM.from_pretrained(
+                base_model = AutoModelForCausalLM.from_pretrained(
                     models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                     return_dict=True,  
                     torch_dtype=postprocessing.torch_dtype,
@@ -64,7 +64,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     return_dict=True,  
                     #torch_dtype=torch.float16,
                     device_map= "auto")
-                merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
+            merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=True)
             tokenizer.pad_token = tokenizer.eos_token
             tokenizer.padding_side = "left"
