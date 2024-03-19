@@ -2,23 +2,58 @@
 library(ggplot2)
 library(tidyverse)
 
-data <- read.csv("/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_results.csv")
+data <- read.csv("/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_results_v2.csv")
 data %>% head(3)
 
-show_results_grouped <- function(data){
+plot_results <- function(res, col_name, model_type) {
+  ggplot(res, aes_string(x = col_name, y = "f1")) +
+    # aes(group = col_name)
+    geom_bar(stat = "identity", fill = "skyblue") +
+    labs(x = col_name, y = "Mean F1 Score", title = paste("Mean F1 Score by", col_name, 'model = ', model_type)) +
+    theme_minimal()
+}
+
+plot_boxplots <- function(data, col_name, model_type) {
+  ggplot(data, aes_string(x = col_name, y = "f1_score", group=col_name)) +
+    geom_boxplot(fill = "skyblue") +
+    labs(title = paste("Box plot of F1 Score by", col_name, "  | ", model_type), y = "F1 Score") +
+    theme_minimal()
+}
+
+show_results_grouped_finetuning <- function(data,
+                                            model_type,
+                                            f1_minimum_threshold=0){
   cols <- c('maxNewTokensFactor', 'nShotsInference', 'nbit', 'r', 'lora_alpha', 'lora_dropout', 'gradient_accumulation_steps', 'learning_rate')
+  data <- data %>% 
+    filter(fine_tuning == 'FT',
+      !is.na(data['f1_score']),
+      f1_score > f1_minimum_threshold,
+      model_type == model_type
+    )
   for (i in 1:length(cols)){
     print(cols[i])
+    
     res <- data %>% 
       #filter(model==model_name) %>%
-      group_by(model,
-               !!sym(cols[i])) %>%
-      summarise(f1=mean(f1_score),
-                precision=mean(precision),
-                recall=mean(recall))
-    print(res)
+      group_by(# model,
+        !!sym(cols[i])
+        )
+    print(plot_boxplots(res, as.character(cols[i]),
+                        model_type))
+    
+    # 
+    # aggregated <- res %>%
+    #   summarise(n_obs = n(),
+    #     f1=mean(f1_score),
+    #     precision=mean(precision),
+    #     recall=mean(recall))
+    # p <- plot_results(aggregated, cols[i], model_type)
+    # print(p)
   }
 }
 
-show_results_grouped(data)
+show_results_grouped_finetuning(data,
+                                model_type='mistral',
+                                f1_minimum_threshold=0.3)
 
+                
