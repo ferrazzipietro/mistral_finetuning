@@ -1,3 +1,12 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/qwen/7B_8bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.5108451757666418,0.5553974385037609,0.47290981478275923
+data/qwen/7B_8bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.532484989694417,0.5506950880444856,0.515440666204025
+data/qwen/7B_8bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.49150044217352856,0.5598835907768077,0.43800350262697024
+data/qwen/7B_8bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.5125702182521411,0.5595094491355046,0.47289719626168225
 data/qwen/7B_8bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel.csv,,100,0.463520197856554,0.560568295114656,0.39511595221363316
+data/qwen/7B_8bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.49302055060100813,0.5740406320541761,0.43204213387699625
+data/qwen/7B_8bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.4973689339310076,0.5567190226876091,0.44945403311025006
+data/qwen/7B_8bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.5204925565153464,0.5551852577925896,0.48988064348728594
+data/qwen/7B_8bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.5094430992736078,0.5752405949256343,0.45715278984877455
+data/qwen/7B_8bit_base/maxNewTokensFactor4_nShotsInference4_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.5083420726475356,0.560437250367879,0.46510816468946264
 data/qwen/7B_8bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Qwen1.5-7B-Chat_8.csv,,100,0.4676719686015286,0.5652933832709114,0.3988021842522459

@@ -5,6 +5,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.5769749818332814,0.7387028176501861,0.4733435530574008
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0008.csv,,100,0.4304207119741101,0.8142857142857143,0.2925219941348974
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.0002.csv,,100,0.5556577736890524,0.6742743736045647,0.47253129346314326
+data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.0002.csv,,100,0.45225225225225224,0.7736679876706297,0.3195126386615748
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0002.csv,,100,0.4102357984994641,0.7732323232323233,0.2791757840991977
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.6343825665859565,0.7431359201270705,0.5533964177086854
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.4085702735480394,0.7818463125322331,0.276541408245166
@@ -26,7 +27,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.6678158089140606,0.6848484848484848,0.6516098029793369
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.0008.csv,,100,0.5993388077210194,0.7617240444564922,0.4940225035161744
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0002.csv,,100,0.4853243145307405,0.7513089005235603,0.3584299732381802
-data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.6108031939877876,0.6976394849785408,0.5431913116123642
+data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.6106726794438181,0.6975745868212063,0.5430242272347535
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.0002.csv,,100,0.4215594489768624,0.8012201321809863,0.28602540834845736
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.0002.csv,,100,0.6311713455953534,0.7322551662174304,0.5546104117046614
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.0002.csv,,100,0.6553772070626002,0.6656341701988914,0.6454315523237433
@@ -34,9 +35,11 @@ data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0002.csv,,100,0.5634658329611434,0.5921892602328201,0.5373998977679332
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0008.csv,,100,0.4717097932400644,0.7544554455445545,0.34311959654178675
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.41976305869682284,0.8015424164524422,0.2843333941273026
+data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.4169853619939338,0.77046783625731,0.2858434279515458
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0002.csv,,100,0.5820400299689608,0.7750855188141391,0.46598114824335907
-data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.0002.csv,,100,0.5797330696984676,0.6902071563088512,0.4997443327083688
+data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.0002.csv,,100,0.579452190250173,0.6900612341026848,0.499403442986194
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.436864633493847,0.8222557905337362,0.29744990892531875
+data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.0008.csv,,100,0.6836539873696579,0.656929156082416,0.7126454378444581
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.6056549105804775,0.740894646785627,0.5121662723893207
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0002.csv,,100,0.6238224046264342,0.7188306104901118,0.5509968693359697
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.5491282968261063,0.5887653374233128,0.5144915396213772
@@ -49,7 +52,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.0002.csv,,100,0.5999597342460238,0.7422166874221668,0.5034634228754857
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.46287829305464834,0.5987045902562659,0.37728482697426796
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.0008.csv,,100,0.6756580661975502,0.6152842055298445,0.7491691952030054
-data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.6351641101764802,0.6566069906223359,0.6150774636639514
+data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.6351039260969977,0.6566604127579737,0.6149177447692062
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.5161444630471179,0.765791341376863,0.38924963924963923
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.426798345122114,0.8092105263157895,0.28983143012506796
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.4810634033125857,0.5981112277019937,0.4023292747485442
@@ -67,17 +70,20 @@ data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.5779906389463372,0.7799647473560517,0.45910427113954694
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0002.csv,,100,0.5784002626107889,0.7739385065885798,0.4617400419287212
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_2_0.0002.csv,,100,0.6945808563797709,0.7323764534883721,0.6604948386039653
-data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0002.csv,,100,0.44760672703751614,0.7785778577857786,0.3140885984023239
+data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0002.csv,,100,0.44740587398111015,0.7784781629896443,0.3139070442992012
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.5693008780704679,0.781030802073803,0.4478838754809374
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0002.csv,,100,0.42137445168151005,0.7956827309236948,0.2865666244802025
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_4_0.0008.csv,,100,0.6885535617183252,0.6622646443514645,0.7170158550396376
+data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.0002.csv,,100,0.6339616290811174,0.6542202153525529,0.6149200130590924
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.0008.csv,,100,0.45061483538278463,0.8168744007670182,0.3111192258535695
+data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0002.csv,,100,0.6057812349947181,0.6980965028773793,0.5350296861747244
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0008.csv,,100,0.4638319937775473,0.8036837376460018,0.32598396501457727
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.5626458354468905,0.6826686361398326,0.47851596203623814
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.0002.csv,,100,0.5069402534701267,0.7636363636363637,0.3794037940379404
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.0008.csv,,100,0.656036036036036,0.7082279712118265,0.611008558482967
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.0008.csv,,100,0.39703413542249577,0.8298245614035088,0.26094152261860976
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_4_0.0002.csv,,100,0.6813035495716036,0.6888923267326733,0.6738801452784504
+data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.6332003192338388,0.6426372914304228,0.6240364952021393
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_4_0.0002.csv,,100,0.5583529148483831,0.7676923076923077,0.4387198874626341
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.0002.csv,,100,0.5755307147984822,0.7222651222651223,0.47834981247869074
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0002.csv,,100,0.42003491338794136,0.8024628014366342,0.28446707893779555
@@ -86,6 +92,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0008.csv,,100,0.680831767830537,0.6111175718106756,0.7684995612752267
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_2_0.0008.csv,,100,0.38911718860705685,0.8246246246246246,0.2546364985163205
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.0002.csv,,100,0.4438580287636892,0.8117760617760618,0.3054294534229163
+data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.0002.csv,,100,0.6117107651160569,0.6927736910428386,0.547631263896015
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_4_0.0008.csv,,100,0.6995653748641796,0.7359497047056582,0.666609145815358
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.0002.csv,,100,0.6359615384615385,0.727452705675319,0.5649128800819953
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0002.csv,,100,0.43847279499800457,0.8122227698373583,0.30029154518950435
@@ -95,6 +102,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.4120439441204394,0.8049814520402756,0.2768866204885162
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.0008.csv,,100,0.6577997339920197,0.7400598546387345,0.5919972640218878
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.0008.csv,,100,0.15276617081731572,0.8558052434456929,0.08386859974307212
+data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.6398584526298857,0.6470396877033181,0.6328348711422208
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_4_0.0002.csv,,100,0.45269649652276606,0.8106203007518797,0.3140360458765702
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_2_0.0002.csv,,100,0.44139584443260527,0.8198911429985156,0.3019865135775469
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.0002.csv,,100,0.6538181229249332,0.6710438829787234,0.6374546028738355
@@ -106,6 +114,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_2_0.0002.csv,,100,0.6969934640522876,0.7268266085059978,0.6695128076343546
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.5984797459828731,0.711996336996337,0.5161825726141079
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.6230150950793962,0.7334410339256866,0.5414891804395979
+data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.5770180812172709,0.6848030018761726,0.49854874509134367
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_2_0.0002.csv,,100,0.6404596310855761,0.7651734104046243,0.5507020280811232
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0002.csv,,100,0.689118294127602,0.7170276457122733,0.6633002117608731
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.0002.csv,,100,0.4596747790025101,0.5962627406568517,0.3740010655301012
@@ -114,6 +123,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.5723743605176046,0.6818833652007649,0.49317199654278304
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.0002.csv,,100,0.4231285215991414,0.8124678001030397,0.2860511518229639
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0002.csv,,100,0.6468162156724676,0.7651118514992861,0.5602021258058896
+data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_8_0.0002.csv,,100,0.6367833459246202,0.6580499653018737,0.6168482680110587
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.0002.csv,,100,0.4188510118158359,0.8171701112877583,0.28159240321402484
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.6810472583566607,0.6999492299881537,0.6631393298059964
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_8_0.0002.csv,,100,0.4852728150651858,0.7403314917127072,0.3609265577302927
@@ -123,6 +133,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_4_0.0008.csv,,100,0.44588344125809437,0.8079501915708812,0.3079029019894141
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.6409839398251678,0.7746928746928747,0.5466366158113731
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0008.csv,,100,0.6785652098206512,0.7203327171903882,0.64137590520079
+data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.43767025554546635,0.7788550323176362,0.30434782608695654
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.0002.csv,,100,0.5870588235294117,0.7143879742304939,0.4982526210683974
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.0008.csv,,100,0.6498028277387708,0.7292746113989638,0.585949696444059
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_8_0.0008.csv,,100,0.42646657571623464,0.8226315789473684,0.2878453038674033
@@ -152,6 +163,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.5575160403299726,0.7878886010362695,0.43138297872340425
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_2_0.0002.csv,,100,0.628233272883459,0.7231377719182597,0.5553493081336484
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_2_0.0002.csv,,100,0.44680568468588133,0.8204878048780487,0.3069903267019529
+data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0002.csv,,100,0.6803999699270732,0.6893662400975015,0.6716639453762803
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference4_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0002.csv,,100,0.6658949979330302,0.6720627503337784,0.6598394232344749
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.0008.csv,,100,0.7011859994214636,0.6649293649705116,0.7416245984396512
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0008.csv,,100,0.6490832434552408,0.7486993892784438,0.5728625822083766
@@ -167,6 +179,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference2_llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.4874863982589771,0.7357664233576642,0.3644910504429579
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.0002.csv,,100,0.7011613797885249,0.7465854558877815,0.6609477124183006
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.695954995981784,0.7464087339590116,0.6518902643024422
+data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.01_4_0.0002.csv,,100,0.6343698216200411,0.7345372460496614,0.5582432664264882
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.0008.csv,,100,0.691044776119403,0.6569070037404876,0.7289251467010162
 data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.01_4_0.0002.csv,,100,0.4462004477808508,0.8055159296243461,0.3085610200364299
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0008.csv,,100,0.6696906468293568,0.722167873214635,0.6243234100135318
@@ -177,7 +190,7 @@ data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference2_llama-2-13b-chat-hf_
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_2_0.0008.csv,,100,0.7023425445364007,0.6637942463210924,0.7456440804169769
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.5833662583958911,0.6958058435438266,0.5022108843537415
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_2_0.0008.csv,,100,0.7073981712385703,0.6697271773347324,0.7495596007046389
-data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.40341060484945374,0.7596588058203713,0.2746236169054961
+data/llama/13B_4bit_FT/maxNewTokensFactor2_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.4029850746268657,0.7594173782019086,0.2742608380192273
 data/llama/13B_4bit_FT/maxNewTokensFactor8_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_8_0.0008.csv,,100,0.6413368513632366,0.6922346686918549,0.5974111092905129
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_32_32_0.05_4_0.0002.csv,,100,0.6338179334569226,0.7388535031847133,0.5549290961899881
 data/llama/13B_4bit_FT/maxNewTokensFactor4_nShotsInference0_Llama-2-13b-chat-hf_adapters_en.layer1_4_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.643846949327818,0.7863096741601414,0.5450884258448608

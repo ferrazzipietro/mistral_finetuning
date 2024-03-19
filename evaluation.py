@@ -4,6 +4,7 @@ from utils.output_cleaner import OutputCleaner
 import glob
 import pandas as pd
 
+
 def evaluate(input_data_path:str, 
              output_file_path:str, 
              words_level:bool,

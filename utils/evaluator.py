@@ -97,7 +97,7 @@ class Evaluator():
             offsets = [entity["offset"] for entity in output]
             return {"entities": entities, "offsets": offsets}
         elif (not self.offset) and good_format:
-            # print('ORA STO PARSANDO: ', model_response)
+            # print('ORA STO PARSANDO: ', model_response)
             output = json.loads(model_response)
             # print('OUTPUT: ', type(output))
             if drop_duplicates:

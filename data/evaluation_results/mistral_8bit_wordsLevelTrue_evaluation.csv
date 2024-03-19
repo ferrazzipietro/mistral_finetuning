@@ -41,6 +41,7 @@ data/mistral/8bit/maxNewTokensFactor8_nShotsInference2_Mistral-7B-Instruct-v0.2_
 data/mistral/8bit/maxNewTokensFactor8_nShotsInference4_Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_2_0.0008.csv,,100,0.3054657265546308,0.2189875342049255,0.5048186437708078
 data/mistral/8bit/maxNewTokensFactor8_nShotsInference2_Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0008.csv,,100,0.10574837310195227,0.10172143974960876,0.1101072840203275
 data/mistral/8bit/maxNewTokensFactor8_nShotsInference2_Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_8_0.0002.csv,,100,0.5638550274073467,0.5446499130709657,0.5844640434192673
+data/mistral/8bit/maxNewTokensFactor8_nShotsInference2_Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.5945763853798216,0.5906961178045516,0.5985079688029841
 data/mistral/8bit/maxNewTokensFactor8_nShotsInference2_Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_2_0.0008.csv,,100,0.13835168104730736,0.11451791651274473,0.17471350742062747
 data/mistral/8bit/maxNewTokensFactor8_nShotsInference4_Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_8_0.0008.csv,,100,0.3144048303622772,0.2614152522113316,0.39433826181031373
 data/mistral/8bit/maxNewTokensFactor8_nShotsInference4_Mistral-7B-Instruct-v0.2_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_8_0.0002.csv,,100,0.5799778935733461,0.5467401012206013,0.617518493611298

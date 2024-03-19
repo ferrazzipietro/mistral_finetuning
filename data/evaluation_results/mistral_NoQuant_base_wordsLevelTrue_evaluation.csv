@@ -13,6 +13,7 @@ data/mistral/NoQuant_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Mistral
 data/mistral/NoQuant_base/maxNewTokensFactor4_nShotsInference0_BaseModel.csv,,100,0.46331967213114755,0.5666666666666667,0.3918544194107452
 data/mistral/NoQuant_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.4918753584400688,0.5597128562105721,0.43870417732310313
 data/mistral/NoQuant_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.4663012586276898,0.5625765368601519,0.3981625931703935
+data/mistral/NoQuant_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.5486266816143498,0.5016015374759769,0.6053811659192825
 data/mistral/NoQuant_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.5023315351558928,0.5693264248704664,0.4494437172774869
 data/mistral/NoQuant_base/maxNewTokensFactor2_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.3746266873730737,0.5683218557448351,0.2794012829650748
 data/mistral/NoQuant_base/maxNewTokensFactor2_nShotsInference3_BaseModel.csv,,100,0.36803697397226953,0.5846213292117465,0.2685481008164714
