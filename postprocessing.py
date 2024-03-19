@@ -66,7 +66,7 @@ else:
         cache_dir='/data/disk1/share/pferrazzi/.cache')
 merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, add_eos_token=True)
-tokenizer.pad_token = tokenizer.eos_token
+tokenizer.pad_token = "<unk>"
 tokenizer.padding_side = "left"
 # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
 postprocessor = TestDataProcessor(test_data=val_data.select(range(10)), 

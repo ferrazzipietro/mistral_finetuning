@@ -89,21 +89,23 @@ def main(ADAPTERS_CHECKPOINT,
                             3- upcasting the model's head to fp32 for numerical stability
     """
   
-  model = prepare_model_for_kbit_training(model)
+    model = prepare_model_for_kbit_training(model)
   model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
   model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
   #Adding the adapters in the layers
 
-  import torch.nn as nn
-  tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
- 
-  tokenizer.add_special_tokens({"pad_token":"<pad>"})
-  model.resize_token_embeddings(len(tokenizer))
-  print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
-  model.config.pad_token_id = tokenizer.pad_token_id
-  # model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
-  # tokenizer.pad_token = tokenizer.unk_token
+  tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
+  tokenizer.pad_token = tokenizer.eos_token
   tokenizer.padding_side = 'right'
+
+  # tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
+  # tokenizer.add_special_tokens({"pad_token":"<pad>"})
+  # model.resize_token_embeddings(len(tokenizer))
+  # print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
+  # model.config.pad_token_id = tokenizer.pad_token_id
+  # # model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
+  # # tokenizer.pad_token = tokenizer.unk_token
+  # tokenizer.padding_side = 'right'
 
   preprocessor = DataPreprocessor(config.BASE_MODEL_CHECKPOINT, 
                                   tokenizer)
