@@ -93,6 +93,13 @@ def main(ADAPTERS_CHECKPOINT,
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True)
   tokenizer.pad_token = tokenizer.eos_token
   tokenizer.padding_side = 'right'
+  # tokenizer.add_special_tokens({"pad_token":"<pad>"})
+  # model.resize_token_embeddings(len(tokenizer))
+  # print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
+  # model.config.pad_token_id = tokenizer.pad_token_id
+  # # model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
+  # # tokenizer.pad_token = tokenizer.unk_token
+  # tokenizer.padding_side = 'right'
 
   preprocessor = DataPreprocessor(config.BASE_MODEL_CHECKPOINT, 
                                   tokenizer)  
