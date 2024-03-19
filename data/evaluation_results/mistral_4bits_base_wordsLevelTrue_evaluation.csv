@@ -1,6 +1,4 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
-data/mistral/4bits_base/maxNewTokensFactor8_nShotsInference0_BaseModel.csv,,100,0.011812476928756,0.42105263157894735,0.005990265818045676
 data/mistral/4bits_base/maxNewTokensFactor8_nShotsInference4_BaseModel.csv,,100,0.564350360484737,0.5401556305975628,0.5908141962421712
-data/mistral/4bits_base/maxNewTokensFactor8_nShotsInference2_BaseModel.csv,,100,0.5270035563642378,0.5842655419035393,0.4799638445314854
 data/mistral/4bits_base/maxNewTokensFactor8_nShotsInference3_BaseModel.csv,,100,0.5412651864264768,0.5717826163922818,0.5138402799872733
 data/mistral/4bits_base/maxNewTokensFactor8_nShotsInference1_BaseModel.csv,,100,0.540843655841982,0.571858407079646,0.5130200063512226
