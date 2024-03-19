@@ -73,7 +73,7 @@ def main(ADAPTERS_CHECKPOINT,
       config.BASE_MODEL_CHECKPOINT,
       device_map="auto",
       token=LLAMA_TOKEN,
-      
+      torch_dtype=model_loading_params.torch_dtype,
       )
   else:
     model = AutoModelForCausalLM.from_pretrained(
@@ -88,8 +88,8 @@ def main(ADAPTERS_CHECKPOINT,
                             2- making output embedding layer require gradient (needed as you are going to train (finetune) the model)
                             3- upcasting the model's head to fp32 for numerical stability
     """
-    model = prepare_model_for_kbit_training(model)
-
+  
+  model = prepare_model_for_kbit_training(model)
   model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
   model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
   #Adding the adapters in the layers
