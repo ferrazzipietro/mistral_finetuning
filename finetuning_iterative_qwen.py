@@ -85,16 +85,16 @@ def main(ADAPTERS_CHECKPOINT,
   model = prepare_model_for_kbit_training(model)
 
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
-  # tokenizer.pad_token = '<unk>'
-  # tokenizer.padding_side = 'right'
- 
-  tokenizer.add_special_tokens({"pad_token":"<pad>"})
-  model.resize_token_embeddings(len(tokenizer))
-  print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
-  model.config.pad_token_id = tokenizer.pad_token_id
-  # model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
-  # tokenizer.pad_token = tokenizer.unk_token
+  tokenizer.pad_token = '<unk>'
   tokenizer.padding_side = 'right'
+ 
+  # tokenizer.add_special_tokens({"pad_token":"<pad>"})
+  # model.resize_token_embeddings(len(tokenizer))
+  # print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
+  # model.config.pad_token_id = tokenizer.pad_token_id
+  # # model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
+  # # tokenizer.pad_token = tokenizer.unk_token
+  # tokenizer.padding_side = 'right'
 
 
   preprocessor = DataPreprocessor(config.BASE_MODEL_CHECKPOINT, 
