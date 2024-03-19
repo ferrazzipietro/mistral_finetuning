@@ -1,0 +1,580 @@
+/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_runtime.py:184: UserWarning: Pydantic is installed but cannot be imported. Please check your installation. `huggingface_hub` will default to not using Pydantic. Error message: '{e}'
+  warnings.warn(
+/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/fuzzywuzzy/fuzz.py:11: UserWarning: Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning
+  warnings.warn('Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning')
+adapters_list:   0%|          | 0/18 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.86s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:03<00:01,  1.78s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.60s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.65s/it]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:   6%|▌         | 1/18 [00:11<03:11, 11.26s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.16s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.14s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.06s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 350kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/92.3M [00:00<?, ?B/s][A
+adapter_model.safetensors:  11%|█▏        | 10.5M/92.3M [00:00<00:07, 11.4MB/s][A
+adapter_model.safetensors:  23%|██▎       | 21.0M/92.3M [00:01<00:06, 11.6MB/s][A
+adapter_model.safetensors:  34%|███▍      | 31.5M/92.3M [00:02<00:05, 11.7MB/s][A
+adapter_model.safetensors:  45%|████▌     | 41.9M/92.3M [00:03<00:04, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 52.4M/92.3M [00:04<00:03, 11.6MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 62.9M/92.3M [00:05<00:02, 11.7MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 73.4M/92.3M [00:06<00:01, 11.7MB/s][A
+adapter_model.safetensors:  91%|█████████ | 83.9M/92.3M [00:07<00:00, 11.8MB/s][A
+adapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:07<00:00, 11.8MB/s][Aadapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:07<00:00, 11.7MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  11%|█         | 2/18 [00:27<03:50, 14.39s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 323kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/92.3M [00:00<?, ?B/s][A
+adapter_model.safetensors:  11%|█▏        | 10.5M/92.3M [00:00<00:07, 11.7MB/s][A
+adapter_model.safetensors:  23%|██▎       | 21.0M/92.3M [00:01<00:06, 11.6MB/s][A
+adapter_model.safetensors:  34%|███▍      | 31.5M/92.3M [00:02<00:05, 11.8MB/s][A
+adapter_model.safetensors:  45%|████▌     | 41.9M/92.3M [00:03<00:04, 11.6MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 52.4M/92.3M [00:04<00:03, 11.8MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 62.9M/92.3M [00:05<00:02, 11.7MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 73.4M/92.3M [00:06<00:01, 11.8MB/s][A
+adapter_model.safetensors:  91%|█████████ | 83.9M/92.3M [00:07<00:00, 11.7MB/s][A
+adapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:07<00:00, 11.7MB/s][Aadapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:07<00:00, 11.7MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  17%|█▋        | 3/18 [00:43<03:47, 15.17s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.14s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.12s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 277kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/92.3M [00:00<?, ?B/s][A
+adapter_model.safetensors:  11%|█▏        | 10.5M/92.3M [00:00<00:07, 11.4MB/s][A
+adapter_model.safetensors:  23%|██▎       | 21.0M/92.3M [00:01<00:06, 11.8MB/s][A
+adapter_model.safetensors:  34%|███▍      | 31.5M/92.3M [00:02<00:05, 11.8MB/s][A
+adapter_model.safetensors:  45%|████▌     | 41.9M/92.3M [00:03<00:04, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 52.4M/92.3M [00:04<00:03, 11.8MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 62.9M/92.3M [00:05<00:02, 11.7MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 73.4M/92.3M [00:06<00:01, 11.8MB/s][A
+adapter_model.safetensors:  91%|█████████ | 83.9M/92.3M [00:07<00:00, 11.7MB/s][A
+adapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:07<00:00, 11.8MB/s][Aadapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:07<00:00, 11.7MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  22%|██▏       | 4/18 [00:59<03:37, 15.50s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 305kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/92.3M [00:00<?, ?B/s][A
+adapter_model.safetensors:  11%|█▏        | 10.5M/92.3M [00:00<00:07, 11.6MB/s][A
+adapter_model.safetensors:  23%|██▎       | 21.0M/92.3M [00:01<00:06, 10.3MB/s][A
+adapter_model.safetensors:  34%|███▍      | 31.5M/92.3M [00:02<00:05, 10.9MB/s][A
+adapter_model.safetensors:  45%|████▌     | 41.9M/92.3M [00:03<00:04, 11.2MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 52.4M/92.3M [00:04<00:03, 11.3MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 62.9M/92.3M [00:05<00:02, 11.6MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 73.4M/92.3M [00:06<00:01, 11.6MB/s][A
+adapter_model.safetensors:  91%|█████████ | 83.9M/92.3M [00:07<00:00, 11.7MB/s][A
+adapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:08<00:00, 11.6MB/s][Aadapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:08<00:00, 11.4MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  28%|██▊       | 5/18 [01:17<03:29, 16.09s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.14s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.12s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.04s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.06s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 293kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/92.3M [00:00<?, ?B/s][A
+adapter_model.safetensors:  11%|█▏        | 10.5M/92.3M [00:00<00:06, 11.7MB/s][A
+adapter_model.safetensors:  23%|██▎       | 21.0M/92.3M [00:01<00:06, 11.7MB/s][A
+adapter_model.safetensors:  34%|███▍      | 31.5M/92.3M [00:02<00:05, 11.6MB/s][A
+adapter_model.safetensors:  45%|████▌     | 41.9M/92.3M [00:03<00:04, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 52.4M/92.3M [00:04<00:03, 11.8MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 62.9M/92.3M [00:05<00:02, 11.8MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 73.4M/92.3M [00:06<00:01, 11.8MB/s][A
+adapter_model.safetensors:  91%|█████████ | 83.9M/92.3M [00:07<00:00, 11.8MB/s][A
+adapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:07<00:00, 11.8MB/s][Aadapter_model.safetensors: 100%|██████████| 92.3M/92.3M [00:07<00:00, 11.7MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  33%|███▎      | 6/18 [01:34<03:17, 16.44s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 249kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/185M [00:00<?, ?B/s][A
+adapter_model.safetensors:   6%|▌         | 10.5M/185M [00:01<00:16, 10.4MB/s][A
+adapter_model.safetensors:  11%|█▏        | 21.0M/185M [00:01<00:14, 11.3MB/s][A
+adapter_model.safetensors:  17%|█▋        | 31.5M/185M [00:02<00:13, 11.5MB/s][A
+adapter_model.safetensors:  23%|██▎       | 41.9M/185M [00:03<00:12, 11.5MB/s][A
+adapter_model.safetensors:  28%|██▊       | 52.4M/185M [00:04<00:11, 11.7MB/s][A
+adapter_model.safetensors:  34%|███▍      | 62.9M/185M [00:05<00:10, 11.7MB/s][A
+adapter_model.safetensors:  40%|███▉      | 73.4M/185M [00:06<00:09, 11.7MB/s][A
+adapter_model.safetensors:  45%|████▌     | 83.9M/185M [00:07<00:08, 11.7MB/s][A
+adapter_model.safetensors:  51%|█████     | 94.4M/185M [00:08<00:07, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 105M/185M [00:09<00:06, 11.7MB/s] [A
+adapter_model.safetensors:  62%|██████▏   | 115M/185M [00:09<00:05, 11.7MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 126M/185M [00:11<00:05, 10.9MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 136M/185M [00:11<00:04, 11.2MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 147M/185M [00:12<00:03, 11.3MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 157M/185M [00:13<00:02, 11.4MB/s][A
+adapter_model.safetensors:  91%|█████████ | 168M/185M [00:14<00:01, 11.6MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 178M/185M [00:15<00:00, 11.6MB/s][A
+adapter_model.safetensors: 100%|██████████| 185M/185M [00:16<00:00, 11.7MB/s][Aadapter_model.safetensors: 100%|██████████| 185M/185M [00:16<00:00, 11.5MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  39%|███▉      | 7/18 [02:00<03:34, 19.50s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.18s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.16s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.10s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 271kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/185M [00:00<?, ?B/s][A
+adapter_model.safetensors:   6%|▌         | 10.5M/185M [00:00<00:15, 11.3MB/s][A
+adapter_model.safetensors:  11%|█▏        | 21.0M/185M [00:01<00:14, 11.6MB/s][A
+adapter_model.safetensors:  17%|█▋        | 31.5M/185M [00:02<00:13, 11.6MB/s][A
+adapter_model.safetensors:  23%|██▎       | 41.9M/185M [00:03<00:12, 11.7MB/s][A
+adapter_model.safetensors:  28%|██▊       | 52.4M/185M [00:04<00:11, 11.7MB/s][A
+adapter_model.safetensors:  34%|███▍      | 62.9M/185M [00:05<00:10, 11.7MB/s][A
+adapter_model.safetensors:  40%|███▉      | 73.4M/185M [00:06<00:09, 11.7MB/s][A
+adapter_model.safetensors:  45%|████▌     | 83.9M/185M [00:07<00:08, 11.7MB/s][A
+adapter_model.safetensors:  51%|█████     | 94.4M/185M [00:08<00:07, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 105M/185M [00:08<00:06, 11.7MB/s] [A
+adapter_model.safetensors:  62%|██████▏   | 115M/185M [00:09<00:05, 11.7MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 126M/185M [00:10<00:05, 11.0MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 136M/185M [00:11<00:04, 11.2MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 147M/185M [00:12<00:03, 11.4MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 157M/185M [00:13<00:02, 11.5MB/s][A
+adapter_model.safetensors:  91%|█████████ | 168M/185M [00:14<00:01, 11.6MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 178M/185M [00:15<00:00, 11.5MB/s][A
+adapter_model.safetensors: 100%|██████████| 185M/185M [00:15<00:00, 11.7MB/s][Aadapter_model.safetensors: 100%|██████████| 185M/185M [00:15<00:00, 11.6MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  44%|████▍     | 8/18 [02:26<03:36, 21.65s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.17s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.15s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.06s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.09s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 327kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/185M [00:00<?, ?B/s][A
+adapter_model.safetensors:   6%|▌         | 10.5M/185M [00:01<00:18, 9.51MB/s][A
+adapter_model.safetensors:  11%|█▏        | 21.0M/185M [00:01<00:15, 10.7MB/s][A
+adapter_model.safetensors:  17%|█▋        | 31.5M/185M [00:02<00:13, 11.2MB/s][A
+adapter_model.safetensors:  23%|██▎       | 41.9M/185M [00:03<00:12, 11.4MB/s][A
+adapter_model.safetensors:  28%|██▊       | 52.4M/185M [00:04<00:11, 11.5MB/s][A
+adapter_model.safetensors:  34%|███▍      | 62.9M/185M [00:05<00:10, 11.5MB/s][A
+adapter_model.safetensors:  40%|███▉      | 73.4M/185M [00:06<00:09, 11.7MB/s][A
+adapter_model.safetensors:  45%|████▌     | 83.9M/185M [00:07<00:08, 11.6MB/s][A
+adapter_model.safetensors:  51%|█████     | 94.4M/185M [00:08<00:07, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 105M/185M [00:09<00:06, 11.7MB/s] [A
+adapter_model.safetensors:  62%|██████▏   | 115M/185M [00:10<00:05, 11.7MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 126M/185M [00:10<00:05, 11.7MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 136M/185M [00:12<00:04, 10.9MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 147M/185M [00:12<00:03, 11.2MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 157M/185M [00:13<00:02, 11.3MB/s][A
+adapter_model.safetensors:  91%|█████████ | 168M/185M [00:14<00:01, 11.5MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 178M/185M [00:15<00:00, 11.5MB/s][A
+adapter_model.safetensors: 100%|██████████| 185M/185M [00:16<00:00, 11.6MB/s][Aadapter_model.safetensors: 100%|██████████| 185M/185M [00:16<00:00, 11.4MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  50%|█████     | 9/18 [02:51<03:24, 22.73s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 312kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/185M [00:00<?, ?B/s][A
+adapter_model.safetensors:   6%|▌         | 10.5M/185M [00:00<00:14, 11.7MB/s][A
+adapter_model.safetensors:  11%|█▏        | 21.0M/185M [00:01<00:14, 11.7MB/s][A
+adapter_model.safetensors:  17%|█▋        | 31.5M/185M [00:02<00:13, 11.6MB/s][A
+adapter_model.safetensors:  23%|██▎       | 41.9M/185M [00:03<00:12, 11.7MB/s][A
+adapter_model.safetensors:  28%|██▊       | 52.4M/185M [00:04<00:11, 11.8MB/s][A
+adapter_model.safetensors:  34%|███▍      | 62.9M/185M [00:05<00:10, 11.7MB/s][A
+adapter_model.safetensors:  40%|███▉      | 73.4M/185M [00:06<00:09, 11.8MB/s][A
+adapter_model.safetensors:  45%|████▌     | 83.9M/185M [00:07<00:08, 11.8MB/s][A
+adapter_model.safetensors:  51%|█████     | 94.4M/185M [00:08<00:07, 11.8MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 105M/185M [00:08<00:06, 11.7MB/s] [A
+adapter_model.safetensors:  62%|██████▏   | 115M/185M [00:09<00:05, 11.7MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 126M/185M [00:10<00:05, 10.9MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 136M/185M [00:11<00:04, 11.2MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 147M/185M [00:12<00:03, 11.4MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 157M/185M [00:13<00:02, 11.5MB/s][A
+adapter_model.safetensors:  91%|█████████ | 168M/185M [00:14<00:01, 11.6MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 178M/185M [00:15<00:00, 11.6MB/s][A
+adapter_model.safetensors: 100%|██████████| 185M/185M [00:15<00:00, 11.7MB/s][Aadapter_model.safetensors: 100%|██████████| 185M/185M [00:15<00:00, 11.6MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  56%|█████▌    | 10/18 [03:16<03:07, 23.45s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.14s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.12s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.04s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.06s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 257kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/185M [00:00<?, ?B/s][A
+adapter_model.safetensors:   6%|▌         | 10.5M/185M [00:01<00:18, 9.29MB/s][A
+adapter_model.safetensors:  11%|█▏        | 21.0M/185M [00:02<00:15, 10.5MB/s][A
+adapter_model.safetensors:  17%|█▋        | 31.5M/185M [00:02<00:13, 11.2MB/s][A
+adapter_model.safetensors:  23%|██▎       | 41.9M/185M [00:03<00:12, 11.4MB/s][A
+adapter_model.safetensors:  28%|██▊       | 52.4M/185M [00:04<00:11, 11.5MB/s][A
+adapter_model.safetensors:  34%|███▍      | 62.9M/185M [00:05<00:10, 11.6MB/s][A
+adapter_model.safetensors:  40%|███▉      | 73.4M/185M [00:06<00:09, 11.7MB/s][A
+adapter_model.safetensors:  45%|████▌     | 83.9M/185M [00:07<00:08, 11.7MB/s][A
+adapter_model.safetensors:  51%|█████     | 94.4M/185M [00:08<00:07, 11.6MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 105M/185M [00:09<00:06, 11.7MB/s] [A
+adapter_model.safetensors:  62%|██████▏   | 115M/185M [00:10<00:05, 11.7MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 126M/185M [00:11<00:05, 11.0MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 136M/185M [00:12<00:04, 11.2MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 147M/185M [00:12<00:03, 11.3MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 157M/185M [00:13<00:02, 11.4MB/s][A
+adapter_model.safetensors:  91%|█████████ | 168M/185M [00:14<00:01, 11.6MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 178M/185M [00:15<00:00, 11.6MB/s][A
+adapter_model.safetensors: 100%|██████████| 185M/185M [00:16<00:00, 11.7MB/s][Aadapter_model.safetensors: 100%|██████████| 185M/185M [00:16<00:00, 11.4MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  61%|██████    | 11/18 [03:41<02:48, 24.03s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 295kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/185M [00:00<?, ?B/s][A
+adapter_model.safetensors:   6%|▌         | 10.5M/185M [00:01<00:18, 9.46MB/s][A
+adapter_model.safetensors:  11%|█▏        | 21.0M/185M [00:02<00:15, 10.7MB/s][A
+adapter_model.safetensors:  17%|█▋        | 31.5M/185M [00:02<00:13, 11.1MB/s][A
+adapter_model.safetensors:  23%|██▎       | 41.9M/185M [00:03<00:12, 11.4MB/s][A
+adapter_model.safetensors:  28%|██▊       | 52.4M/185M [00:04<00:11, 11.5MB/s][A
+adapter_model.safetensors:  34%|███▍      | 62.9M/185M [00:05<00:10, 11.6MB/s][A
+adapter_model.safetensors:  40%|███▉      | 73.4M/185M [00:06<00:09, 11.6MB/s][A
+adapter_model.safetensors:  45%|████▌     | 83.9M/185M [00:07<00:08, 11.7MB/s][A
+adapter_model.safetensors:  51%|█████     | 94.4M/185M [00:08<00:07, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 105M/185M [00:09<00:06, 11.7MB/s] [A
+adapter_model.safetensors:  62%|██████▏   | 115M/185M [00:10<00:05, 11.6MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 126M/185M [00:11<00:05, 10.9MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 136M/185M [00:12<00:04, 11.2MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 147M/185M [00:12<00:03, 11.4MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 157M/185M [00:13<00:02, 11.5MB/s][A
+adapter_model.safetensors:  91%|█████████ | 168M/185M [00:14<00:01, 11.6MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 178M/185M [00:15<00:00, 11.6MB/s][A
+adapter_model.safetensors: 100%|██████████| 185M/185M [00:16<00:00, 11.6MB/s][Aadapter_model.safetensors: 100%|██████████| 185M/185M [00:16<00:00, 11.4MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  67%|██████▋   | 12/18 [04:09<02:30, 25.09s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 313kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/369M [00:00<?, ?B/s][A
+adapter_model.safetensors:   3%|▎         | 10.5M/369M [00:01<00:38, 9.42MB/s][A
+adapter_model.safetensors:   6%|▌         | 21.0M/369M [00:02<00:32, 10.7MB/s][A
+adapter_model.safetensors:   9%|▊         | 31.5M/369M [00:02<00:30, 11.1MB/s][A
+adapter_model.safetensors:  11%|█▏        | 41.9M/369M [00:03<00:28, 11.4MB/s][A
+adapter_model.safetensors:  14%|█▍        | 52.4M/369M [00:04<00:27, 11.4MB/s][A
+adapter_model.safetensors:  17%|█▋        | 62.9M/369M [00:05<00:26, 11.6MB/s][A
+adapter_model.safetensors:  20%|█▉        | 73.4M/369M [00:06<00:25, 11.6MB/s][A
+adapter_model.safetensors:  23%|██▎       | 83.9M/369M [00:07<00:24, 11.7MB/s][A
+adapter_model.safetensors:  26%|██▌       | 94.4M/369M [00:08<00:23, 11.7MB/s][A
+adapter_model.safetensors:  28%|██▊       | 105M/369M [00:09<00:22, 11.7MB/s] [A
+adapter_model.safetensors:  31%|███       | 115M/369M [00:10<00:21, 11.7MB/s][A
+adapter_model.safetensors:  34%|███▍      | 126M/369M [00:11<00:22, 10.9MB/s][A
+adapter_model.safetensors:  37%|███▋      | 136M/369M [00:12<00:20, 11.2MB/s][A
+adapter_model.safetensors:  40%|███▉      | 147M/369M [00:12<00:19, 11.4MB/s][A
+adapter_model.safetensors:  43%|████▎     | 157M/369M [00:13<00:18, 11.5MB/s][A
+adapter_model.safetensors:  45%|████▌     | 168M/369M [00:14<00:17, 11.5MB/s][A
+adapter_model.safetensors:  48%|████▊     | 178M/369M [00:15<00:16, 11.6MB/s][A
+adapter_model.safetensors:  51%|█████     | 189M/369M [00:16<00:15, 11.6MB/s][A
+adapter_model.safetensors:  54%|█████▍    | 199M/369M [00:17<00:14, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 210M/369M [00:18<00:13, 11.6MB/s][A
+adapter_model.safetensors:  60%|█████▉    | 220M/369M [00:19<00:12, 11.6MB/s][A
+adapter_model.safetensors:  62%|██████▏   | 231M/369M [00:20<00:11, 11.7MB/s][A
+adapter_model.safetensors:  65%|██████▌   | 241M/369M [00:21<00:11, 10.9MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 252M/369M [00:22<00:10, 11.2MB/s][A
+adapter_model.safetensors:  71%|███████   | 262M/369M [00:22<00:09, 11.4MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 273M/369M [00:23<00:08, 11.4MB/s][A
+adapter_model.safetensors:  77%|███████▋  | 283M/369M [00:24<00:07, 11.5MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 294M/369M [00:25<00:06, 11.6MB/s][A
+adapter_model.safetensors:  82%|████████▏ | 304M/369M [00:26<00:05, 11.6MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 315M/369M [00:27<00:04, 11.7MB/s][A
+adapter_model.safetensors:  88%|████████▊ | 325M/369M [00:28<00:03, 11.7MB/s][A
+adapter_model.safetensors:  91%|█████████ | 336M/369M [00:29<00:02, 11.7MB/s][A
+adapter_model.safetensors:  94%|█████████▎| 346M/369M [00:30<00:01, 11.7MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 357M/369M [00:31<00:01, 10.9MB/s][A
+adapter_model.safetensors:  99%|█████████▉| 367M/369M [00:32<00:00, 11.2MB/s][A
+adapter_model.safetensors: 100%|██████████| 369M/369M [00:32<00:00, 11.2MB/s][Aadapter_model.safetensors: 100%|██████████| 369M/369M [00:32<00:00, 11.4MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  72%|███████▏  | 13/18 [04:50<02:29, 29.99s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.16s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.14s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.06s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 269kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/369M [00:00<?, ?B/s][A
+adapter_model.safetensors:   3%|▎         | 10.5M/369M [00:01<00:38, 9.40MB/s][A
+adapter_model.safetensors:   6%|▌         | 21.0M/369M [00:02<00:33, 10.5MB/s][A
+adapter_model.safetensors:   9%|▊         | 31.5M/369M [00:02<00:30, 11.0MB/s][A
+adapter_model.safetensors:  11%|█▏        | 41.9M/369M [00:03<00:28, 11.4MB/s][A
+adapter_model.safetensors:  14%|█▍        | 52.4M/369M [00:04<00:27, 11.5MB/s][A
+adapter_model.safetensors:  17%|█▋        | 62.9M/369M [00:05<00:26, 11.6MB/s][A
+adapter_model.safetensors:  20%|█▉        | 73.4M/369M [00:06<00:25, 11.6MB/s][A
+adapter_model.safetensors:  23%|██▎       | 83.9M/369M [00:07<00:24, 11.7MB/s][A
+adapter_model.safetensors:  26%|██▌       | 94.4M/369M [00:08<00:23, 11.7MB/s][A
+adapter_model.safetensors:  28%|██▊       | 105M/369M [00:09<00:22, 11.7MB/s] [A
+adapter_model.safetensors:  31%|███       | 115M/369M [00:10<00:21, 11.7MB/s][A
+adapter_model.safetensors:  34%|███▍      | 126M/369M [00:10<00:20, 11.7MB/s][A
+adapter_model.safetensors:  37%|███▋      | 136M/369M [00:12<00:21, 10.9MB/s][A
+adapter_model.safetensors:  40%|███▉      | 147M/369M [00:12<00:19, 11.2MB/s][A
+adapter_model.safetensors:  43%|████▎     | 157M/369M [00:13<00:18, 11.3MB/s][A
+adapter_model.safetensors:  45%|████▌     | 168M/369M [00:14<00:17, 11.4MB/s][A
+adapter_model.safetensors:  48%|████▊     | 178M/369M [00:15<00:16, 11.5MB/s][A
+adapter_model.safetensors:  51%|█████     | 189M/369M [00:16<00:15, 11.6MB/s][A
+adapter_model.safetensors:  54%|█████▍    | 199M/369M [00:17<00:14, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 210M/369M [00:18<00:13, 11.7MB/s][A
+adapter_model.safetensors:  60%|█████▉    | 220M/369M [00:19<00:12, 11.7MB/s][A
+adapter_model.safetensors:  62%|██████▏   | 231M/369M [00:20<00:11, 11.6MB/s][A
+adapter_model.safetensors:  65%|██████▌   | 241M/369M [00:20<00:10, 11.7MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 252M/369M [00:22<00:10, 11.0MB/s][A
+adapter_model.safetensors:  71%|███████   | 262M/369M [00:22<00:09, 11.2MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 273M/369M [00:23<00:08, 11.3MB/s][A
+adapter_model.safetensors:  77%|███████▋  | 283M/369M [00:24<00:07, 11.5MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 294M/369M [00:25<00:06, 11.6MB/s][A
+adapter_model.safetensors:  82%|████████▏ | 304M/369M [00:26<00:05, 11.6MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 315M/369M [00:27<00:04, 11.7MB/s][A
+adapter_model.safetensors:  88%|████████▊ | 325M/369M [00:28<00:03, 11.6MB/s][A
+adapter_model.safetensors:  91%|█████████ | 336M/369M [00:29<00:02, 11.7MB/s][A
+adapter_model.safetensors:  94%|█████████▎| 346M/369M [00:30<00:01, 11.7MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 357M/369M [00:31<00:01, 11.7MB/s][A
+adapter_model.safetensors:  99%|█████████▉| 367M/369M [00:32<00:00, 11.0MB/s][A
+adapter_model.safetensors: 100%|██████████| 369M/369M [00:32<00:00, 11.0MB/s][Aadapter_model.safetensors: 100%|██████████| 369M/369M [00:32<00:00, 11.4MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  78%|███████▊  | 14/18 [05:33<02:15, 33.83s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 336kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/369M [00:00<?, ?B/s][A
+adapter_model.safetensors:   3%|▎         | 10.5M/369M [00:00<00:32, 11.1MB/s][A
+adapter_model.safetensors:   6%|▌         | 21.0M/369M [00:01<00:30, 11.5MB/s][A
+adapter_model.safetensors:   9%|▊         | 31.5M/369M [00:02<00:29, 11.5MB/s][A
+adapter_model.safetensors:  11%|█▏        | 41.9M/369M [00:03<00:28, 11.5MB/s][A
+adapter_model.safetensors:  14%|█▍        | 52.4M/369M [00:04<00:27, 11.6MB/s][A
+adapter_model.safetensors:  17%|█▋        | 62.9M/369M [00:05<00:26, 11.7MB/s][A
+adapter_model.safetensors:  20%|█▉        | 73.4M/369M [00:06<00:25, 11.7MB/s][A
+adapter_model.safetensors:  23%|██▎       | 83.9M/369M [00:07<00:24, 11.7MB/s][A
+adapter_model.safetensors:  26%|██▌       | 94.4M/369M [00:08<00:23, 11.7MB/s][A
+adapter_model.safetensors:  28%|██▊       | 105M/369M [00:09<00:22, 11.7MB/s] [A
+adapter_model.safetensors:  31%|███       | 115M/369M [00:09<00:21, 11.8MB/s][A
+adapter_model.safetensors:  34%|███▍      | 126M/369M [00:10<00:22, 11.0MB/s][A
+adapter_model.safetensors:  37%|███▋      | 136M/369M [00:11<00:20, 11.2MB/s][A
+adapter_model.safetensors:  40%|███▉      | 147M/369M [00:12<00:19, 11.4MB/s][A
+adapter_model.safetensors:  43%|████▎     | 157M/369M [00:13<00:18, 11.5MB/s][A
+adapter_model.safetensors:  45%|████▌     | 168M/369M [00:14<00:17, 11.5MB/s][A
+adapter_model.safetensors:  48%|████▊     | 178M/369M [00:15<00:16, 11.6MB/s][A
+adapter_model.safetensors:  51%|█████     | 189M/369M [00:16<00:15, 11.7MB/s][A
+adapter_model.safetensors:  54%|█████▍    | 199M/369M [00:17<00:14, 11.7MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 210M/369M [00:18<00:13, 11.7MB/s][A
+adapter_model.safetensors:  60%|█████▉    | 220M/369M [00:19<00:12, 11.7MB/s][A
+adapter_model.safetensors:  62%|██████▏   | 231M/369M [00:19<00:11, 11.7MB/s][A
+adapter_model.safetensors:  65%|██████▌   | 241M/369M [00:21<00:11, 11.0MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 252M/369M [00:21<00:10, 11.2MB/s][A
+adapter_model.safetensors:  71%|███████   | 262M/369M [00:22<00:09, 11.3MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 273M/369M [00:23<00:08, 11.5MB/s][A
+adapter_model.safetensors:  77%|███████▋  | 283M/369M [00:24<00:07, 11.5MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 294M/369M [00:25<00:06, 11.6MB/s][A
+adapter_model.safetensors:  82%|████████▏ | 304M/369M [00:26<00:05, 11.6MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 315M/369M [00:27<00:04, 11.7MB/s][A
+adapter_model.safetensors:  88%|████████▊ | 325M/369M [00:28<00:03, 11.7MB/s][A
+adapter_model.safetensors:  91%|█████████ | 336M/369M [00:29<00:02, 11.7MB/s][A
+adapter_model.safetensors:  94%|█████████▎| 346M/369M [00:29<00:01, 11.7MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 357M/369M [00:31<00:01, 11.0MB/s][A
+adapter_model.safetensors:  99%|█████████▉| 367M/369M [00:31<00:00, 11.2MB/s][A
+adapter_model.safetensors: 100%|██████████| 369M/369M [00:32<00:00, 11.2MB/s][Aadapter_model.safetensors: 100%|██████████| 369M/369M [00:32<00:00, 11.5MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  83%|████████▎ | 15/18 [06:16<01:49, 36.57s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.05s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 300kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/369M [00:00<?, ?B/s][A
+adapter_model.safetensors:   3%|▎         | 10.5M/369M [00:00<00:31, 11.5MB/s][A
+adapter_model.safetensors:   6%|▌         | 21.0M/369M [00:01<00:29, 11.8MB/s][A
+adapter_model.safetensors:   9%|▊         | 31.5M/369M [00:02<00:28, 11.8MB/s][A
+adapter_model.safetensors:  11%|█▏        | 41.9M/369M [00:03<00:27, 11.8MB/s][A
+adapter_model.safetensors:  14%|█▍        | 52.4M/369M [00:04<00:27, 11.7MB/s][A
+adapter_model.safetensors:  17%|█▋        | 62.9M/369M [00:05<00:26, 11.6MB/s][A
+adapter_model.safetensors:  20%|█▉        | 73.4M/369M [00:06<00:25, 11.5MB/s][A
+adapter_model.safetensors:  23%|██▎       | 83.9M/369M [00:07<00:24, 11.5MB/s][A
+adapter_model.safetensors:  26%|██▌       | 94.4M/369M [00:08<00:24, 11.4MB/s][A
+adapter_model.safetensors:  28%|██▊       | 105M/369M [00:09<00:23, 11.4MB/s] [A
+adapter_model.safetensors:  31%|███       | 115M/369M [00:09<00:22, 11.4MB/s][A
+adapter_model.safetensors:  34%|███▍      | 126M/369M [00:11<00:22, 10.7MB/s][A
+adapter_model.safetensors:  37%|███▋      | 136M/369M [00:12<00:21, 10.9MB/s][A
+adapter_model.safetensors:  40%|███▉      | 147M/369M [00:12<00:20, 11.0MB/s][A
+adapter_model.safetensors:  43%|████▎     | 157M/369M [00:13<00:19, 11.1MB/s][A
+adapter_model.safetensors:  45%|████▌     | 168M/369M [00:14<00:18, 11.2MB/s][A
+adapter_model.safetensors:  48%|████▊     | 178M/369M [00:15<00:16, 11.3MB/s][A
+adapter_model.safetensors:  51%|█████     | 189M/369M [00:16<00:15, 11.3MB/s][A
+adapter_model.safetensors:  54%|█████▍    | 199M/369M [00:17<00:15, 11.3MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 210M/369M [00:18<00:14, 11.4MB/s][A
+adapter_model.safetensors:  60%|█████▉    | 220M/369M [00:19<00:12, 11.5MB/s][A
+adapter_model.safetensors:  62%|██████▏   | 231M/369M [00:20<00:13, 10.6MB/s][A
+adapter_model.safetensors:  65%|██████▌   | 241M/369M [00:21<00:11, 10.7MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 252M/369M [00:22<00:10, 10.9MB/s][A
+adapter_model.safetensors:  71%|███████   | 262M/369M [00:23<00:09, 11.1MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 273M/369M [00:24<00:08, 11.2MB/s][A
+adapter_model.safetensors:  77%|███████▋  | 283M/369M [00:25<00:07, 11.2MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 294M/369M [00:26<00:06, 11.3MB/s][A
+adapter_model.safetensors:  82%|████████▏ | 304M/369M [00:27<00:05, 11.2MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 315M/369M [00:27<00:04, 11.4MB/s][A
+adapter_model.safetensors:  88%|████████▊ | 325M/369M [00:28<00:03, 11.5MB/s][A
+adapter_model.safetensors:  91%|█████████ | 336M/369M [00:29<00:02, 11.4MB/s][A
+adapter_model.safetensors:  94%|█████████▎| 346M/369M [00:30<00:02, 10.6MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 357M/369M [00:31<00:01, 10.7MB/s][A
+adapter_model.safetensors:  99%|█████████▉| 367M/369M [00:32<00:00, 10.9MB/s][A
+adapter_model.safetensors: 100%|██████████| 369M/369M [00:32<00:00, 11.0MB/s][Aadapter_model.safetensors: 100%|██████████| 369M/369M [00:32<00:00, 11.2MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  89%|████████▉ | 16/18 [06:58<01:16, 38.20s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.18s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.16s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.10s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 233kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/369M [00:00<?, ?B/s][A
+adapter_model.safetensors:   3%|▎         | 10.5M/369M [00:01<00:45, 7.87MB/s][A
+adapter_model.safetensors:   6%|▌         | 21.0M/369M [00:02<00:37, 9.35MB/s][A
+adapter_model.safetensors:   9%|▊         | 31.5M/369M [00:03<00:33, 10.2MB/s][A
+adapter_model.safetensors:  11%|█▏        | 41.9M/369M [00:04<00:31, 10.6MB/s][A
+adapter_model.safetensors:  14%|█▍        | 52.4M/369M [00:05<00:29, 10.9MB/s][A
+adapter_model.safetensors:  17%|█▋        | 62.9M/369M [00:06<00:28, 10.9MB/s][A
+adapter_model.safetensors:  20%|█▉        | 73.4M/369M [00:06<00:26, 11.1MB/s][A
+adapter_model.safetensors:  23%|██▎       | 83.9M/369M [00:07<00:25, 11.2MB/s][A
+adapter_model.safetensors:  26%|██▌       | 94.4M/369M [00:08<00:24, 11.2MB/s][A
+adapter_model.safetensors:  28%|██▊       | 105M/369M [00:09<00:23, 11.3MB/s] [A
+adapter_model.safetensors:  31%|███       | 115M/369M [00:10<00:24, 10.6MB/s][A
+adapter_model.safetensors:  34%|███▍      | 126M/369M [00:11<00:22, 10.8MB/s][A
+adapter_model.safetensors:  37%|███▋      | 136M/369M [00:12<00:21, 10.9MB/s][A
+adapter_model.safetensors:  40%|███▉      | 147M/369M [00:13<00:20, 10.9MB/s][A
+adapter_model.safetensors:  43%|████▎     | 157M/369M [00:14<00:19, 11.1MB/s][A
+adapter_model.safetensors:  45%|████▌     | 168M/369M [00:15<00:18, 11.2MB/s][A
+adapter_model.safetensors:  48%|████▊     | 178M/369M [00:16<00:16, 11.3MB/s][A
+adapter_model.safetensors:  51%|█████     | 189M/369M [00:17<00:15, 11.3MB/s][A
+adapter_model.safetensors:  54%|█████▍    | 199M/369M [00:18<00:15, 11.3MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 210M/369M [00:19<00:14, 11.3MB/s][A
+adapter_model.safetensors:  60%|█████▉    | 220M/369M [00:20<00:13, 11.4MB/s][A
+adapter_model.safetensors:  62%|██████▏   | 231M/369M [00:21<00:13, 10.6MB/s][A
+adapter_model.safetensors:  65%|██████▌   | 241M/369M [00:22<00:11, 10.9MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 252M/369M [00:23<00:10, 11.0MB/s][A
+adapter_model.safetensors:  71%|███████   | 262M/369M [00:24<00:09, 11.0MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 273M/369M [00:24<00:08, 11.1MB/s][A
+adapter_model.safetensors:  77%|███████▋  | 283M/369M [00:25<00:07, 11.1MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 294M/369M [00:26<00:06, 11.2MB/s][A
+adapter_model.safetensors:  82%|████████▏ | 304M/369M [00:27<00:05, 11.2MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 315M/369M [00:28<00:04, 11.3MB/s][A
+adapter_model.safetensors:  88%|████████▊ | 325M/369M [00:29<00:03, 11.2MB/s][A
+adapter_model.safetensors:  91%|█████████ | 336M/369M [00:30<00:02, 11.3MB/s][A
+adapter_model.safetensors:  94%|█████████▎| 346M/369M [00:31<00:02, 10.4MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 357M/369M [00:32<00:01, 10.7MB/s][A
+adapter_model.safetensors:  99%|█████████▉| 367M/369M [00:33<00:00, 10.8MB/s][A
+adapter_model.safetensors: 100%|██████████| 369M/369M [00:33<00:00, 11.0MB/s][Aadapter_model.safetensors: 100%|██████████| 369M/369M [00:33<00:00, 10.9MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list:  94%|█████████▍| 17/18 [07:43<00:40, 40.32s/it]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.19s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.17s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.11s/it]
+
+adapter_config.json:   0%|          | 0.00/550 [00:00<?, ?B/s][Aadapter_config.json: 100%|██████████| 550/550 [00:00<00:00, 236kB/s]
+
+adapter_model.safetensors:   0%|          | 0.00/369M [00:00<?, ?B/s][A
+adapter_model.safetensors:   3%|▎         | 10.5M/369M [00:00<00:33, 10.6MB/s][A
+adapter_model.safetensors:   6%|▌         | 21.0M/369M [00:01<00:31, 11.1MB/s][A
+adapter_model.safetensors:   9%|▊         | 31.5M/369M [00:02<00:29, 11.3MB/s][A
+adapter_model.safetensors:  11%|█▏        | 41.9M/369M [00:03<00:28, 11.4MB/s][A
+adapter_model.safetensors:  14%|█▍        | 52.4M/369M [00:04<00:27, 11.4MB/s][A
+adapter_model.safetensors:  17%|█▋        | 62.9M/369M [00:05<00:26, 11.5MB/s][A
+adapter_model.safetensors:  20%|█▉        | 73.4M/369M [00:06<00:25, 11.4MB/s][A
+adapter_model.safetensors:  23%|██▎       | 83.9M/369M [00:07<00:24, 11.5MB/s][A
+adapter_model.safetensors:  26%|██▌       | 94.4M/369M [00:08<00:24, 11.4MB/s][A
+adapter_model.safetensors:  28%|██▊       | 105M/369M [00:09<00:22, 11.6MB/s] [A
+adapter_model.safetensors:  31%|███       | 115M/369M [00:10<00:23, 10.8MB/s][A
+adapter_model.safetensors:  34%|███▍      | 126M/369M [00:11<00:22, 10.9MB/s][A
+adapter_model.safetensors:  37%|███▋      | 136M/369M [00:12<00:21, 11.0MB/s][A
+adapter_model.safetensors:  40%|███▉      | 147M/369M [00:13<00:20, 11.0MB/s][A
+adapter_model.safetensors:  43%|████▎     | 157M/369M [00:14<00:18, 11.2MB/s][A
+adapter_model.safetensors:  45%|████▌     | 168M/369M [00:14<00:18, 11.2MB/s][A
+adapter_model.safetensors:  48%|████▊     | 178M/369M [00:15<00:16, 11.2MB/s][A
+adapter_model.safetensors:  51%|█████     | 189M/369M [00:16<00:16, 11.2MB/s][A
+adapter_model.safetensors:  54%|█████▍    | 199M/369M [00:17<00:15, 11.3MB/s][A
+adapter_model.safetensors:  57%|█████▋    | 210M/369M [00:18<00:13, 11.4MB/s][A
+adapter_model.safetensors:  60%|█████▉    | 220M/369M [00:19<00:13, 11.4MB/s][A
+adapter_model.safetensors:  62%|██████▏   | 231M/369M [00:20<00:13, 10.6MB/s][A
+adapter_model.safetensors:  65%|██████▌   | 241M/369M [00:21<00:12, 10.6MB/s][A
+adapter_model.safetensors:  68%|██████▊   | 252M/369M [00:22<00:10, 10.8MB/s][A
+adapter_model.safetensors:  71%|███████   | 262M/369M [00:23<00:09, 11.0MB/s][A
+adapter_model.safetensors:  74%|███████▍  | 273M/369M [00:24<00:08, 11.1MB/s][A
+adapter_model.safetensors:  77%|███████▋  | 283M/369M [00:25<00:07, 11.3MB/s][A
+adapter_model.safetensors:  80%|███████▉  | 294M/369M [00:26<00:06, 11.3MB/s][A
+adapter_model.safetensors:  82%|████████▏ | 304M/369M [00:27<00:05, 11.3MB/s][A
+adapter_model.safetensors:  85%|████████▌ | 315M/369M [00:28<00:04, 11.4MB/s][A
+adapter_model.safetensors:  88%|████████▊ | 325M/369M [00:28<00:03, 11.5MB/s][A
+adapter_model.safetensors:  91%|█████████ | 336M/369M [00:29<00:02, 11.4MB/s][A
+adapter_model.safetensors:  94%|█████████▎| 346M/369M [00:31<00:02, 10.6MB/s][A
+adapter_model.safetensors:  97%|█████████▋| 357M/369M [00:32<00:01, 10.7MB/s][A
+adapter_model.safetensors:  99%|█████████▉| 367M/369M [00:32<00:00, 10.9MB/s][A
+adapter_model.safetensors: 100%|██████████| 369M/369M [00:33<00:00, 10.9MB/s][Aadapter_model.safetensors: 100%|██████████| 369M/369M [00:33<00:00, 11.1MB/s]
+
+generating responses:   0%|          | 0/556 [00:00<?, ?it/s][Agenerating responses:   0%|          | 0/556 [00:00<?, ?it/s]
+adapters_list: 100%|██████████| 18/18 [08:28<00:00, 41.77s/it]adapters_list: 100%|██████████| 18/18 [08:28<00:00, 28.25s/it]
+adapters_list:   0%|          | 0/18 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.14s/it][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.13s/it][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.06s/it][ALoading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it]
+adapters_list:   0%|          | 0/18 [00:06<?, ?it/s]
+Traceback (most recent call last):
+  File "postprocessing_zefiro.py", line 74, in <module>
+    postprocessor = TestDataProcessor(test_data=val_data, 
+  File "/extra/ferrazzi/llm/mistral_finetuning/utils/test_data_processor.py", line 37, in __init__
+    raise ValueError(f'The number of shots for the inference prompt is greater than the number of examples available.')
+ValueError: The number of shots for the inference prompt is greater than the number of examples available.
