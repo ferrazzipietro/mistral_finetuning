@@ -12,12 +12,13 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-from config.finetuning_zefiro import model_loading_params as models_params
-adapters = "ferrazzipietro/zefiro-7b-base-ITA_adapters_it.layer1" # "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002" # "ferrazzipietro/Mistral-7B-Instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002"
+from config.finetuning_qwen import model_loading_params as models_params
+adapters = "ferrazzipietro/Qwen1.5-7B-Chat__adapters_en.layer1_8_torch.bfloat16_32_64_0.01_8_0.0002" # "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002" # "ferrazzipietro/Mistral-7B-Instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002"
 print(adapters)
-BASE_MODEL_CHECKPOINT = "mii-community/zefiro-7b-base-ITA" # "meta-llama/Llama-2-7b-chat-hf"  # 'mistralai/Mistral-7B-Instruct-v0.2'
-layer = 'it.layer1'
+BASE_MODEL_CHECKPOINT = "Qwen/Qwen1.5-7B-Chat"  # "meta-llama/Llama-2-7b-chat-hf"  # 'mistralai/Mistral-7B-Instruct-v0.2'
+layer = 'en.layer1'
 quantization  = True
+
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 
@@ -68,21 +69,21 @@ tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, add_eos_token=T
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
 # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
-postprocessor = TestDataProcessor(test_data=val_data, 
+postprocessor = TestDataProcessor(test_data=val_data.select(range(10)), 
                                   preprocessor=preprocessor, 
                                   n_shots_inference=n_shots_inference, 
                                   language=language, 
                                   tokenizer=tokenizer)
 postprocessor.add_inference_prompt_column(simplest_prompt=False)
 postprocessor.add_ground_truth_column()
-try:
-        postprocessor.add_responses_column(model=merged_model, 
+#try:
+postprocessor.add_responses_column(model=merged_model, 
                                         tokenizer=tokenizer, 
-                                        batch_size=46, 
+                                        batch_size=5, 
                                         max_new_tokens_factor=max_new_tokens_factor)
-        postprocessor.test_data.to_csv(f"data/TMP_maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
-except Exception as e:
-    print("ERROR IN PROCESSING: ", Exception, adapters)
+postprocessor.test_data.to_csv(f"data/TMP_maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
+# except Exception as e:
+#     print("ERROR IN PROCESSING: ", Exception, adapters)
 # del merged_model
 # if models_params.quantization: 
 #     del base_model

@@ -71,7 +71,8 @@ def main(ADAPTERS_CHECKPOINT,
   if not model_loading_params.quantization:
     model = AutoModelForCausalLM.from_pretrained(
       config.BASE_MODEL_CHECKPOINT,
-      device_map="auto"
+      device_map="auto",
+      torch_dtype=model_loading_params.torch_dtype,
       )
   else:
     model = AutoModelForCausalLM.from_pretrained(
