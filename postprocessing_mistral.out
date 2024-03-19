@@ -1,70 +1,15 @@
 WARNING: grid.env NOT FOUND
 NO Enviroment
-Date: Mon 11 Mar 2024 02:04:02 PM UTC
+Date: Tue 19 Mar 2024 08:33:21 AM UTC
 Directory: /home/ferrazzi/llm/mistral_finetuning
-This job will be executed on th following nodes: vgpu8-0
+This job will be executed on th following nodes: vgpu6-0
 
 /home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
 Python 3.8.18
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_64_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_4_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_8_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_2_0.0002
-PROCESSING: ferrazzipietro/Mistral-7B-v0.1_simplest_prompt_adapters_en.layer1_8_torch.bfloat16_32_32_0.05_4_0.0002
+['ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_2_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_4_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_8_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.05_2_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.05_4_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.05_8_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_2_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_4_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_8_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.05_2_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.05_4_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.05_8_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_2_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_4_0.0002', 'ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002']
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_2_0.0002
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_4_0.0002
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_8_0.0002
+NO QUANTIZATION

@@ -1,0 +1,65 @@
+WARNING: grid.env NOT FOUND
+NO Enviroment
+Date: Tue 19 Mar 2024 10:27:17 AM UTC
+Directory: /home/ferrazzi/llm/mistral_finetuning
+This job will be executed on th following nodes: vgpu7-0
+
+/home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
+Python 3.8.18
+['ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_4_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_8_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_2_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_4_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_8_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_2_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_4_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_8_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_2_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_4_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_8_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_2_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_4_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_8_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_2_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_4_0.0002', 'ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_8_0.0002']
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_4_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_4_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_8_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_8_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_2_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_2_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_4_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_4_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_8_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_64_0.01_8_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_2_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_2_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_4_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_4_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_8_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_32_0.01_8_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_2_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_2_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_4_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_4_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_8_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_8_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_2_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_2_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_4_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_4_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_8_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_32_0.01_8_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_2_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_2_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_4_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_4_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_8_0.0002
+QUANTIZATION
+ERROR IN PROCESSING:  <class 'Exception'> ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_64_64_0.01_8_0.0002
+PROCESSING: ferrazzipietro/zefiro-7b-base-ita__adapters_it.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002
+QUANTIZATION
