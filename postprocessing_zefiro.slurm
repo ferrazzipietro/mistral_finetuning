@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=postprocess_mistral
+#SBATCH --job-name=zefiro_postprocess
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=postprocessing_mistral.err
-#SBATCH --output=postprocessing_mistral.out
+#SBATCH --error=postprocessing_zefiro.err
+#SBATCH --output=postprocessing_zefiro.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
