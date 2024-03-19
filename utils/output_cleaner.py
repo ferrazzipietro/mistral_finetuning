@@ -19,6 +19,7 @@ class OutputCleaner():
         """
         out = []
         for dict in model_ouput_list:
+            print('DICT: ', dict)
             out.append({k.replace(' ', ''): v for k, v in dict.items()})
         return out
     
@@ -149,7 +150,7 @@ class OutputCleaner():
         def is_list_of_empty_dict(string:str)  -> bool:
             if self._assess_model_output(string):
                 tmp = json.loads(string)
-                print('TMP: ', tmp)
+                #print('TMP: ', tmp)
                 if isinstance(tmp, list) and all(isinstance(item, dict) for item in tmp):
                     if all(str(item) == "{}" for item in tmp):
                         return True
@@ -158,8 +159,10 @@ class OutputCleaner():
         def is_list_with_one_empty_dict(string:str)  -> bool:
             if self._assess_model_output(string):
                 tmp = json.loads(string)
-                if isinstance(tmp, list) and len(tmp) == 1 and isinstance(tmp[0], dict) and tmp[0] == {}:
-                    return True
+                if isinstance(tmp, list):
+                    for item in tmp:
+                        if item == {}:
+                            return True
             return False
         
         def is_list_of_dict_numeric_values(string:str)  -> bool:
@@ -312,9 +315,9 @@ class OutputCleaner():
             # print('IS NUMERIC')
             return {'model_output':'[{"entity":""}]'}
 
-        
+        print('QUI HO QUESTO: ', model_output)
         if is_list_of_strings_representing_dicts(model_output):
-            # print('is_list_of_strings_representing_dicts')                
+            print('is_list_of_strings_representing_dicts')                
             tmp = json.loads(model_output)
             tmp_list = []
             for item in tmp:
@@ -366,6 +369,16 @@ class OutputCleaner():
         if latest_version:
             model_output = self._extract_text_between_curl_brackets(model_output)
             model_output = self._clean_text_between_curl_brackets(model_output)
+
+            print('QUI HO il SECONDO QUESTO: ', model_output)
+            if is_list_of_strings_representing_dicts(model_output):
+                print('is_list_of_strings_representing_dicts')                
+                tmp = json.loads(model_output)
+                tmp_list = []
+                for item in tmp:
+                    if self._assess_model_output(item):
+                        tmp_list.append(json.loads(item))
+                return {'model_output':str(tmp_list)}
                     
             if is_list_of_dict_numeric_values(model_output):
                 #print('is_list_of_dict_int_values')
@@ -383,11 +396,17 @@ class OutputCleaner():
                 # print('is_list_of_empty_dict')
                 return {'model_output':'[{"entity":""}]'}
             
+            if is_list_with_one_empty_dict(model_output):
+                tmp = json.loads(model_output)
+                tmp = [str(el) for el in tmp if el != {}]
+                model_output = str(tmp)
+                return {'model_output':model_output}
+            
             if is_list_of_dicts_of_lists(model_output):
                 if self.verbose: print('is_list_of_dicts_of_lists')
                 tmp = json.loads(model_output)
                 tmp = [{"entity":v} for el in tmp for v in el.values() if not isinstance(v, list)]
-                return {'model_output':str(tmp)}  
+                return {'model_output ':str(tmp)}  
                 
             # print('CLEANED:  ', model_output)
             cleaning_done, cleaned_model_output = only_dicts_with_key_entity(model_output, wrong_keys_to_entity=wrong_keys_to_entity)
@@ -448,6 +467,8 @@ class OutputCleaner():
 
         """
         text_between_curl_brackets = re.sub(r'",(.+?)}', r'"}', text_between_curl_brackets)
+        text_between_curl_brackets = re.sub(r'{},', r'', text_between_curl_brackets)
+        text_between_curl_brackets = re.sub(r',{}', r'', text_between_curl_brackets)
         return text_between_curl_brackets
 
     # def _keep_only_one_keyVal_from_dict(dict: dict) -> dict:

@@ -1,1 +1,16 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor2_nShotsInference4_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.37575604838709675,0.6412903225806451,0.2657280342184994
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor2_nShotsInference2_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.33536173089925625,0.7069555302166477,0.21981918099627726
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference4_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.5132622100420867,0.6245831348261077,0.4356205349725868
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.5485765928603705,0.6187563710499491,0.4926948051948052
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor2_nShotsInference1_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.3208653720839306,0.627420998980632,0.2155489406408685
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.44512757454657237,0.6189797663151895,0.34752
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.40057464384053637,0.6817440912795436,0.28360739108323446
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.45229297978700284,0.6420857759950632,0.3491024995806073
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.4128089105464671,0.5937917222963952,0.31637915703361197
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.4284766747733805,0.6396039603960396,0.3221409574468085
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference3_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.47230800905909,0.6384636793765656,0.37477536350269564
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.3977467548371295,0.6901827454313643,0.27937381730603816
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor2_nShotsInference0_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.06440322016100805,0.7022900763358778,0.03374908290535583
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.3291374055916258,0.6222444889779559,0.223743469645109
+data/llama/13B_NoQuantbit_base/maxNewTokensFactor2_nShotsInference3_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv,,100,0.35373269504463706,0.6472537878787878,0.24336834609222005
