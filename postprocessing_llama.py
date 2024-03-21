@@ -10,8 +10,8 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-from log import llama7b_NoQuant as models_params
-adapters_list = generate_ft_adapters_list("llama7b_NoQuant", simplest_prompt=models_params.simplest_prompt)
+from log import llama13B_8bit_FT as models_params
+adapters_list = generate_ft_adapters_list("llama13B_8bit_FT", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
