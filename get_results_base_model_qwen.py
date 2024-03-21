@@ -6,7 +6,15 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from config import base_model_qwen as base_model
 import torch
 from tqdm import tqdm
+import wandb
+import datetime
 
+run = wandb.init(project="Qwen get results base model", job_type="training", anonymous="allow",
+                  name=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                  config={'model': base_model.BASE_MODEL_CHECKPOINT, 
+                          #'dataset': base_model.DATASET_CHEKPOINT, 
+                          'layer': base_model.TRAIN_LAYER,
+                          'time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 
@@ -34,6 +42,7 @@ if base_model.n_bit==8:
     load_in_8bit = True
 
 if load_in_4bit or load_in_8bit: 
+    print("Loading model with quantization: ", base_model.n_bit, " bit")
     bnb_config = BitsAndBytesConfig(
                 load_in_4bit=load_in_4bit,
                 load_in_8bit=load_in_8bit,
@@ -50,9 +59,10 @@ if load_in_4bit or load_in_8bit:
                 #torch_dtype=torch.float16,
                 device_map= "auto",
                 token=HF_TOKEN,
-                #cache_dir='/data/disk1/share/pferrazzi/.cache'
+                cache_dir='/data/disk1/share/pferrazzi/.cache'
     )
 else:
+    print("Loading model without quantization")
     model = AutoModelForCausalLM.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                                                 return_dict=True, device_map= "auto", token=HF_TOKEN)
 
@@ -70,7 +80,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                           n_shots_inference=n_shots_inference, 
                                           language=language, 
                                           tokenizer=tokenizer)
-        postprocessor.add_inference_prompt_column(simplest_prompt=False)
+        postprocessor.add_inference_prompt_column(simplest_prompt=base_model.simplest_prompt)
         postprocessor.add_ground_truth_column()
         print('TRY: ', f"{save_directory}/maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_BaseModel_{base_model.BASE_MODEL_CHECKPOINT.split('/')[1]}_{base_model.n_bit}.csv")
         # try:
