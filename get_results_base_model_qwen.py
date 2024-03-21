@@ -59,7 +59,7 @@ if load_in_4bit or load_in_8bit:
                 #torch_dtype=torch.float16,
                 device_map= "auto",
                 token=HF_TOKEN,
-                cache_dir='/data/disk1/share/pferrazzi/.cache'
+                # cache_dir='/data/disk1/share/pferrazzi/.cache'
     )
 else:
     print("Loading model without quantization")
