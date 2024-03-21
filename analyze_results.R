@@ -2,8 +2,8 @@
 library(ggplot2)
 library(tidyverse)
 
-data <- read.csv("/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_results_v2.csv")
-data %>% head(3)
+data <- read.csv("/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_results.csv")
+data %>% head(1)
 
 plot_results <- function(res, col_name, model_type) {
   ggplot(res, aes_string(x = col_name, y = "f1")) +
@@ -56,4 +56,15 @@ show_results_grouped_finetuning(data,
                                 model_type='mistral',
                                 f1_minimum_threshold=0.3)
 
-                
+library(xlsx)
+
+data %>%
+  group_by(model_type, model_size, quantization, fine_tuning) %>%
+  top_n(1, f1_score) %>%
+  arrange(desc(f1_score)) %>%
+  select(model_type, model_size, quantization, fine_tuning, f1_score, recall, precision, nShotsInference) %>%
+  filter(model_type=='mistral',
+         #model_size=='13B'
+         ) #%>%
+  as.data.frame() %>%
+  write.xlsx(file='/Users/pietroferrazzi/Desktop/res_tmp_qwen.xlsx')
