@@ -72,7 +72,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                 merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                                       token=LLAMA_TOKEN)
-            # tokenizer.pad_token = tokenizer.unk_token
+            tokenizer.pad_token = "<unk>"
             tokenizer.padding_side = "left"
 
             # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
