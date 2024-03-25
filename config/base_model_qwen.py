@@ -8,4 +8,4 @@ BASE_MODEL_CHECKPOINT = "Qwen/Qwen1.5-14B-Chat"#"Qwen/Qwen1.5-14B-Chat"# "google
 instruction_on_response_format = 'Extract the entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
 simplest_prompt = False
 
-batch_size = 20
+batch_size = 6
