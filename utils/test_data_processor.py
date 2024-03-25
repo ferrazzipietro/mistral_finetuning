@@ -27,11 +27,17 @@ class TestDataProcessor():
                                                              '[{"entity": "coloration", "offsets": [25, 35]}, {"entity": "indicated", "offsets": [36, 45]}, {"entity": "atrophy","offsets": [46, 53]}, {"entity": "atrophy of smooth muscle fibers", "offsets": [46, 77]}, {"entity": "smooth muscle fibers", "offsets": [57, 77]} ]'],
                                     },
                                 'it':{'questions':['In considerazione dell’inefficacia della terapia somministrata, in assenza di ulteriori opzioni terapeutiche standard potenzialmente efficaci e dopo colloquio con i genitori si decide di avviare la paziente a trapianto aploidentico, possibilmente NK allo reattivo, da genitore.',
-                                                    'L’esame istologico dimostrava mucosa gastrica atrofica con flogosi cronica, marcato edema ed incremento del connettivo del corion, focale metaplasia intestinale, il tutto sovrastante un tessuto fibromuscolare.'],
+                                                    'L’esame istologico dimostrava mucosa gastrica atrofica con flogosi cronica, marcato edema ed incremento del connettivo del corion, focale metaplasia intestinale, il tutto sovrastante un tessuto fibromuscolare.',
+                                                    'Giunge nel nostro reparto per stranguria in assenza di altri sintomi.',
+                                                    'All’età di 16 mesi, nuovo ricovero per febbre (39°C) e stato di abbattimento.'],
                                        'responses':['[{"entity": "inefficacia"}, {"entity": "opzioni"}, {"entity": "colloquio"}, {"entity": "avviare"}, {"entity": "trapianto"}, {"entity": "genitori"}, {"entity": "paziente"}, {"entity": "genitore"}]',
-                                                    '[{"entity": "mucosa gastrica atrofica"}, {"entity": "flogosi\r\cronica"}]'],
+                                                    '[{"entity": "mucosa gastrica atrofica"}, {"entity": "flogosi\r\cronica"}]',
+                                                    '[{"entity": "Giunge"}, {"entity": "stranguria"}, {"entity": "sintomi"}, {"entity": "stranguria"}]',
+                                                    '[{"entity": "ricovero"}, {"entity": "febbre"}, {"entity": "stato"}, {"entity": "febbre"}, {"entity": "39°C"} ]'],
                                        'responses_offset':['[{"entity": "inefficacia", "offset": [23, 34]}, {"entity": "opzioni", "offset": [88,95]}, {"entity": "colloquio", "offset": [149,158]}, {"entity": "avviare", "offset": [187,194]}, {"entity": "trapianto", "offset": [209,218]}, {"entity": "genitori", "offset": [163,173]}, {"entity": "paziente", "offset": [195,106]}, {"entity": "genitore", "offset": [268,276]}]',
-                                                           '[{"entity": "mucosa gastrica atrofica", "offset": [30,54]}, {"entity": "flogosi\r\cronica", "offset": [59,75]}]']}
+                                                           '[{"entity": "mucosa gastrica atrofica", "offset": [30,54]}, {"entity": "flogosi\r\cronica", "offset": [59,75]}]',
+                                                           '[{"entity": "Giunge", "offset": [0,6]}, {"entity": "stranguria", "offset": [30,40]}, { "entity": "sintomi", "offset": [61,68]}, {"entity": "stranguria", "offset": [ 30, 40 ]} ]',
+                                                           '[{"entity": "ricovero", "offset": [26,34]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "stato", "offset": [ 55, 60 ]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "39°C", "offset": [47,51]} ]']}
                                 }
         if len(self.few_shots_dict[self.language]['questions']) < n_shots_inference:
             raise ValueError(f'The number of shots for the inference prompt is greater than the number of examples available.')

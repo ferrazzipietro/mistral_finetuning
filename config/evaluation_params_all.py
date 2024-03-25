@@ -7,6 +7,6 @@ offset = False
 
 
 # params for evaluation.py, not all
-input_data_dir_path = 'data/qwen/4bit'
-output_data_path = 'data/evaluation_results/mistral_4bit.csv'
+input_data_dir_path = 'data/mistral/NoQuant_FT_float16'
+output_data_path = 'data/evaluation_results/mistral_NoQuant_FT_float16.csv'
 
