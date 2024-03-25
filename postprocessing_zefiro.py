@@ -13,7 +13,7 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-from log import zefiro_4bit as models_params
+from log import zefiro_8bit as models_params
 adapters_list = generate_ft_adapters_list("zefiro_4bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
@@ -78,14 +78,14 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                               tokenizer=tokenizer)
             postprocessor.add_inference_prompt_column(simplest_prompt=models_params.simplest_prompt)
             postprocessor.add_ground_truth_column()
-            try:
-                postprocessor.add_responses_column(model=merged_model, 
-                                                tokenizer=tokenizer, 
-                                                batch_size=postprocessing.batch_size, 
-                                                max_new_tokens_factor=max_new_tokens_factor)
-                postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
-            except Exception as e:
-                print("ERROR IN PROCESSING: ", Exception, adapters)
+            #try:
+            postprocessor.add_responses_column(model=merged_model, 
+                                            tokenizer=tokenizer, 
+                                            batch_size=postprocessing.batch_size, 
+                                            max_new_tokens_factor=max_new_tokens_factor)
+            postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
+            # except Exception as e:
+            #     print("ERROR IN PROCESSING: ", Exception, adapters)
             del merged_model
             if models_params.quantization: 
                 del base_model
