@@ -80,8 +80,12 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                                       token=LLAMA_TOKEN)
             tokenizer.pad_token = tokenizer.eos_token
             tokenizer.padding_side = "left"
+            tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
+            tokenizer.add_special_tokens({"pad_token":"<pad>"})
+            merged_model.resize_token_embeddings(len(tokenizer))
+            print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
+            merged_model.config.pad_token_id = tokenizer.pad_token_id
 
-            # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
             postprocessor = TestDataProcessor(test_data=val_data, 
                                               preprocessor=preprocessor, 
                                               n_shots_inference=n_shots_inference, 
