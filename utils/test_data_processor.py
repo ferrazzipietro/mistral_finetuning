@@ -153,7 +153,9 @@ class TestDataProcessor():
         #     add_special_tokens = True
         encodeds = tokenizer(prompts, return_tensors="pt", add_special_tokens=False, padding=True)
         model_inputs = encodeds.to(device)
-        generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  pad_token_id=tokenizer.pad_token_id) # max_new_tokens=max_new_tokens,
+        generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
+                                       pad_token_id=tokenizer.pad_token_id,
+                                       temperature = 1.0) # max_new_tokens=max_new_tokens,
         generated_ids = generated_ids[:, encodeds.input_ids.shape[1]:]
         decoded = tokenizer.batch_decode(generated_ids)
         # decoded = [self._postprocess_model_output(i) for i in decoded]
