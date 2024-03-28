@@ -13,8 +13,8 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-from log import zefiro_8bit as models_params
-adapters_list = generate_ft_adapters_list("zefiro_8bit", simplest_prompt=models_params.simplest_prompt)
+from log import zefiro_4bit as models_params
+adapters_list = generate_ft_adapters_list("zefiro_4bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -67,14 +67,14 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     device_map= "auto")
             merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=True)
-            tokenizer.pad_token = tokenizer.eos_token
+            # tokenizer.pad_token = tokenizer.eos_token
             tokenizer.padding_side = "left"
 
 
-            tokenizer.add_special_tokens({"pad_token":"<pad>"})
-            merged_model.resize_token_embeddings(len(tokenizer))
-            print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
-            merged_model.config.pad_token_id = tokenizer.pad_token_id
+            # tokenizer.add_special_tokens({"pad_token":"<pad>"})
+            # merged_model.resize_token_embeddings(len(tokenizer))
+            # print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
+            # merged_model.config.pad_token_id = tokenizer.pad_token_id
 
             # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
             postprocessor = TestDataProcessor(test_data=val_data, 
