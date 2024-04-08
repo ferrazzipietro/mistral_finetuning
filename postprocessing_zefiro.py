@@ -13,8 +13,8 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-from log import zefiroNoQuant as models_params
-adapters_list = generate_ft_adapters_list("zefiroNoQuant", simplest_prompt=models_params.simplest_prompt)
+from log import zefiro_8bit as models_params
+adapters_list = generate_ft_adapters_list("zefiro_8bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -75,6 +75,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             # merged_model.resize_token_embeddings(len(tokenizer))
             # print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
             # merged_model.config.pad_token_id = tokenizer.pad_token_id
+
 
             # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
             postprocessor = TestDataProcessor(test_data=val_data, 
