@@ -88,7 +88,7 @@ tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = 'right'
 
-preprocessor = DataPreprocessor(model_checkpoint=config.BASE_MODEL_CHECKPOINT, tokenizer=tokenizer, token=LLAMA_TOKEN)
+preprocessor = DataPreprocessor(model_checkpoint=config.BASE_MODEL_CHECKPOINT, tokenizer=tokenizer)
 dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
 dataset = dataset[config.TRAIN_LAYER]
 dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
