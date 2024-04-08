@@ -56,8 +56,8 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                             bnb_4bit_quant_type = models_params.bnb_4bit_quant_type[0],
                             bnb_4bit_compute_dtype = models_params.bnb_4bit_compute_dtype[0],
                             llm_int8_threshold = models_params.llm_int8_threshold[0],
-                            llm_int8_has_fp16_weight = models_params.llm_int8_has_fp16_weight,
-                            llm_int8_skip_modules = models_params.llm_int8_skip_modules
+                            # llm_int8_has_fp16_weight = models_params.llm_int8_has_fp16_weight,
+                            # llm_int8_skip_modules = models_params.llm_int8_skip_modules
                             )
                 base_model = AutoModelForCausalLM.from_pretrained(
                     models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
