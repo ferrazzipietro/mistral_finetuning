@@ -57,8 +57,11 @@ class OutputCleaner():
 
             
     def _remove_json_special_chars(self, string):
+        """
+        Remove the special characters from a string. This is useful when the model output contains special characters that are not allowed in the json format.
+        """
         # print('sto pulendo: ', string)
-        chars = ['\xa0', '\x80', '\x93']
+        chars = ['\xa0', '\x80', '\x93', '\U00100000', '\r\n']
         for char in chars:
             string = string.replace(char, ' ')
         return string
