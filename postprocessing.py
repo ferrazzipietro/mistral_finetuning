@@ -54,8 +54,8 @@ else:
                 # bnb_4bit_quant_type = models_params.bnb_4bit_quant_type[0],
                 # bnb_4bit_compute_dtype = models_params.bnb_4bit_compute_dtype[0],
                 llm_int8_threshold = models_params.llm_int8_threshold[0],
-                llm_int8_has_fp16_weight = models_params.llm_int8_has_fp16_weight,
-                llm_int8_skip_modules = models_params.llm_int8_skip_modules
+                llm_int8_has_fp16_weight = False # models_params.llm_int8_has_fp16_weight,
+                # llm_int8_skip_modules = models_params.llm_int8_skip_modules
                 )
     base_model = AutoModelForCausalLM.from_pretrained(
         BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
@@ -65,9 +65,12 @@ else:
         device_map= "auto",
         #cache_dir='/data/disk1/share/pferrazzi/.cache'
         )
-# merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
-merged_model = base_model.load_adapter(adapters)
-merged_model.enable_adapters()
+merged_model = PeftModel.from_pretrained(base_model, adapters, 
+                                         token=HF_TOKEN, 
+                                         device_map='auto',
+                                         is_trainable = False)
+# merged_model = base_model.load_adapter(adapters)
+# merged_model.enable_adapters()
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, add_eos_token=True)
 #tokenizer.pad_token = "<unk>"
 tokenizer.padding_side = "left"

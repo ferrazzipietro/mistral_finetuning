@@ -88,7 +88,8 @@ tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = 'right'
 
-preprocessor = DataPreprocessor(model_checkpoint=config.BASE_MODEL_CHECKPOINT, tokenizer=tokenizer)
+preprocessor = DataPreprocessor(model_checkpoint=config.BASE_MODEL_CHECKPOINT, 
+                                tokenizer=tokenizer)
 dataset = load_dataset(config.DATASET_CHEKPOINT) #download_mode="force_redownload"
 dataset = dataset[config.TRAIN_LAYER]
 dataset = dataset.shuffle(seed=1234)  # Shuffle dataset here
@@ -139,7 +140,7 @@ training_arguments = TrainingArguments(
     save_steps= training_params.save_steps,
     logging_strategy=training_params.logging_strategy,
     logging_steps= training_params.logging_steps,
-    learning_rate=2e-4, #training_params.learning_rate,
+    learning_rate=training_params.learning_rate,
     weight_decay= training_params.weight_decay,
     fp16= training_params.fp16,
     bf16= training_params.bf16,
