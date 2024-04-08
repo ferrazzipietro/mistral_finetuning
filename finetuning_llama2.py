@@ -53,16 +53,16 @@ run = wandb.init(project=config.ADAPTERS_CHECKPOINT.split('/')[1], job_type="tra
             This flag runs LLM.int8() with 16-bit main weights. This is useful for fine-tuning as the weights do not
             have to be converted back and forth for the backward pass."""
 bnb_config = BitsAndBytesConfig(
-    load_in_4bit= True,# model_loading_params.load_in_4bit,
-    load_in_8bit = False,#  model_loading_params.load_in_8bit,
+    load_in_4bit= False,# model_loading_params.load_in_4bit,
+    load_in_8bit = True,#  model_loading_params.load_in_8bit,
 
-    bnb_4bit_quant_type= model_loading_params.bnb_4bit_quant_type[0],
-    bnb_4bit_compute_dtype= model_loading_params.bnb_4bit_compute_dtype[0],
-    bnb_4bit_use_double_quant= model_loading_params.bnb_4bit_use_double_quant,
+    # bnb_4bit_quant_type= model_loading_params.bnb_4bit_quant_type[0],
+    # bnb_4bit_compute_dtype= model_loading_params.bnb_4bit_compute_dtype[0],
+    # bnb_4bit_use_double_quant= model_loading_params.bnb_4bit_use_double_quant,
 
-    # llm_int8_threshold= 6.0,# model_loading_params.llm_int8_threshold,
-    # llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],# model_loading_params.llm_int8_skip_modules,
-    # llm_int8_has_fp16_weight= True# model_loading_params.llm_int8_has_fp16_weight
+    llm_int8_threshold= 6.0,# model_loading_params.llm_int8_threshold,
+    llm_int8_skip_modules= ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"],# model_loading_params.llm_int8_skip_modules,
+    llm_int8_has_fp16_weight= True# model_loading_params.llm_int8_has_fp16_weight
 )
 
 model_id = config.BASE_MODEL_CHECKPOINT
