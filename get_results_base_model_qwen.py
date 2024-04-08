@@ -59,12 +59,13 @@ if load_in_4bit or load_in_8bit:
                 #torch_dtype=torch.float16,
                 device_map= "auto",
                 token=HF_TOKEN,
-                # cache_dir='/data/disk1/share/pferrazzi/.cache'
+                # cache_dir='/data/disk1/share/pferrazzi/.cache'
     )
 else:
     print("Loading model without quantization")
     model = AutoModelForCausalLM.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
-                                                return_dict=True, device_map= "auto", token=HF_TOKEN)
+                                                return_dict=True, device_map= "auto", token=HF_TOKEN,
+                                                torch_dtype=base_model.torch_dtype)
 
 tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=HF_TOKEN)
 tokenizer.pad_token = '<unk>'
