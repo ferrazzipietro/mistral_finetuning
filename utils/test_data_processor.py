@@ -183,7 +183,7 @@ class TestDataProcessor():
                 tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
                 responses_col.extend(tmp)
                 pbar.update(batch_size)
-            indici = list(range(indexes[i+1], max_index))
+            indici = list(range(indexes[len(indexes[:-1])], max_index))
             tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
             responses_col.extend(tmp)
             pbar.update(batch_size)
