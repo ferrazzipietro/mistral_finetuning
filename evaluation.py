@@ -52,8 +52,9 @@ if __name__ == "__main__":
     input_data_path = evaluation_params_all.input_data_dir_path
     output_data_path = evaluation_params_all.output_data_path
     words_level = evaluation_params_all.words_level
-    evaluate(input_data_path, output_data_path, words_level, 
-             similar_is_equal_threshold_list = evaluation_params_all.similar_is_equal_threshold_list,
-             similarity_types = ['case', 'stop_words', 'subset', 'superset'],
-             wrong_keys_to_entity = False,
-             offset = False)
+    errors = evaluate(input_data_path, output_data_path, words_level, 
+                      similar_is_equal_threshold_list = evaluation_params_all.similar_is_equal_threshold_list,
+                      similarity_types = ['case', 'stop_words', 'subset', 'superset'],
+                      wrong_keys_to_entity = False,
+                      offset = False)
+    print(errors)
