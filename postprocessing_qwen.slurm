@@ -22,7 +22,7 @@
 
 ### GPU request
 #SBATCH --gres=gpu
-#SBATCH --constraint=A5000
+#SBATCH --constraint=A6000
 ####SBATCH --constraint=vgpu5-1
 
 ### Some useful informative commands
