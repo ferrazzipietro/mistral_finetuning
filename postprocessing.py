@@ -63,7 +63,8 @@ else:
         return_dict=True,  
         #torch_dtype=torch.float16,
         device_map= "auto",
-        cache_dir='/data/disk1/share/pferrazzi/.cache')
+        #cache_dir='/data/disk1/share/pferrazzi/.cache'
+        )
 merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, add_eos_token=True)
 #tokenizer.pad_token = "<unk>"
