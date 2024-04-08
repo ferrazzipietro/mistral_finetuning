@@ -67,12 +67,20 @@ def main(ADAPTERS_CHECKPOINT,
       #llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight
   )
 
-  model = AutoModelForCausalLM.from_pretrained(
+  if not model_loading_params.quantization:
+    model = AutoModelForCausalLM.from_pretrained(
       config.BASE_MODEL_CHECKPOINT,
-      quantization_config=bnb_config,
       device_map="auto",
-      #cache_dir='/data/disk1/share/pferrazzi/.cache'
-  )
+      torch_dtype=model_loading_params.torch_dtype,
+      )
+  else:
+    model = AutoModelForCausalLM.from_pretrained(
+        config.BASE_MODEL_CHECKPOINT,
+        quantization_config=bnb_config,
+        device_map="auto"
+    )
+    model = prepare_model_for_kbit_training(model)
+
   model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
   model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
   #Adding the adapters in the layers
@@ -82,8 +90,6 @@ def main(ADAPTERS_CHECKPOINT,
                           2- making output embedding layer require gradient (needed as you are going to train (finetune) the model)
                           3- upcasting the model's head to fp32 for numerical stability
   """
-  model = prepare_model_for_kbit_training(model)
-
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
   tokenizer.pad_token = '<unk>'
   tokenizer.padding_side = 'right'
@@ -222,6 +228,8 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
             nbits = 4
             if load_in_8bit:
               nbits = 8
+            if not model_loading_params.quantization:
+              nbits = 'NoQuant'
             extra_str = ""
             if preprocessing_params.simplest_prompt:
               extra_str = "simplest_prompt"
