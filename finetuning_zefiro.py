@@ -68,7 +68,7 @@ model = AutoModelForCausalLM.from_pretrained(
     config.BASE_MODEL_CHECKPOINT,
     quantization_config=bnb_config,
     device_map="auto",
-    cache_dir='/data/disk1/share/pferrazzi/.cache'
+#    cache_dir='/data/disk1/share/pferrazzi/.cache'
 )
 model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
 model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
@@ -82,7 +82,8 @@ prepare_model_for_kbit_training wraps the entire protocol for preparing a model 
 model = prepare_model_for_kbit_training(model)
 
 tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True,
-            cache_dir='/data/disk1/share/pferrazzi/.cache')
+#            cache_dir='/data/disk1/share/pferrazzi/.cache')
+)
 # tokenizer.pad_token = tokenizer.eos_token
 # tokenizer.padding_side = 'right'
 #tokenizer.add_special_tokens({"pad_token":"<pad>"})
