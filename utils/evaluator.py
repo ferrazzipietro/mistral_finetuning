@@ -89,8 +89,10 @@ class Evaluator():
         print('MODEL RESPONSE 1: ', model_response)
         model_response = model_response.replace("\n", " ")
 
-        print('MODEL RESPONSE 2: ', model_response)
         good_format, model_response = self._assess_model_output(model_response)
+
+        print('MODEL RESPONSE 2: ', model_response)        
+        print('MODEL RESPONSE 3: ', model_response)
         if model_response == []:
             model_response = '[{"entity":""}]'
         if self.offset and good_format:
@@ -100,8 +102,6 @@ class Evaluator():
             entities = [entity["entity"] for entity in output]
             offsets = [entity["offset"] for entity in output]
             return {"entities": entities, "offsets": offsets}
-        
-        print('MODEL RESPONSE 3: ', model_response)
         if (not self.offset) and good_format:
 
             print('MODEL RESPONSE 4: ', model_response)
