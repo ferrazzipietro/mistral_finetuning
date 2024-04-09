@@ -81,6 +81,7 @@ def main(ADAPTERS_CHECKPOINT,
     )
     model = prepare_model_for_kbit_training(model)
 
+
   model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
   model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
   #Adding the adapters in the layers
@@ -123,7 +124,9 @@ def main(ADAPTERS_CHECKPOINT,
           target_modules=lora_params.target_modules # lora_params.target_modules
           )
   model = get_peft_model(model, lora_config)
-
+  if not model_loading_params.quantization:
+      from peft import cast_mixed_precision_params
+      cast_mixed_precision_params(model, dtype=model_loading_params.torch_dtype)
   torch.cuda.empty_cache()
 
   #Hyperparamter

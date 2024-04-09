@@ -3,7 +3,7 @@ from datasets import load_dataset, Dataset
 from utils.data_preprocessor import DataPreprocessor
 from utils.evaluator import Evaluator
 from config.finetuning import config
-from config import postprocessing_params_mistral as postprocessing
+from config import postprocessing_params_zefiro as postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
