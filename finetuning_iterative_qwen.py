@@ -125,8 +125,11 @@ def main(ADAPTERS_CHECKPOINT,
           )
   model = get_peft_model(model, lora_config)
   if not model_loading_params.quantization:
-      from peft import cast_mixed_precision_params
-      cast_mixed_precision_params(model, dtype=model_loading_params.torch_dtype)
+      # from peft import cast_mixed_precision_params
+      # cast_mixed_precision_params(model, dtype=model_loading_params.torch_dtype)
+      for param in model.parameters():
+        if param.requires_grad:
+            param.data = param.data.float()
   torch.cuda.empty_cache()
 
   #Hyperparamter
