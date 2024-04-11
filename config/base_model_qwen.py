@@ -10,4 +10,4 @@ simplest_prompt = False
 
 import torch
 torch_dtype = torch.float16
-batch_size = 24
+batch_size = 12
