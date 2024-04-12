@@ -75,7 +75,9 @@ class OutputCleaner():
         Handle the special cases in the model output. This is useful when the model output contains special characters that are not allowed in the json format.
         Ideally, this function should not be used. It is very specific for encountered issues I could not find a solution to.
         """
-        model_response = model_response.replace(""" {"entity":"un\'insufficienza midollare\\" \\"- congenita"},""", "").replace("""l\'aspetto\\"anteriorpuntale""", """l'aspetto anteriorpuntale""")
+        model_response = model_response.replace(""" {"entity":"un\'insufficienza midollare\\" \\"- congenita"},""", "").\
+            replace("""l\'aspetto\\"anteriorpuntale""", """l'aspetto anteriorpuntale""").\
+            replace("""{'entity': 'rigonfiamento aneurismatico dell\'apice del ventricolo sinistro"'}""", """{'entity': 'rigonfiamento aneurismatico dell'apice del ventricolo sinistro"'}""")
         return model_response
     
     def _clean_ground_truth(self, example: dict) -> dict:
@@ -410,7 +412,7 @@ class OutputCleaner():
 
         # print('QUI HO QUESTO: ', model_output)
         if is_list_of_strings_representing_dicts(model_output):
-            print('is_list_of_strings_representing_dicts 1')                
+            # print('is_list_of_strings_representing_dicts 1')                
             tmp = json.loads(model_output)
             tmp_list = []
             for item in tmp:
@@ -481,7 +483,7 @@ class OutputCleaner():
             # print('QUI HO il SECONDO QUESTO: ', model_output)
 
             if is_list_of_strings_representing_dicts(model_output):
-                print('is_list_of_strings_representing_dicts 2')                
+                # print('is_list_of_strings_representing_dicts 2')                
                 tmp = json.loads(model_output)
                 tmp_list = []
                 for item in tmp:
