@@ -75,7 +75,11 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     #torch_dtype=torch.float16,
                     device_map= "auto",
                     token=LLAMA_TOKEN)
-            merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
+            merged_model = PeftModel.from_pretrained(base_model, 
+                                                     adapters, 
+                                                     token=HF_TOKEN, 
+                                                     device_map='auto',
+                                                     is_trainable = False)
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                                       token=LLAMA_TOKEN)
             tokenizer.pad_token = tokenizer.eos_token# "<pad>" #tokenizer.eos_token
