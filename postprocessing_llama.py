@@ -91,6 +91,12 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
 #            print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
 #            merged_model.config.pad_token_id = tokenizer.pad_token_id
 
+            postprocessor = TestDataProcessor(test_data=val_data, 
+                                              preprocessor=preprocessor, 
+                                              n_shots_inference=n_shots_inference, 
+                                              language=language, 
+                                              tokenizer=tokenizer)
+            postprocessor.add_inference_prompt_column(simplest_prompt=False)
 
 
             tmp = []
@@ -102,12 +108,6 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             val_data = Dataset.from_pandas(tmp)
 
 
-            postprocessor = TestDataProcessor(test_data=val_data, 
-                                              preprocessor=preprocessor, 
-                                              n_shots_inference=n_shots_inference, 
-                                              language=language, 
-                                              tokenizer=tokenizer)
-            postprocessor.add_inference_prompt_column(simplest_prompt=False)
             postprocessor.add_ground_truth_column()
             try:
                 postprocessor.add_responses_column(model=merged_model, 
