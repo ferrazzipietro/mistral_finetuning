@@ -23,7 +23,7 @@ plot_boxplots <- function(data, col_name, model_type) {
 show_results_grouped_finetuning <- function(data,
                                             model_type,
                                             f1_minimum_threshold=0){
-  cols <- c('maxNewTokensFactor', 'nShotsInference', 'nbit', 'r', 'lora_alpha', 'lora_dropout', 'gradient_accumulation_steps', 'learning_rate')
+  cols <- c('maxNewTokensFactor', 'nShotsInference', 'quantization', 'r', 'lora_alpha', 'lora_dropout', 'gradient_accumulation_steps', 'learning_rate')
   data <- data %>% 
     filter(fine_tuning == 'FT',
       !is.na(data['f1_score']),

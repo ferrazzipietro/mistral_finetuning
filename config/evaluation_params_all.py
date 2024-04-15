@@ -7,6 +7,6 @@ offset = False
 
 
 # params for evaluation.py, not all
-input_data_dir_path = 'data/zefiro/NoQuant_FT'
-output_data_path = 'data/evaluation_results/zefiro_NoQuant_FT.csv'
+input_data_dir_path = 'data/mistral/8bit'
+output_data_path = 'TMP.csv' # 'data/evaluation_results/mistra_8bit_FT.csv'
 

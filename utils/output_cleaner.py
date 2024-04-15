@@ -35,6 +35,7 @@ class OutputCleaner():
             return list({v['entity']:v for v in model_response}.values())
         except Exception as error:
             model_response = self._remove_space_from_dict_keys(model_response)
+            print('ERROR: ', model_response)
             return list({v['entity']:v for v in model_response}.values())
         
     def _assess_model_output(self, model_response: str) -> bool:
@@ -61,7 +62,9 @@ class OutputCleaner():
         Remove the special characters from a string. This is useful when the model output contains special characters that are not allowed in the json format.
         """
         # print('sto pulendo: ', string)
-        chars = ['\xa0', '\x80', '\x93', '\U00100000', '\r\n', '\U00100000I']
+        chars = ['\xa0', '\x80', '\x93', '\U00100000', '\r\n', '\U00100000I', '\\u001d', '\\"']
+        if '\u001d' in string:
+            print('ECCOLO')
         for char in chars:
             string = string.replace(char, ' ')
         char_no_space = ['\xad']
@@ -76,8 +79,8 @@ class OutputCleaner():
         Ideally, this function should not be used. It is very specific for encountered issues I could not find a solution to.
         """
         model_response = model_response.replace(""" {"entity":"un\'insufficienza midollare\\" \\"- congenita"},""", "").\
-            replace("""l\'aspetto\\"anteriorpuntale""", """l'aspetto anteriorpuntale""").\
-            replace("""{'entity': 'rigonfiamento aneurismatico dell\'apice del ventricolo sinistro"'}""", """{'entity': 'rigonfiamento aneurismatico dell'apice del ventricolo sinistro"'}""")
+            replace("""l\'aspetto\\"anteriorpuntale""", """l'aspetto anteriorpuntale""")
+        model_response = model_response.replace("""rigonfiamento aneurismatico dell'apice del ventricolo sinistro\\\"""", """""")
         return model_response
     
     def _clean_ground_truth(self, example: dict) -> dict:
@@ -366,7 +369,7 @@ class OutputCleaner():
                 out = '[' + ', '.join(clean) + ', '.join(cleaned_dirty) +  ']'
             else:
                 out = '[' + ', '.join(clean) + ']'
-            out = out.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(" \'", " \"")
+            # out = out.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(" \'", " \"")
             operations_performed = False
             if len(clean) != len(els_between_curly):
                 operations_performed = True
@@ -374,32 +377,32 @@ class OutputCleaner():
                 return operations_performed, '[{"entity":""}]'
             return operations_performed, str(out)
         
-        # print('EXAMPLE: ', example)
+        # print('EXAMPLE:  ', example['model_responses'])
         model_output = example['model_responses']
         model_output = self._special_cases_handler(model_output)
-        if self.verbose: print('ORIGINAL MODEL OUTPUT: ', model_output)
+        if self.verbose: print('ORIGINAL MODEL OUTPUT:', model_output)
         if self.verbose: print('GROUND TRUTH: ', example['ground_truth'])
         # model_output = self._exceptions_handler(model_output)
-        
+    
         if model_output is None or is_empty_list(model_output):
             return {'model_output':'[{"entity":""}]'}
         
         model_output = self._remove_json_special_chars(model_output)
-        # print('PULITO: ', model_output)
+        if self.verbose:print('PULITO: ', model_output)
                 
         if are_entities_extracted_as_dict_keys_instead_of_values(model_output, example):
-            # print('ENTITIES EXTRACTED AS DICT KEYS INSTEAD OF VALUES')
+            if self.verbose: print('ENTITIES EXTRACTED AS DICT KEYS INSTEAD OF VALUES')
             tmp = json.loads(model_output)
             tmp = [{"entity":k} for el in tmp for k in el.keys() ]
             tmp = str(tmp)
             return {'model_output':tmp}
         
         if is_list_of_dicts_and_lists_of_strings(model_output):
-            print('is_list_of_dicts_and_lists_of_strings')
+            if self.verbose: print('is_list_of_dicts_and_lists_of_strings')
             tmp = json.loads(model_output)
             out = []
             for item in tmp:
-                print('ITEM: ', item)
+                if self.verbose: print('ITEM: ', item)
                 if isinstance(item, dict):
                     out.append(item)
                 elif isinstance(item, list):
@@ -412,22 +415,23 @@ class OutputCleaner():
 
         # print('QUI HO QUESTO: ', model_output)
         if is_list_of_strings_representing_dicts(model_output):
-            # print('is_list_of_strings_representing_dicts 1')                
+            if self.verbose: print('is_list_of_strings_representing_dicts 1')                
             tmp = json.loads(model_output)
             tmp_list = []
             for item in tmp:
                 if self._assess_model_output(item):
                   tmp_list.append(json.loads(item))
+            if self.verbose: print('TEMPOOOO 2 ',tmp)
             return {'model_output':str(tmp_list)}
         
         if is_list_of_dicts_with_one_key_multiple_values(model_output):
-            # print('is_list_of_dicts_with_one_key_multiple_values')
+            if self.verbose: print('is_list_of_dicts_with_one_key_multiple_values')
             tmp = json.loads(model_output)
             tmp = [{"entity":v[0]} for el in tmp for v in el.values()]
             return {'model_output':str(tmp)}
        
         if is_list_of_dicts_with_multiple_keys_included_entity(model_output):
-            # print('is_list_of_dicts_with_multiple_keys_included_entity')
+            if self.verbose: print('is_list_of_dicts_with_multiple_keys_included_entity')
             tmp = json.loads(model_output)
             out = []
             for item in tmp:
@@ -436,7 +440,7 @@ class OutputCleaner():
         
         
         if is_list_of_lists_and_dict(model_output):
-            # print('is_list_of_lists_and_dict')
+            if self.verbose: print('is_list_of_lists_and_dict')
             tmp = json.loads(model_output)
             for el in tmp:
                 if isinstance(el, list):
@@ -445,7 +449,7 @@ class OutputCleaner():
                     return {'model_output':tmp}
                 
         if is_list_of_lists(model_output):
-            # print('is_list_of_lists')
+            if self.verbose: print('is_list_of_lists')
             tmp = json.loads(model_output)
             tmp2 = str(tmp[0]).replace("'", "\"")
             if is_list_of_dicts_and_strings(tmp2):
@@ -462,11 +466,12 @@ class OutputCleaner():
             tmp = [{"entity":el} for el in tmp]
             tmp = str(tmp)
             # print('is_list_of_strings')
+            if self.verbose: print('TEMPOOOO ',tmp)
             return {'model_output': tmp}
         
         if is_string(model_output):
             # model_output = model_output.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(" \'", " \"")
-            # print('PULITO: ', model_output)
+            if self.verbose: print('PULO: ', model_output)
             tmp = json.loads(model_output)
             if all(el in tmp for el in ['{', 'entity', '}']):
                 return {'model_output':tmp}
@@ -483,7 +488,7 @@ class OutputCleaner():
             # print('QUI HO il SECONDO QUESTO: ', model_output)
 
             if is_list_of_strings_representing_dicts(model_output):
-                # print('is_list_of_strings_representing_dicts 2')                
+                if self.verbose: print('is_list_of_strings_representing_dicts 2')                
                 tmp = json.loads(model_output)
                 tmp_list = []
                 for item in tmp:
@@ -492,13 +497,13 @@ class OutputCleaner():
                 return {'model_output':str(tmp_list)}
             
             if is_list_of_dicts_with_one_key_multiple_values(model_output):
-                # print('is_list_of_dicts_with_one_key_multiple_values')
+                if self.verbose: print('is_list_of_dicts_with_one_key_multiple_values')
                 tmp = json.loads(model_output)
                 tmp = [{"entity":v[0]} for el in tmp for v in el.values()]
                 return {'model_output':str(tmp)}
             
             if is_list_of_dicts_and_lists_of_strings(model_output):
-                print('is_list_of_dicts_and_lists_of_strings')
+                if self.verbose: print('is_list_of_dicts_and_lists_of_strings')
                 tmp = json.loads(model_output)
                 out = []
                 for item in tmp:
@@ -509,15 +514,15 @@ class OutputCleaner():
                         out.append({"entity":item[0]})
                 return {'model_output':str(out)}
             
-            # print('QUI HO il TEERZO QUESTO: ', model_output)
+            if self.verbose: print('QUI HO il TEERZO QUESTO: ', model_output)
 
             if is_list_of_dicts_with_empty_lists(model_output):
-                # print('is_list_of_dicts_with_empty_lists')
+                if self.verbose: print('is_list_of_dicts_with_empty_lists')
                 tmp = json.loads(model_output)
                 tmp = [{"entity":v} for el in tmp for v in el.values() if v != []]
                 # print('TMP: ', tmp)
                 if is_list_of_dicts_with_value_list(str(tmp).replace("'", "\"")):
-                    # print('is_list_of_dicts_with_value_list')
+                    if self.verbose: print('is_list_of_dicts_with_value_list')
                     tmp = [{"entity":v} for el in tmp for v in el.values() if not isinstance(v, list)]
                     tmp2 = [{"entity":v[0]} for el in tmp for v in el.values() if isinstance(v, list)]
                     # print('returning this: ', {'model_output ':str(tmp2)}  )
@@ -526,17 +531,17 @@ class OutputCleaner():
 
                 return {'model_output':str(tmp)}
             
-            # print('QUI HO il QUARTO QUESTO: ', model_output)
+            if self.verbose: print('QUI HO il QUARTO QUESTO:', model_output)
 
             if is_list_of_dicts_with_value_list(model_output):
-                # print('is_list_of_dicts_with_value_list')
+                if self.verbose: print('is_list_of_dicts_with_value_list')
                 tmp = json.loads(model_output)
                 tmp = [{"entity":v} for el in tmp for v in el.values() if not isinstance(v, list)]
                 tmp2 = [{"entity":v[0]} for el in tmp for v in el.values() if isinstance(v, list)]
                 return {'model_output':str(tmp)}
 
             if is_list_of_dict_numeric_values(model_output):
-                #print('is_list_of_dict_int_values')
+                if self.verbose: print('is_list_of_dict_int_values')
                 tmp = json.loads(model_output)
                 tmp = [str({"entity":str(v)}) for el in tmp for v in el.values()]
                 model_output = str(tmp)
@@ -548,14 +553,15 @@ class OutputCleaner():
                 model_output = str(tmp)
                     
             if is_list_of_empty_dict(model_output):
-                # print('is_list_of_empty_dict')
+                if self.verbose: print('is_list_of_empty_dict')
                 return {'model_output':'[{"entity":""}]'}
             
             if is_list_with_one_empty_dict(model_output):
+                if self.verbose: print('is_list_with_one_empty_dict')
                 tmp = json.loads(model_output)
-                tmp = [str(el) for el in tmp if el != {}]
-                model_output = str(tmp)
-                return {'model_output':model_output}
+                tmp = [el for el in tmp if el != {}]
+                model_output = tmp
+                return {'model_output':str(model_output)}
             
             if is_list_of_dicts_of_lists(model_output):
                 if self.verbose: print('is_list_of_dicts_of_lists')
@@ -565,13 +571,13 @@ class OutputCleaner():
                 # print('returning this: ', {'model_output ':str(tmp)}  )
                 return {'model_output':str(tmp)}  
                 
-            # print('CLEANED:  ', model_output)
+            if self.verbose: print('CLEANED: ', model_output)
             cleaning_done, cleaned_model_output = only_dicts_with_key_entity(model_output, wrong_keys_to_entity=wrong_keys_to_entity)
             if cleaning_done:
                 model_output = cleaned_model_output
             
             if is_list_of_dicts(model_output):
-                #print('PRE CLEANED: ', model_output)
+                if self.verbose: print('PRE CLEANED: ', model_output)
                 tmp = json.loads(model_output)
                 return {'model_output':str(tmp)}
             
@@ -643,8 +649,6 @@ class OutputCleaner():
         return:
         str: the model response, i.e. the model output without the instruction
         """
-        # print('sAPPLY CLEANING')
-        
         data = data.filter(lambda example: example["entities"] is not None)
         data = data.map(lambda x: self._clean_ground_truth(x), remove_columns=['ground_truth'])
         data = data.map(lambda x: self._clean_model_output(x, wrong_keys_to_entity)) 
