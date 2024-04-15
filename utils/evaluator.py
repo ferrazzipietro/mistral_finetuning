@@ -86,13 +86,13 @@ class Evaluator():
         model_response (str): the model response 
         drop_duplicates (bool): if True, drop the duplicates in the model response
         """
-        print('MODEL RESPONSE 1: ', model_response)
+        # print('MODEL RESPONSE 1: ', model_response)
         model_response = model_response.replace("\n", " ")
 
         good_format, model_response = self._assess_model_output(model_response)
 
-        print('MODEL RESPONSE 2: ', model_response)        
-        print('MODEL RESPONSE 3: ', model_response)
+        # print('MODEL RESPONSE 2: ', model_response)        
+        # print('MODEL RESPONSE 3: ', model_response)
         if model_response == []:
             model_response = '[{"entity":""}]'
         if self.offset and good_format:
@@ -104,7 +104,7 @@ class Evaluator():
             return {"entities": entities, "offsets": offsets}
         if (not self.offset) and good_format:
 
-            print('MODEL RESPONSE 4: ', model_response)
+            # print('MODEL RESPONSE 4: ', model_response)
             # print('ORA STO PARSANDO: ', model_response)
             output = json.loads(model_response)
             # print('OUTPUT: ', type(output))

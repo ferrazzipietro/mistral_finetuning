@@ -2,7 +2,6 @@ from dotenv import dotenv_values
 from datasets import load_dataset, Dataset
 from utils.data_preprocessor import DataPreprocessor
 from utils.evaluator import Evaluator
-from config import postprocessing_params_qwen as postprocessing
 from utils.test_data_processor import TestDataProcessor
 import pandas as pd
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
@@ -11,6 +10,7 @@ import torch
 import gc
 from peft import PeftModel
 from tqdm import tqdm
+from config import postprocessing_params_qwen as postprocessing
 from log import qwen7B_NoQuant as models_params
 adapters_list = generate_ft_adapters_list("qwen7B_NoQuant", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
