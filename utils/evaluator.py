@@ -44,6 +44,10 @@ class Evaluator():
         str: the model output in the adjusted format
         """
         good_format = True
+        if self.cleaner.verbose: print('prima sostituz: ', model_response)
+        model_response = model_response.replace("{\'", "{\"").replace("\'}", "\"}").replace("\'ent", "\"ent").replace("ty\'", "ty\"").replace(": \'", ": \"")
+        model_response = re.sub(r'(?<=[a-zA-Z])"(?=[a-zA-Z])', "'", model_response)
+        if self.cleaner.verbose: print('dopo sostituz: ', model_response)
         try :
             out = json.loads(model_response)
             if isinstance(out, dict):
@@ -468,6 +472,7 @@ class Evaluator():
         """
         metrics_list = []
         for i, res in enumerate(self.data['model_output']):
+            if self.cleaner.verbose: print('res:', res)
             metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, similar_is_equal_threshold, similarity_types, words_level))
 
         metrics_dataframe = pd.DataFrame(metrics_list, columns=['TP', 'FP', 'FN'])
