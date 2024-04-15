@@ -37,10 +37,10 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
         for adapters in tqdm(adapters_list, desc="adapters_list"):
             if adapters.endswith("0.0008"):
                 continue
-            print("PROCESSING:", adapters)
+            print("PROCESSING:", adapters, "n_shots_inference:", n_shots_inference, "max_new_tokens_factor:", max_new_tokens_factor)
             if not models_params.quantization:
                 print("NO QUANTIZATION")
-                merged_model = AutoModelForCausalLM.from_pretrained(
+                base_model = AutoModelForCausalLM.from_pretrained(
                     models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                     return_dict=True,  
                     torch_dtype=postprocessing.torch_dtype,
@@ -64,7 +64,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                             bnb_4bit_use_double_quant=bnb_4bit_use_double_quant,
                             bnb_4bit_quant_type=bnb_4bit_quant_type,
                             bnb_4bit_compute_dtype=bnb_4bit_compute_dtype,
-                            llm_int8_threshold=llm_int8_threshold ,
+                            # llm_int8_threshold=llm_int8_threshold ,
                             # llm_int8_has_fp16_weight =llm_int8_has_fp16_weight ,AVOID IT AT INFERENCE TIME!
                             # llm_int8_skip_modules=llm_int8_skip_modules AVOID IT AT INFERENCE TIME!
                             )
@@ -75,7 +75,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     #torch_dtype=torch.float16,
                     device_map= "auto",
                     token=LLAMA_TOKEN)
-                merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
+            merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                                       token=LLAMA_TOKEN)
             tokenizer.pad_token = tokenizer.eos_token# "<pad>" #tokenizer.eos_token
