@@ -96,7 +96,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             tmp = []
             for example in val_data:
                 tmp.append(example)
-            import pd
+            import pandas as pd
             tmp = pd.DataFrame(tmp)
             tmp = tmp.iloc[tmp['model_responses'].str.len().argsort()]
             val_data = Dataset.from_pandas(tmp)
