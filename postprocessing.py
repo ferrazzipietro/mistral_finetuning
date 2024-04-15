@@ -9,8 +9,7 @@ from peft import PeftModel
 from tqdm import tqdm
 
 from config.finetuning_llama2 import model_loading_params as models_params
-adapters = "ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002" # "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002" # "ferrazzipietro/Mistral-7B-Instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002"
-print(adapters)
+adapters = "ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.05_4_0.0002"
 BASE_MODEL_CHECKPOINT = "meta-llama/Llama-2-7b-chat-hf"#"mii-community/zefiro-7b-base-ITA"#"Qwen/Qwen1.5-7B-Chat"  # "meta-llama/Llama-2-7b-chat-hf"  # 'mistralai/Mistral-7B-Instruct-v0.2'
 layer = 'en.layer1' # 'en.layer1'
 quantization  = True
@@ -65,12 +64,12 @@ merged_model = PeftModel.from_pretrained(base_model, adapters,
                                          is_trainable = False)
 # merged_model = base_model.load_adapter(adapters)
 # merged_model.enable_adapters()
-tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, add_eos_token=True)
+tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, add_eos_token=False)
 #tokenizer.pad_token = "<unk>"
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
 # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
-postprocessor = TestDataProcessor(test_data=val_data.select(range(48)), 
+postprocessor = TestDataProcessor(test_data=val_data.select(range(24)), 
                                   preprocessor=preprocessor, 
                                   n_shots_inference=n_shots_inference, 
                                   language=language, 
@@ -80,7 +79,7 @@ postprocessor.add_ground_truth_column()
 #try:
 postprocessor.add_responses_column(model=merged_model, 
                                         tokenizer=tokenizer, 
-                                        batch_size=24, 
+                                        batch_size=12, 
                                         max_new_tokens_factor=max_new_tokens_factor)
 postprocessor.test_data.to_csv(f"data/TMP_maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
 # except Exception as e:

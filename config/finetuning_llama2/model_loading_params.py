@@ -22,7 +22,7 @@ bnb_4bit_compute_dtype = [torch.bfloat16]
 llm_int8_threshold = [6.0]
 
 bnb_4bit_use_double_quant = True
-llm_int8_has_fp16_weight = True
+llm_int8_has_fp16_weight = False#True
 llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
 
