@@ -1,7 +1,6 @@
 from dotenv import dotenv_values
 from datasets import load_dataset, Dataset
 from utils.data_preprocessor import DataPreprocessor
-from config import postprocessing_params_llama as postprocessing
 from utils.test_data_processor import TestDataProcessor
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
@@ -10,8 +9,9 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 
-from log import llama13B_NoQuant_FT as models_params
-adapters_list = generate_ft_adapters_list("llama13B_NoQuant_FT", simplest_prompt=models_params.simplest_prompt)
+from config import postprocessing_params_llama as postprocessing
+from log import llama7B_8bit as models_params
+adapters_list = generate_ft_adapters_list("llama7B_8bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
