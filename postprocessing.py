@@ -9,7 +9,7 @@ from peft import PeftModel
 from tqdm import tqdm
 
 from config.finetuning_llama2 import model_loading_params as models_params
-adapters = "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002_llm_int8_fp16_False"
+adapters = "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002"
 BASE_MODEL_CHECKPOINT = "meta-llama/Llama-2-7b-chat-hf"#"mii-community/zefiro-7b-base-ITA"#"Qwen/Qwen1.5-7B-Chat"  # "meta-llama/Llama-2-7b-chat-hf"  # 'mistralai/Mistral-7B-Instruct-v0.2'
 layer = 'en.layer1' # 'en.layer1'
 quantization  = True

@@ -98,18 +98,13 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                               tokenizer=tokenizer)
             postprocessor.add_inference_prompt_column(simplest_prompt=False)
 
-
-
-
-            tmp = []
-            for example in postprocessor.test_data:
-                tmp.append(example)
-            import pandas as pd
-            tmp = pd.DataFrame(tmp)
-            tmp = tmp.iloc[tmp['inference_prompt'].str.len().argsort()]
-            postprocessor.test_data = Dataset.from_pandas(tmp)
-
-
+            # tmp = []
+            # for example in postprocessor.test_data:
+            #     tmp.append(example)
+            # import pandas as pd
+            # tmp = pd.DataFrame(tmp)
+            # tmp = tmp.iloc[tmp['inference_prompt'].str.len().argsort()]
+            # postprocessor.test_data = Dataset.from_pandas(tmp)
 
             postprocessor.add_ground_truth_column()
             try:
