@@ -92,7 +92,17 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
 #            merged_model.config.pad_token_id = tokenizer.pad_token_id
 
 
-            postprocessor = TestDataProcessor(test_data=val_data.iloc[val_data['model_responses'].str.len().argsort()], 
+
+            tmp = []
+            for example in val_data:
+                tmp.append(example)
+            import pd
+            tmp = pd.DataFrame(tmp)
+            tmp = tmp.iloc[tmp['model_responses'].str.len().argsort()]
+            val_data = Dataset.from_pandas(tmp)
+
+
+            postprocessor = TestDataProcessor(test_data=val_data, 
                                               preprocessor=preprocessor, 
                                               n_shots_inference=n_shots_inference, 
                                               language=language, 
