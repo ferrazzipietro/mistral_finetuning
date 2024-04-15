@@ -188,6 +188,8 @@ def main(ADAPTERS_CHECKPOINT,
 
   # Add the callback to the trainer
   trainer.add_callback(progress_callback)
+  with torch.autocast("cuda"):
+    trainer.train()
 
   trainer.train()
 
