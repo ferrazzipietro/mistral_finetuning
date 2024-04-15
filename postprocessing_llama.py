@@ -97,14 +97,15 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                               tokenizer=tokenizer)
             postprocessor.add_inference_prompt_column(simplest_prompt=False)
             postprocessor.add_ground_truth_column()
-            #try:
-            postprocessor.add_responses_column(model=merged_model, 
-                                            tokenizer=tokenizer, 
-                                            batch_size=postprocessing.batch_size, 
-                                            max_new_tokens_factor=max_new_tokens_factor)
-            postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
-            #except Exception as e:
-            #    print("ERROR IN PROCESSING: ", Exception, adapters)
+            try:
+                postprocessor.add_responses_column(model=merged_model, 
+                                                tokenizer=tokenizer, 
+                                                batch_size=postprocessing.batch_size, 
+                                                max_new_tokens_factor=max_new_tokens_factor)
+                postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
+            except RuntimeError as e:
+                print("ERROR IN PROCESSING: ", e, adapters)
+                # print(e.message)
             del merged_model
             if models_params.quantization: del base_model
             del tokenizer
