@@ -102,7 +102,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
 
 
             tmp = []
-            for example in val_data:
+            for example in postprocessor.test_data:
                 tmp.append(example)
             import pandas as pd
             tmp = pd.DataFrame(tmp)
