@@ -98,7 +98,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                 tmp.append(example)
             import pandas as pd
             tmp = pd.DataFrame(tmp)
-            tmp = tmp.iloc[tmp['model_responses'].str.len().argsort()]
+            tmp = tmp.iloc[tmp['inference_prompt'].str.len().argsort()]
             val_data = Dataset.from_pandas(tmp)
 
 
