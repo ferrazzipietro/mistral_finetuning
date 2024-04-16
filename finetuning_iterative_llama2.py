@@ -66,7 +66,7 @@ def main(ADAPTERS_CHECKPOINT,
 
       llm_int8_threshold= llm_int8_threshold,
       llm_int8_skip_modules= llm_int8_skip_modules,
-      llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight
+      # llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight
   )
 
   if not model_loading_params.quantization:
