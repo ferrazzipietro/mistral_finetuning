@@ -65,7 +65,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                             bnb_4bit_quant_type=bnb_4bit_quant_type,
                             bnb_4bit_compute_dtype=bnb_4bit_compute_dtype,
                             llm_int8_threshold=llm_int8_threshold ,
-                            llm_int8_has_fp16_weight =True #,AVOID IT AT INFERENCE TIME!
+                            # llm_int8_has_fp16_weight =True #,AVOID IT AT INFERENCE TIME!
                             # llm_int8_skip_modules=llm_int8_skip_modules AVOID IT AT INFERENCE TIME!
                             )
                 base_model = AutoModelForCausalLM.from_pretrained(
@@ -81,7 +81,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                                      device_map='auto',
                                                      is_trainable = False)
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, 
-                                                      add_eos_token=True,
+                                                      add_eos_token=False,
                                                       token=LLAMA_TOKEN)
             tokenizer.pad_token = tokenizer.eos_token# "<pad>" #tokenizer.eos_token
             tokenizer.padding_side = "left"
