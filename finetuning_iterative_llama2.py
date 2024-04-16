@@ -37,7 +37,8 @@ def main(ADAPTERS_CHECKPOINT,
   find_llm_int8_skip_modules = False
   if find_llm_int8_skip_modules:
     def find_all_linear_names(model):
-      cls = bnb.nn.Linear4bit #if args.bits == 4 else (bnb.nn.Linear8bitLt if args.bits == 8 else torch.nn.Linear)
+      cls = bnb.nn.Linear4bit if load_in_4bit else (bnb.nn.Linear8bitLt if load_in_8bit 
+      else torch.nn.Linear)
       lora_module_names = set()
       for name, module in model.named_modules():
         if isinstance(module, cls):
@@ -75,6 +76,8 @@ def main(ADAPTERS_CHECKPOINT,
       token=LLAMA_TOKEN,
       torch_dtype=model_loading_params.torch_dtype,
       )
+    model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
+    model.config.suse_cache = False
   else:
     model = AutoModelForCausalLM.from_pretrained(
         config.BASE_MODEL_CHECKPOINT,
@@ -90,8 +93,8 @@ def main(ADAPTERS_CHECKPOINT,
     """
   
     model = prepare_model_for_kbit_training(model)
-  model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
-  model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
+    model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
+    model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
   #Adding the adapters in the layers
 
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
@@ -188,8 +191,8 @@ def main(ADAPTERS_CHECKPOINT,
 
   # Add the callback to the trainer
   trainer.add_callback(progress_callback)
-  with torch.autocast("cuda"):
-    trainer.train()
+  # with torch.autocast("cuda"):
+  #   trainer.train()
 
   trainer.train()
 
