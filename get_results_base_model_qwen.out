@@ -1,12 +1,19 @@
 WARNING: grid.env NOT FOUND
 NO Enviroment
-Date: Tue 19 Mar 2024 11:22:35 AM UTC
+Date: Wed 10 Apr 2024 10:48:51 AM UTC
 Directory: /home/ferrazzi/llm/mistral_finetuning
 This job will be executed on th following nodes: vgpu7-0
 
 /home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
 Python 3.8.18
-TRY:  data/qwen/14B_4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Qwen1.5-14B-Chat_4.csv
-TRY:  data/qwen/14B_4bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Qwen1.5-14B-Chat_4.csv
-TRY:  data/qwen/14B_4bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Qwen1.5-14B-Chat_4.csv
-TRY:  data/qwen/14B_4bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Qwen1.5-14B-Chat_4.csv
+Loading model without quantization
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference4_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference3_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
+TRY:  data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv
