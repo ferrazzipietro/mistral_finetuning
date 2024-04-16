@@ -77,7 +77,7 @@ def main(ADAPTERS_CHECKPOINT,
       torch_dtype=model_loading_params.torch_dtype,
       )
     model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
-    model.config.suse_cache = False
+    model.config.use_cache = False
   else:
     model = AutoModelForCausalLM.from_pretrained(
         config.BASE_MODEL_CHECKPOINT,
@@ -97,7 +97,8 @@ def main(ADAPTERS_CHECKPOINT,
     model.config.use_cache = False  # silence the warnings. Please re-enable for inference!
   #Adding the adapters in the layers
 
-  tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
+  tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=False,
+                                            token = LLAMA_TOKEN) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
   tokenizer.pad_token = tokenizer.eos_token
   tokenizer.padding_side = 'right'
 
