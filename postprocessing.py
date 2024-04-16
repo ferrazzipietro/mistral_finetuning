@@ -16,6 +16,7 @@ quantization  = True
 
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
+LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
 
 max_new_tokens_factor = 6
 n_shots_inference = 0
@@ -24,7 +25,8 @@ language = layer.split('.')[0]
 dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
 dataset = dataset[layer]
 preprocessor = DataPreprocessor(model_checkpoint=BASE_MODEL_CHECKPOINT, 
-                                tokenizer =BASE_MODEL_CHECKPOINT)
+                                tokenizer =BASE_MODEL_CHECKPOINT,
+                                token_llama = LLAMA_TOKEN,)
 dataset = preprocessor.preprocess_data_one_layer(dataset,
                                                  simplest_prompt=False,
                                                  instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].')
@@ -36,7 +38,8 @@ if not quantization:
         BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
         return_dict=True,  
         torch_dtype=postprocessing.torch_dtype,
-        device_map= "auto")    
+        device_map= "auto",
+        cache_dir='/data/disk1/share/pferrazzi/.cache')    
 else:
     print("QUANTIZATION")
     load_in_8bit = not models_params.load_in_4bit[0]
@@ -47,7 +50,7 @@ else:
                 # bnb_4bit_quant_type = models_params.bnb_4bit_quant_type[0],
                 # bnb_4bit_compute_dtype = models_params.bnb_4bit_compute_dtype[0],
                 llm_int8_threshold = models_params.llm_int8_threshold[0],
-                llm_int8_has_fp16_weight = False # models_params.llm_int8_has_fp16_weight,
+                # llm_int8_has_fp16_weight = False # models_params.llm_int8_has_fp16_weight,
                 # llm_int8_skip_modules = models_params.llm_int8_skip_modules
                 )
     base_model = AutoModelForCausalLM.from_pretrained(
@@ -56,7 +59,8 @@ else:
         return_dict=True,  
         #torch_dtype=torch.float16,
         device_map= "auto",
-        cache_dir='/data/disk1/share/pferrazzi/.cache'
+        cache_dir='/data/disk1/share/pferrazzi/.cache',
+        token = LLAMA_TOKEN
         )
 merged_model = PeftModel.from_pretrained(base_model, adapters, 
                                          token=HF_TOKEN, 
@@ -64,7 +68,9 @@ merged_model = PeftModel.from_pretrained(base_model, adapters,
                                          is_trainable = False)
 # merged_model = base_model.load_adapter(adapters)
 # merged_model.enable_adapters()
-tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, add_eos_token=False)
+tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT, 
+                                          add_eos_token=False,
+                                          token = LLAMA_TOKEN)
 #tokenizer.pad_token = "<unk>"
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"

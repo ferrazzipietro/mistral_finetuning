@@ -66,7 +66,7 @@ def main(ADAPTERS_CHECKPOINT,
 
       llm_int8_threshold= llm_int8_threshold,
       llm_int8_skip_modules= llm_int8_skip_modules,
-      # llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight
+      # llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight # Had to comment this to run llama 7B in 8 bit. There are numerical issues with fp16. I will instead use the default float16
   )
 
   if not model_loading_params.quantization:
@@ -151,7 +151,7 @@ def main(ADAPTERS_CHECKPOINT,
       learning_rate= learning_rate,
       weight_decay= training_params.weight_decay,
       fp16= training_params.fp16,
-      bf16= training_params.bf16,
+      bf16= True, # training_params.bf16,
       max_grad_norm= training_params.max_grad_norm,
       max_steps= training_params.max_steps,
       warmup_ratio= training_params.warmup_ratio,
