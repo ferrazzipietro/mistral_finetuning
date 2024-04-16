@@ -7,6 +7,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import gc
 from peft import PeftModel
 from tqdm import tqdm
+import torch
 
 from config.finetuning_llama2 import model_loading_params as models_params
 adapters = "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002"
@@ -57,7 +58,7 @@ else:
         BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
         quantization_config = bnb_config,
         return_dict=True,  
-        #torch_dtype=torch.float16,
+        # torch_dtype=torch.bf16,
         device_map= "auto",
         cache_dir='/data/disk1/share/pferrazzi/.cache',
         token = LLAMA_TOKEN
