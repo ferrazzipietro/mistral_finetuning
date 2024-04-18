@@ -2,7 +2,8 @@
 library(ggplot2)
 library(tidyverse)
 
-data <- read.csv("/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_results.csv")
+data <- read.csv("/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_results.csv") #"/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/llama13B_8bit_FT.csv" 
+
 data %>% head(1)
 
 plot_results <- function(res, col_name, model_type) {
@@ -21,14 +22,12 @@ plot_boxplots <- function(data, col_name, model_type) {
 }
 
 show_results_grouped_finetuning <- function(data,
-                                            model_type,
                                             f1_minimum_threshold=0){
   cols <- c('maxNewTokensFactor', 'nShotsInference', 'quantization', 'r', 'lora_alpha', 'lora_dropout', 'gradient_accumulation_steps', 'learning_rate')
   data <- data %>% 
     filter(fine_tuning == 'FT',
       !is.na(data['f1_score']),
-      f1_score > f1_minimum_threshold,
-      model_type == model_type
+      f1_score > f1_minimum_threshold
     )
   for (i in 1:length(cols)){
     print(cols[i])
@@ -39,7 +38,7 @@ show_results_grouped_finetuning <- function(data,
         !!sym(cols[i])
         )
     print(plot_boxplots(res, as.character(cols[i]),
-                        model_type))
+                        'model'))
     
     # 
     # aggregated <- res %>%
@@ -52,9 +51,26 @@ show_results_grouped_finetuning <- function(data,
   }
 }
 
-show_results_grouped_finetuning(data,
-                                model_type='mistral',
-                                f1_minimum_threshold=0.3)
+show_results_grouped_finetuning(data %>% filter(model_type=='mistral'),
+                                f1_minimum_threshold=0.3) 
+  
+data %>% filter(model_type=='mistral') %>%
+  group_by(quantization) %>%
+  summarise( f1_top = max(f1_score)) %>%
+  select(quantization, f1_top)%>%
+  arrange(desc(f1_top))
+
+data %>% filter(model_type=='llama') %>%
+  arrange(desc(f1_score)) %>% 
+  select (quantization, f1_score, precision, recall) %>% 
+  head(5)
+
+data %>% head(3)
+data %>% 
+  filter(model_type=='llama') %>% 
+  select(model_configurations) %>%
+  group_by(model_configurations) %>%
+  summarize(n())
 
 library(xlsx)
 
