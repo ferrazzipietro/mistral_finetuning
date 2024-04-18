@@ -40,7 +40,7 @@ if not quantization:
         return_dict=True,  
         torch_dtype=torch.float16,
         device_map= "auto",
-        cache_dir='/data/disk1/share/pferrazzi/.cache')    
+	) #       cache_dir='/data/disk1/share/pferrazzi/.cache')    
 else:
     print("QUANTIZATION")
     load_in_8bit = not models_params.load_in_4bit[0]
@@ -60,7 +60,7 @@ else:
         return_dict=True,  
         # torch_dtype=torch.bf16,
         device_map= "auto",
-        cache_dir='/data/disk1/share/pferrazzi/.cache',
+#        cache_dir='/data/disk1/share/pferrazzi/.cache',
         token = LLAMA_TOKEN
         )
 merged_model = PeftModel.from_pretrained(base_model, adapters, 

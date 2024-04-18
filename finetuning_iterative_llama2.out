@@ -1,50 +1,6 @@
-WARNING: grid.env NOT FOUND
-NO Enviroment
-Date: Tue 16 Apr 2024 07:50:36 AM UTC
-Directory: /home/ferrazzi/llm/mistral_finetuning
-This job will be executed on th following nodes: vgpu7-0
+Date: Thu 18 Apr 2024 03:11:35 PM UTC
+Directory: /extra/ferrazzi/llm/mistral_finetuning
+This job will be executed on th following nodes: vgpu8-0
 
-/home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
-Transformers: # packages in environment at /home/ferrazzi/.conda/envs/gpu_venv_lates:
-#
-# Name                    Version                   Build  Channel
-transformers              4.38.1                   pypi_0    pypi
-Python 3.8.18
-I AM LOADING A MODEL IN load_in_4bit= False load_in_8bit= True bnb_4bit_quant_type= nf4 bnb_4bit_compute_dtype= torch.bfloat16 llm_int8_threshold= 6.0
-{'loss': 1.8619, 'grad_norm': 1.01304030418396, 'learning_rate': 0.0002, 'epoch': 0.24}
-{'loss': 0.8106, 'grad_norm': 63.623294830322266, 'learning_rate': 0.0002, 'epoch': 0.48}
-{'loss': 0.6971, 'grad_norm': 1.7539979219436646, 'learning_rate': 0.0002, 'epoch': 0.71}
-{'loss': 0.6199, 'grad_norm': 0.49545761942863464, 'learning_rate': 0.0002, 'epoch': 0.95}
-{'loss': 0.5668, 'grad_norm': 0.3409738838672638, 'learning_rate': 0.0002, 'epoch': 1.19}
-{'loss': 0.5789, 'grad_norm': 1.073569416999817, 'learning_rate': 0.0002, 'epoch': 1.43}
-{'loss': 0.5645, 'grad_norm': 0.34317272901535034, 'learning_rate': 0.0002, 'epoch': 1.67}
-{'loss': 0.5442, 'grad_norm': 0.394409716129303, 'learning_rate': 0.0002, 'epoch': 1.9}
-{'loss': 0.4873, 'grad_norm': 0.35932445526123047, 'learning_rate': 0.0002, 'epoch': 2.14}
-{'loss': 0.428, 'grad_norm': 0.4479520916938782, 'learning_rate': 0.0002, 'epoch': 2.38}
-{'loss': 0.41, 'grad_norm': 0.5411893129348755, 'learning_rate': 0.0002, 'epoch': 2.62}
-{'loss': 0.4003, 'grad_norm': 0.4975196421146393, 'learning_rate': 0.0002, 'epoch': 2.86}
-{'train_runtime': 340.0045, 'train_samples_per_second': 5.903, 'train_steps_per_second': 0.371, 'train_loss': 0.6503777882409474, 'epoch': 3.0}
-{'loss': 1.9336, 'grad_norm': 0.970026433467865, 'learning_rate': 0.0002, 'epoch': 0.48}
-{'loss': 0.7536, 'grad_norm': 3.061973810195923, 'learning_rate': 0.0002, 'epoch': 0.95}
-{'loss': 0.6681, 'grad_norm': 3.259427309036255, 'learning_rate': 0.0002, 'epoch': 1.43}
-{'loss': 0.6275, 'grad_norm': 0.2710416316986084, 'learning_rate': 0.0002, 'epoch': 1.9}
-{'loss': 0.5981, 'grad_norm': 0.6225480437278748, 'learning_rate': 0.0002, 'epoch': 2.38}
-{'loss': 0.5468, 'grad_norm': 0.4928627908229828, 'learning_rate': 0.0002, 'epoch': 2.86}
-{'train_runtime': 337.4641, 'train_samples_per_second': 5.947, 'train_steps_per_second': 0.187, 'train_loss': 0.8373550857816424, 'epoch': 3.0}
-{'loss': 1.9687, 'grad_norm': 0.7691052556037903, 'learning_rate': 0.0002, 'epoch': 0.95}
-{'loss': 0.761, 'grad_norm': 0.46412262320518494, 'learning_rate': 0.0002, 'epoch': 1.9}
-{'loss': 0.6239, 'grad_norm': 0.44073203206062317, 'learning_rate': 0.0002, 'epoch': 2.86}
-{'train_runtime': 324.3772, 'train_samples_per_second': 6.187, 'train_steps_per_second': 0.092, 'train_loss': 1.117862844467163, 'epoch': 2.86}
-{'loss': 1.4893, 'grad_norm': 2.562129020690918, 'learning_rate': 0.0002, 'epoch': 0.24}
-{'loss': 0.862, 'grad_norm': 14.039824485778809, 'learning_rate': 0.0002, 'epoch': 0.48}
-{'loss': 0.6467, 'grad_norm': 1.5042649507522583, 'learning_rate': 0.0002, 'epoch': 0.71}
-{'loss': 0.6092, 'grad_norm': 0.8657756447792053, 'learning_rate': 0.0002, 'epoch': 0.95}
-{'loss': 0.5476, 'grad_norm': 1.0373575687408447, 'learning_rate': 0.0002, 'epoch': 1.19}
-{'loss': 0.5457, 'grad_norm': 0.4591618478298187, 'learning_rate': 0.0002, 'epoch': 1.43}
-{'loss': 0.5517, 'grad_norm': 0.5698743462562561, 'learning_rate': 0.0002, 'epoch': 1.67}
-{'loss': 0.5219, 'grad_norm': 0.9484609365463257, 'learning_rate': 0.0002, 'epoch': 1.9}
-{'loss': 0.4425, 'grad_norm': 0.5068433284759521, 'learning_rate': 0.0002, 'epoch': 2.14}
-{'loss': 0.3743, 'grad_norm': 0.6557907462120056, 'learning_rate': 0.0002, 'epoch': 2.38}
-{'loss': 0.3565, 'grad_norm': 0.7629652619361877, 'learning_rate': 0.0002, 'epoch': 2.62}
-{'loss': 0.3533, 'grad_norm': 0.6010957360267639, 'learning_rate': 0.0002, 'epoch': 2.86}
-{'train_runtime': 338.9051, 'train_samples_per_second': 5.922, 'train_steps_per_second': 0.372, 'train_loss': 0.595584235494099, 'epoch': 3.0}
+/conf/shared-software/anaconda/bin/python
+Transformers: Python 3.9.17
