@@ -7,6 +7,6 @@ offset = False
 
 
 # params for evaluation.py, not all
-input_data_dir_path = 'data/llama/13B_8bit_FT'
-output_data_path = 'data/evaluation_results/llama13B_8bit_FT.csv'
+input_data_dir_path = 'data/qwen/7B_NoQuantbit_base' # data/qwen/7B_NoQuantbit_base
+output_data_path = 'data/evaluation_results/qwen_7B_NoQuant_base.csv'#qwen_7B_NoQuant_base
 

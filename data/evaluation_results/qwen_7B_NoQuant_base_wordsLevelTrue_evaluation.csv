@@ -1,0 +1,11 @@
+file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.5006794797126771,0.564209144607307,0.4500087244808934
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.4616503845354396,0.5516641828117238,0.3968906361686919
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.49132202717445206,0.5759125784701232,0.4283984780352819
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.457269935401885,0.5663693599160545,0.38341324809092525
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.5236691840117884,0.5601970443349754,0.49161334947259205
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.48925751973618464,0.5573770491803278,0.43597506678539627
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.5022590361445782,0.564895193732797,0.45212675817658027
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor4_nShotsInference4_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.4644588878572166,0.5474221789883269,0.4033327360688049
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference3_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.47800995024875625,0.5476516187870497,0.4240819209039548
+data/qwen/7B_NoQuantbit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Qwen1.5-7B-Chat_NoQuant.csv,,100,0.46492210569188475,0.546957355055103,0.40428546130688864
