@@ -76,7 +76,7 @@ tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT,
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
 # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
-postprocessor = TestDataProcessor(test_data=val_data.select(range(4)), 
+postprocessor = TestDataProcessor(test_data=val_data, #.select(range(4)), 
                                   preprocessor=preprocessor, 
                                   n_shots_inference=n_shots_inference, 
                                   language=language, 
@@ -86,9 +86,9 @@ postprocessor.add_ground_truth_column()
 #try:
 postprocessor.add_responses_column(model=merged_model, 
                                         tokenizer=tokenizer, 
-                                        batch_size=2, 
+                                        batch_size=12, 
                                         max_new_tokens_factor=max_new_tokens_factor)
-postprocessor.test_data.to_csv(f"data/TMP_maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
+postprocessor.test_data.to_csv(f"data/EVAL_TMP_maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
 # except Exception as e:
 #     print("ERROR IN PROCESSING: ", Exception, adapters)
 # del merged_model
