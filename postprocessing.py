@@ -38,7 +38,7 @@ if not quantization:
     base_model = AutoModelForCausalLM.from_pretrained(
         BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
         return_dict=True,  
-        torch_dtype=torch.float16,
+        torch_dtype=torch.bfloat16,
         device_map= "auto",
 	) #       cache_dir='/data/disk1/share/pferrazzi/.cache')    
 else:
