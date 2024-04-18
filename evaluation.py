@@ -30,8 +30,6 @@ def evaluate(input_data_path:str,
     csv_files = glob.glob(input_data_path + '/*.csv') 
     evaluation_results = pd.DataFrame(columns=['file', 'similar_is_equal', 'similar_is_equal_threshold', 'f1_score', 'precision', 'recall'])
     errors = []
-    print("CSV FILES: ", csv_files)
-    print('input_data_path: ', input_data_path)
     for file in csv_files:
         print("FILE: " , file)
         eval_data = Dataset.from_csv(file) 

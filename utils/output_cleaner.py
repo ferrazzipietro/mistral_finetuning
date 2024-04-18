@@ -78,6 +78,7 @@ class OutputCleaner():
         Handle the special cases in the model output. This is useful when the model output contains special characters that are not allowed in the json format.
         Ideally, this function should not be used. It is very specific for encountered issues I could not find a solution to.
         """
+        print('IN SPECIAL CASES HANDLER: ', model_response)
         model_response = model_response.replace(""" {"entity":"un\'insufficienza midollare\\" \\"- congenita"},""", "").\
             replace("""l\'aspetto\\"anteriorpuntale""", """l'aspetto anteriorpuntale""")
         model_response = model_response.replace("""rigonfiamento aneurismatico dell'apice del ventricolo sinistro\\\"""", """""")
@@ -377,9 +378,8 @@ class OutputCleaner():
                 return operations_performed, '[{"entity":""}]'
             return operations_performed, str(out)
         
-        # print('EXAMPLE:  ', example['model_responses'])
+        print('EXAMPLE:  ', example['model_responses'])
         model_output = example['model_responses']
-        model_output = self._special_cases_handler(model_output)
         if self.verbose: print('ORIGINAL MODEL OUTPUT:', model_output)
         if self.verbose: print('GROUND TRUTH: ', example['ground_truth'])
         # model_output = self._exceptions_handler(model_output)
@@ -387,6 +387,7 @@ class OutputCleaner():
         if model_output is None or is_empty_list(model_output):
             return {'model_output':'[{"entity":""}]'}
         
+        model_output = self._special_cases_handler(model_output)
         model_output = self._remove_json_special_chars(model_output)
         if self.verbose:print('PULITO: ', model_output)
                 

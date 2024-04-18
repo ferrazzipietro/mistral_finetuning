@@ -1,7 +1,6 @@
 from dotenv import dotenv_values
 from datasets import load_dataset, Dataset
 from utils.data_preprocessor import DataPreprocessor
-from config import postprocessing_params_mistral as postprocessing
 from utils.test_data_processor import TestDataProcessor
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import gc
@@ -10,10 +9,11 @@ from tqdm import tqdm
 import torch
 
 from config.finetuning_llama2 import model_loading_params as models_params
-adapters = "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002"
+
+adapters = "ferrazzipietro/Llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002"
 BASE_MODEL_CHECKPOINT = "meta-llama/Llama-2-7b-chat-hf"#"mii-community/zefiro-7b-base-ITA"#"Qwen/Qwen1.5-7B-Chat"  # "meta-llama/Llama-2-7b-chat-hf"  # 'mistralai/Mistral-7B-Instruct-v0.2'
 layer = 'en.layer1' # 'en.layer1'
-quantization  = True
+quantization  = False
 
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -38,7 +38,7 @@ if not quantization:
     base_model = AutoModelForCausalLM.from_pretrained(
         BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
         return_dict=True,  
-        torch_dtype=postprocessing.torch_dtype,
+        torch_dtype=torch.float16,
         device_map= "auto",
         cache_dir='/data/disk1/share/pferrazzi/.cache')    
 else:
@@ -76,7 +76,7 @@ tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_CHECKPOINT,
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
 # merged_model, tokenizer = load_mergedModel_tokenizer(adapters, base_model)
-postprocessor = TestDataProcessor(test_data=val_data.select(range(24)), 
+postprocessor = TestDataProcessor(test_data=val_data.select(range(4)), 
                                   preprocessor=preprocessor, 
                                   n_shots_inference=n_shots_inference, 
                                   language=language, 
@@ -86,7 +86,7 @@ postprocessor.add_ground_truth_column()
 #try:
 postprocessor.add_responses_column(model=merged_model, 
                                         tokenizer=tokenizer, 
-                                        batch_size=12, 
+                                        batch_size=2, 
                                         max_new_tokens_factor=max_new_tokens_factor)
 postprocessor.test_data.to_csv(f"data/TMP_maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
 # except Exception as e:
