@@ -2,7 +2,12 @@
 library(ggplot2)
 library(tidyverse)
 
-data <- read.csv("/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_results.csv") #"/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/llama13B_8bit_FT.csv" 
+data <- read.csv("/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_results.csv") #"/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/evaluation_results/joint_result.csv" 
+
+library(writexl)
+
+# Assuming your tibble is named "your_tibble" and the file name you want to save is "output.xlsx"
+write_xlsx(data, "/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/output.xlsx")
 
 data %>% head(1)
 
