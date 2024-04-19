@@ -40,6 +40,5 @@ SHELL=/bin/bash
 conda activate gpu_venv_lates
 which python
 export 'PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512'
-
 python --version
 python  get_results_base_model_llama.py
