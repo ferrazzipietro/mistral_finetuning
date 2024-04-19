@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=llama_get_results_base_model_llama
+#SBATCH --job-name=llama3_get_results_base_model
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=get_results_base_model_llama.err
-#SBATCH --output=get_results_base_model_llama.out
+#SBATCH --error=get_results_base_model_llama3.err
+#SBATCH --output=get_results_base_model_llama3.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
@@ -22,7 +22,7 @@
 
 ### GPU request
 #SBATCH --gres=gpu
-#SBATCH --constraint=A6000
+####SBATCH --constraint=A6000
 ####SBATCH --constraint=vgpu1-1
 
 ### Some useful informative commands
