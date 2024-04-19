@@ -16,8 +16,8 @@ class DataPreprocessor():
         self.model_type = 'qwen' if model_checkpoint.split('/')[0] == 'Qwen' else model_checkpoint.split('/')[1].lower().split('-')[0]
         # if self.model_type == 'zefiro':
         #     self.model_type  = 'mistral'
-        if self.model_type not in ['mistral', 'llama', 'gemma', 'qwen', 'zefiro']:
-            raise ValueError("The model type must be either 'mistral', 'llama', 'gemma', 'zefiro' or 'qwen'")
+        if self.model_type not in ['mistral', 'llama', 'llama3', 'gemma', 'qwen', 'zefiro']:
+            raise ValueError("The model type must be either 'mistral', 'llama', 'llama3', 'gemma', 'zefiro' or 'qwen'")
 
         if isinstance(tokenizer, str):
             self.tokenizer = AutoTokenizer.from_pretrained(tokenizer, token = token_llama)
@@ -31,6 +31,10 @@ class DataPreprocessor():
                                                 'llama': {'user_start':'[INST]',
                                                           'user_end':'[/INST]',
                                                           'model_start':'',
+                                                          'model_end':''},
+                                                'llama3': {'user_start':'<|start_header_id|>user<|end_header_id|>\n\n',
+                                                          'user_end':'<|eot_id|>',
+                                                          'model_start':'<|start_header_id|>assistant<|end_header_id|>\n\n',
                                                           'model_end':''},
                                                 'gemma': {'user_start':'<start_of_turn>user',
                                                           'user_end':'<end_of_turn>',
