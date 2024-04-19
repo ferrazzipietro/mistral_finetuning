@@ -1,7 +1,6 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=simple_postprocessing
-
+#SBATCH --job-name=postprocessing
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
@@ -23,7 +22,7 @@
 ### GPU request
 #SBATCH --gres=gpu
 ####SBATCH --constraint=A6000
-####SBATCH --constraint=vgpu5-1
+####SBATCH --constraint=vgpu1-1
 
 ### Some useful informative commands
 echo -n 'Date: '
@@ -39,7 +38,6 @@ SHELL=/bin/bash
 ### Jobs execution commands
 conda activate gpu_venv_lates
 which python
-export 'PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512'
 
 python --version
 python  postprocessing.py

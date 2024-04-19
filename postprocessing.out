@@ -1,11 +1,7 @@
-WARNING: grid.env NOT FOUND
-NO Enviroment
-Date: Mon 08 Apr 2024 09:18:31 AM UTC
-Directory: /home/ferrazzi/llm/mistral_finetuning
-This job will be executed on th following nodes: vgpu6-0
+Date: Thu 18 Apr 2024 03:44:10 PM UTC
+Directory: /extra/ferrazzi/llm/mistral_finetuning
+This job will be executed on th following nodes: vgpu8-0
 
-/home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
-Python 3.8.18
-ferrazzipietro/zefiro-7b-base-ITA__adapters_it.layer1_8_torch.bfloat16_32_64_0.01_2_0.0002
-QUANTIZATION
-Date: Mon 08 Apr 2024 09:26:11 AM UTC
+/conf/shared-software/anaconda/bin/python
+Python 3.9.17
+Date: Thu 18 Apr 2024 03:44:11 PM UTC
