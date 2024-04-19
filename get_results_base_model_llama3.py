@@ -51,7 +51,7 @@ else:
                                                 torch_dtype=base_model.torch_dtype)
 
 tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
-tokenizer.pad_token = tokenizer.unk_token
+tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
 preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
                                 tokenizer=tokenizer)
