@@ -1,7 +1,5 @@
-Date: Thu 18 Apr 2024 03:44:10 PM UTC
+Date: Fri 19 Apr 2024 01:38:17 PM UTC
 Directory: /extra/ferrazzi/llm/mistral_finetuning
 This job will be executed on th following nodes: vgpu8-0
 
-/conf/shared-software/anaconda/bin/python
-Python 3.9.17
-Date: Thu 18 Apr 2024 03:44:11 PM UTC
+Date: Fri 19 Apr 2024 01:38:17 PM UTC

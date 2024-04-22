@@ -1,10 +1,20 @@
 WARNING: grid.env NOT FOUND
 NO Enviroment
-Date: Fri 19 Apr 2024 01:17:51 PM UTC
+Date: Fri 19 Apr 2024 02:27:56 PM UTC
 Directory: /home/ferrazzi/llm/mistral_finetuning
 This job will be executed on th following nodes: vgpu3-1
 
-/home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
-Python 3.8.18
-Loading model without quantization
-TRY:  data/llama/13B_NoQuantbit_base/maxNewTokensFactor2_nShotsInference0_BaseModel_Llama-2-13b-chat-hf_NoQuant.csv
+/home/ferrazzi/TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor2_nShotsInference1_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor2_nShotsInference2_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor2_nShotsInference3_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor2_nShotsInference4_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor4_nShotsInference4_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel_Meta-Llama-3-8B-Instruct_4.csv
+TRY:  data/llama3/13B_4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Meta-Llama-3-8B-Instruct_4.csv

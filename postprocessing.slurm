@@ -36,10 +36,9 @@ echo
 SHELL=/bin/bash
 
 ### Jobs execution commands
-conda activate gpu_venv_lates
-which python
+ENV_PATH='/home/ferrazzi/.conda/envs/gpu_venv_lates/bin'
 
-python --version
-python  postprocessing.py
+${ENV_PATH}/python --version
+${ENV_PATH}/python  postprocessing.py
 echo -n 'Date: '
 date

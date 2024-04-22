@@ -12,4 +12,4 @@ instruction_on_response_format = 'Extract the entities contained in the text.\nR
 simplest_prompt = False
 
 torch_dtype = torch.bfloat16
-batch_size = 20
+batch_size = 8
