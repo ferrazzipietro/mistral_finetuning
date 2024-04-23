@@ -1,0 +1,15 @@
+file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/mistral/4bit_base/maxNewTokensFactor4_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.5259431926098592,0.5502167630057804,0.5037208533156937
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.5358683495766097,0.5516447368421052,0.5209692451071761
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.5554062654692031,0.5137362637362637,0.6044328151454518
+data/mistral/4bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.5076123282584478,0.5765499789118516,0.45339966832504147
+data/mistral/4bit_base/maxNewTokensFactor2_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.3669345020696372,0.5852427184466019,0.267245965596737
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.5168127490039841,0.5621424856994279,0.47824804601091286
+data/mistral/4bit_base/maxNewTokensFactor2_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.35119782662385773,0.5645097260817785,0.25488438788313317
+data/mistral/4bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.4815842341911413,0.6,0.40220517737296263
+data/mistral/4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.46726311508743396,0.5618581907090464,0.3999303863557257
+data/mistral/4bit_base/maxNewTokensFactor2_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.35928293844803816,0.6312775330396476,0.2510951463115472
+data/mistral/4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.49453242835595784,0.5559559135226791,0.44533106960950763
+data/mistral/4bit_base/maxNewTokensFactor2_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.3730694980694981,0.5964506172839507,0.2714185393258427
+data/mistral/4bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.508186341022162,0.5773895169578623,0.4537964458804523
+data/mistral/4bit_base/maxNewTokensFactor2_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.3862332695984704,0.5800430725053841,0.2895019706198495
