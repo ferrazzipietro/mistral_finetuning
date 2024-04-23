@@ -72,7 +72,6 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                     quantization_config = bnb_config,
                     return_dict=True,  
-                    #torch_dtype=torch.float16,
                     device_map= "auto",
                     token=LLAMA_TOKEN)
             merged_model = PeftModel.from_pretrained(base_model, 

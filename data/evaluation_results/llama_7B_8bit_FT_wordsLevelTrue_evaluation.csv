@@ -2,10 +2,8 @@ file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
 data/llama/7B_8bit_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_4_0.0002.csv,,100,0.6691088516746411,0.6614929785661493,0.6769021328089547
 data/llama/7B_8bit_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_32_64_0.01_4_0.0002.csv,,100,0.6627444987775061,0.6763880224578914,0.6496405032953865
 data/llama/7B_8bit_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_64_0.01_4_0.0002.csv,,100,0.644889524717851,0.6631252043151357,0.6276299504950495
-data/llama/7B_8bit_FT/maxNewTokensFactor2_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.4422242671223872,0.7994296577946768,0.30565146283845174
 data/llama/7B_8bit_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.6704553734061931,0.6744356493696864,0.6665218021150224
 data/llama/7B_8bit_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_64_0.01_2_0.0002.csv,,100,0.677675650412837,0.6670756019015488,0.6886180148804812
-data/llama/7B_8bit_FT/maxNewTokensFactor2_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.019866353621094453,0.6962025316455697,0.01007695126419934
 data/llama/7B_8bit_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.6826554394406436,0.6675488898691369,0.6984615384615385
 data/llama/7B_8bit_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_32_32_0.01_2_0.0002.csv,,100,0.6864555848724714,0.6605077574047955,0.7145254806225206
 data/llama/7B_8bit_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_en.layer1_8_torch.bfloat16_32_64_0.01_2_0.0002.csv,,100,0.68448511116462,0.6899676375404531,0.6790890269151139

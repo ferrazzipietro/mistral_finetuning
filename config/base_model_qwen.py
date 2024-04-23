@@ -1,5 +1,5 @@
 max_new_tokens_factor_list = [4,8]
-n_shots_inference_list = [0,1,2,3,4]
+n_shots_inference_list = [0,2,4]
 TRAIN_LAYER = 'en.layer1'
 
 n_bit='NoQuant'
@@ -9,5 +9,5 @@ instruction_on_response_format = 'Extract the entities contained in the text.\nR
 simplest_prompt = False
 
 import torch
-torch_dtype = torch.float16
+torch_dtype = torch.bfloat16
 batch_size = 12
