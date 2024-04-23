@@ -46,9 +46,9 @@ class DataPreprocessor():
                                                           'model_start':'<|im_start|>assistant',
                                                           'model_end':'<|im_end|>'},
                                                 'zefiro': {'user_start':'<|user|>',
-                                                           'user_end':'</s>',
+                                                           'user_end':'',# 'user_end':'</s>',
                                                            'model_start':'<|assistant|>',
-                                                           'model_end':'</s>'}}
+                                                           'model_end':''}}# 'model_end':'</s>'}}
         self.special_tokens_instruction = self.special_tokens_instruction_dict[self.model_type]
 
         self.one_shot_example = """{user_start} {instruction_on_response_format} <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
