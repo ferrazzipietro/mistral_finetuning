@@ -53,8 +53,11 @@ if load_in_4bit or load_in_8bit:
                 token=HF_TOKEN)
 else:
     print("Loading model without quantization")
-    model = AutoModelForCausalLM.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
-                                                return_dict=True, device_map= "auto", token=HF_TOKEN)
+    model = AutoModelForCausalLM.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, 
+                                                 low_cpu_mem_usage=True,
+                                                return_dict=True, 
+                                                device_map= "auto", token=HF_TOKEN,
+                                                torch_dtype=base_model.dtype)
 
 tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=HF_TOKEN)
 tokenizer.pad_token = tokenizer.eos_token
