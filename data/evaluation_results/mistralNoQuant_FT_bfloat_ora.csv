@@ -1,0 +1,12 @@
+file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference2_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.5759884678747941,0.6938724882163235,0.4923428973772223
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference0_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.5369156837046746,0.7120509849362688,0.4309256661991585
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference0_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_2_0.0002.csv,,100,0.6632243258749283,0.7432490355765109,0.5987569060773481
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference0_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.5985500241662638,0.6728971962616822,0.5389972144846796
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference2_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_8_0.0002.csv,,100,0.57571649883811,0.6347139197267293,0.5267540751240255
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference2_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.05_2_0.0002.csv,,100,0.5844335703074508,0.6215632364493323,0.5514898065865134
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference0_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.6327476346785093,0.7256421612046059,0.5609380349195481
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference2_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.6008845208845209,0.6981045900890614,0.527432712215321
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference2_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.6119052281182691,0.7017740848865933,0.5424405485158826
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference0_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.05_4_0.0002.csv,,100,0.6178606476938174,0.7165945822900068,0.5430395031913059
+data/mistral/NoQuant_FT/maxNewTokensFactor4_nShotsInference0_mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.623174899036968,0.7585076884295437,0.5288224956063269

@@ -56,7 +56,8 @@ else:
     model = AutoModelForCausalLM.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, 
                                                  low_cpu_mem_usage=True,
                                                 return_dict=True, 
-                                                device_map= "auto", token=HF_TOKEN,
+                                                device_map= "auto", 
+                                                token=HF_TOKEN,
                                                 torch_dtype=base_model.dtype)
 
 tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=HF_TOKEN)
