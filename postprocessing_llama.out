@@ -25,3 +25,201 @@ PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.b
 NO QUANTIZATION
 PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
 NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 4
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_2_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_4_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_8_0.0002 n_shots_inference: 0 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_2_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_4_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_8_0.0002 n_shots_inference: 2 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_32_64_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_2_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_4_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/llama-2-7b-chat-hf_adapters_en.layer1_NoQuant_torch.bfloat16_64_64_0.01_8_0.0002 n_shots_inference: 4 max_new_tokens_factor: 8
+NO QUANTIZATION
