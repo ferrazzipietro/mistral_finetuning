@@ -19,3 +19,17 @@ PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_
 NO QUANTIZATION
 PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002
 NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.05_2_0.0002
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.05_4_0.0002
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.05_8_0.0002
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_2_0.0002
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_4_0.0002
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_32_32_0.01_8_0.0002
+NO QUANTIZATION
+PROCESSING: ferrazzipietro/mistral-7b-instruct-v0.2__adapters_en.layer1_NoQuant_torch.bfloat16_64_32_0.05_2_0.0002
+NO QUANTIZATION

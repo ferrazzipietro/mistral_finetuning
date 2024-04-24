@@ -1,0 +1,5 @@
+file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.3755032328900818,0.6004682013265704,0.2731629392971246
+data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.3583558946591189,0.5770907649623465,0.25986078886310904
+data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.35026972776314136,0.623492630638678,0.2435450104675506
+data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv,,100,0.3764336593021852,0.6012340917855765,0.27398945518453427
