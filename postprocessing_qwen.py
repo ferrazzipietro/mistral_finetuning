@@ -49,9 +49,8 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                 merged_model = AutoModelForCausalLM.from_pretrained(
                     models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                     return_dict=True,  
-                    # torch_dtype=postprocessing.torch_dtype,
-                    # bf16=True,
-                    device_map= "auto").bfloat16()    
+                    torch_dtype=postprocessing.torch_dtype,
+                    device_map= "auto")
             else:
                 print("QUANTIZATION")
                 load_in_8bit = not models_params.load_in_4bit[0]
