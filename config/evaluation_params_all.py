@@ -7,6 +7,6 @@ offset = False
 
 
 # params for evaluation.py, not all
-input_data_dir_path = 'data/zefiro/4bit_FT' # data/qwen/7B_NoQuantbit_base
-output_data_path = 'data/evaluation_results/zefiro_4bit_FT.csv'#qwen_7B_NoQuant_base
+input_data_dir_path = 'data/mistral/8bit_base_bfloat16' # data/qwen/7B_NoQuantbit_base
+output_data_path = 'data/evaluation_results/mistral_8bit_base_bfloat16.csv'#qwen_7B_NoQuant_base
 
