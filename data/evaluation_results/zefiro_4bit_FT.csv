@@ -1,5 +1,0 @@
-file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
-data/zefiro/4bit_FT/maxNewTokensFactor4_nShotsInference0_zefiro-7b-base-ita__adapters_it.layer1_4_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.42456826327794067,0.47834067547723935,0.38166373755125954
-data/zefiro/4bit_FT/maxNewTokensFactor4_nShotsInference0_zefiro-7b-base-ita__adapters_it.layer1_4_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.3827717957624175,0.4628307433851323,0.3263251406573882
-data/zefiro/4bit_FT/maxNewTokensFactor4_nShotsInference0_zefiro-7b-base-ita__adapters_it.layer1_4_torch.bfloat16_16_64_0.01_2_0.0002.csv,,100,0.4571340142370783,0.4983130904183536,0.42224128073184675
-data/zefiro/4bit_FT/maxNewTokensFactor4_nShotsInference0_zefiro-7b-base-ita__adapters_it.layer1_4_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.4544729708180513,0.5060369318181818,0.41244573082489144
