@@ -1,0 +1,2 @@
+file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/phi3/4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4087417505139024,0.5286873775538763,0.3331569664902998

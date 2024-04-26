@@ -87,7 +87,7 @@ class OutputCleaner():
         ground_truth = example['ground_truth']
         # print('inner ground truth: ', ground_truth)
         ground_truth = self._remove_json_special_chars(ground_truth)
-        ground_truth = ground_truth.replace('</s>', '').replace('<|im_e', '').replace('<|end_of_text|>', '')
+        ground_truth = ground_truth.replace('</s>', '').replace('<|im_e', '').replace('<|end_of_text|>', '').replace('<|endoftext|>', '')
         if ground_truth.strip() == ']':
             ground_truth = '[]'
         # print('mid ground truth: ', ground_truth)
