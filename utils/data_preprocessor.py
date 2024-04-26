@@ -17,8 +17,8 @@ class DataPreprocessor():
         if self.model_type == 'meta': self.model_type = 'llama3'
         # if self.model_type == 'zefiro':
         #     self.model_type  = 'mistral'
-        if self.model_type not in ['mistral', 'llama', 'llama3', 'gemma', 'qwen', 'zefiro']:
-            raise ValueError("The model type must be either 'mistral', 'llama', 'llama3', 'gemma', 'zefiro' or 'qwen'")
+        if self.model_type not in ['mistral', 'llama', 'llama3', 'gemma', 'qwen', 'zefiro', 'phi']:
+            raise ValueError("The model type must be either 'mistral', 'llama', 'llama3', 'gemma', 'zefiro', 'qwen' or 'phi'")
 
         if isinstance(tokenizer, str):
             self.tokenizer = AutoTokenizer.from_pretrained(tokenizer, token = token_llama)
@@ -48,7 +48,11 @@ class DataPreprocessor():
                                                 'zefiro': {'user_start':'<|user|>',
                                                            'user_end':'',# 'user_end':'</s>',
                                                            'model_start':'<|assistant|>',
-                                                           'model_end':''}}# 'model_end':'</s>'}}
+                                                           'model_end':''},# 'model_end':'</s>'},
+                                                'phi3': {'user_start':'<|user|>',
+                                                           'user_end':'<|end|>\n',
+                                                           'model_start':'<|assistant|>',
+                                                           'model_end':''}}
         self.special_tokens_instruction = self.special_tokens_instruction_dict[self.model_type]
 
         self.one_shot_example = """{user_start} {instruction_on_response_format} <<<{example_query}>>> {user_end}{model_start} {example_response} {model_end}
