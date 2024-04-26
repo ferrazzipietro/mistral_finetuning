@@ -8,7 +8,7 @@ import torch
 from config import base_model_phi3 as base_model
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
-LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
+# LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
 
 max_new_tokens_factor_list = base_model.max_new_tokens_factor_list
 n_shots_inference_list = base_model.n_shots_inference_list
@@ -41,23 +41,24 @@ if load_in_4bit or load_in_8bit:
                 return_dict=True, 
                 #torch_dtype=torch.float16,
                 device_map= "auto",
-                token=LLAMA_TOKEN)
+                trust_remote_code=True)
 else:
     print("Loading model without quantization")
     model = AutoModelForCausalLM.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                                                 return_dict=True, 
                                                 device_map= "auto", 
-                                                token=LLAMA_TOKEN,
-                                                torch_dtype=base_model.torch_dtype)
+                                                torch_dtype=base_model.torch_dtype,
+                                                trust_remote_code=True)
 
-tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
+tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, 
+                                          trust_remote_code=True)
 tokenizer.pad_token = tokenizer.eos_token
 tokenizer.padding_side = "left"
 preprocessor = DataPreprocessor(model_checkpoint=base_model.BASE_MODEL_CHECKPOINT, 
                                 tokenizer=tokenizer)
 
 
-dataset = load_dataset("ferrazzipietro/e3c-sentences", token=LLAMA_TOKEN)
+dataset = load_dataset("ferrazzipietro/e3c-sentences")
 dataset = dataset[layer]
 dataset = preprocessor.preprocess_data_one_layer(dataset, instruction_on_response_format=base_model.instruction_on_response_format,
                                                  simplest_prompt=base_model.simplest_prompt)
