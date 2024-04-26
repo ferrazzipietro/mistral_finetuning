@@ -435,7 +435,8 @@ class OutputCleaner():
             tmp = json.loads(model_output)
             out = []
             for item in tmp:
-                out.append({"entity":item['entity']})
+                if item.get('entity') is not None:
+                    out.append({"entity":item.get('entity')})
             return {'model_output':str(out)}
         
         

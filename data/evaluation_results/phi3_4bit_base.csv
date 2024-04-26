@@ -1,3 +1,10 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.44832793959007555,0.5845288326300985,0.3636045494313211
+data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4420719652036378,0.5036036036036036,0.3939393939393939
+data/phi3/4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4087417505139024,0.5286873775538763,0.3331569664902998
+data/phi3/4bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4103339927848248,0.5982354937224296,0.312256464753808
 data/phi3/4bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4208472046837332,0.6065519523494375,0.3222007382668307
 data/phi3/4bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4842395587076438,0.569772832637923,0.421034600890716
+data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.5231265686626031,0.5530705079605762,0.4962585034013605
+data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.45095925846087515,0.6008041355542791,0.3609385783298827
+data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.5151622628125555,0.5527016742770168,0.4823978744603122
