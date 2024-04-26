@@ -20,6 +20,7 @@ class DataPreprocessor():
         if self.model_type not in ['mistral', 'llama', 'llama3', 'gemma', 'qwen', 'zefiro', 'phi']:
             raise ValueError("The model type must be either 'mistral', 'llama', 'llama3', 'gemma', 'zefiro', 'qwen' or 'phi'")
 
+        print('MODEL TYPE:', self.model_type)
         if isinstance(tokenizer, str):
             self.tokenizer = AutoTokenizer.from_pretrained(tokenizer, token = token_llama)
         else:
