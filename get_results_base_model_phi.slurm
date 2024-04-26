@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=qwen_finetuning_iterative_qwen
+#SBATCH --job-name=phi3_get_results_base_model
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=finetuning_iterative_qwen.err
-#SBATCH --output=finetuning_iterative_qwen.out
+#SBATCH --error=get_results_base_model_phi3.err
+#SBATCH --output=get_results_base_model_phi3.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
