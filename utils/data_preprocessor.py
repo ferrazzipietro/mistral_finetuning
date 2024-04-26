@@ -49,7 +49,7 @@ class DataPreprocessor():
                                                            'user_end':'',# 'user_end':'</s>',
                                                            'model_start':'<|assistant|>',
                                                            'model_end':''},# 'model_end':'</s>'},
-                                                'phi3': {'user_start':'<|user|>',
+                                                'phi': {'user_start':'<|user|>',
                                                            'user_end':'<|end|>\n',
                                                            'model_start':'<|assistant|>',
                                                            'model_end':''}}
