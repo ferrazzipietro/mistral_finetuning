@@ -1,2 +1,3 @@
 file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
-data/phi3/4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4087417505139024,0.5286873775538763,0.3331569664902998
+data/phi3/4bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4208472046837332,0.6065519523494375,0.3222007382668307
+data/phi3/4bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Phi-3-mini-4k-instruct_4.csv,,100,0.4842395587076438,0.569772832637923,0.421034600890716
