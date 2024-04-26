@@ -43,5 +43,6 @@ export 'PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512'
 
 python --version
 python  postprocessing_qwen.py
+
 echo -n 'Date: '
 date
