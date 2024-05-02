@@ -1,5 +1,0 @@
-file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
-data/qwen/7B_NoQuant_FT/maxNewTokensFactor2_nShotsInference0_qwen1.5-7b-chat__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_4_0.0002.csv,,100,0.39985625299472927,0.6040535649656171,0.2988361683079678
-data/qwen/7B_NoQuant_FT/maxNewTokensFactor2_nShotsInference0_qwen1.5-7b-chat__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_2_0.0002.csv,,100,0.39807460890493374,0.6010174418604651,0.29758906081324216
-data/qwen/7B_NoQuant_FT/maxNewTokensFactor2_nShotsInference0_qwen1.5-7b-chat__adapters_en.layer1_NoQuant_torch.bfloat16_16_64_0.01_2_0.0002.csv,,100,0.39742673338098644,0.5925399644760213,0.29897831152536297
-data/qwen/7B_NoQuant_FT/maxNewTokensFactor2_nShotsInference0_qwen1.5-7b-chat__adapters_en.layer1_NoQuant_torch.bfloat16_16_32_0.01_8_0.0002.csv,,100,0.39375375375375377,0.5927667269439422,0.2947841726618705
