@@ -1,40 +1,41 @@
 WARNING: grid.env NOT FOUND
 NO Enviroment
-Date: Wed 24 Apr 2024 08:55:31 AM UTC
+Date: Thu 02 May 2024 01:36:00 PM UTC
 Directory: /home/ferrazzi/llm/mistral_finetuning
-This job will be executed on th following nodes: vgpu9-0
+This job will be executed on th following nodes: vgpu0-0
 
 /home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
 Python 3.8.18
+MODEL TYPE: mistral
 Loading model without quantization
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference0_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference1_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference2_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference3_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor2_nShotsInference4_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference0_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference1_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference2_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference3_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor4_nShotsInference4_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference0_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference1_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference2_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference3_BaseModel.csv
-TRY:  data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
-Saved data/mistral/NoQuant_base_bfloat16/maxNewTokensFactor8_nShotsInference4_BaseModel.csv
-Date: Wed 24 Apr 2024 09:24:38 AM UTC
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference0_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference1_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference2_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference3_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor2_nShotsInference4_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference0_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference1_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference2_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference3_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor4_nShotsInference4_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference0_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference0_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference1_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference1_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference2_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference2_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference3_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference3_BaseModel.csv
+TRY:  data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference4_BaseModel_Mistral-7B-Instruct-v0.2_None.csv
+Saved data/mistral/NoQuant_base_bfloat/maxNewTokensFactor8_nShotsInference4_BaseModel.csv
+Date: Thu 02 May 2024 03:52:29 PM UTC
