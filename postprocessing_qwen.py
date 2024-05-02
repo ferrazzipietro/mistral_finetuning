@@ -12,8 +12,8 @@ from peft import PeftModel
 from tqdm import tqdm
 from config import postprocessing_params_qwen as postprocessing
 
-from log import qwen7B_NoQuant as models_params
-adapters_list = generate_ft_adapters_list("qwen7B_NoQuant", simplest_prompt=models_params.simplest_prompt)
+from log import qwen7B_8bit as models_params
+adapters_list = generate_ft_adapters_list("qwen7B_8bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 
