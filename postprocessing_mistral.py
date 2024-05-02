@@ -10,8 +10,8 @@ from peft import PeftModel
 from tqdm import tqdm
 
 from config import postprocessing_params_mistral as postprocessing
-from log import mistralNoQuant as models_params
-adapters_list = generate_ft_adapters_list("mistralNoQuant", simplest_prompt=models_params.simplest_prompt)
+from log import mistral_4bit as models_params
+adapters_list = generate_ft_adapters_list("mistral_4bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']

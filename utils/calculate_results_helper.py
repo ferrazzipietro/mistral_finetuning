@@ -35,6 +35,7 @@ def extract_params_from_file_name(df: pd.DataFrame):
     df['model_type'] = df['file'].apply(lambda x: str(x.split('/')[1]))
     df['instructed'] = df['file'].apply(lambda x: extract_if_noInstruct(x))
     df['model_configurations'] = df['file'].apply(lambda x: str(x.split('/')[2]))
+    print(df['model_configurations'][0])
     if df['model_type'][0] in ['mistral', 'zefiro', 'phi3']:
         df['model_size'] = '7'
         if df['model_type'][0] == 'phi3':
