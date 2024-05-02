@@ -1,63 +1,0 @@
-/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_runtime.py:184: UserWarning: Pydantic is installed but cannot be imported. Please check your installation. `huggingface_hub` will default to not using Pydantic. Error message: '{e}'
-  warnings.warn(
-/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/fuzzywuzzy/fuzz.py:11: UserWarning: Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning
-  warnings.warn('Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning')
-Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-Map:   0%|          | 0/1520 [00:00<?, ? examples/s]Map:   0%|          | 1/1520 [00:00<03:10,  7.98 examples/s]Map:  23%|██▎       | 348/1520 [00:00<00:00, 1848.03 examples/s]Map:  47%|████▋     | 721/1520 [00:00<00:00, 2656.67 examples/s]Map:  78%|███████▊  | 1180/1520 [00:00<00:00, 2414.26 examples/s]Map: 100%|██████████| 1520/1520 [00:00<00:00, 2428.18 examples/s]Map: 100%|██████████| 1520/1520 [00:00<00:00, 2216.75 examples/s]
-Map:   0%|          | 0/170 [00:00<?, ? examples/s]Map: 100%|██████████| 170/170 [00:00<00:00, 1804.28 examples/s]
-adapters_list:   0%|          | 0/36 [00:00<?, ?it/s]
-Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s][A
-Loading checkpoint shards:  12%|█▎        | 1/8 [00:16<01:52, 16.12s/it][A
-Loading checkpoint shards:  25%|██▌       | 2/8 [00:31<01:33, 15.64s/it][A
-Loading checkpoint shards:  38%|███▊      | 3/8 [00:46<01:17, 15.55s/it][A
-Loading checkpoint shards:  50%|█████     | 4/8 [01:01<01:01, 15.37s/it][A
-Loading checkpoint shards:  62%|██████▎   | 5/8 [01:17<00:46, 15.41s/it][A
-Loading checkpoint shards:  75%|███████▌  | 6/8 [01:32<00:30, 15.35s/it][A
-Loading checkpoint shards:  88%|████████▊ | 7/8 [01:44<00:14, 14.08s/it][A
-Loading checkpoint shards: 100%|██████████| 8/8 [01:49<00:00, 11.36s/it][ALoading checkpoint shards: 100%|██████████| 8/8 [01:49<00:00, 13.71s/it]
-adapters_list:   0%|          | 0/36 [01:56<?, ?it/s]
-Traceback (most recent call last):
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_errors.py", line 286, in hf_raise_for_status
-    response.raise_for_status()
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/ferrazzipietro/Qwen1.5-14B-Chat_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0002/resolve/main/adapter_config.json
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/peft/config.py", line 181, in _get_peft_type
-    config_file = hf_hub_download(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 1368, in hf_hub_download
-    raise head_call_error
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 1238, in hf_hub_download
-    metadata = get_hf_file_metadata(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
-    return fn(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 1631, in get_hf_file_metadata
-    r = _request_wrapper(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 385, in _request_wrapper
-    response = _request_wrapper(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/file_download.py", line 409, in _request_wrapper
-    hf_raise_for_status(response)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_errors.py", line 323, in hf_raise_for_status
-    raise RepositoryNotFoundError(message, response) from e
-huggingface_hub.utils._errors.RepositoryNotFoundError: 401 Client Error. (Request ID: Root=1-65f1af6f-7db92c083830e5d11034d3e6;ddf91ff2-4cf4-47d9-afa9-d93b5dd67678)
-
-Repository Not Found for url: https://huggingface.co/ferrazzipietro/Qwen1.5-14B-Chat_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0002/resolve/main/adapter_config.json.
-Please make sure you specified the correct `repo_id` and `repo_type`.
-If you are trying to access a private or gated repo, make sure you are authenticated.
-Invalid username or password.
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "postprocessing_qwen.py", line 71, in <module>
-    merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/peft/peft_model.py", line 305, in from_pretrained
-    PeftConfig._get_peft_type(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/peft/config.py", line 187, in _get_peft_type
-    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
-ValueError: Can't find 'adapter_config.json' at 'ferrazzipietro/Qwen1.5-14B-Chat_adapters_en.layer1_4_torch.bfloat16_16_32_0.05_4_0.0002'

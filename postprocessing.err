@@ -1,2 +1,0 @@
-/var/lib/slurm-llnl/slurmd/job802008/slurm_script: line 41: /home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python: No such file or directory
-/var/lib/slurm-llnl/slurmd/job802008/slurm_script: line 42: /home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python: No such file or directory
