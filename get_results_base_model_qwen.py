@@ -68,7 +68,7 @@ else:
                                                 torch_dtype=base_model.torch_dtype)
 
 tokenizer = AutoTokenizer.from_pretrained(base_model.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=HF_TOKEN)
-tokenizer.pad_token = '<unk>'
+tokenizer.pad_token = '<|im_end|>' # '<unk>'
 tokenizer.padding_side = "left"
 
 
