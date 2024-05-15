@@ -11,9 +11,12 @@ import wandb
 from utils.data_preprocessor import DataPreprocessor
 import datetime
 import gc
+from huggingface_hub import login
+
 
 from config.finetuning_minerva import training_params, lora_params, model_loading_params, config, preprocessing_params
-
+HF_TOKEN_WRITE = dotenv_values(".env.base")['HF_TOKEN_WRITE']
+login(token=HF_TOKEN_WRITE)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 WANDB_KEY = dotenv_values(".env.base")['WANDB_KEY']
