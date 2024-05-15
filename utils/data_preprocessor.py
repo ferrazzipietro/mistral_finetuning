@@ -17,8 +17,8 @@ class DataPreprocessor():
         if self.model_type == 'meta': self.model_type = 'llama3'
         # if self.model_type == 'zefiro':
         #     self.model_type  = 'mistral'
-        if self.model_type not in ['mistral', 'llama', 'llama3', 'gemma', 'qwen', 'zefiro', 'phi']:
-            raise ValueError("The model type must be either 'mistral', 'llama', 'llama3', 'gemma', 'zefiro', 'qwen' or 'phi'")
+        if self.model_type not in ['mistral', 'llama', 'llama3', 'gemma', 'qwen', 'zefiro', 'phi', 'minerva']:
+            raise ValueError("The model type must be either 'mistral', 'llama', 'llama3', 'gemma', 'zefiro', 'qwen', 'minerva' or 'phi'")
 
         print('MODEL TYPE:', self.model_type)
         if isinstance(tokenizer, str):
@@ -53,6 +53,10 @@ class DataPreprocessor():
                                                 'phi': {'user_start':'<|user|>',
                                                            'user_end':'<|end|>\n',
                                                            'model_start':'<|assistant|>',
+                                                           'model_end':''},
+                                                'minerva': {'user_start':'',
+                                                            'user_end':'',
+                                                           'model_start':'',
                                                            'model_end':''}}
         self.special_tokens_instruction = self.special_tokens_instruction_dict[self.model_type]
 
