@@ -96,7 +96,7 @@ def main(ADAPTERS_CHECKPOINT,
   model = prepare_model_for_kbit_training(model)
 
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True)
-  # tokenizer.pad_token = tokenizer.eos_token
+  tokenizer.pad_token = tokenizer.eos_token
   tokenizer.padding_side = 'right'
   # tokenizer.add_special_tokens({"pad_token":"<pad>"})
   # # model.resize_token_embeddings(len(tokenizer))
