@@ -7,11 +7,12 @@ from peft import LoraConfig, prepare_model_for_kbit_training, get_peft_model
 import bitsandbytes as bnb
 from trl import SFTTrainer
 from dotenv import dotenv_values
-from config.finetuning_zefiro import training_params, lora_params, model_loading_params, config, preprocessing_params
 import wandb
 from utils.data_preprocessor import DataPreprocessor
 import datetime
 import gc
+
+from config.finetuning_minerva import training_params, lora_params, model_loading_params, config, preprocessing_params
 
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
