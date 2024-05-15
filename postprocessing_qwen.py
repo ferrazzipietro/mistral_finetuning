@@ -11,8 +11,9 @@ import gc
 from peft import PeftModel
 from tqdm import tqdm
 from config import postprocessing_params_qwen as postprocessing
-from log import qwen7B_NoQuant as models_params
-adapters_list = generate_ft_adapters_list("qwen7B_NoQuant", simplest_prompt=models_params.simplest_prompt)
+
+from log import qwen7B_8bit as models_params
+adapters_list = generate_ft_adapters_list("qwen7B_8bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 
@@ -45,11 +46,11 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             print("PROCESSING:", adapters)
             if not models_params.quantization:
                 print("NO QUANTIZATION")
-                merged_model = AutoModelForCausalLM.from_pretrained(
+                base_model = AutoModelForCausalLM.from_pretrained(
                     models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                     return_dict=True,  
                     torch_dtype=postprocessing.torch_dtype,
-                    device_map= "auto")    
+                    device_map= "auto")
             else:
                 print("QUANTIZATION")
                 load_in_8bit = not models_params.load_in_4bit[0]
@@ -69,7 +70,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     return_dict=True,  
                     #torch_dtype=torch.float16,
                     device_map= "auto")
-                merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
+            merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                                       token=LLAMA_TOKEN)
             # tokenizer.pad_token = tokenizer.unk_token

@@ -1,8 +1,0 @@
-WARNING: grid.env NOT FOUND
-NO Enviroment
-Date: Mon 08 Apr 2024 09:51:39 AM UTC
-Directory: /home/ferrazzi/llm/mistral_finetuning
-This job will be executed on th following nodes: vgpu7-0
-
-/home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
-Python 3.8.18

@@ -1,0 +1,15 @@
+WARNING: grid.env NOT FOUND
+NO Enviroment
+Date: Fri 26 Apr 2024 12:54:44 PM UTC
+Directory: /home/ferrazzi/llm/mistral_finetuning
+This job will be executed on th following nodes: vgpu1-1
+
+/home/ferrazzi/.conda/envs/gpu_venv_lates/bin/python
+Python 3.8.18
+Loading model with quantization:  4  bit
+MODEL TYPE: phi
+TRY:  data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Phi-3-mini-4k-instruct_4.csv
+TRY:  data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Phi-3-mini-4k-instruct_4.csv
+TRY:  data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Phi-3-mini-4k-instruct_4.csv
+TRY:  data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel_Phi-3-mini-4k-instruct_4.csv
+TRY:  data/phi3/4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Phi-3-mini-4k-instruct_4.csv

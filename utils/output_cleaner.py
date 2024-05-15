@@ -35,7 +35,7 @@ class OutputCleaner():
             return list({v['entity']:v for v in model_response}.values())
         except Exception as error:
             model_response = self._remove_space_from_dict_keys(model_response)
-            print('ERROR: ', model_response)
+            # print('ERROR: ', model_response)
             return list({v['entity']:v for v in model_response}.values())
         
     def _assess_model_output(self, model_response: str) -> bool:
@@ -63,8 +63,6 @@ class OutputCleaner():
         """
         # print('sto pulendo: ', string)
         chars = ['\xa0', '\x80', '\x93', '\U00100000', '\r\n', '\U00100000I', '\\u001d', '\\"']
-        if '\u001d' in string:
-            print('ECCOLO')
         for char in chars:
             string = string.replace(char, ' ')
         char_no_space = ['\xad']
@@ -78,17 +76,18 @@ class OutputCleaner():
         Handle the special cases in the model output. This is useful when the model output contains special characters that are not allowed in the json format.
         Ideally, this function should not be used. It is very specific for encountered issues I could not find a solution to.
         """
-        # print('IN SPECIAL CASES HANDLER: ', model_response)
+        #print('IN SPECIAL CASES HANDLER: ', model_response)
         model_response = model_response.replace(""" {"entity":"un\'insufficienza midollare\\" \\"- congenita"},""", "").\
             replace("""l\'aspetto\\"anteriorpuntale""", """l'aspetto anteriorpuntale""")
-        model_response = model_response.replace("""rigonfiamento aneurismatico dell'apice del ventricolo sinistro\\\"""", """""")
+        model_response = model_response.replace("""rigonfiamento aneurismatico dell'apice del ventricolo sinistro\\\"""", """""").\
+            replace('<|eot_id|>', '')
         return model_response
     
     def _clean_ground_truth(self, example: dict) -> dict:
         ground_truth = example['ground_truth']
         # print('inner ground truth: ', ground_truth)
         ground_truth = self._remove_json_special_chars(ground_truth)
-        ground_truth = ground_truth.replace('</s>', '').replace('<|im_e', '')
+        ground_truth = ground_truth.replace('</s>', '').replace('<|im_e', '').replace('<|end_of_text|>', '').replace('<|endoftext|>', '')
         if ground_truth.strip() == ']':
             ground_truth = '[]'
         # print('mid ground truth: ', ground_truth)
@@ -261,7 +260,7 @@ class OutputCleaner():
                     if all(isinstance(item, dict) for item in tmp):
                         return False
                     for item in tmp:
-                        print('ITEM: ', item)
+                        # print('ITEM: ', item)
                         if isinstance(item, dict):
                             
                             if len(item.values()) == 0:
@@ -302,7 +301,7 @@ class OutputCleaner():
                 if isinstance(tmp, list) and all(isinstance(item, str) for item in tmp):
                     tmp_list = []
                     for item in tmp:
-                        print('ITEM: ', item)
+                        # print('ITEM: ', item)
                         if self._assess_model_output(item):
                           tmp_list.append(json.loads(item))
                     if all(isinstance(item, dict) for item in tmp_list):
@@ -378,7 +377,7 @@ class OutputCleaner():
                 return operations_performed, '[{"entity":""}]'
             return operations_performed, str(out)
         
-        # print('EXAMPLE:  ', example['model_responses'])
+        if self.verbose: print('EXAMPLE:  ', example['model_responses'])
         model_output = example['model_responses']
         if self.verbose: print('ORIGINAL MODEL OUTPUT:', model_output)
         if self.verbose: print('GROUND TRUTH: ', example['ground_truth'])
@@ -436,7 +435,8 @@ class OutputCleaner():
             tmp = json.loads(model_output)
             out = []
             for item in tmp:
-                out.append({"entity":item['entity']})
+                if item.get('entity') is not None:
+                    out.append({"entity":item.get('entity')})
             return {'model_output':str(out)}
         
         
@@ -578,7 +578,7 @@ class OutputCleaner():
                 model_output = cleaned_model_output
             
             if is_list_of_dicts(model_output):
-                if self.verbose: print('PRE CLEANED: ', model_output)
+                if self.verbose: print('PRE  CLEANED: ', model_output)
                 tmp = json.loads(model_output)
                 return {'model_output':str(tmp)}
             

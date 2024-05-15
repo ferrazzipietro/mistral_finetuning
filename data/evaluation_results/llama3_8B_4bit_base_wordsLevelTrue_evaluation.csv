@@ -1,0 +1,16 @@
+file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/llama3/8B_4bit_base/maxNewTokensFactor4_nShotsInference2_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.4719443236189647,0.6469886702444841,0.37144813420061623
+data/llama3/8B_4bit_base/maxNewTokensFactor2_nShotsInference3_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.4156561411934206,0.6408737504627916,0.30756929637526653
+data/llama3/8B_4bit_base/maxNewTokensFactor8_nShotsInference1_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.49720613634054667,0.6187104930467763,0.4155910326086957
+data/llama3/8B_4bit_base/maxNewTokensFactor8_nShotsInference2_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.48171633904037203,0.6355270496374791,0.38784887678692986
+data/llama3/8B_4bit_base/maxNewTokensFactor2_nShotsInference0_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.22760800842992626,0.6434042553191489,0.13825896122896855
+data/llama3/8B_4bit_base/maxNewTokensFactor4_nShotsInference1_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.4831778639555602,0.6311610076670318,0.391407709288504
+data/llama3/8B_4bit_base/maxNewTokensFactor2_nShotsInference4_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.4230448756100465,0.6443074691805656,0.3149034201665781
+data/llama3/8B_4bit_base/maxNewTokensFactor8_nShotsInference4_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.5308641975308641,0.6219209039548023,0.4630657916876998
+data/llama3/8B_4bit_base/maxNewTokensFactor2_nShotsInference2_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.38597795119534256,0.648896293211162,0.27468265162200284
+data/llama3/8B_4bit_base/maxNewTokensFactor8_nShotsInference0_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.4137299771167048,0.5881587508132726,0.31909636427815036
+data/llama3/8B_4bit_base/maxNewTokensFactor4_nShotsInference3_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.4960201089233347,0.6254622292657158,0.41096841374522736
+data/llama3/8B_4bit_base/maxNewTokensFactor4_nShotsInference4_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.5147236789027835,0.6282619399310685,0.43594123676118895
+data/llama3/8B_4bit_base/maxNewTokensFactor4_nShotsInference0_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.3956464537734721,0.6101069715971966,0.2927433628318584
+data/llama3/8B_4bit_base/maxNewTokensFactor8_nShotsInference3_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.5064186798746588,0.6211257128688321,0.4274744027303754
+data/llama3/8B_4bit_base/maxNewTokensFactor2_nShotsInference1_BaseModel_Meta-Llama-3-8B-Instruct_4.csv,,100,0.3923818825540227,0.6351778656126482,0.2838721074015192

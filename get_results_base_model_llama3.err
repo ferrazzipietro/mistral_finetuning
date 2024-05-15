@@ -1,49 +1,0 @@
-/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/huggingface_hub/utils/_runtime.py:184: UserWarning: Pydantic is installed but cannot be imported. Please check your installation. `huggingface_hub` will default to not using Pydantic. Error message: '{e}'
-  warnings.warn(
-Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:11<00:23, 11.85s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:12<00:05,  5.03s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  2.82s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  4.10s/it]
-WARNING:root:Some parameters are on the meta device device because they were offloaded to the cpu.
-generating responses:   0%|          | 0/681 [00:00<?, ?it/s]generating responses:   0%|          | 0/681 [00:04<?, ?it/s]
-Traceback (most recent call last):
-  File "get_results_base_model_llama3.py", line 79, in <module>
-    postprocessor.add_responses_column(model=model, 
-  File "/extra/ferrazzi/llm/mistral_finetuning/utils/test_data_processor.py", line 183, in add_responses_column
-    tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
-  File "/extra/ferrazzi/llm/mistral_finetuning/utils/test_data_processor.py", line 156, in _generate_model_response
-    generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
-    return func(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/generation/utils.py", line 1592, in generate
-    return self.sample(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/generation/utils.py", line 2696, in sample
-    outputs = self(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = module._old_forward(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 1168, in forward
-    outputs = self.model(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 1008, in forward
-    layer_outputs = decoder_layer(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = module._old_forward(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 734, in forward
-    hidden_states, self_attn_weights, present_key_value = self.self_attn(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = module._old_forward(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/transformers/models/llama/modeling_llama.py", line 394, in forward
-    attn_output = self.o_proj(attn_output)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/accelerate/hooks.py", line 160, in new_forward
-    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/accelerate/hooks.py", line 293, in pre_forward
-    set_module_tensor_to_device(
-  File "/home/ferrazzi/.conda/envs/gpu_venv_lates/lib/python3.8/site-packages/accelerate/utils/modeling.py", line 347, in set_module_tensor_to_device
-    new_value = value.to(device)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 50.00 MiB (GPU 0; 23.69 GiB total capacity; 4.28 GiB already allocated; 13.69 MiB free; 4.37 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

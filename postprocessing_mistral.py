@@ -10,8 +10,8 @@ from peft import PeftModel
 from tqdm import tqdm
 
 from config import postprocessing_params_mistral as postprocessing
-from log import mistral_8bit as models_params
-adapters_list = generate_ft_adapters_list("mistral_8bit", simplest_prompt=models_params.simplest_prompt)
+from log import mistral_4bit as models_params
+adapters_list = generate_ft_adapters_list("mistral_4bit", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -60,7 +60,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
                     quantization_config = bnb_config,
                     return_dict=True,  
-                    #torch_dtype=torch.float16,
+                    torch_dtype=torch.bfloat16,
                     device_map= "auto")
             merged_model = PeftModel.from_pretrained(base_model, adapters, token=HF_TOKEN, device_map='auto')
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=True)

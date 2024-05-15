@@ -22,8 +22,8 @@
 
 ### GPU request
 #SBATCH --gres=gpu
-#SBATCH --constraint=A6000
-####SBATCH --constraint=vgpu5-1
+####SBATCH --constraint=A6000
+#SBATCH --constraint=vgpu2-1
 
 ### Some useful informative commands
 echo -n 'Date: '
@@ -43,5 +43,6 @@ export 'PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512'
 
 python --version
 python  postprocessing_qwen.py
+
 echo -n 'Date: '
 date
