@@ -380,6 +380,7 @@ class OutputCleaner():
         if self.verbose: print('EXAMPLE:  ', example['model_responses'])
         model_output = example['model_responses']
         if self.verbose: print('ORIGINAL MODEL OUTPUT:', model_output)
+        # print('ORIGINAL MODEL OUTPUT:', model_output)
         if self.verbose: print('GROUND TRUTH: ', example['ground_truth'])
         # model_output = self._exceptions_handler(model_output)
     
@@ -579,6 +580,14 @@ class OutputCleaner():
             
             if is_list_of_dicts(model_output):
                 if self.verbose: print('PRE  CLEANED: ', model_output)
+                if is_list_of_dicts_with_multiple_keys_included_entity(model_output):
+                    if self.verbose: print('is_list_of_dicts_with_multiple_keys_included_entity')
+                    tmp = json.loads(model_output)
+                    out = []
+                    for item in tmp:
+                        if len(item) > 1 and 'entity' in item.keys():
+                            out.append({"entity":item.get('entity')})
+                    return {'model_output':str(out)}
                 tmp = json.loads(model_output)
                 return {'model_output':str(tmp)}
             

@@ -4,16 +4,6 @@ from utils.output_cleaner import OutputCleaner
 import glob
 import pandas as pd
 
-import json
-import re
-from typing import Tuple
-from typing import List
-
-import json
-import re
-from typing import Tuple
-from typing import List
-
 
 
 def evaluate(input_data_path:str, 
@@ -42,6 +32,8 @@ def evaluate(input_data_path:str,
     evaluation_results = pd.DataFrame(columns=['file', 'similar_is_equal', 'similar_is_equal_threshold', 'f1_score', 'precision', 'recall'])
     errors = []
     for file in csv_files:
+        if file.split('.cs')[0].endswith('0.002'):
+            continue
         print("FILE: " , file)
         eval_data = Dataset.from_csv(file) 
         try:
