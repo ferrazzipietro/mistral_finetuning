@@ -13,24 +13,6 @@ def refine_output_df(res):
             example['fine_tuning'] = 'unsure'
         return example
     
-    res = res.drop(['training_params_string', 'similar_is_equal_threshold', 'Unnamed: 0', 'similar_is_equal'], axis = 1)
-    res = res.apply(lambda x: clean_quantization(x), axis = 1)
-    return res
-import pandas as pd
-import re
-
-def refine_output_df(res):
-
-    def clean_quantization(example):
-        if example['quantization'] == 'NoQuantbit':
-            example['quantization'] = 'NoQuant'
-        elif example['quantization'] == '4bits':
-            example['quantization'] = '4bit'
-        elif example['quantization'] == 'noInstr':
-            example['quantization'] = example['fine_tuning']
-            example['fine_tuning'] = 'unsure'
-        return example
-    
     to_drop = ['Unnamed: 0', 'similar_is_equal_threshold', 'similar_is_equal']
     res = res.drop([col for col in to_drop if col in res.columns], axis = 1)
     res = res.apply(lambda x: clean_quantization(x), axis = 1)

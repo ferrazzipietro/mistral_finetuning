@@ -417,7 +417,7 @@ class Evaluator():
     
 
 
-    def _extract_TP_FP_FN(self, model_response: str, ground_truth: str, similar_is_equal:bool=True, similar_is_equal_threshold: int=100, similarity_types:'list[str]'=['case', 'stop_words', 'subset', 'superset', 'leveshtein'], words_level:bool=True) -> [int, int, int]:
+    def _extract_TP_FP_FN(self, model_response: str, ground_truth: str, similar_is_equal:bool=True, similar_is_equal_threshold: int=100, similarity_types:'list[str]'=['case', 'stop_words', 'subset', 'superset', 'leveshtein'], words_level:bool=True, already_parsed_inputs:bool=False) -> [int, int, int]:
         """
         Compute the F1 score, the precision and the recall between the model output and the ground truth
 
@@ -432,12 +432,13 @@ class Evaluator():
         similarity_types: the list of similarity types to consider. Must contain elements in ['case', 'stop_words', 'subset', 'superset', 'leveshtein']
 
         """
-        # print('ORIGINAL model_response: ', model_response)
-        model_response = self._parse_json(model_response)
-        # print('GROUND TRUTH: ', ground_truth)
-        ground_truth = self._parse_json(ground_truth.replace('\n', ''))
-        model_response = model_response["entities"]
-        ground_truth = ground_truth["entities"]
+        if not already_parsed_inputs:
+            # print('ORIGINAL model_response: ', model_response)
+            model_response = self._parse_json(model_response)
+            # print('GROUND TRUTH: ', ground_truth)
+            ground_truth = self._parse_json(ground_truth.replace('\n', ''))
+            model_response = model_response["entities"]
+            ground_truth = ground_truth["entities"]
         # print('PARSED ORIGINAL model_response: ', model_response)
         if not similar_is_equal:
             similarity_types = []
@@ -473,7 +474,7 @@ class Evaluator():
             # F1 = 2 * TP / (2 * TP + FN + FP)
             return [TP, FP, FN]
     
-    def generate_evaluation_table(self, similar_is_equal_threshold: int, words_level:bool, similarity_types:'list[str]') -> dict:
+    def generate_evaluation_table(self, similar_is_equal_threshold: int, words_level:bool, similarity_types:'list[str]', already_parsed_inputs:bool=False) -> dict:
         """
         Generate the evaluation table for the model output and the ground truth.
 
@@ -491,7 +492,7 @@ class Evaluator():
         metrics_list = []
         for i, res in enumerate(self.data['model_output']):
            #  if self.cleaner.verbose: print('res:', res)
-            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, similar_is_equal_threshold, similarity_types, words_level))
+            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, similar_is_equal_threshold, similarity_types, words_level, already_parsed_inputs=already_parsed_inputs))
 
         metrics_dataframe = pd.DataFrame(metrics_list, columns=['TP', 'FP', 'FN'])
         summary = metrics_dataframe.sum()
@@ -501,13 +502,15 @@ class Evaluator():
         self.evaluation_table = {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
         return {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
 
-    def add_TP_FP_TN_FN_to_data(self):
+    def add_TP_FP_TN_FN_to_data(self, already_parsed_inputs:bool=False):
         """
         Add the True Positives, False Positives, False Negatives to the dataset
         """
         metrics_list = []
         for i, res in enumerate(self.data['model_output']):
-            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, 100, ['case', 'stop_words', 'subset', 'superset', 'leveshtein'], True))
+            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, 100, ['case', 'stop_words', 'subset', 'superset', 'leveshtein'], True, already_parsed_inputs=already_parsed_inputs))
+        if 'TP' in self.data.column_names:
+            self.data = self.data.remove_columns(['TP', 'FP', 'FN', 'precision', 'recall', 'f1'])
         self.data = self.data.add_column('TP', [el[0] for el in metrics_list])
         self.data = self.data.add_column('FP', [el[1] for el in metrics_list])
         self.data = self.data.add_column('FN', [el[2] for el in metrics_list])
