@@ -653,11 +653,8 @@ class OutputCleaner():
         Apply the cleaning to the model output and return the cleaned response in a new cloumn called 'model_output
 
         Args:
-        model_output (str): the model output as it is returned by the model. The processing of the output is done in the function
+        data (list): the dataset containing the model output
         wrong_keys_to_entity (bool): if True, the function also extracts the dictionaries with keys different from 'entity', converting the keys into 'entity'. If not, all keys that are not 'entity' are dropped
-
-        return:
-        str: the model response, i.e. the model output without the instruction
         """
         data = data.filter(lambda example: example["entities"] is not None)
         data = data.map(lambda x: self._clean_ground_truth(x), remove_columns=['ground_truth'])
