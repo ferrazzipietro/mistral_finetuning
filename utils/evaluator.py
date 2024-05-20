@@ -13,6 +13,23 @@ class Evaluator():
         self.cleaner = output_cleaner
         pass
 
+
+    def _drop_duplicates(self, model_response: list) -> str:
+        """
+        Drop the duplicates from a list. This is useful when the model output contains the same entity multiple times.
+
+        Args:
+        model_response (str): the model response with no duplicates
+        """
+        # print('DROPPING DUPLICATES: ', model_response)
+        try :
+            return list({v['entity']:v for v in model_response}.values())
+        except Exception as error:
+            model_response = self._remove_space_from_dict_keys(model_response)
+            # print('ERROR: ', model_response)
+            return list({v['entity']:v for v in model_response}.values())
+        
+
     def _change_apexes(self, model_output: str) -> str:
         """
         Extract the text between the curl brackets of the model output, and change the apexes from double single \'.
@@ -102,7 +119,7 @@ class Evaluator():
         if self.offset and good_format:
             output = json.loads(model_response)
             if drop_duplicates:
-                output = self.cleaner._drop_duplicates(output)
+                output = self._drop_duplicates(output)
             entities = [entity["entity"] for entity in output]
             offsets = [entity["offset"] for entity in output]
             return {"entities": entities, "offsets": offsets}
@@ -113,7 +130,7 @@ class Evaluator():
             output = json.loads(model_response)
             # print('OUTPUT: ', type(output))
             if drop_duplicates:
-                output = self.cleaner._drop_duplicates(output)
+                output = self._drop_duplicates(output)
             entities = [entity["entity"] for entity in output]
             # print('ENTITIES: ', entities)
             return {"entities": entities}
@@ -483,3 +500,21 @@ class Evaluator():
         f1 = 2 * (precision * recall) / (precision + recall)
         self.evaluation_table = {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
         return {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
+
+    def add_TP_FP_TN_FN_to_data(self):
+        """
+        Add the True Positives, False Positives, False Negatives to the dataset
+        """
+        metrics_list = []
+        for i, res in enumerate(self.data['model_output']):
+            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, 100, ['case', 'stop_words', 'subset', 'superset', 'leveshtein'], True))
+        self.data = self.data.add_column('TP', [el[0] for el in metrics_list])
+        self.data = self.data.add_column('FP', [el[1] for el in metrics_list])
+        self.data = self.data.add_column('FN', [el[2] for el in metrics_list])
+        self.data = self.data.add_column('precision', [el[0] / (el[0] + el[1] + 1e-16) for el in metrics_list])
+        self.data = self.data.add_column('recall', [el[0] / (el[0] + el[2] + 1e-16) for el in metrics_list])
+        def _f1(example):
+            example['f1'] = 2 * (example['precision'] * example['recall']) / (example['precision'] + example['recall'] + 1e-16)
+            return example
+        self.data = self.data.map(lambda x: _f1(x))
+        return self.data

@@ -22,21 +22,6 @@ class OutputCleaner():
             # print('DICT: ', dict)
             out.append({k.replace(' ', ''): v for k, v in dict.items()})
         return out
-    
-    def _drop_duplicates(self, model_response: list) -> str:
-        """
-        Drop the duplicates from a list. This is useful when the model output contains the same entity multiple times.
-
-        Args:
-        model_response (str): the model response with no duplicates
-        """
-        # print('DROPPING DUPLICATES: ', model_response)
-        try :
-            return list({v['entity']:v for v in model_response}.values())
-        except Exception as error:
-            model_response = self._remove_space_from_dict_keys(model_response)
-            # print('ERROR: ', model_response)
-            return list({v['entity']:v for v in model_response}.values())
         
     def _assess_model_output(self, model_response: str) -> bool:
         """
