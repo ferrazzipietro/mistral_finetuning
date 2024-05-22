@@ -212,7 +212,7 @@ class Evaluator():
             return True, entity_in_ground_truth, FP_words, FN_words, TP_words
         return False, entity_in_model_response, FP_words, FN_words, TP_words
 
-    def _entity_similar_to_ground_truth_entity_Subset(self, entity_in_model_response: str, entity_in_ground_truth: str) -> (bool, str, int, int):
+    def _entity_similar_to_ground_truth_entity_Subset(self, entity_in_model_response: str, entity_in_ground_truth: str, ground_truth:list) -> (bool, str, int, int):
         """
         Check if two entities are similar in terms of being a subset of the one in list. E.g., entity='am happy' ground truth='I am happy'.
         This is useful when the model output is not exactly the same as the ground truth.
@@ -233,6 +233,11 @@ class Evaluator():
         TP_words = 0
         if entity_in_model_response.lower() != entity_in_ground_truth.lower():
             if entity_in_model_response.lower() in entity_in_ground_truth.lower():
+                # words_not_in_gt_entity = entity_in_ground_truth.lower().replace(entity_in_model_response.lower(), '')
+                # w_are_in_other_entity = any([words_not_in_gt_entity in gt_entity for gt_entity in ground_truth])
+                # if w_are_in_other_entity:
+                #     TP_words = self._count_common_words(entity_in_model_response, entity_in_ground_truth)
+                # else:
                 FN_words = entity_in_ground_truth.strip().count(" ") - entity_in_model_response.strip().count(" ")
                 TP_words = self._count_common_words(entity_in_model_response, entity_in_ground_truth)
                 # print('SIMILI Subset: ', entity_in_model_response, ' e ', entity_in_ground_truth, ' -> FP_words:', FP_words,' FN_words:', FN_words,'TP_words:', TP_words)
@@ -287,7 +292,7 @@ class Evaluator():
         return False, entity_in_model_response
     
 
-    def _entity_similar_to_ground_truth_entity(self, entity_in_model_response: str, entity_in_ground_truth: str, leveshtein_threshold: int, similarity_types:list=['case', 'stop_words', 'subset', 'superset', 'leveshtein']) -> (bool, str):
+    def _entity_similar_to_ground_truth_entity(self, entity_in_model_response: str, entity_in_ground_truth: str, leveshtein_threshold: int, similarity_types:list=['case', 'stop_words', 'subset', 'superset', 'leveshtein'], ground_truth:list=[]) -> (bool, str):
         """
         Check if two entities are similar. This is useful when the model output is not exactly the same as the ground truth.
 
@@ -320,7 +325,7 @@ class Evaluator():
             if similar:
                 return similar, entity_to_output, FP_words, FN_words, TP_words
         if 'subset' in similarity_types:
-            similar, entity_to_output, FP_words, FN_words, TP_words = self._entity_similar_to_ground_truth_entity_Subset(entity_in_model_response, entity_in_ground_truth)
+            similar, entity_to_output, FP_words, FN_words, TP_words = self._entity_similar_to_ground_truth_entity_Subset(entity_in_model_response, entity_in_ground_truth, entity_in_ground_truth)
             #print('SIMILI SUBSET: ', similar, entity_to_output, FP_words, FN_words, TP_words)
             if similar:
                 return similar, entity_to_output, FP_words, FN_words, TP_words
@@ -394,25 +399,38 @@ class Evaluator():
         FPs = []
         FNs = []
         TPs = []
+        #print('\n ENTITY IN MODEL RESPONSE: ', entity_in_model_response)
+        # if entity_in_model_response in ground_truth:
+        #     print('TROVATO: ', entity_in_model_response)
+        #     FPs.append(0)
+        #     FNs.append(0)
+        #     TPs.append(len(entity_in_model_response.split()))
         for entity_in_ground_truth in ground_truth:
-            is_in, string, FP, FN, TP = self._entity_similar_to_ground_truth_entity(entity_in_model_response, entity_in_ground_truth, leveshtein_threshold, similarity_types)
+            is_in, string, FP, FN, TP = self._entity_similar_to_ground_truth_entity(entity_in_model_response, entity_in_ground_truth, leveshtein_threshold, similarity_types, ground_truth)
             if is_in:
                 strings.append(string)
                 FPs.append(FP)
                 FNs.append(FN)
                 TPs.append(TP)
+                continue
         #if entity_in_model_response in ground_truth and entity_in_model_response
+        #print('STRINGS: ', strings)
         if len(strings) > 0:
             if entity_in_model_response in strings: # se ho estratto la stessa, ritorno se stessa
                 TP = len(entity_in_model_response.split())
+                #print('returning: ', entity_in_model_response, ' con TP: ', TP)
                 return entity_in_model_response, 0, 0, TP
             else: #
-                # print('sto analizzando: "', entity_in_model_response, '" e ho trovato: ', strings)
+                #print('sto analizzando: "', entity_in_model_response, '" e ho trovato: ', strings)
+
+                #print('returning: ', entity_in_model_response, ' con TP: ', TP, ' FP: ', FP, ' FN: ', FN)
                 return strings[-1], FPs[-1], FNs[-1], TPs[-1]
         else:
             FP = len(entity_in_model_response.split())
             FN = 0
             TP = 0
+           
+        #print('returning: ', entity_in_model_response, ' con TP: ', TP, ' FP: ', FP, ' FN: ', FN)
         return entity_in_model_response, FP, FN, TP
     
 
@@ -432,14 +450,19 @@ class Evaluator():
         similarity_types: the list of similarity types to consider. Must contain elements in ['case', 'stop_words', 'subset', 'superset', 'leveshtein']
 
         """
+        # print('MODEL RESPONSE: ', model_response)
+        # print('GROUND TRUTH: ', ground_truth)
         if not already_parsed_inputs:
             # print('ORIGINAL model_response: ', model_response)
             model_response = self._parse_json(model_response)
             # print('GROUND TRUTH: ', ground_truth)
             ground_truth = self._parse_json(ground_truth.replace('\n', ''))
-            model_response = model_response["entities"]
-            ground_truth = ground_truth["entities"]
-        # print('PARSED ORIGINAL model_response: ', model_response)
+        model_response = model_response["entities"]
+        ground_truth = ground_truth["entities"]
+        
+        
+        # print('PARSED ORIGINAL model_response: ', model_response)
+        # print('PARSED GROUND TRUTH: ', ground_truth)
         if not similar_is_equal:
             similarity_types = []
 
@@ -454,10 +477,12 @@ class Evaluator():
                 FN_sum += FN
                 TP_sum += TP
                 identified_entities_list.append(entity_identified)
+            #print('IDENTIFIED ENTITIES: ', identified_entities_list)
+            #print('GROUND TRUTH: ', ground_truth)
             FN_entities = set(ground_truth).difference(set(identified_entities_list))
             FN_entities = [entity.split() for entity in FN_entities]
             FN_entities = [item for row in FN_entities for item in row]
-            # print('FALSE NEGATIVES: ', FN_entities)
+            #print('FALSE NEGATIVES: ', FN_entities)
             FN_sum += len(FN_entities)
             #print('PARSED GROUND TRUTH: ', ground_truth, 'TP_sum:', TP_sum, 'FP_sum:', FP_sum, 'FN_sum:', FN_sum, '\n\n')
             return [TP_sum, FP_sum, FN_sum]
@@ -489,11 +514,15 @@ class Evaluator():
         return:
         dict: the evaluation table
         """
+        self.evaluation_table = None
         metrics_list = []
-        for i, res in enumerate(self.data['model_output']):
-           #  if self.cleaner.verbose: print('res:', res)
-            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, similar_is_equal_threshold, similarity_types, words_level, already_parsed_inputs=already_parsed_inputs))
-
+        if not already_parsed_inputs:
+            for i, res in enumerate(self.data['model_output']):
+            #  if self.cleaner.verbose: print('res:', res)
+                metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, similar_is_equal_threshold, similarity_types, words_level, already_parsed_inputs))
+        else:
+            for i, res in enumerate(self.data['model_output_parsed']):
+                metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth_parsed'][i], True, similar_is_equal_threshold, similarity_types, words_level, already_parsed_inputs))
         metrics_dataframe = pd.DataFrame(metrics_list, columns=['TP', 'FP', 'FN'])
         summary = metrics_dataframe.sum()
         precision = summary['TP'] / (summary['TP'] + summary['FP'])
@@ -502,13 +531,13 @@ class Evaluator():
         self.evaluation_table = {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
         return {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
 
-    def add_TP_FP_TN_FN_to_data(self, already_parsed_inputs:bool=False):
+    def add_TP_FP_TN_FN_to_data(self, already_parsed_inputs):
         """
         Add the True Positives, False Positives, False Negatives to the dataset
         """
         metrics_list = []
         for i, res in enumerate(self.data['model_output']):
-            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, 100, ['case', 'stop_words', 'subset', 'superset', 'leveshtein'], True, already_parsed_inputs=already_parsed_inputs))
+            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, 100, ['case', 'subset', 'superset'], already_parsed_inputs=already_parsed_inputs))
         if 'TP' in self.data.column_names:
             self.data = self.data.remove_columns(['TP', 'FP', 'FN', 'precision', 'recall', 'f1'])
         self.data = self.data.add_column('TP', [el[0] for el in metrics_list])
