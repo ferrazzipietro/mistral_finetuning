@@ -531,7 +531,7 @@ class Evaluator():
         self.evaluation_table = {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
         return {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
 
-    def add_TP_FP_TN_FN_to_data(self, already_parsed_inputs):
+    def add_TP_FP_TN_FN_to_data(self, already_parsed_inputs:bool=False):
         """
         Add the True Positives, False Positives, False Negatives to the dataset
         """
