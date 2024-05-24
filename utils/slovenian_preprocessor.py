@@ -1,6 +1,5 @@
 import pandas as pd
 import string
-from utils.slovenian_preprocessor import Slovenian_preprocessor
 import pandas as pd
 import string
 from datasets import Dataset
