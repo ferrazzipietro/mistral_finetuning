@@ -113,14 +113,17 @@ def main(ADAPTERS_CHECKPOINT,
   # tokenizer.padding_side = 'right'
 
   data_train = pd.read_csv(config.slovenian_train_path, header=None, names=['word', 'label'])
-  preprocessor = Slovenian_preprocessor(data_train)
+  preprocessor = Slovenian_preprocessor(data_train, config.BASE_MODEL_CHECKPOINT, tokenizer, token_llama=HF_TOKEN)
   preprocessor.preprocess()
+  preprocessor.apply('', offset=False, simplest_prompt=False)
   train_data = preprocessor.data
 
   val_data = pd.read_csv(config.slovenian_test_path, header=None, names=['word', 'label'])
-  preprocessor = Slovenian_preprocessor(val_data)
+  preprocessor = Slovenian_preprocessor(val_data, config.BASE_MODEL_CHECKPOINT, tokenizer, token_llama=HF_TOKEN)
   preprocessor.preprocess()
+  preprocessor.apply('', offset=False, simplest_prompt=False)
   val_data = preprocessor.data
+
   
   train_data = train_data.shuffle(seed=1234)  # Shuffle dataset here
   val_data = val_data.shuffle(seed=1234)  # Shuffle dataset here

@@ -32,5 +32,5 @@ load_best_model_at_end = True
     packing - Used only in case dataset_text_field is passed. This argument is used by the ConstantLengthDataset to pack the sequences of the dataset.
 """
 max_seq_length= 1024
-dataset_text_field="prompt"
+dataset_text_field="text"
 packing=False
