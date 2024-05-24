@@ -15,5 +15,5 @@ if simplest_prompt:
 WANDB_PROJECT_NAME = f'finetune {model_name} {TRAIN_LAYER}'
 WANDB_RUN_NAME = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-slovenian_train_path = 'mistral_finetuning/data/slovenian/E3C_Slovenian_Train_SL_L1.csv'
-slovenian_test_path = 'mistral_finetuning/data/slovenian/E3C_Slovenian_Test_SL_L1.csv'
+slovenian_train_path = 'data/slovenian/E3C_Slovenian_Train_SL_L1.csv'
+slovenian_test_path = 'data/slovenian/E3C_Slovenian_Test_SL_L1.csv'
