@@ -115,12 +115,12 @@ def main(ADAPTERS_CHECKPOINT,
   data_train = pd.read_csv(config.slovenian_train_path, header=None, names=['word', 'label'])
   preprocessor = Slovenian_preprocessor(data_train)
   preprocessor.preprocess()
-  train_data = preprocessor.data['train']
+  train_data = preprocessor.data
 
   val_data = pd.read_csv(config.slovenian_test_path, header=None, names=['word', 'label'])
   preprocessor = Slovenian_preprocessor(val_data)
   preprocessor.preprocess()
-  val_data = preprocessor.data['train']
+  val_data = preprocessor.data
   
   train_data = train_data.shuffle(seed=1234)  # Shuffle dataset here
   val_data = val_data.shuffle(seed=1234)  # Shuffle dataset here
