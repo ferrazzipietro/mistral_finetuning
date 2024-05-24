@@ -1,5 +1,6 @@
 import pandas as pd
 import string
+from datasets import Dataset
 
 class Slovenian_preprocessor():
 
@@ -41,4 +42,4 @@ class Slovenian_preprocessor():
         for el in overall_entities:
             el['text'] = el['text'].strip() 
             data_df = pd.concat([data_df, pd.DataFrame([el])], ignore_index=True)
-        self.data = data_df
+        self.data = Dataset.from_pandas(data_df, split='train')
