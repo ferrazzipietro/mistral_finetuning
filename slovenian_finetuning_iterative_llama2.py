@@ -112,13 +112,12 @@ def main(ADAPTERS_CHECKPOINT,
   # # tokenizer.pad_token = tokenizer.unk_token
   # tokenizer.padding_side = 'right'
 
-  preprocessor = Slovenian_preprocessor(config.slovenian_train_path)
-  data_train = pd.read_csv('/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/slovenian/E3C_Slovenian_Train_SL_L1.csv', header=None, names=['word', 'label'])
+  data_train = pd.read_csv(config.slovenian_train_path, header=None, names=['word', 'label'])
   preprocessor = Slovenian_preprocessor(data_train)
   preprocessor.preprocess()
   train_data = preprocessor.data
 
-  val_data = pd.read_csv('/Users/pietroferrazzi/Desktop/dottorato/mistral_finetuning/data/slovenian/E3C_Slovenian_Test_SL_L1.csv', header=None, names=['word', 'label'])
+  val_data = pd.read_csv(config.slovenian_test_path, header=None, names=['word', 'label'])
   preprocessor = Slovenian_preprocessor(val_data)
   preprocessor.preprocess()
   val_data = preprocessor.data
