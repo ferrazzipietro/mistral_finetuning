@@ -361,11 +361,22 @@ class DataPreprocessor(IOB_preprocessor):
         test_data = test_data.map(remove_answer_from_prompt, batched=False)
 
         return train_data, val_data, test_data
+
+    
+
+
+class DataPreprocessorTag(DataPreprocessor):
+
+    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='', tagging_string='tag') -> None:
+        super().__init__( model_checkpoint, tokenizer, token_llama)
+        self.input_column = 'sentence_tag'
+        self.tag = '<' + tagging_string + '>'
+        self.tag_end = '</' + tagging_string + '>'
+
     
     def from_generativa_to_tag(self, entity_type_filter = False, entity_type='CLINENTITY'):
         
         def _helper(example, entity_type_filter = entity_type_filter, entity_type=entity_type):
-            to_add = len('<tag></tag>')
             base_sentence = example['sentence']
             entities = example['entities']
             entities = sorted(entities, key=lambda x: x['offsets'][0])
@@ -385,18 +396,16 @@ class DataPreprocessor(IOB_preprocessor):
                 ent = filtered_entities.pop(0)
                 start = ent['offsets'][0]
                 end = ent['offsets'][1]
-                sentence = sentence + base_sentence[prev_end:start] + '<tag>' + base_sentence[start:end] + '</tag>'
+                sentence = sentence + base_sentence[prev_end:start] + self.tag + base_sentence[start:end] + self.tag_end
                 prev_end = end
                 if len(filtered_entities) == 0:
                     sentence = sentence + base_sentence[end:]
                     break
             if sentence=='':
                 sentence = base_sentence
-            example['prompt_tag'] = sentence
+            example[self.input_column] = sentence
             return example
         self.data = self.data.map(_helper, batched=False)
-
-    
 
 
 class Slovenian_preprocessor(IOB_preprocessor):
