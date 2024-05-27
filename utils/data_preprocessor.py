@@ -364,14 +364,25 @@ class DataPreprocessor(IOB_preprocessor):
 
     
 
-
+from datasets import Dataset
+import os
+import random
+from transformers import AutoTokenizer
+import warnings
+import pandas as pd
+import string
+import pandas as pd
+import string
+from datasets import Dataset
+from transformers import AutoTokenizer
 class DataPreprocessorTag(DataPreprocessor):
 
-    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='', tagging_string='tag') -> None:
+    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, data:Dataset, token_llama:str='', tagging_string='tag') -> None:
         super().__init__( model_checkpoint, tokenizer, token_llama)
         self.input_column = 'sentence_tag'
         self.tag = '<' + tagging_string + '>'
         self.tag_end = '</' + tagging_string + '>'
+        self.data = data
 
     
     def from_generativa_to_tag(self, entity_type_filter = False, entity_type='CLINENTITY'):
@@ -382,6 +393,7 @@ class DataPreprocessorTag(DataPreprocessor):
             entities = sorted(entities, key=lambda x: x['offsets'][0])
             sentence = ''
             prev_end=0
+            if entity_type_filter: entities = [ent for ent in entities if ent['type'] == entity_type]
 
             # Initialize an empty list to store the filtered data, removing overlapping offsets
             filtered_entities = []
@@ -391,7 +403,6 @@ class DataPreprocessorTag(DataPreprocessor):
                 if start > current_end:
                     filtered_entities.append(item)
                     current_end = end
-            if entity_type_filter: filtered_entities = [ent for ent in filtered_entities if ent['type'] == entity_type]
             while len(filtered_entities) > 0:
                 ent = filtered_entities.pop(0)
                 start = ent['offsets'][0]
@@ -407,6 +418,27 @@ class DataPreprocessorTag(DataPreprocessor):
             return example
         self.data = self.data.map(_helper, batched=False)
 
+
+    def apply(self, instruction_on_response_format:str) -> Dataset:
+        """
+        Apply the data preprocessing to one split/layer if the dataset. It formats the prompt in the right shape, processing the entities.
+
+        Args:
+            instruction_on_response_format: the instruction on the response format to be given to the model. E.g. "The response must be a list of dictionaries, where each dictionary contains the keys 'text' and 'offset'"
+            n_shots: the number of examples to provide as few shot prompting   
+            offset: whether to require the offset in the response  
+            num_proc: the number of processes to use for the parallel processing
+
+        Returns:
+            the preprocessed split/layer
+        """
+        self.from_generativa_to_tag(self.data)
+        self.data = self.data.map(lambda example:  self._apply_to_one_example(example=example, 
+                                                                    simplest_prompt=False,
+                                                                    instruction_on_response_format = instruction_on_response_format, 
+                                                                    offset = False), 
+                        num_proc=1) #batched=True)
+        self.instruction_on_response_format = instruction_on_response_format
 
 class Slovenian_preprocessor(IOB_preprocessor):
 
