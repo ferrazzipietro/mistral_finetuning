@@ -499,7 +499,7 @@ class Evaluator():
             # F1 = 2 * TP / (2 * TP + FN + FP)
             return [TP, FP, FN]
     
-    def generate_evaluation_table(self, similar_is_equal_threshold: int, words_level:bool, similarity_types:'list[str]', already_parsed_inputs:bool=False) -> dict:
+    def generate_evaluation_table(self, similar_is_equal_threshold: int, words_level:bool, similarity_types:'list[str]', already_parsed_inputs:bool=False, add_TP_FP_TN_FN_to_data:bool=False) -> dict:
         """
         Generate the evaluation table for the model output and the ground truth.
 
@@ -529,6 +529,8 @@ class Evaluator():
         recall = summary['TP'] / (summary['TP'] + summary['FN'])
         f1 = 2 * (precision * recall) / (precision + recall)
         self.evaluation_table = {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
+        if add_TP_FP_TN_FN_to_data: self.add_TP_FP_TN_FN_to_data(already_parsed_inputs=already_parsed_inputs)
+
         return {'evaluation': metrics_dataframe, 'precision':precision, 'recall':recall, 'f1':f1}
 
     def add_TP_FP_TN_FN_to_data(self, already_parsed_inputs:bool=False):
@@ -549,4 +551,3 @@ class Evaluator():
             example['f1'] = 2 * (example['precision'] * example['recall']) / (example['precision'] + example['recall'] + 1e-16)
             return example
         self.data = self.data.map(lambda x: _f1(x))
-        return self.data
