@@ -9,7 +9,7 @@ from trl import SFTTrainer
 from dotenv import dotenv_values
 from config.finetuning_llama2_slovenian import training_params, lora_params, model_loading_params, config, preprocessing_params
 import wandb
-from utils.slovenian_preprocessor import Slovenian_preprocessor
+from utils.data_preprocessor import Slovenian_preprocessor
 import datetime
 import gc
 import pandas as pd
