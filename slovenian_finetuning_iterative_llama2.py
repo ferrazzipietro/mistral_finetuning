@@ -183,8 +183,8 @@ def main(ADAPTERS_CHECKPOINT,
 
   trainer = SFTTrainer(
       model=model,
-      train_dataset=train_data,
-      eval_dataset=val_data,
+      train_dataset=train_data.select(range(32)),
+      eval_dataset=val_data.select(range(32)),
       dataset_text_field=training_params.dataset_text_field,
       peft_config=lora_config,
       args=training_arguments,
