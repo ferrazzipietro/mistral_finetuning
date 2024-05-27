@@ -1,4 +1,5 @@
 import torch
+from .config import tagging_label
 
 """
     bnb_4bit_quant_type (str, optional, defaults to "nf4") – The quantization type to use. Options are "nf4" and "fp4".
@@ -17,7 +18,7 @@ import torch
 torch_dtype=torch.float16
 quantization = False
 load_in_4bit=[False]
-bnb_4bit_quant_type = ["nf4"]
+bnb_4bit_quant_type = [tagging_label]
 bnb_4bit_compute_dtype = [torch.bfloat16]
 llm_int8_threshold = [6.0]
 
