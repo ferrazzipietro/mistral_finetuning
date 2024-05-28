@@ -1,7 +1,7 @@
 from dotenv import dotenv_values
 from datasets import load_dataset, Dataset
 from utils.data_preprocessor import Slovenian_preprocessor
-from utils.test_data_processor import TestDataProcessorSlovenian as TestDataProcessor
+from utils.test_data_processor import TestDataProcessSlovenian as TestDataProcessor
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch

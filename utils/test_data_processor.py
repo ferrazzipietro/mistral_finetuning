@@ -205,7 +205,7 @@ class TestDataProcessor():
         return model_output.split(end_of_prompt_string, 1)[-1].strip()
     
 
-class TestDataProcessrSlovenian(TestDataProcessor):
+class TestDataProcessSlovenian(TestDataProcessor):
     def __init__(self, test_data: Dataset, preprocessor:DataPreprocessor, n_shots_inference:int, language:str, tokenizer) -> None:
         """
         Initialize the TestDataProcessor class.
