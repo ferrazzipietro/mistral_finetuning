@@ -1,5 +1,4 @@
 from datetime import datetime
-from .preprocessing_params import simplest_prompt
 
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
@@ -9,6 +8,8 @@ model_name=BASE_MODEL_CHECKPOINT.split('/')[1]
 TRAIN_LAYER = "SLO"
 ADAPTERS_CHECKPOINT= f"ferrazzipietro/{model_name}_adapters_{TRAIN_LAYER}"
 FT_MODEL_CHECKPOINT="ferrazzipietro/ft_tmp" 
+simplest_prompt=False
+
 if simplest_prompt:
     ADAPTERS_CHECKPOINT=ADAPTERS_CHECKPOINT + "_simplest_prompt"
 
