@@ -28,12 +28,12 @@ def main(ADAPTERS_CHECKPOINT,
   
   # Monitering the LLM
   wandb.login(key = WANDB_KEY)
-  run = wandb.init(project=ADAPTERS_CHECKPOINT.split('/')[1], job_type="training", anonymous="allow",
-                  name=config.TRAIN_LAYER+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                  config={'model': config.BASE_MODEL_CHECKPOINT, 
-                          'dataset': config.DATASET_CHEKPOINT, 
-                          'layer': config.TRAIN_LAYER,
-                          'time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
+  run = wandb.init(project=config.WANDB_PROJECT_NAME, job_type="training", anonymous="allow",
+                    name=ADAPTERS_CHECKPOINT.split('/')[1],
+                    config={'model': config.BASE_MODEL_CHECKPOINT, 
+                            'dataset': config.DATASET_CHEKPOINT, 
+                            'layer': config.TRAIN_LAYER,
+                            'time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
   
   find_llm_int8_skip_modules = False
   if find_llm_int8_skip_modules:
