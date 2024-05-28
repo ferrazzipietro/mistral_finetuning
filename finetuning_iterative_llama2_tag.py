@@ -245,6 +245,7 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
             else:
               extra_str = ""
             ADAPTERS_CHECKPOINT = f"ferrazzipietro/{config.model_name}_{extra_str}adapters_{config.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
+            print('ADAPTERS_CHECKPOINT:', ADAPTERS_CHECKPOINT, 'WAND_PROJECT_NAME:', config.WANDB_PROJECT_NAME, 'WANDB_RUN_NAME:', config.WANDB_RUN_NAME)
             main(ADAPTERS_CHECKPOINT,
                   load_in_4bit, bnb_4bit_quant_type, bnb_4bit_compute_dtype, llm_int8_threshold,
                   r, lora_alpha, lora_dropout,

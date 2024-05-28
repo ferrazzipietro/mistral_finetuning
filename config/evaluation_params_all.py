@@ -7,5 +7,5 @@ offset = False
 
 
 # params for evaluation.py, not all
-input_data_dir_path = 'data/qwen/7B_NoQuantbit_base_newPaddToken' # data/qwen/7B_NoQuantbit_base
-output_data_path = 'data/evaluation_results/qwen_7B_NoQuantbit_base_newPaddToken.csv'#qwen_7B_NoQuant_base
+input_data_dir_path = 'data/llama/slo_7B_NoQuant_FT' # data/qwen/7B_NoQuantbit_base
+output_data_path = 'data/evaluation_results/slo_llama_7B_NoQuant_FT.csv'#qwen_7B_NoQuant_base
