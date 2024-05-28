@@ -19,7 +19,7 @@ torch_dtype=torch.float16
 quantization = False
 load_in_4bit=[False]
 bnb_4bit_quant_type = [tagging_label]
-bnb_4bit_compute_dtype = [torch.bfloat16]
+bnb_4bit_compute_dtype = [tagging_label]
 llm_int8_threshold = [6.0]
 
 bnb_4bit_use_double_quant = True

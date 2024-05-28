@@ -11,7 +11,6 @@ import wandb
 from utils.data_preprocessor import DataPreprocessorTag
 import datetime
 import gc
-
 from config.finetuning_llama2_tag import training_params, lora_params, model_loading_params, config, preprocessing_params
 
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
@@ -56,19 +55,6 @@ def main(ADAPTERS_CHECKPOINT,
     llm_int8_skip_modules = []
     if load_in_8bit:
       llm_int8_skip_modules = model_loading_params.llm_int8_skip_modules
-  
-  bnb_config = BitsAndBytesConfig(
-      load_in_4bit= load_in_4bit,
-      load_in_8bit = load_in_8bit,
-
-      bnb_4bit_quant_type= bnb_4bit_quant_type,
-      bnb_4bit_compute_dtype= bnb_4bit_compute_dtype,
-      bnb_4bit_use_double_quant= model_loading_params.bnb_4bit_use_double_quant,
-
-      llm_int8_threshold= llm_int8_threshold,
-      llm_int8_skip_modules= llm_int8_skip_modules,
-      # llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight # Had to comment this to run llama 7B in 8 bit. There are numerical issues with fp16. I will instead use the default float16
-  )
 
   if not model_loading_params.quantization:
     model = AutoModelForCausalLM.from_pretrained(
@@ -80,6 +66,18 @@ def main(ADAPTERS_CHECKPOINT,
     model.gradient_checkpointing_enable() # Activates gradient checkpointing for the current model.
     model.config.use_cache = False
   else:
+    bnb_config = BitsAndBytesConfig(
+      load_in_4bit= load_in_4bit,
+      load_in_8bit = load_in_8bit,
+
+      bnb_4bit_quant_type= bnb_4bit_quant_type,
+      bnb_4bit_compute_dtype= bnb_4bit_compute_dtype,
+      bnb_4bit_use_double_quant= model_loading_params.bnb_4bit_use_double_quant,
+
+      llm_int8_threshold= llm_int8_threshold,
+      llm_int8_skip_modules= llm_int8_skip_modules,
+      # llm_int8_has_fp16_weight= model_loading_params.llm_int8_has_fp16_weight # Had to comment this to run llama 7B in 8 bit. There are numerical issues with fp16. I will instead use the default float16
+    )
     model = AutoModelForCausalLM.from_pretrained(
         config.BASE_MODEL_CHECKPOINT,
         quantization_config=bnb_config,

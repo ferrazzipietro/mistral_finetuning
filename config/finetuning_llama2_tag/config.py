@@ -15,6 +15,6 @@ FT_MODEL_CHECKPOINT="ferrazzipietro/ft_tmp"
 if simplest_prompt:
     ADAPTERS_CHECKPOINT=ADAPTERS_CHECKPOINT + "_simplest_prompt"
 
-WANDB_PROJECT_NAME = f'finetune {model_name} {TRAIN_LAYER}'
+WANDB_PROJECT_NAME = f'finetune {model_name} {tagging_label}'
 WANDB_RUN_NAME = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
