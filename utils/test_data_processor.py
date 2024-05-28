@@ -13,6 +13,7 @@ class TestDataProcessor():
         self.language = language
         self.tokenizer = tokenizer
         self.model_type = preprocessor.model_type
+        self.input_sentence_field = 'sentence'
         self.few_shots_dict = {'en':{'questions':['We present a case of a 32-year-old woman with a history of gradual enlargement of the anterior neck.',
                                                    'Patient information: a 9-month-old boy presented to the emergency room with a 3-day history of refusal to bear weight on the right lower extremity and febrile peaks of up to 38.5°C for 24 hours.',
                                                    'There was no evidence of lung lesions.',
@@ -37,10 +38,7 @@ class TestDataProcessor():
                                        'responses_offset':['[{"entity": "inefficacia", "offset": [23, 34]}, {"entity": "opzioni", "offset": [88,95]}, {"entity": "colloquio", "offset": [149,158]}, {"entity": "avviare", "offset": [187,194]}, {"entity": "trapianto", "offset": [209,218]}, {"entity": "genitori", "offset": [163,173]}, {"entity": "paziente", "offset": [195,106]}, {"entity": "genitore", "offset": [268,276]}]',
                                                            '[{"entity": "mucosa gastrica atrofica", "offset": [30,54]}, {"entity": "flogosi\r\cronica", "offset": [59,75]}]',
                                                            '[{"entity": "Giunge", "offset": [0,6]}, {"entity": "stranguria", "offset": [30,40]}, { "entity": "sintomi", "offset": [61,68]}, {"entity": "stranguria", "offset": [ 30, 40 ]} ]',
-                                                           '[{"entity": "ricovero", "offset": [26,34]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "stato", "offset": [ 55, 60 ]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "39°C", "offset": [47,51]} ]']},
-                                'slo':{'questions':[],
-                                       'responses':[],
-                                       'responses_offset':[]}}
+                                                           '[{"entity": "ricovero", "offset": [26,34]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "stato", "offset": [ 55, 60 ]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "39°C", "offset": [47,51]} ]']}}
         if len(self.few_shots_dict[self.language]['questions']) < n_shots_inference:
             raise ValueError(f'The number of shots for the inference prompt is greater than the number of examples available.')
         if len(self.few_shots_dict[self.language]['responses']) < n_shots_inference:
@@ -134,7 +132,7 @@ class TestDataProcessor():
         """
         Add the inferencePrompt and groundTruth columns to the test_data dataframe.
         """
-        self.test_data = self.test_data.map(lambda x: self._extract_inference_prompt(x['sentence'], simplest_prompt=simplest_prompt))
+        self.test_data = self.test_data.map(lambda x: self._extract_inference_prompt(x[self.input_sentence_field], simplest_prompt=simplest_prompt))
     
     def add_ground_truth_column(self) -> None:
         """
@@ -147,7 +145,7 @@ class TestDataProcessor():
         tokenizer.padding_side = "left"
         # if self.model_type == 'qwen':
         #     tokenizer.pad_token = '<unk>' # tokenizer.special_tokens['<extra_0>']
-        input_sentences = examples['sentence']
+        input_sentences = examples[self.input_sentence_field]
         prompts = examples['inference_prompt']
         input_sentences_tokenized = tokenizer(input_sentences, return_tensors="pt", padding=True)
         max_new_tokens = int(len(max(input_sentences_tokenized, key=len)) * max_new_tokens_factor)
@@ -205,3 +203,18 @@ class TestDataProcessor():
         """
         end_of_prompt_string = self.preprocessor.special_tokens_instruction['user_end'] + self.preprocessor.special_tokens_instruction['model_start']
         return model_output.split(end_of_prompt_string, 1)[-1].strip()
+    
+
+class TestDataProcessrSlovenian(TestDataProcessor):
+    def __init__(self, test_data: Dataset, preprocessor:DataPreprocessor, n_shots_inference:int, language:str, tokenizer) -> None:
+        """
+        Initialize the TestDataProcessor class.
+        pass to this the same DataPreprocessor used for the training data. This will ensure that the inference prompt is formatted in the same way as the training prompt.
+        """
+        super().__init__(test_data, preprocessor, n_shots_inference, language, tokenizer)
+        self.few_shots_dict['slo'] = {'questions':[],
+                                       'responses':[],
+                                       'responses_offset':[]}
+        
+        self.input_sentence_field = 'sentence'
+        
