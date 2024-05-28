@@ -96,6 +96,80 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                             language=language, 
                                             tokenizer=tokenizer)
             postprocessor.add_inference_prompt_column(simplest_prompt=False)
+                bnb_config = BitsAndBytesConfig(
+                            load_in_4bit=load_in_4bit,
+                            load_in_8bit=load_in_8bit,
+                            bnb_4bit_use_double_quant=bnb_4bit_use_double_quant,
+                            bnb_4bit_quant_type=bnb_4bit_quant_type,
+                            bnb_4bit_compute_dtype=bnb_4bit_compute_dtype,
+                            llm_int8_threshold=llm_int8_threshold ,
+                            # llm_int8_has_fp16_weight =True #,AVOID IT AT INFERENCE TIME!
+                            # llm_int8_skip_modules=llm_int8_skip_modules AVOID IT AT INFERENCE TIME!
+                            )
+                base_model = AutoModelForCausalLM.from_pretrained(
+                    models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
+                    quantization_config = bnb_config,
+                    return_dict=True,  
+                    device_map= "auto",
+                    token=LLAMA_TOKEN)
+            merged_model = PeftModel.from_pretrained(base_model, 
+                                                    adapters, 
+                                                    token=HF_TOKEN, 
+                                                    device_map='auto',
+                                                    is_trainable = False)
+            tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, 
+                                                    add_eos_token=False,
+                                                    token=LLAMA_TOKEN)
+            tokenizer.pad_token = tokenizer.eos_token# "<pad>" #tokenizer.eos_token
+            tokenizer.padding_side = "left"
+#            tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
+#            tokenizer.add_special_tokens({"pad_token":"<pad>"})
+#            merged_model.resize_token_embeddings(len(tokenizer))
+#            print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
+#            merged_model.config.pad_token_id = tokenizer.pad_token_id
+            postprocessor = TestDataProcessor(test_data=val_data, 
+                                            preprocessor=preprocessor, 
+                                            n_shots_inference=n_shots_inference, 
+                                            language=language, 
+                                            tokenizer=tokenizer)
+            postprocessor.add_inference_prompt_column(simplest_prompt=False)
+                bnb_config = BitsAndBytesConfig(
+                            load_in_4bit=load_in_4bit,
+                            load_in_8bit=load_in_8bit,
+                            bnb_4bit_use_double_quant=bnb_4bit_use_double_quant,
+                            bnb_4bit_quant_type=bnb_4bit_quant_type,
+                            bnb_4bit_compute_dtype=bnb_4bit_compute_dtype,
+                            llm_int8_threshold=llm_int8_threshold ,
+                            # llm_int8_has_fp16_weight =True #,AVOID IT AT INFERENCE TIME!
+                            # llm_int8_skip_modules=llm_int8_skip_modules AVOID IT AT INFERENCE TIME!
+                            )
+                base_model = AutoModelForCausalLM.from_pretrained(
+                    models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
+                    quantization_config = bnb_config,
+                    return_dict=True,  
+                    device_map= "auto",
+                    token=LLAMA_TOKEN)
+            merged_model = PeftModel.from_pretrained(base_model, 
+                                                    adapters, 
+                                                    token=HF_TOKEN, 
+                                                    device_map='auto',
+                                                    is_trainable = False)
+            tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, 
+                                                    add_eos_token=False,
+                                                    token=LLAMA_TOKEN)
+            tokenizer.pad_token = tokenizer.eos_token# "<pad>" #tokenizer.eos_token
+            tokenizer.padding_side = "left"
+#            tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
+#            tokenizer.add_special_tokens({"pad_token":"<pad>"})
+#            merged_model.resize_token_embeddings(len(tokenizer))
+#            print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
+#            merged_model.config.pad_token_id = tokenizer.pad_token_id
+            postprocessor = TestDataProcessor(test_data=val_data, 
+                                            preprocessor=preprocessor, 
+                                            n_shots_inference=n_shots_inference, 
+                                            language=language, 
+                                            tokenizer=tokenizer)
+            postprocessor.add_inference_prompt_column(simplest_prompt=False)
             # tmp = []
             # for example in postprocessor.test_data:
             #     tmp.append(example)
