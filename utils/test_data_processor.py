@@ -38,7 +38,10 @@ class TestDataProcessor():
                                        'responses_offset':['[{"entity": "inefficacia", "offset": [23, 34]}, {"entity": "opzioni", "offset": [88,95]}, {"entity": "colloquio", "offset": [149,158]}, {"entity": "avviare", "offset": [187,194]}, {"entity": "trapianto", "offset": [209,218]}, {"entity": "genitori", "offset": [163,173]}, {"entity": "paziente", "offset": [195,106]}, {"entity": "genitore", "offset": [268,276]}]',
                                                            '[{"entity": "mucosa gastrica atrofica", "offset": [30,54]}, {"entity": "flogosi\r\cronica", "offset": [59,75]}]',
                                                            '[{"entity": "Giunge", "offset": [0,6]}, {"entity": "stranguria", "offset": [30,40]}, { "entity": "sintomi", "offset": [61,68]}, {"entity": "stranguria", "offset": [ 30, 40 ]} ]',
-                                                           '[{"entity": "ricovero", "offset": [26,34]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "stato", "offset": [ 55, 60 ]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "39°C", "offset": [47,51]} ]']}}
+                                                           '[{"entity": "ricovero", "offset": [26,34]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "stato", "offset": [ 55, 60 ]}, {"entity": "febbre", "offset": [ 39, 45 ]}, {"entity": "39°C", "offset": [47,51]} ]']},
+                                'slo': {'questions':[],
+                                       'responses':[],
+                                       'responses_offset':[]}}
         if len(self.few_shots_dict[self.language]['questions']) < n_shots_inference:
             raise ValueError(f'The number of shots for the inference prompt is greater than the number of examples available.')
         if len(self.few_shots_dict[self.language]['responses']) < n_shots_inference:
@@ -212,9 +215,5 @@ class TestDataProcessSlovenian(TestDataProcessor):
         pass to this the same DataPreprocessor used for the training data. This will ensure that the inference prompt is formatted in the same way as the training prompt.
         """
         super().__init__(test_data, preprocessor, n_shots_inference, language, tokenizer)
-        self.few_shots_dict['slo'] = {'questions':[],
-                                       'responses':[],
-                                       'responses_offset':[]}
-        
         self.input_sentence_field = 'sentence'
         

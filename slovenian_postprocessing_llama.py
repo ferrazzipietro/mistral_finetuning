@@ -30,15 +30,15 @@ val_data = pd.read_csv(models_params.slovenian_test_path, header=None, names=['w
 preprocessor = Slovenian_preprocessor(val_data, models_params.BASE_MODEL_CHECKPOINT, tokenizer, token_llama=HF_TOKEN)
 preprocessor.preprocess()
 preprocessor.apply('', offset=False, simplest_prompt=False)
+preprocessor.extract_sentence_from_prompt_col()
 val_data = preprocessor.data
 val_data = val_data.shuffle(seed=1234)  # Shuffle dataset here
 val_data = val_data.map(lambda samples: tokenizer(samples[models_params.dataset_text_field]), batched=True)
 
-
+            
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
         for adapters in tqdm(adapters_list, desc="adapters_list"):
-
             print("PROCESSING:", adapters, "n_shots_inference:", n_shots_inference, "max_new_tokens_factor:", max_new_tokens_factor)
             if not models_params.quantization:
                 print("NO QUANTIZATION")
@@ -59,7 +59,6 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                 llm_int8_threshold = models_params.llm_int8_threshold[0]
                 # llm_int8_has_fp16_weight = models_params.llm_int8_has_fp16_weight AVOID IT AT INFERENCE TIME!
                 # llm_int8_skip_modules = models_params.llm_int8_skip_modules AVOID IT AT INFERENCE TIME!
-
                 bnb_config = BitsAndBytesConfig(
                             load_in_4bit=load_in_4bit,
                             load_in_8bit=load_in_8bit,
@@ -77,13 +76,13 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     device_map= "auto",
                     token=LLAMA_TOKEN)
             merged_model = PeftModel.from_pretrained(base_model, 
-                                                     adapters, 
-                                                     token=HF_TOKEN, 
-                                                     device_map='auto',
-                                                     is_trainable = False)
+                                                    adapters, 
+                                                    token=HF_TOKEN, 
+                                                    device_map='auto',
+                                                    is_trainable = False)
             tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, 
-                                                      add_eos_token=False,
-                                                      token=LLAMA_TOKEN)
+                                                    add_eos_token=False,
+                                                    token=LLAMA_TOKEN)
             tokenizer.pad_token = tokenizer.eos_token# "<pad>" #tokenizer.eos_token
             tokenizer.padding_side = "left"
 #            tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
@@ -91,14 +90,12 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
 #            merged_model.resize_token_embeddings(len(tokenizer))
 #            print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
 #            merged_model.config.pad_token_id = tokenizer.pad_token_id
-
             postprocessor = TestDataProcessor(test_data=val_data, 
-                                              preprocessor=preprocessor, 
-                                              n_shots_inference=n_shots_inference, 
-                                              language=language, 
-                                              tokenizer=tokenizer)
+                                            preprocessor=preprocessor, 
+                                            n_shots_inference=n_shots_inference, 
+                                            language=language, 
+                                            tokenizer=tokenizer)
             postprocessor.add_inference_prompt_column(simplest_prompt=False)
-
             # tmp = []
             # for example in postprocessor.test_data:
             #     tmp.append(example)
@@ -106,7 +103,6 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             # tmp = pd.DataFrame(tmp)
             # tmp = tmp.iloc[tmp['inference_prompt'].str.len().argsort()]
             # postprocessor.test_data = Dataset.from_pandas(tmp)
-
             postprocessor.add_ground_truth_column()
             #try:
             postprocessor.add_responses_column(model=merged_model, 
@@ -122,6 +118,3 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             del tokenizer
             gc.collect()
             torch.cuda.empty_cache()
-
-
-

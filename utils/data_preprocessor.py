@@ -486,6 +486,11 @@ class Slovenian_preprocessor(IOB_preprocessor):
             data_df = pd.concat([data_df, pd.DataFrame([el])], ignore_index=True)
         self.data = Dataset.from_pandas(data_df, split='train')
 
+    def extract_sentence_from_prompt_col(self):
+        def helper(example):
+            example['sentence'] = example['prompt'].split('[/INST]')[0].replace('<s>', '').replace('[INST]','').replace('<','').replace('>','').strip()
+            return example
+        self.data = self.data.map(helper, batched=False)
 
 
 from transformers import AutoTokenizer
