@@ -173,6 +173,7 @@ Llama-2-13b-chat-hf_prova/
 Qwen1.5-7B-Chat_prova/
 Qwen1.5-14B-Chat_prova/
 training_output/
+training_output_tag/
 
 fine_tune_one_run.err
 fine_tune_one_run.out

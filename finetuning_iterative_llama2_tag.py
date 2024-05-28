@@ -134,7 +134,7 @@ def main(ADAPTERS_CHECKPOINT,
 
   #Hyperparamter
   training_arguments = TrainingArguments(
-      output_dir= "./training_output",
+      output_dir= "./training_output_tag",
       push_to_hub=True,
       hub_model_id=config.FT_MODEL_CHECKPOINT,
       hub_token=HF_TOKEN,
