@@ -20,7 +20,7 @@ LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
 max_new_tokens_factor_list = postprocessing.max_new_tokens_factor_list
 n_shots_inference_list = postprocessing.n_shots_inference_list
 layer = models_params.TRAIN_LAYER
-language = 'slovenian'
+language = 'slo'
 
 tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                          token=LLAMA_TOKEN)
