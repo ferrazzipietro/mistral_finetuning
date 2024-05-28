@@ -217,3 +217,15 @@ class TestDataProcessSlovenian(TestDataProcessor):
         super().__init__(test_data, preprocessor, n_shots_inference, language, tokenizer)
         self.input_sentence_field = 'sentence'
         
+
+    def _extract_ground_truth(self, prompt:str) -> str:
+        # print('PROMPT: ', prompt)
+        end_of_prompt_string = self.preprocessor.special_tokens_instruction['user_end'] + self.preprocessor.special_tokens_instruction['model_start']
+        # print('end_of_prompt_string: ', end_of_prompt_string)
+        out = prompt.split(end_of_prompt_string, 1)
+        out = out[1].strip().replace(self.preprocessor.special_tokens_instruction['model_start'], '').replace(self.preprocessor.special_tokens_instruction['model_end'], '')
+
+        if out=='] </s>':
+            out='[]'
+        # print('OUT: ', out)
+        return {'ground_truth': out}
