@@ -1,13 +1,13 @@
 #!/bin/bash -l
 ### job name
-#SBATCH --job-name=tag_llama_finetuning_iterative
+#SBATCH --job-name=tag_finetuning_iterative_llama2
 
 ### 
 #SBATCH --mail-user=ferrazzi@math.unipd.it
 
 ### Standard output and standard error for our job
-#SBATCH --error=finetuning_iterative_llama2_tag.err
-#SBATCH --output=finetuning_iterative_llama2_tag.out
+#SBATCH --error=tag_finetuning_iterative_llama2.err
+#SBATCH --output=tag_finetuning_iterative_llama2.out
 
 ### queue/partition choosed
 #SBATCH --partition=testing
@@ -45,4 +45,4 @@ conda list -n gpu_venv_lates -f transformers
 export 'PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512'
 
 python --version
-python  finetuning_iterative_llama2_tag.py
+python  tag_finetuning_iterative_llama2.py
