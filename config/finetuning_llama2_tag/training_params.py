@@ -1,5 +1,5 @@
 ### TrainingArguments
-num_train_epochs= 8
+num_train_epochs= 6
 per_device_train_batch_size= 8
 gradient_accumulation_steps= [2]#[2,4,8] # reduce the number to finish faster
 optim = "paged_adamw_8bit"

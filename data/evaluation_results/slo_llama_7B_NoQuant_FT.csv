@@ -1,0 +1,13 @@
+file,similar_is_equal,similar_is_equal_threshold,f1_score,precision,recall
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor4_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_16_32_0.01_1_0.0002.csv,,100,,0.0,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor6_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_16_32_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor6_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_16_64_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor4_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_16_64_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor4_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_32_64_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor6_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_32_64_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor6_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_32_32_0.01_1_0.0002.csv,,100,,0.0,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor4_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_32_32_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_16_64_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_16_32_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_32_32_0.01_1_0.0002.csv,,100,,,0.0
+data/llama/slo_7B_NoQuant_FT/maxNewTokensFactor8_nShotsInference0_llama-2-7b-chat-hf_adapters_SLO_NoQuant_torch.bfloat16_32_64_0.01_1_0.0002.csv,,100,,,0.0
