@@ -144,7 +144,7 @@ def main(ADAPTERS_CHECKPOINT,
   torch.cuda.empty_cache()
 
   training_arguments = TrainingArguments(
-      output_dir= "./training_output",
+      output_dir= "./training_output_slo",
       push_to_hub=True,
       hub_model_id=config.FT_MODEL_CHECKPOINT,
       hub_token=HF_TOKEN,

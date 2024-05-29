@@ -134,7 +134,7 @@ def main(ADAPTERS_CHECKPOINT,
 
   #Hyperparamter
   training_arguments = TrainingArguments(
-      output_dir= "./training_output",
+      output_dir= "./training_output_tag",
       push_to_hub=True,
       hub_model_id=config.FT_MODEL_CHECKPOINT,
       hub_token=HF_TOKEN,
@@ -187,17 +187,17 @@ def main(ADAPTERS_CHECKPOINT,
   #   neftune_noise_alpha=5,
   )
 
-  from utils.wandb_callback import WandbPredictionProgressCallback
-  progress_callback = WandbPredictionProgressCallback(
-      trainer=trainer,
-      tokenizer=tokenizer,
-      val_dataset=test_data,
-      num_samples=1,
-      freq=1,
-  )
+  # from utils.wandb_callback import WandbPredictionProgressCallback
+  # progress_callback = WandbPredictionProgressCallback(
+  #     trainer=trainer,
+  #     tokenizer=tokenizer,
+  #     val_dataset=test_data,
+  #     num_samples=1,
+  #     freq=1,
+  # )
 
-  # Add the callback to the trainer
-  trainer.add_callback(progress_callback)
+  # # Add the callback to the trainer
+  # trainer.add_callback(progress_callback)
   # with torch.autocast("cuda"):
   #   trainer.train()
 

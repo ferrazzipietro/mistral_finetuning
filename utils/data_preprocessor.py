@@ -363,6 +363,7 @@ class DataPreprocessor(IOB_preprocessor):
         return train_data, val_data, test_data
 
     
+from utils.data_preprocessor import DataPreprocessor
 
 from datasets import Dataset
 import os
@@ -375,11 +376,12 @@ import pandas as pd
 import string
 from datasets import Dataset
 from transformers import AutoTokenizer
+
 class DataPreprocessorTag(DataPreprocessor):
 
     def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, data:Dataset, token_llama:str='', tagging_string='tag') -> None:
         super().__init__( model_checkpoint, tokenizer, token_llama)
-        self.input_column = 'sentence_tag'
+        self.input_column = 'sentence'
         self.tag = '<' + tagging_string + '>'
         self.tag_end = '</' + tagging_string + '>'
         self.data = data
@@ -387,7 +389,7 @@ class DataPreprocessorTag(DataPreprocessor):
     
     def from_generativa_to_tag(self, entity_type_filter = False, entity_type='CLINENTITY'):
         
-        def _helper(example, entity_type_filter = entity_type_filter, entity_type=entity_type):
+        def _helper(example, entity_type_filter, entity_type):
             base_sentence = example['sentence']
             entities = example['entities']
             entities = sorted(entities, key=lambda x: x['offsets'][0])
@@ -414,9 +416,45 @@ class DataPreprocessorTag(DataPreprocessor):
                     break
             if sentence=='':
                 sentence = base_sentence
-            example[self.input_column] = sentence
+            example['ground_truth'] = sentence
             return example
-        self.data = self.data.map(_helper, batched=False)
+        self.data = self.data.map(lambda x: _helper(x, entity_type_filter, entity_type), batched=False)
+
+
+
+    def _format_entities_in_response(self, entities_list: str) -> str:
+        """
+        Format the response into a string
+
+        Args:
+            entities_list: the ground truth string with tags in it
+            
+        Returns:
+            the formatted response
+        """
+        return entities_list
+
+    
+    def _apply_to_one_example(self, example, offset: bool, simplest_prompt: bool, instruction_on_response_format:str) -> dict:
+        """
+        Apply the data preprocessing to one example
+
+        Args:
+            example: the example (data row) to preprocess
+            instruction_on_response_format: the instruction on the response format. E.g. "The response must be a list of dictionaries, where each dictionary contains the keys 'text' and 'offset'"
+            offset: whether to require the offset in the response
+            simplest_prompt: whether to generate the prompt or just concatenate the sentence and the response
+
+        Returns:
+            the preprocessed example
+        """
+        output = self._format_entities_in_response(entities_list=example['ground_truth'])
+        prompt = self._format_prompt(input=example[self.input_column], 
+                                     simplest_prompt=simplest_prompt,
+                                     instruction_on_response_format=instruction_on_response_format,
+                                     output=output)
+        example['prompt'] = prompt
+        return example
 
 
     def apply(self, instruction_on_response_format:str) -> Dataset:
@@ -432,12 +470,18 @@ class DataPreprocessorTag(DataPreprocessor):
         Returns:
             the preprocessed split/layer
         """
-        self.from_generativa_to_tag(self.data)
+        self.from_generativa_to_tag()
         self.data = self.data.map(lambda example:  self._apply_to_one_example(example=example, 
                                                                     simplest_prompt=False,
                                                                     instruction_on_response_format = instruction_on_response_format, 
                                                                     offset = False), 
-                        num_proc=1) #batched=True)
+                        num_proc=1)
+
+        # self.data = self.data.map(lambda example:  self._apply_to_one_example(example=example, 
+        #                                                             simplest_prompt=False,
+        #                                                             instruction_on_response_format = instruction_on_response_format, 
+        #                                                             offset = False), 
+        #                 num_proc=1) #batched=True)
         self.instruction_on_response_format = instruction_on_response_format
 
 class Slovenian_preprocessor(IOB_preprocessor):
