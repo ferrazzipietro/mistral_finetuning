@@ -2,7 +2,7 @@ from datetime import datetime
 from .preprocessing_params import simplest_prompt
 
 
-tagging_label = 'TAG' # uso questo escamotage per passare il parametro a model_loading_params.py e quindi al nome del modello, considerato che non uso la quantizazione e quindi alcuni parametri posso sovrasciriverli
+tagging_label = 'TAG_3EPOCHS' # uso questo escamotage per passare il parametro a model_loading_params.py e quindi al nome del modello, considerato che non uso la quantizazione e quindi alcuni parametri posso sovrasciriverli
 
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
