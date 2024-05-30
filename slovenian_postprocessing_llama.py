@@ -11,8 +11,8 @@ from utils.data_preprocessor import Slovenian_preprocessor
 from utils.test_data_processor import TestDataProcessSlovenian as TestDataProcessor
 
 from config import postprocessing_params_llama as postprocessing
-from log import slo_llama7B_NoQuant as models_params
-adapters_list = generate_ft_adapters_list("slo_llama7B_NoQuant", simplest_prompt=models_params.simplest_prompt)
+from log import slo_llama3_8B_NoQuant as models_params
+adapters_list = generate_ft_adapters_list("slo_llama3_8B_NoQuant", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
@@ -40,15 +40,17 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
         for adapters in tqdm(adapters_list, desc="adapters_list"):
             print("PROCESSING:", adapters, "n_shots_inference:", n_shots_inference, "max_new_tokens_factor:", max_new_tokens_factor)
-            if not models_params.quantization:
-                print("NO QUANTIZATION")
-                base_model = AutoModelForCausalLM.from_pretrained(
-                    models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
-                    return_dict=True,  
-                    torch_dtype=postprocessing.torch_dtype,
-                    device_map= "auto",
-                    token=LLAMA_TOKEN)    
-            else:
+            # if not models_params.quantization:
+            #     print("NO QUANTIZATION")
+            #     base_model = AutoModelForCausalLM.from_pretrained(
+            #         models_params.BASE_MODEL_CHECKPOINT, low_cpu_mem_usage=True,
+            #         return_dict=True,  
+            #         torch_dtype=postprocessing.torch_dtype,
+            #         device_map= "auto",
+            #         cache_dir='/data/disk1/share/pferrazzi/.cache',
+            #         token=LLAMA_TOKEN)    
+            # else:
+            if True: #DA TOGLIERE; SOT FORZANDO LA QUANT!!!!!
                 print("QUANTIZATION")
                 load_in_8bit = not models_params.load_in_4bit[0]
                 load_in_4bit = models_params.load_in_4bit[0]
@@ -74,6 +76,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                     quantization_config = bnb_config,
                     return_dict=True,  
                     device_map= "auto",
+                    cache_dir='/data/disk1/share/pferrazzi/.cache',
                     token=LLAMA_TOKEN)
             merged_model = PeftModel.from_pretrained(base_model, 
                                                     adapters, 
@@ -85,7 +88,7 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                                     token=LLAMA_TOKEN)
             tokenizer.pad_token = tokenizer.eos_token# "<pad>" #tokenizer.eos_token
             tokenizer.padding_side = "left"
-            postprocessor = TestDataProcessor(test_data=val_data, 
+            postprocessor = TestDataProcessor(test_data=val_data.select(range(24)), 
                                             preprocessor=preprocessor, 
                                             n_shots_inference=n_shots_inference, 
                                             language=language, 

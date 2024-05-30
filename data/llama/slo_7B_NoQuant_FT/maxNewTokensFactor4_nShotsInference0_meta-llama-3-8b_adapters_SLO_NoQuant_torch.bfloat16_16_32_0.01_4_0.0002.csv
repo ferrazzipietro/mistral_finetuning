@@ -1,0 +1,605 @@
+text,entities,prompt,sentence,input_ids,attention_mask,inference_prompt,ground_truth,model_responses
+"nujna srčna kateterizacija je razkrila lokalne disekcije v štirih koronarnih arterijah majhnega kalibra v desnem in levem koronarnem sistemu , vključno z desno posteriorno padajočo , posterolateralno , obtusno marginalno in septalno arterijo .",[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<nujna srčna kateterizacija je razkrila lokalne disekcije v štirih koronarnih arterijah majhnega kalibra v desnem in levem koronarnem sistemu , vključno z desno posteriorno padajočo , posterolateralno , obtusno marginalno in septalno arterijo .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  nujna srčna kateterizacija je razkrila lokalne disekcije v štirih koronarnih arterijah majhnega kalibra v desnem in levem koronarnem sistemu , vključno z desno posteriorno padajočo , posterolateralno , obtusno marginalno in septalno arterijo . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000   9110     73   3458  19499  13453   3458  45356   1430    450
+  85003   4864  24788  10056  10746  85644    818    834   1247     66
+  32376    348  37524 100581   7141  33054    263   1923   7141  47357
+   3251   1494  24906  25105  11437  36454    581    969    348  66380
+    336    304  23464    336  33054    263   1923    336  21566  34163
+   1174    348  10784   8783  13453   2201   1167    951   2201  23163
+     72  11368  11262  19256  13453     78   1174  23163    337  19715
+   2201   1174   4615    355   2201  32873   2201    304  35429    278
+   2201  47357  48000    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  nujna srčna kateterizacija je razkrila lokalne disekcije v štirih koronarnih arterijah majhnega kalibra v desnem in levem koronarnem sistemu , vključno z desno posteriorno padajočo , posterolateralno , obtusno marginalno in septalno arterijo . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>,"  |end_of_text||start_header_id|assistant|end_header_id|
+
+  drugič, je postkal na desni strani, ko se je zadržal z desno in levim delcem, da se je prekril na njun zadnj"
+"med operacijo , pod splošno narkozo , je bil narejen podaljšan prečni dimeljski rez .",[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<med operacijo , pod splošno narkozo , je bil narejen podaljšan prečni dimeljski rez .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  med operacijo , pod splošno narkozo , je bil narejen podaljšan prečni dimeljski rez . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000   2106   2040    582  48000   1174   7661    993    385  11906
+   2201    308    847  96614   1174   4864  20934    308    548  24041
+   7661    278     73  11906    276    864  13453   7907   5213    301
+   2580   6780  49158    662]",[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  med operacijo , pod splošno narkozo , je bil narejen podaljšan prečni dimeljski rez . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>,"## izid
+
+ na sekciji 1, ob 10h00, obstaja normalno in stabilizirano potreba po krvavi, z nato potrditvijo neopajanje z druge strani.  |eot"
+po 6 tednih zdravljenja s sistemskimi steroidi in azatioprinom je pacient razvil pljučne embolije in začel z oralno antikoagulacijo z varfarinom .,[{'entity': 'pljučne embolije'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<po 6 tednih zdravljenja s sistemskimi steroidi in azatioprinom je pacient razvil pljučne embolije in začel z oralno antikoagulacijo z varfarinom .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""pljučne embolije""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  po 6 tednih zdravljenja s sistemskimi steroidi in azatioprinom je pacient razvil pljučne embolije in začel z oralno antikoagulacijo z varfarinom . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""pljučne embolije""}] |end_of_text|","[128000   5481    220     21  42323  87165   1167   3696  68411  24041
+   5697    274  69986   4991  25877  77848     72    304  12657   9491
+    454  26355    316   4864  23744   1188  24788  46352    628   8783
+  13453    818   8126    337  32376    304 103393    301   1167  21308
+   2201   3276  24551    351    360    582  48000   1167    767  24470
+    258    316    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  po 6 tednih zdravljenja s sistemskimi steroidi in azatioprinom je pacient razvil pljučne embolije in začel z oralno antikoagulacijo z varfarinom . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""pljučne embolije""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""pljučne embolije""}] <|end_of_text|>","  [[file:///var/www/html/fall-2019/medical-informatics-m3/project/patient-1.html||patient-1||pljučne embolije||varfarin||azatioprin]] 
+
+  >>>>  sedmi mese"
+"ultrazvok je razkril heterogeno maso levega jajčnika v 82 milimetrih v premeru , prazen maternico in brez peritonealne izliva .",[{'entity': 'maso levega jajčnika'} {'entity': 'peritonealne izliva'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<ultrazvok je razkril heterogeno maso levega jajčnika v 82 milimetrih v premeru , prazen maternico in brez peritonealne izliva .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""maso levega jajčnika""}, {""entity"": ""peritonealne izliva""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  ultrazvok je razkril heterogeno maso levega jajčnika v 82 milimetrih v premeru , prazen maternico in brez peritonealne izliva . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""maso levega jajčnika""}, {""entity"": ""peritonealne izliva""}] |end_of_text|","[128000    360    376   1394     85    564   4864  24788  10056    321
+  30548  11968     78   9427     78  56589   6885    503   1662  13453
+  90165    348    220   6086   7625  86366    462     71    348    864
+   1195     84   1174    550  83921   5634    944   4042    304   5395
+     89    824  85166    278    818  22924     75  10126    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  ultrazvok je razkril heterogeno maso levega jajčnika v 82 milimetrih v premeru , prazen maternico in brez peritonealne izliva . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""maso levega jajčnika""}, {""entity"": ""peritonealne izliva""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""maso levega jajčnika""}, {""entity"": ""peritonealne izliva""}] <|end_of_text|>","# raziskave 
+
+## obstajanje cisti
+
+ njen pregled vsebin je vključeval preiskavo na zdravstvenem dokumentu, kjer je bila njena starost na dan operacije 30 let in"
+"na podlagi te mikroskopske ugotovitve je bila končna diagnoza parodontalna bolezen , povezana s proliferativno ne-neoplastično lezi .",[{'entity': 'parodontalna bolezen'} {'entity': 'lezi'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<na podlagi te mikroskopske ugotovitve je bila končna diagnoza parodontalna bolezen , povezana s proliferativno ne-neoplastično lezi .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""parodontalna bolezen""}, {""entity"": ""lezi""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  na podlagi te mikroskopske ugotovitve je bila končna diagnoza parodontalna bolezen , povezana s proliferativno ne-neoplastično lezi . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""parodontalna bolezen""}, {""entity"": ""lezi""}] |end_of_text|","[128000   3458   7661  13667     72   1028  79905   3714     74   3806
+    441    577  23196 111480    588   4864    293  10746  16947  13453
+   3458  40817   2201   4458   1370  86815    278   3458    712    273
+   5797   1174    281   1009     89   3444    274  43036  20053   2201
+    841  41078  92335  84195   2201    514   8510    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  na podlagi te mikroskopske ugotovitve je bila končna diagnoza parodontalna bolezen , povezana s proliferativno ne-neoplastično lezi . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""parodontalna bolezen""}, {""entity"": ""lezi""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""parodontalna bolezen""}, {""entity"": ""lezi""}] <|end_of_text|>","    vsebina : 
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  na podlagi te mikroskopske ugotovitve je bila končna diagnoza parodontalna bolezen,"
+revmatoidni factor je bil negativen .,[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<revmatoidni factor je bil negativen .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  revmatoidni factor je bil negativen . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000   7430   8637    590   7907   8331   4864  20934   4277    266
+   2116    662]",[1 1 1 1 1 1 1 1 1 1 1 1],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  revmatoidni factor je bil negativen . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>,"  |begin_of_text||start_header_id|user|end_header_id|
+
+  zdravnik je opozoril, da zdi se, da ni nobenega zdravstvenega problema ali zdravnikom ni bilo odprtih."
+"danko je bil poln fekalnega materiala , ki je bil normalne barve in konsistence .",[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<danko je bil poln fekalnega materiala , ki je bil normalne barve in konsistence .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  danko je bil poln fekalnega materiala , ki je bil normalne barve in konsistence . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000     67  93952   4864  20934   1499     77   1172  36641     77
+  11437   3769     64   1174  20548   4864  20934   4725    818   3703
+    588    304    597   2439  81624    662]",[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  danko je bil poln fekalnega materiala , ki je bil normalne barve in konsistence . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>,"  je bil priveden v našo institucijo in je bil imenovan kot gospa a. |eot_id||start_header_id|assistant|end_header_id|
+
+  od 12. |end_of_text|>>> 13. 1980"
+on je zavrnil kakršne koli prejšnje epizode akutnega pankreatitisa in ni imel zgodovine uporabe alkohola .,[{'entity': 'akutnega pankreatitisa'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<on je zavrnil kakršne koli prejšnje epizode akutnega pankreatitisa in ni imel zgodovine uporabe alkohola .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""akutnega pankreatitisa""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  on je zavrnil kakršne koli prejšnje epizode akutnega pankreatitisa in ni imel zgodovine uporabe alkohola . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""akutnega pankreatitisa""}] |end_of_text|","[128000    263   4864   1167  70684   8551  96501     81  11906    818
+    597  14559    864     73  11906     77   3841   4248    450    536
+  17774    332     77  11437    281   1201   1244    275  10994    304
+  13080    737    301   1167  40811    869    483    709    269   8393
+  58998   2319   8083    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  on je zavrnil kakršne koli prejšnje epizode akutnega pankreatitisa in ni imel zgodovine uporabe alkohola . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""akutnega pankreatitisa""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""akutnega pankreatitisa""}] <|end_of_text|>","  uporaba alkohola v zgodovini ni bila prezentirana.
+
+  pankreatična disfunkcija, ki je bila opazovana pri njem, ni bila določena, kar dokazuje"
+"po drugi strani je bil infekcijski proces dobro obvladan z infuzijo antibiotikov , kot je ceftazidim v kombinaciji z aminosidom .",[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<po drugi strani je bil infekcijski proces dobro obvladan z infuzijo antibiotikov , kot je ceftazidim v kombinaciji z aminosidom .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  po drugi strani je bil infekcijski proces dobro obvladan z infuzijo antibiotikov , kot je ceftazidim v kombinaciji z aminosidom . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000   5481   5623     72    610   5676   4864  20934   4225   1247
+   5979   2580   6780  29394    656  15222   1536  14878  54740   1167
+   4225   5308  48000  33209   1609    869   1174  76025   4864   3846
+    728   1394    307    318    348 117490    582  35973   1167    264
+   1083    437    307    316    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  po drugi strani je bil infekcijski proces dobro obvladan z infuzijo antibiotikov , kot je ceftazidim v kombinaciji z aminosidom . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>," z drugimi simptomatičnimi simptomi in znaki zgodovino ni bilo. |start_header_id|assistant|end_header_id| ] |end_of_text|>>>
+
+ ] |end_of_text|>>>  <<|begin_of_text||"
+pacient je bil podvržen eksciziji in kuretaži mase z ekstrakcijo kočnika in stranskega sekutiča .,[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<pacient je bil podvržen eksciziji in kuretaži mase z ekstrakcijo kočnika in stranskega sekutiča .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  pacient je bil podvržen eksciziji in kuretaži mase z ekstrakcijo kočnika in stranskega sekutiča . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000  46051   1188   4864  20934   7661  19456 112395  27955   2445
+    450  35973    304    597    554   2629 106485    296    521   1167
+  27955    496    587     66  48000  15593  13453  90165    304    610
+  88311   6885  44934  32973  13453     64    662]",[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  pacient je bil podvržen eksciziji in kuretaži mase z ekstrakcijo kočnika in stranskega sekutiča . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>, pacient je imel vročino 100 2 ur po operaciji. |eot_id||start_header_id|nurse|end_header_id|  |end_of_text|>>>  |fob| ||start_header_id|assistant|end_header
+operacija je bila dokončana z izogibanjem manipulaciji noseče maternice .,[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<operacija je bila dokončana z izogibanjem manipulaciji noseče maternice .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  operacija je bila dokončana z izogibanjem manipulaciji noseče maternice . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000   3376  85003   4864    293  10746 107245  13453   3444   1167
+  22924    540  34879  64003  14951    360    582  35973  19689  93586
+   5634    944    560    662]",[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  operacija je bila dokončana z izogibanjem manipulaciji noseče maternice . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>,  [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [ [
+"gospa B.S . , 28 - letna večkrat porodila , ki smo jo prejeli 02 uri po vaginalnem porodu živega novorojenčka , ki tehta 2750 gramov v obrobni porodnišnici 3 km stran .",[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<gospa B.S . , 28 - letna večkrat porodila , ki smo jo prejeli 02 uri po vaginalnem porodu živega novorojenčka , ki tehta 2750 gramov v obrobni porodnišnici 3 km stran .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  gospa B.S . , 28 - letna večkrat porodila , ki smo jo prejeli 02 uri po vaginalnem porodu živega novorojenčka , ki tehta 2750 gramov v obrobni porodnišnici 3 km stran . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000     70   4890     64    426    815    662   1174    220   1591
+    482   1095   3458   5320  13453  10056    266   4247    347  10746
+   1174  20548  44673   7802    864     73  12574    220   2437  13371
+   3273  58159 106700   4247  77055  32063    535   6885   6747  18812
+  24041 105710   1174  20548   1028  76909    220  14417     15  23882
+    869    348   1536  23576   7907   4247    347   7907  11906 111910
+    220     18  13437 103622    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  gospa B.S . , 28 - letna večkrat porodila , ki smo jo prejeli 02 uri po vaginalnem porodu živega novorojenčka , ki tehta 2750 gramov v obrobni porodnišnici 3 km stran . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>,"  prvi porod je bil brez pomoči, drugi in tretji z pomočjo. |eot_id||start_header_id|user|end_header_id|
+
+  porod je bil priključen, s posebnostjo p"
+"njena pretekla zdravstvena zgodovina je pokazala , da ni kadila zgodovino in ni imela pomembne družinske zgodovine .",[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<njena pretekla zdravstvena zgodovina je pokazala , da ni kadila zgodovino in ni imela pomembne družinske zgodovine .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  njena pretekla zdravstvena zgodovina je pokazala , da ni kadila zgodovino in ni imela pomembne družinske zgodovine . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000  57208   7304    864  43813   4355   1167   3696    402    267
+   1055     64   1167  40811    869   2259   4864  45295   1394   6181
+   1174   3067  13080  69144  10746   1167  40811    869   3394    304
+  13080    737   8458  30584   9034    818 121352   1354    441   1167
+  40811    869    483    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  njena pretekla zdravstvena zgodovina je pokazala , da ni kadila zgodovino in ni imela pomembne družinske zgodovine . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>," |begin_of_text||start_header_id|assistant|end_header_id|
+
+  zdravnik je opisal njeno zgodovino kot očitno vztrajno. |eot_id||start_header_id|assistant|end_header_id|
+
+] |"
+prav tako je potrebovala alendronat 70 mg / teden z vitaminom D 400u / dan za osteoporozo .,[{'entity': 'osteoporozo'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<prav tako je potrebovala alendronat 70 mg / teden z vitaminom D 400u / dan za osteoporozo .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""osteoporozo""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  prav tako je potrebovala alendronat 70 mg / teden z vitaminom D 400u / dan za osteoporozo . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""osteoporozo""}] |end_of_text|","[128000 102628  98133   4864   3419    265    754 115999    453    408
+   2298    266    220   2031  14060    611    259  14466   1167  28170
+    316    423    220   3443     84    611   9279  15036  52368  89766
+  96614    662]",[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  prav tako je potrebovala alendronat 70 mg / teden z vitaminom D 400u / dan za osteoporozo . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""osteoporozo""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""osteoporozo""}] <|end_of_text|>","[{""entity"": "" alendronat "", "" type "" : "" drug "", "" category "" : "" treatment "", "" label "" : "" 70mg/d "", "" type "" : "" drug "", "" category "" : "" treatment "", "" label"
+"da bi preverili za COVID - 19 , so mu svetovali kvalitativni test verižne reakcije s polimerazo ( PCR ) test iz brisa orofaringe .",[{'entity': 'COVID - 19'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<da bi preverili za COVID - 19 , so mu svetovali kvalitativni test verižne reakcije s polimerazo ( PCR ) test iz brisa orofaringe .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""COVID - 19""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  da bi preverili za COVID - 19 , so mu svetovali kvalitativni test verižne reakcije s polimerazo ( PCR ) test iz brisa orofaringe . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""COVID - 19""}] |end_of_text|","[128000   3315   6160    864    424   4008  15036  20562    482    220
+    777   1174    779  12097  13871  11269    838     72 107131    275
+  20053   7907   1296   2807 104848    818 119145     66  32376    274
+   1499   3212  41284    320  67791    883   1296  22924   1437  10994
+    477   1073   3329     68    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  da bi preverili za COVID - 19 , so mu svetovali kvalitativni test verižne reakcije s polimerazo ( PCR ) test iz brisa orofaringe . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""COVID - 19""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""COVID - 19""}] <|end_of_text|>","  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  PCR test je bil negativen za COVID - 19 in binkulimab. |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"":"
+"46 - letni moški z hipertenzijo in dislipidemijo , ki so jo diagnozirali 4 mesece prej , kot tudi z novonastalo sladkorno boleznijo , ki so jo odkrili 1 mesec prej , je bil napoten na urgenco zaradi hipokalemije .","[{'entity': 'hipertenzijo'} {'entity': 'dislipidemijo'}
+ {'entity': 'hipokalemije'}]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<46 - letni moški z hipertenzijo in dislipidemijo , ki so jo diagnozirali 4 mesece prej , kot tudi z novonastalo sladkorno boleznijo , ki so jo odkrili 1 mesec prej , je bil napoten na urgenco zaradi hipokalemije .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""hipertenzijo""}, {""entity"": ""dislipidemijo""}, {""entity"": ""hipokalemije""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  46 - letni moški z hipertenzijo in dislipidemijo , ki so jo diagnozirali 4 mesece prej , kot tudi z novonastalo sladkorno boleznijo , ki so jo odkrili 1 mesec prej , je bil napoten na urgenco zaradi hipokalemije . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""hipertenzijo""}, {""entity"": ""dislipidemijo""}, {""entity"": ""hipokalemije""}] |end_of_text|","[128000   2790    482   1095   7907   4647  11906   6780   1167  18638
+    531  17007  48000    304    834  34215    307    336  48000   1174
+  20548    779   7802  40817   2201     89    404   8115    220     19
+    296   2423    346    864     73   1174  76025    259  21178   1167
+   6747    263    561  12812   1776    329     74  11368    712    273
+  20926  48000   1174  20548    779   7802    297   7737     81   4008
+    220     16  11083    762    864     73   1174   4864  20934  26944
+  66728   4415  61939  74485  59924   2836  18638    564  22317  32376
+    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  46 - letni moški z hipertenzijo in dislipidemijo , ki so jo diagnozirali 4 mesece prej , kot tudi z novonastalo sladkorno boleznijo , ki so jo odkrili 1 mesec prej , je bil napoten na urgenco zaradi hipokalemije . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""hipertenzijo""}, {""entity"": ""dislipidemijo""}, {""entity"": ""hipokalemije""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""hipertenzijo""}, {""entity"": ""dislipidemijo""}, {""entity"": ""hipokalemije""}] <|end_of_text|>","  |start_header_id|doctor|end_header_id|
+
+ , ni zapisov o napredku bolezni ali o njihovi popolni kontroli v zdravniku.  |end_of_text|>>> iliti
+
+ , n"
+"13 - letni fant , diagnosticiran po WHO diagnostičnih merilih verjetnega NS , je bil napoten iz atanga HC III v okrožju pader , kjer je bil vključen v oskrbo v centru za zdravljenje nihanja sindroma ; prinesel je zgodovino napredujočega otoka in bolečin v desni ledveni regiji .","[{'entity': 'NS'} {'entity': 'nihanja sindroma'}
+ {'entity': 'otoka in bolečin v desni ledveni regiji'}]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<13 - letni fant , diagnosticiran po WHO diagnostičnih merilih verjetnega NS , je bil napoten iz atanga HC III v okrožju pader , kjer je bil vključen v oskrbo v centru za zdravljenje nihanja sindroma ; prinesel je zgodovino napredujočega otoka in bolečin v desni ledveni regiji .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""NS""}, {""entity"": ""nihanja sindroma""}, {""entity"": ""otoka in bolečin v desni ledveni regiji""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  13 - letni fant , diagnosticiran po WHO diagnostičnih merilih verjetnega NS , je bil napoten iz atanga HC III v okrožju pader , kjer je bil vključen v oskrbo v centru za zdravljenje nihanja sindroma ; prinesel je zgodovino napredujočega otoka in bolečin v desni ledveni regiji . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""NS""}, {""entity"": ""nihanja sindroma""}, {""entity"": ""otoka in bolečin v desni ledveni regiji""}] |end_of_text|","[128000   1032    482   1095   7907   8755   1174  15439  55790   3273
+  40312   1891   8372  84195  87165   4809  48068   2807  15769     77
+  11437   3119   1174   4864  20934  26944  66728  22924    520  19934
+  46928  14767    348   5509    299  12453   8783    281   1013   1174
+    597  27457   4864  20934    348  10784   8783 119092    348   2709
+  10056    754    348   2960   2739  15036   1167   3696  68411  24041
+   3841    308  57988   5697  12868  58084   2652    550   1572    301
+   4864   1167  40811    869   3394  26944    265   1072   7453  13453
+  11437  14479  31866    304    712    273 108879    348    951   7907
+   6197   1055     72   1239  35973    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  13 - letni fant , diagnosticiran po WHO diagnostičnih merilih verjetnega NS , je bil napoten iz atanga HC III v okrožju pader , kjer je bil vključen v oskrbo v centru za zdravljenje nihanja sindroma ; prinesel je zgodovino napredujočega otoka in bolečin v desni ledveni regiji . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""NS""}, {""entity"": ""nihanja sindroma""}, {""entity"": ""otoka in bolečin v desni ledveni regiji""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""NS""}, {""entity"": ""nihanja sindroma""}, {""entity"": ""otoka in bolečin v desni ledveni regiji""}] <|end_of_text|>","  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  13 - letni fant, diagnosticiran po WHO diagnostičnih merilih verjetnega NS, je bil napoten iz atanga HC III v okrožju p"
+"imela je zgodovino diabetesa , hipertenzije , ki je bila zdravljena z glinidom in zaviralci kalcija .",[{'entity': 'diabetesa'} {'entity': 'hipertenzije'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<imela je zgodovino diabetesa , hipertenzije , ki je bila zdravljena z glinidom in zaviralci kalcija .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""diabetesa""}, {""entity"": ""hipertenzije""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  imela je zgodovino diabetesa , hipertenzije , ki je bila zdravljena z glinidom in zaviralci kalcija . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""diabetesa""}, {""entity"": ""hipertenzije""}] |end_of_text|","[128000    318   8458   4864   1167  40811    869   3394  20335     64
+   1174  18638    531  17007  32376   1174  20548   4864    293  10746
+   1167   3696    402  53835   7304   1167   2840    258    307    316
+    304 105093  37478   5979    597  17356  29230    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  imela je zgodovino diabetesa , hipertenzije , ki je bila zdravljena z glinidom in zaviralci kalcija . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""diabetesa""}, {""entity"": ""hipertenzije""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""diabetesa""}, {""entity"": ""hipertenzije""}] <|end_of_text|>","  |begin_of_text| |eot_id||start_header_id|assistant|end_header_id| 
+  zdravila : imela je ščitnik adrenokortikotropnega hormona ( ACTH ). |end_of_text| 
+"
+neobičajna ektatična bronhialna arterija je bila uspešno zamašena z embolizacijo s spiralo .,[{'entity': 'neobičajna ektatična bronhialna arterija'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<neobičajna ektatična bronhialna arterija je bila uspešno zamašena z embolizacijo s spiralo .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""neobičajna ektatična bronhialna arterija""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  neobičajna ektatična bronhialna arterija je bila uspešno zamašena z embolizacijo s spiralo . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""neobičajna ektatična bronhialna arterija""}] |end_of_text|","[128000    818  18843  13453   1662   3458    384   5964   9491  13453
+   3458  31071     71    532   3458  47357  29230   4864    293  10746
+    603    375  11906   2201   1167   3105  11906   7304   1167   8126
+    337    450    582  48000    274  18823  12812    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  neobičajna ektatična bronhialna arterija je bila uspešno zamašena z embolizacijo s spiralo . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""neobičajna ektatična bronhialna arterija""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""neobičajna ektatična bronhialna arterija""}] <|end_of_text|>", ## zaključna beseda |end_of_text|>>>>>><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|>
+"ultrazvok trebuha je pokazal normalno ehoteksturo jeter , brez SOL , normalno portalno veno in brez IHBRD .",[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<ultrazvok trebuha je pokazal normalno ehoteksturo jeter , brez SOL , normalno portalno veno in brez IHBRD .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  ultrazvok trebuha je pokazal normalno ehoteksturo jeter , brez SOL , normalno portalno veno in brez IHBRD . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000    360    376   1394     85    564   4353  20218   4317   4864
+  45295   1394    278   4725   2201    384  10847   1247    267   2868
+    503   1430   1174   5395     89  37023   1174   4725   2201  24007
+   2201  11457     78    304   5395     89  46411  13396     35    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  ultrazvok trebuha je pokazal normalno ehoteksturo jeter , brez SOL , normalno portalno veno in brez IHBRD . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>,"  |end_of_text|
+
+  |end_of_text||start_header_id|assistant|end_header_id| 
+
+  |end_of_text|
+
+  |end_of_text||start_header_id|assistant|end_header_id| 
+
+  |end_of_text|
+
+  |end_of"
+77 - letna tunizijska ženska je bila hospitalizirana zaradi množičnega bolečega ascitesa .,[{'entity': 'ascitesa'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<77 - letna tunizijska ženska je bila hospitalizirana zaradi množičnega bolečega ascitesa .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""ascitesa""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  77 - letna tunizijska ženska je bila hospitalizirana zaradi množičnega bolečega ascitesa . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""ascitesa""}] |end_of_text|","[128000   2813    482   1095   3458  11716  34335   2580   4657  32063
+    729   4657   4864    293  10746   8952    450    404   3444  59924
+   2836    296   2201  12453  84195     77  11437    712    273  13453
+  11437  14943   3695     64    662]",[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  77 - letna tunizijska ženska je bila hospitalizirana zaradi množičnega bolečega ascitesa . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""ascitesa""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""ascitesa""}] <|end_of_text|>","  [tudi] |text_header_id|end_header_id|
+
+  [njeni] |start_header_id|assistant|end_header_id|
+
+  [pregledi} pri njej so pokazali, da je imela 3 - mesečno"
+"pri sedmih letih so bile njene ravni serumskega rastnega hormona visoke , test generacije insulinskega rastnega faktorja 1 pa ni povečal ravni insulinskega rastnega faktorja 1 ( osnovne ravni insulinskega rastnega faktorja 1 , 52 μg / L ; referenčno območje , 75 μg / L do 365 μg / L ; in vrh , 76 μg / L in 50 μg / L po 12 in 84 urah od izhodišča ) .",[],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<pri sedmih letih so bile njene ravni serumskega rastnega hormona visoke , test generacije insulinskega rastnega faktorja 1 pa ni povečal ravni insulinskega rastnega faktorja 1 ( osnovne ravni insulinskega rastnega faktorja 1 , 52 μg / L ; referenčno območje , 75 μg / L do 365 μg / L ; in vrh , 76 μg / L in 50 μg / L po 12 in 84 urah od izhodišča ) .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  pri sedmih letih so bile njene ravni serumskega rastnega hormona visoke , test generacije insulinskega rastnega faktorja 1 pa ni povečal ravni insulinskega rastnega faktorja 1 ( osnovne ravni insulinskega rastnega faktorja 1 , 52 μg / L ; referenčno območje , 75 μg / L do 365 μg / L ; in vrh , 76 μg / L in 50 μg / L po 12 in 84 urah od izhodišča ) . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|","[128000  69708 126264   7141   1095   7141    779  73394  37185   1994
+  43643   7907   1446   6370    441   6885 121699     77  11437  21548
+   6863   2145   4845   1174   1296   1803    582  32376   1672    360
+   1354    441   6885 121699     77  11437  67892    269   5697    220
+     16   7251  13080    281   1009  13453    278  43643   7907   1672
+    360   1354    441   6885 121699     77  11437  67892    269   5697
+    220     16    320   2709  39142    818  43643   7907   1672    360
+   1354    441   6885 121699     77  11437  67892    269   5697    220
+     16   1174    220   4103  33983     70    611    445   2652   8464
+    268  13453   2201   1536   6489  13453   3841   1174    220   2075
+  33983     70    611    445    656    220  12676  33983     70    611
+    445   2652    304  37200     71   1174    220   4767  33983     70
+    611    445    304    220   1135  33983     70    611    445   3273
+    220    717    304    220   5833   4433   1494  11018  22924     71
+  31559  11906  13453     64    883    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  pri sedmih letih so bile njene ravni serumskega rastnega hormona visoke , test generacije insulinskega rastnega faktorja 1 pa ni povečal ravni insulinskega rastnega faktorja 1 ( osnovne ravni insulinskega rastnega faktorja 1 , 52 μg / L ; referenčno območje , 75 μg / L do 365 μg / L ; in vrh , 76 μg / L in 50 μg / L po 12 in 84 urah od izhodišča ) . |eot_id||start_header_id|assistant|end_header_id|
+
+] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+",] <|end_of_text|>,"|end_of_text|>>> | end_header_id |assistant|end_header_id|
+
+|end_of_text|>>>  | end_header_id |assistant|end_header_id|
+
+|end_of_text|>>>  | end_header_id |assistant|end_header_id|
+
+|end_of"
+"diagnoza je pokazala , da ima subakutni tiroiditis in je bil zdravljen z oralnim prednizolonom in propranololom .",[{'entity': 'subakutni tiroiditis'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<diagnoza je pokazala , da ima subakutni tiroiditis in je bil zdravljen z oralnim prednizolonom in propranololom .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""subakutni tiroiditis""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  diagnoza je pokazala , da ima subakutni tiroiditis in je bil zdravljen z oralnim prednizolonom in propranololom . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""subakutni tiroiditis""}] |end_of_text|","[128000  61314   2201   4458   4864  45295   1394   6181   1174   3067
+  93793   1207    587    332   7907   9165   1607  20000    304   4864
+  20934   1167   3696  68411  24041   1167  21308  57851   4255     77
+    450    337  14609    304    463    652  39710    337    316    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  diagnoza je pokazala , da ima subakutni tiroiditis in je bil zdravljen z oralnim prednizolonom in propranololom . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""subakutni tiroiditis""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""subakutni tiroiditis""}] <|end_of_text|>"," 
+
+  <<|begin_of_text||start_header_id|assistant|end_header_id|
+
+  diagnoza je pokazala, da ima subakutni tiroiditis in je bil zdravljen z oralnim prednizolonom in propranolol"
+"fizični pregled je odkril pomembno oteklino in očitno izkrivljanje na dorsumu roke , povezano z ranami na ulnarnem in radialnem robu leve roke .",[{'entity': 'oteklino'}],"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<fizični pregled je odkril pomembno oteklino in očitno izkrivljanje na dorsumu roke , povezano z ranami na ulnarnem in radialnem robu leve roke .>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+[{""entity"": ""oteklino""}] <|end_of_text|>","|begin_of_text||start_header_id|user|end_header_id|
+
+  fizični pregled je odkril pomembno oteklino in očitno izkrivljanje na dorsumu roke , povezano z ranami na ulnarnem in radialnem robu leve roke . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""oteklino""}] |end_of_text|","[128000     69  34335  13453   7907  20575    839   4864    297   7737
+  31660  30584   9034   2201    297    668  10784   3394    304    297
+ 103520   2201  22924  10056    344     75  23685   3841   4415  77389
+  84309    938    441   1174    281   1009 100098   1167  10837  10830
+   4415   8725     77   1923    336    304  57936 106700  10773     84
+  56589    938    441    662]","[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+  <<|begin_of_text||start_header_id|user|end_header_id|
+
+  fizični pregled je odkril pomembno oteklino in očitno izkrivljanje na dorsumu roke , povezano z ranami na ulnarnem in radialnem robu leve roke . |eot_id||start_header_id|assistant|end_header_id|
+
+[{""entity"": ""oteklino""}] |end_of_text|>>> <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+","[{""entity"": ""oteklino""}] <|end_of_text|>",<|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|><|end_of_text|>

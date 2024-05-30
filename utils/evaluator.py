@@ -535,11 +535,15 @@ class Evaluator():
 
     def add_TP_FP_TN_FN_to_data(self, already_parsed_inputs:bool=False):
         """
-        Add the True Positives, False Positives, False Negatives to the dataset
+        Add the True Positives, False Positives, False Negatives, Precision, Recall and F1 score to the data. Precision, recall and f1 are approximated to avoid division by zero.
         """
         metrics_list = []
-        for i, res in enumerate(self.data['model_output']):
-            metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, 100, ['case', 'subset', 'superset'], already_parsed_inputs=already_parsed_inputs))
+        if not already_parsed_inputs:
+            for i, res in enumerate(self.data['model_output']):
+                metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth'][i], True, 100, ['case', 'subset', 'superset'], already_parsed_inputs=already_parsed_inputs))
+        else:
+            for i, res in enumerate(self.data['model_output_parsed']):
+                metrics_list.append(self._extract_TP_FP_FN(res, self.data['ground_truth_parsed'][i], True, 100, ['case', 'subset', 'superset'], already_parsed_inputs=already_parsed_inputs))
         if 'TP' in self.data.column_names:
             self.data = self.data.remove_columns(['TP', 'FP', 'FN', 'precision', 'recall', 'f1'])
         self.data = self.data.add_column('TP', [el[0] for el in metrics_list])
