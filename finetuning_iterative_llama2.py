@@ -174,7 +174,7 @@ def main(ADAPTERS_CHECKPOINT,
       #warmup_ratio = 0.1,
 
       # logging strategies 
-      # remove_unused_columns=False
+      # remove_unused_columns=Falsegitp 
   )
 
   trainer = SFTTrainer(
