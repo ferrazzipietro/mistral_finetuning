@@ -13,6 +13,9 @@ WANDB_PROJECT_NAME = f'finetune {model_name} {TRAIN_LAYER}'
 WANDB_RUN_NAME = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
+slovenian_train_path = 'mistral_finetuning/data/slovenian/E3C_Slovenian_Train_SL_L1.csv'
+slovenian_test_path = 'mistral_finetuning/data/slovenian/E3C_Slovenian_Test_SL_L1.csv'
+
 
 r = [16, 32, 64] # [16, 32, 64] reduce the number to finish faster
 lora_alpha = [32, 64] 
@@ -21,7 +24,6 @@ bias =  "lora_only"
 use_rslora = True
 task_type="CAUSAL_LM"
 target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]# substituted by the function find_all_linear_names()
-
 
 import torch
 
@@ -58,7 +60,7 @@ clent = True
 
 ### TrainingArguments
 ### TrainingArguments
-num_train_epochs= 5
+num_train_epochs= 3
 per_device_train_batch_size= 16
 gradient_accumulation_steps= [1]#[2,4,8] # reduce the number to finish faster
 optim = "paged_adamw_8bit"
@@ -76,7 +78,7 @@ logging_steps=2
 logging_strategy="steps"
 evaluation_strategy= "steps"
 save_strategy=evaluation_strategy
-save_steps= 25
+save_steps= 5
 eval_steps=save_steps
 greater_is_better=False
 metric_for_best_model="eval_loss"

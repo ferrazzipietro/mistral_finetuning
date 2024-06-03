@@ -265,13 +265,13 @@ class DataPreprocessor(IOB_preprocessor):
         else:
             for entity in entities_list: 
                 formatted_response = formatted_response + '{"entity": "' + entity['text'] + '"}, '
-        print(formatted_response )
+        #print(formatted_response )
         if formatted_response == '[':
             formatted_response = '[{"entity": ""}]'
         else:
             formatted_response = formatted_response[:-2]
             formatted_response = formatted_response + '] '
-        print(formatted_response, '\n')
+        #print(formatted_response, '\n')
         return formatted_response
 
     
