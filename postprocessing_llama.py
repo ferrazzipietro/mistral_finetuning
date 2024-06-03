@@ -31,6 +31,21 @@ dataset = preprocessor.preprocess_data_one_layer(dataset,
                                                  models_params.instruction_on_response_format)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
+
+
+
+from transformers import StoppingCriteria
+class EosListStoppingCriteria(StoppingCriteria):
+    def __init__(self, eos_sequence = [518, 29914, 25580, 29962]]):
+        self.eos_sequence = eos_sequence
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
+        last_ids = input_ids[:,-len(self.eos_sequence):].tolist()
+        return self.eos_sequence in last_ids
+output = model.generate(inputs["input_ids"], max_new_tokens=64, stopping_criteria = [EosListStoppingCriteria()])
+
+
+
 print("val_data:", val_data[0])
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
@@ -111,7 +126,8 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
             postprocessor.add_responses_column(model=merged_model, 
                                             tokenizer=tokenizer, 
                                             batch_size=postprocessing.batch_size, 
-                                            max_new_tokens_factor=max_new_tokens_factor)
+                                            max_new_tokens_factor=max_new_tokens_factor,
+                                            stopping_criteria = [EosListStoppingCriteria()])
             postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             # except RuntimeError as e:
                 # print("ERROR IN PROCESSING: ", e, adapters)
