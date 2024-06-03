@@ -170,7 +170,7 @@ class TestDataProcessor():
         # decoded = [self._postprocess_model_output(i) for i in decoded]
         return (decoded)
                 
-    def add_responses_column(self, model, tokenizer, batch_size:int, max_new_tokens_factor:float) -> None:
+    def add_responses_column(self, model, tokenizer, batch_size:int, max_new_tokens_factor:float, stopping_criteria:list) -> None:
         """
         Adds a column with the response of the model to the actual query.
         
@@ -189,11 +189,11 @@ class TestDataProcessor():
         with tqdm(total=total_rows, desc="generating responses") as pbar:
             for i, idx in enumerate(indexes[:-1]):
                 indici = list(range(idx, indexes[i+1]))
-                tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
+                tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor, stopping_criteria)
                 responses_col.extend(tmp)
                 pbar.update(batch_size)
             indici = list(range(indexes[len(indexes[:-1])], max_index))
-            tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
+            tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor, stopping_criteria)
             responses_col.extend(tmp)
             pbar.update(batch_size)
 
