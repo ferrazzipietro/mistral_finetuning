@@ -13,11 +13,12 @@ from transformers import AutoTokenizer
 
 class IOB_preprocessor():
 
-    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='') -> None:
+    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='', clen:bool=False) -> None:
         self.input_column= 'text'
         self.offset = None
         self.instruction_on_response_format = ''
         self.n_shots = None
+        self.clen = clen
         #self.model_type = model_checkpoint.split('/')[1].lower().split('-')[0]
         self.model_type = 'qwen' if model_checkpoint.split('/')[0] == 'Qwen' else model_checkpoint.split('/')[1].lower().split('-')[0]
         if self.model_type == 'meta': self.model_type = 'llama3'
@@ -187,6 +188,12 @@ class IOB_preprocessor():
         example['prompt'] = prompt
         return example
     
+
+    def _only_clent_from_enities(self, example):
+        example['entities'] = [entity for entity in example['entities'] if entity['type'] == 'CLINENTITY']
+        return example
+    
+    
     def apply(self, instruction_on_response_format:str, offset: bool,  simplest_prompt:bool, num_proc: int=1): # -> Dataset:
         """
         Apply the data preprocessing to one split/layer if the dataset. It formats the prompt in the right shape, processing the entities.
@@ -216,9 +223,8 @@ class IOB_preprocessor():
 class DataPreprocessor(IOB_preprocessor):
 
     def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='', clen:bool=False) -> None:
-        super().__init__( model_checkpoint, tokenizer, token_llama)
+        super().__init__( model_checkpoint, tokenizer, token_llama, clen)
         self.input_column = 'sentence'
-        self.clen = clen
 
     def _apply_to_one_example(self, example, offset: bool, simplest_prompt: bool, instruction_on_response_format:str, ) -> dict:
         """
@@ -293,12 +299,6 @@ class DataPreprocessor(IOB_preprocessor):
         self.simplest_prompt = simplest_prompt
         return data
 
-    def _only_clent_from_enities(self, example):
-        example['entities'] = [entity for entity in example['entities'] if entity['type'] == 'CLINENTITY']
-        return example
-    
-    def apply_only_clinentities(self, data: Dataset) -> Dataset:
-        data = data.map(self._only_clent_from_enities, num_proc=1)
 
     
     def preprocess_data_one_layer(self, hf_dataset: Dataset, instruction_on_response_format:str='', offset:bool=False, simplest_prompt:bool=False) -> Dataset:
@@ -391,8 +391,8 @@ from transformers import AutoTokenizer
 
 class DataPreprocessorTag(DataPreprocessor):
 
-    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, data:Dataset, token_llama:str='', tagging_string='tag') -> None:
-        super().__init__( model_checkpoint, tokenizer, token_llama)
+    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, data:Dataset, token_llama:str='', tagging_string='tag',  clen:bool=False) -> None:
+        super().__init__( model_checkpoint, tokenizer, token_llama, clen)
         self.input_column = 'sentence'
         self.tag = '<' + tagging_string + '>'
         self.tag_end = '</' + tagging_string + '>'
@@ -482,6 +482,8 @@ class DataPreprocessorTag(DataPreprocessor):
         Returns:
             the preprocessed split/layer
         """
+        if self.clen:
+            self.data = self.data.map(self._only_clent_from_enities, num_proc=1)
         self.from_generativa_to_tag()
         self.data = self.data.map(lambda example:  self._apply_to_one_example(example=example, 
                                                                     simplest_prompt=False,
@@ -499,8 +501,8 @@ class DataPreprocessorTag(DataPreprocessor):
 class Slovenian_preprocessor(IOB_preprocessor):
 
 
-    def __init__(self, data, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='') -> None:
-        super().__init__( model_checkpoint, tokenizer, token_llama)
+    def __init__(self, data, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='', clen:bool=False) -> None:
+        super().__init__( model_checkpoint, tokenizer, token_llama, clen)
         self.data = data
 
 
@@ -557,8 +559,8 @@ import os
 
 class MT_preprocessor(IOB_preprocessor):
 
-    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='') -> None:
-        super().__init__( model_checkpoint, tokenizer, token_llama)
+    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='', clen:bool=False) -> None:
+        super().__init__( model_checkpoint, tokenizer, token_llama, clen)
         self.data = {}
 
     def _preprocess_one_file(self, file_path):
