@@ -16,14 +16,14 @@ lr_scheduler_type= "constant"
 
 logging_steps=2
 logging_strategy="steps"
-evaluation_strategy= "epochs"#"steps"
+evaluation_strategy= "steps"
 save_strategy=evaluation_strategy
-save_steps= 25
+save_steps= 5
 eval_steps=save_steps
 greater_is_better=False
 metric_for_best_model="eval_loss"
 save_total_limit = 1
-load_best_model_at_end = False
+load_best_model_at_end = True
 
 ### SFTTrainer
 """

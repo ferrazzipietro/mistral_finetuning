@@ -106,7 +106,7 @@ def main(ADAPTERS_CHECKPOINT,
   # tokenizer.add_special_tokens({"pad_token":"<pad>"})
   # model.resize_token_embeddings(len(tokenizer))
   # print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
-  model.config.pad_token_id = tokenizer.pad_token_id
+  # model.config.pad_token_id = tokenizer.pad_token_id
   # # model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
   # # tokenizer.pad_token = tokenizer.unk_token
   # tokenizer.padding_side = 'right'
@@ -161,17 +161,17 @@ def main(ADAPTERS_CHECKPOINT,
       report_to="wandb",
 
       logging_steps= training_params.logging_steps, 
-      #logging_strategy= training_params.logging_strategy, 
-      #evaluation_strategy= training_params.evaluation_strategy, 
-      #save_strategy= training_params.save_strategy, 
-      #save_steps= training_params.save_steps, 
-      #eval_steps= training_params.eval_steps, 
-      #greater_is_better= training_params.greater_is_better, 
-      #metric_for_best_model= training_params.metric_for_best_model, 
-      #save_total_limit= training_params.save_total_limit,  
-      # load_best_model_at_end= training_params.load_best_model_at_end  
-      #lr_scheduler_type="cosine",
-      #warmup_ratio = 0.1,
+      logging_strategy= training_params.logging_strategy, 
+      evaluation_strategy= training_params.evaluation_strategy, 
+      save_strategy= training_params.save_strategy, 
+      save_steps= training_params.save_steps, 
+      eval_steps= training_params.eval_steps, 
+      greater_is_better= training_params.greater_is_better, 
+      metric_for_best_model= training_params.metric_for_best_model, 
+      save_total_limit= training_params.save_total_limit,  
+      load_best_model_at_end= training_params.load_best_model_at_end  
+      ##lr_scheduler_type="cosine",
+      ##warmup_ratio = 0.1,
 
       # logging strategies 
       # remove_unused_columns=Falsegitp 
