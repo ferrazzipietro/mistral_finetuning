@@ -131,7 +131,7 @@ class Evaluator():
             # print('OUTPUT: ', type(output))
             if drop_duplicates:
                 output = self._drop_duplicates(output)
-            entities = [entity["entity"] for entity in output]
+            entities = [entity["entity"].strip() for entity in output]
             # print('ENTITIES: ', entities)
             return {"entities": entities}
         if not good_format:
