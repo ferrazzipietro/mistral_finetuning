@@ -36,13 +36,13 @@ _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
 from transformers import StoppingCriteria
 class EosListStoppingCriteria(StoppingCriteria):
-    def __init__(self, eos_sequence = [518, 29914, 25580, 29962]]):
+    def __init__(self, eos_sequence = [518, 29914, 25580, 29962]):
         self.eos_sequence = eos_sequence
 
     def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
         last_ids = input_ids[:,-len(self.eos_sequence):].tolist()
-        return self.eos_sequence in last_ids
-output = model.generate(inputs["input_ids"], max_new_tokens=64, stopping_criteria = [EosListStoppingCriteria()])
+        eos_cond = 2 in input_ids[:,-1].tolist()
+        return self.eos_sequence in last_ids or eos_cond
 
 
 
