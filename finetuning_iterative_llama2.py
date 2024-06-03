@@ -99,7 +99,7 @@ def main(ADAPTERS_CHECKPOINT,
 
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                             token = LLAMA_TOKEN) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
-  tokenizer.pad_token = '<pad>'#tokenizer.eos_token
+  tokenizer.pad_token = tokenizer.eos_token
   tokenizer.padding_side = 'right'
 
   # tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)

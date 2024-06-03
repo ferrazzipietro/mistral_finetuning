@@ -64,6 +64,7 @@ llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
 offset=False
 instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
+clent=False
 ### TrainingArguments
 num_train_epochs= 3
 per_device_train_batch_size= 8
