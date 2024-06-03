@@ -215,11 +215,12 @@ class IOB_preprocessor():
 
 class DataPreprocessor(IOB_preprocessor):
 
-    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='') -> None:
+    def __init__(self, model_checkpoint:str, tokenizer: AutoTokenizer, token_llama:str='', clen:bool=False) -> None:
         super().__init__( model_checkpoint, tokenizer, token_llama)
         self.input_column = 'sentence'
+        self.clen = clen
 
-    def _apply_to_one_example(self, example, offset: bool, simplest_prompt: bool, instruction_on_response_format:str) -> dict:
+    def _apply_to_one_example(self, example, offset: bool, simplest_prompt: bool, instruction_on_response_format:str, ) -> dict:
         """
         Apply the data preprocessing to one example
 
@@ -254,12 +255,15 @@ class DataPreprocessor(IOB_preprocessor):
         formatted_response = '['
         if offset:
             for entity in entities_list:
-                formatted_response = formatted_response + '{"entity": "' + entity['text'] + f'", "offset": {entity["offsets"]}' + '}, '
+                formatted_response = formatted_response + '{"entity": "' + entity['text'] + '"}, '
         else:
             for entity in entities_list: 
                 formatted_response = formatted_response + '{"entity": "' + entity['text'] + '"}, '
-        formatted_response = formatted_response[:-2]
-        formatted_response = formatted_response + '] '
+        if formatted_response == '[':
+            formatted_response = ' []'
+        else:
+            formatted_response = formatted_response[:-2]
+            formatted_response = formatted_response + '] '
         return formatted_response
 
     
@@ -277,6 +281,8 @@ class DataPreprocessor(IOB_preprocessor):
         Returns:
             the preprocessed split/layer
         """
+        if self.clen:
+            data = data.map(self._only_clent_from_enities, num_proc=1)
         data = data.map(lambda example:  self._apply_to_one_example(example=example, 
                                                                     simplest_prompt=simplest_prompt,
                                                                     instruction_on_response_format = instruction_on_response_format, 
@@ -287,6 +293,12 @@ class DataPreprocessor(IOB_preprocessor):
         self.simplest_prompt = simplest_prompt
         return data
 
+    def _only_clent_from_enities(self, example):
+        example['entities'] = [entity for entity in example['entities'] if entity['type'] == 'CLINENTITY']
+        return example
+    
+    def apply_only_clinentities(self, data: Dataset) -> Dataset:
+        data = data.map(self._only_clent_from_enities, num_proc=1)
 
     
     def preprocess_data_one_layer(self, hf_dataset: Dataset, instruction_on_response_format:str='', offset:bool=False, simplest_prompt:bool=False) -> Dataset:
