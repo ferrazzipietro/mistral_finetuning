@@ -166,7 +166,7 @@ class TestDataProcessor():
             generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
                                         pad_token_id=tokenizer.pad_token_id,
                                         temperature = temperature) 
-        print('generated_ids: ', generated_ids)
+        #print('generated_ids: ', generated_ids)
         generated_ids = generated_ids[:, encodeds.input_ids.shape[1]:]
         decoded = tokenizer.batch_decode(generated_ids)
         # decoded = [self._postprocess_model_output(i) for i in decoded]
