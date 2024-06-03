@@ -31,6 +31,7 @@ dataset = preprocessor.preprocess_data_one_layer(dataset,
                                                  models_params.instruction_on_response_format)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
 
+print("val_data:", val_data[0])
 
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
