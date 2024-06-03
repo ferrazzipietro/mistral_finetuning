@@ -160,7 +160,8 @@ class TestDataProcessor():
             generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
                                         pad_token_id=tokenizer.pad_token_id,
                                         temperature = 0.1,
-                                        stopping_criteria = stopping_criteria) # max_new_tokens=max_new_tokens,
+                                        #stopping_criteria = stopping_criteria
+                                        ) # max_new_tokens=max_new_tokens,
         else:
             generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
                                         pad_token_id=tokenizer.pad_token_id,
