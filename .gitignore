@@ -173,6 +173,8 @@ Llama-2-13b-chat-hf_prova/
 Qwen1.5-7B-Chat_prova/
 Qwen1.5-14B-Chat_prova/
 training_output/
+training_output_tag/
+training_output_slo/
 
 fine_tune_one_run.err
 fine_tune_one_run.out
@@ -186,3 +188,4 @@ imgs
 
 *.err
 *.out
+Meta-Llama-3-8B_prova/
