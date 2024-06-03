@@ -143,7 +143,7 @@ class TestDataProcessor():
         """
         self.test_data = self.test_data.map(lambda x: self._extract_ground_truth(x['prompt']))
 
-    def _generate_model_response(self, examples, model, tokenizer, max_new_tokens_factor:float) -> str:
+    def _generate_model_response(self, examples, model, tokenizer, max_new_tokens_factor:float, stopping_criteria=[]) -> str:
         device = "cuda"
         tokenizer.padding_side = "left"
         # if self.model_type == 'qwen':
@@ -156,9 +156,15 @@ class TestDataProcessor():
         #     add_special_tokens = True
         encodeds = tokenizer(prompts, return_tensors="pt", add_special_tokens=False, padding=True)
         model_inputs = encodeds.to(device)
-        generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
-                                       pad_token_id=tokenizer.pad_token_id,
-                                       temperature = 1.0) # max_new_tokens=max_new_tokens,
+        if len(stopping_criteria)>0:
+            generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
+                                        pad_token_id=tokenizer.pad_token_id,
+                                        temperature = 0.1,
+                                        stopping_criteria = stopping_criteria) # max_new_tokens=max_new_tokens,
+        else:
+            generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
+                                        pad_token_id=tokenizer.pad_token_id,
+                                        temperature = 0.1) 
         generated_ids = generated_ids[:, encodeds.input_ids.shape[1]:]
         decoded = tokenizer.batch_decode(generated_ids)
         # decoded = [self._postprocess_model_output(i) for i in decoded]
