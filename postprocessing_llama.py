@@ -26,7 +26,7 @@ dataset = dataset[layer]
 tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                          token=LLAMA_TOKEN)
 preprocessor = DataPreprocessor(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 
-                                tokenizer = tokenizer)
+                                tokenizer = tokenizer, clen=models_params.clent)
 dataset = preprocessor.preprocess_data_one_layer(dataset,
                                                  models_params.instruction_on_response_format)
 _, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
