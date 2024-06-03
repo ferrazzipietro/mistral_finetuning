@@ -121,6 +121,8 @@ def main(ADAPTERS_CHECKPOINT,
                                                    simplest_prompt=preprocessing_params.simplest_prompt)
   dataset = dataset.map(lambda samples: tokenizer(samples[training_params.dataset_text_field]), batched=True)
   train_data, val_data, test_data = preprocessor.split_layer_into_train_val_test_(dataset, config.TRAIN_LAYER)
+  print('train: ', 
+        train_data[0])
 
   lora_config = LoraConfig(
           r=r,
@@ -244,7 +246,10 @@ for model_loading_params_idx in range(len(load_in_4bit_list)):
               extra_str = "simplest_prompt_"
             else:
               extra_str = ""
-            ADAPTERS_CHECKPOINT = f"ferrazzipietro/{config.model_name}_{extra_str}adapters_{config.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}_cl"
+            extra_str_cl = ""
+            if preprocessing_params.clent:
+              extra_str_cl += "_clent"
+            ADAPTERS_CHECKPOINT = f"ferrazzipietro/{config.model_name}_{extra_str}adapters_{config.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}{extra_str_cl}"
             main(ADAPTERS_CHECKPOINT,
                   load_in_4bit, bnb_4bit_quant_type, bnb_4bit_compute_dtype, llm_int8_threshold,
                   r, lora_alpha, lora_dropout,

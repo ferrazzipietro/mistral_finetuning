@@ -35,12 +35,18 @@ def generate_ft_adapters_list(log_run_name: str, simplest_prompt:bool=False) -> 
                                 nbits = 8   
                             if not quantization:
                                 nbits = 'NoQuant'
+                            extra_str_cl = ""
+                            try:
+                                if models_params.clent:
+                                    extra_str_cl += "_clent"
+                            except:
+                                pass
                             if models_params.model_name.lower().startswith('qwen') or (not quantization and models_params.BASE_MODEL_CHECKPOINT == "mistralai/Mistral-7B-Instruct-v0.2") or models_params.BASE_MODEL_CHECKPOINT == "mii-community/zefiro-7b-base-ITA":
-                                ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name.lower()}__adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
+                                ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name.lower()}__adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}{extra_str_cl}"
                             else:
-                                ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name.lower()}_adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
+                                ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name.lower()}_adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}{extra_str_cl}"
                             if simplest_prompt:
-                                ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name}_simplest_prompt_adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}"
+                                ADAPTERS_CHECKPOINT = f"ferrazzipietro/{models_params.model_name}_simplest_prompt_adapters_{models_params.TRAIN_LAYER}_{nbits}_{bnb_4bit_compute_dtype}_{r}_{lora_alpha}_{lora_dropout}_{gradient_accumulation_steps}_{learning_rate}{extra_str_cl}"
                             
                             adapters_list.append(ADAPTERS_CHECKPOINT)
     return adapters_list
