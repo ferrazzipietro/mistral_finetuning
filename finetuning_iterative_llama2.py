@@ -169,7 +169,7 @@ def main(ADAPTERS_CHECKPOINT,
       #greater_is_better= training_params.greater_is_better, 
       #metric_for_best_model= training_params.metric_for_best_model, 
       #save_total_limit= training_params.save_total_limit,  
-      load_best_model_at_end= training_params.load_best_model_at_end  
+      # load_best_model_at_end= training_params.load_best_model_at_end  
       #lr_scheduler_type="cosine",
       #warmup_ratio = 0.1,
 
