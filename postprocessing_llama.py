@@ -10,7 +10,7 @@ from peft import PeftModel
 from tqdm import tqdm
 
 from config import postprocessing_params_llama as postprocessing
-from log import llama7B_NoQuant_cl_lowlora as models_params
+from log import llama_7B_NoQuant_1epoch as models_params
 
 
 from datasets import Dataset
@@ -394,7 +394,7 @@ class DataPreprocessor(IOB_preprocessor):
 
 
 
-adapters_list = generate_ft_adapters_list("llama7B_NoQuant_cl_lowlora", simplest_prompt=models_params.simplest_prompt)
+adapters_list = generate_ft_adapters_list("llama_7B_NoQuant_1epoch", simplest_prompt=models_params.simplest_prompt)
 print(adapters_list)
 HF_TOKEN = dotenv_values(".env.base")['HF_TOKEN']
 LLAMA_TOKEN = dotenv_values(".env.base")['LLAMA_TOKEN']
