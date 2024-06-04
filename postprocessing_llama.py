@@ -424,7 +424,7 @@ class EosListStoppingCriteria(StoppingCriteria):
 
     def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
         last_ids = input_ids[:,-len(self.eos_sequence):].tolist()
-        eos_cond = 2 in input_ids[:,-1].tolist()
+        eos_cond = 2 in last_ids
         return (self.eos_sequence in last_ids) or eos_cond
 
 

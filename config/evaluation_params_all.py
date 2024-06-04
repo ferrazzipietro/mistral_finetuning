@@ -7,5 +7,5 @@ offset = False
 
 
 # params for evaluation.py, not all
-input_data_dir_path = 'data/llama/7B_NoQuant_FT_cl_v2prompt/' # data/qwen/7B_NoQuantbit_base
-output_data_path = 'data/evaluation_results/llama_7B_NoQuant_FT_cl_v2prompt_val.csv'#qwen_7B_NoQuant_base
+input_data_dir_path = 'data/llama/7B_NoQuant_FT_cl_1epoch/' # data/qwen/7B_NoQuantbit_base
+output_data_path = 'data/evaluation_results/llama_7B_NoQuant_FT_cl_1epoch.csv'#qwen_7B_NoQuant_base
