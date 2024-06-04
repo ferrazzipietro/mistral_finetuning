@@ -526,12 +526,8 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                             tokenizer=tokenizer, 
                                             batch_size=postprocessing.batch_size, 
                                             max_new_tokens_factor=max_new_tokens_factor,
-<<<<<<< HEAD
-                                            stopping_criteria = [EosListStoppingCriteria()])
-=======
                                             stopping_criteria = [EosListStoppingCriteria()],
                                             temperature=postprocessing.temperature)
->>>>>>> 034d187f475f6f1e69f3d240c35d18b72dbf00ac
             postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             # except RuntimeError as e:
                 # print("ERROR IN PROCESSING: ", e, adapters)
