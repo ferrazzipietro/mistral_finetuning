@@ -431,6 +431,22 @@ class EosListStoppingCriteria(StoppingCriteria):
 
 print("val_data:", val_data[0:3])
 
+
+
+from transformers import StoppingCriteria
+class EosListStoppingCriteria(StoppingCriteria):
+    def __init__(self, eos_sequence = [518, 29914, 25580, 29962]):
+        self.eos_sequence = eos_sequence
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
+        last_ids = input_ids[:,-len(self.eos_sequence):].tolist()
+        eos_cond = 2 in input_ids[:,-1].tolist()
+        return (self.eos_sequence in last_ids) or eos_cond
+
+
+
+print("val_data:", val_data[0:3])
+
 for max_new_tokens_factor in max_new_tokens_factor_list:
     for n_shots_inference in n_shots_inference_list:
         for adapters in tqdm(adapters_list, desc="adapters_list"):
@@ -510,8 +526,12 @@ for max_new_tokens_factor in max_new_tokens_factor_list:
                                             tokenizer=tokenizer, 
                                             batch_size=postprocessing.batch_size, 
                                             max_new_tokens_factor=max_new_tokens_factor,
+<<<<<<< HEAD
+                                            stopping_criteria = [EosListStoppingCriteria()])
+=======
                                             stopping_criteria = [EosListStoppingCriteria()],
                                             temperature=postprocessing.temperature)
+>>>>>>> 034d187f475f6f1e69f3d240c35d18b72dbf00ac
             postprocessor.test_data.to_csv(f"{postprocessing.save_directory}maxNewTokensFactor{max_new_tokens_factor}_nShotsInference{n_shots_inference}_{adapters.split('/')[1]}.csv", index=False)
             # except RuntimeError as e:
                 # print("ERROR IN PROCESSING: ", e, adapters)
