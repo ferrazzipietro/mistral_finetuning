@@ -22,6 +22,21 @@ class OutputCleaner():
             # print('DICT: ', dict)
             out.append({k.replace(' ', ''): v for k, v in dict.items()})
         return out
+    
+    def _drop_duplicates(self, model_response: list) -> str:
+        """
+        Drop the duplicates from a list. This is useful when the model output contains the same entity multiple times.
+
+        Args:
+        model_response (str): the model response with no duplicates
+        """
+        # print('DROPPING DUPLICATES: ', model_response)
+        try :
+            return list({v['entity']:v for v in model_response}.values())
+        except Exception as error:
+            model_response = self._remove_space_from_dict_keys(model_response)
+            # print('ERROR: ', model_response)
+            return list({v['entity']:v for v in model_response}.values())
         
     def _assess_model_output(self, model_response: str) -> bool:
         """
@@ -365,7 +380,7 @@ class OutputCleaner():
         if self.verbose: print('EXAMPLE:  ', example['model_responses'])
         model_output = example['model_responses']
         if self.verbose: print('ORIGINAL MODEL OUTPUT:', model_output)
-        # print('ORIGINAL MODEL OUTPUT:', model_output)
+        print('ORIGINAL MODEL OUTPUT:', model_output)
         if self.verbose: print('GROUND TRUTH: ', example['ground_truth'])
         # model_output = self._exceptions_handler(model_output)
     
@@ -520,6 +535,12 @@ class OutputCleaner():
             
             if self.verbose: print('QUI HO il QUARTO QUESTO:', model_output)
 
+            if is_list_of_dict_numeric_values(model_output):
+                if self.verbose: print('is_list_of_dict_int_values')
+                tmp = json.loads(model_output)
+                tmp = [str({"entity":str(v)}) for el in tmp for v in el.values()]
+                model_output = str(tmp)
+
             if is_list_of_dicts_with_value_list(model_output):
                 if self.verbose: print('is_list_of_dicts_with_value_list')
                 tmp = json.loads(model_output)
@@ -527,11 +548,6 @@ class OutputCleaner():
                 tmp2 = [{"entity":v[0]} for el in tmp for v in el.values() if isinstance(v, list)]
                 return {'model_output':str(tmp)}
 
-            if is_list_of_dict_numeric_values(model_output):
-                if self.verbose: print('is_list_of_dict_int_values')
-                tmp = json.loads(model_output)
-                tmp = [str({"entity":str(v)}) for el in tmp for v in el.values()]
-                model_output = str(tmp)
             
             if is_list_of_dicts_none_values(model_output):
                 if self.verbose: print('is_list_of_dicts_none_values')
@@ -638,8 +654,11 @@ class OutputCleaner():
         Apply the cleaning to the model output and return the cleaned response in a new cloumn called 'model_output
 
         Args:
-        data (list): the dataset containing the model output
+        model_output (str): the model output as it is returned by the model. The processing of the output is done in the function
         wrong_keys_to_entity (bool): if True, the function also extracts the dictionaries with keys different from 'entity', converting the keys into 'entity'. If not, all keys that are not 'entity' are dropped
+
+        return:
+        str: the model response, i.e. the model output without the instruction
         """
         data = data.filter(lambda example: example["entities"] is not None)
         data = data.map(lambda x: self._clean_ground_truth(x), remove_columns=['ground_truth'])
