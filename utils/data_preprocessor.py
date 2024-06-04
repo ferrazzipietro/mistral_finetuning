@@ -266,7 +266,7 @@ class DataPreprocessor(IOB_preprocessor):
             for entity in entities_list: 
                 formatted_response = formatted_response + '{"entity": "' + entity['text'] + '"}, '
         if formatted_response == '[':
-            formatted_response = ' []'
+            formatted_response = '[{{"entity": ""}}]'
         else:
             formatted_response = formatted_response[:-2]
             formatted_response = formatted_response + '] '

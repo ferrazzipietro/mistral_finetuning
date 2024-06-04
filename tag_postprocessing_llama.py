@@ -1,6 +1,6 @@
 from dotenv import dotenv_values
 from datasets import load_dataset, Dataset
-from utils.data_preprocessor import DataPreprocessor
+from utils.data_preprocessor import DataPreprocessorTag
 from utils.test_data_processor import TestDataProcessor
 from utils.generate_ft_adapters_list import generate_ft_adapters_list
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
@@ -25,11 +25,14 @@ dataset = load_dataset("ferrazzipietro/e3c-sentences", token=HF_TOKEN)
 dataset = dataset[layer]
 tokenizer = AutoTokenizer.from_pretrained(models_params.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                          token=LLAMA_TOKEN)
-preprocessor = DataPreprocessor(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 
-                                tokenizer = tokenizer)
-dataset = preprocessor.preprocess_data_one_layer(dataset,
-                                                 models_params.instruction_on_response_format)
-_, val_data, _ = preprocessor.split_layer_into_train_val_test_(dataset, layer)
+
+preprocessor = DataPreprocessorTag(model_checkpoint=models_params.BASE_MODEL_CHECKPOINT, 
+                                tokenizer = tokenizer, token_llama=HF_TOKEN, 
+                                   data =dataset, 
+                                   tagging_string=models_params.tagging_string)
+preprocessor.apply(instruction_on_response_format=models_params.instruction_on_response_format)
+dataset = preprocessor.data.map(lambda samples: tokenizer(samples[models_params.dataset_text_field]), batched=True)
+train_data, val_data, test_data = preprocessor.split_layer_into_train_val_test_(dataset, models_params.TRAIN_LAYER)
 
 
 for max_new_tokens_factor in max_new_tokens_factor_list:

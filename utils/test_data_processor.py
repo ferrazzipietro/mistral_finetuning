@@ -143,7 +143,7 @@ class TestDataProcessor():
         """
         self.test_data = self.test_data.map(lambda x: self._extract_ground_truth(x['prompt']))
 
-    def _generate_model_response(self, examples, model, tokenizer, max_new_tokens_factor:float) -> str:
+    def _generate_model_response(self, examples, model, tokenizer, max_new_tokens_factor:float, stopping_criteria=[]) -> str:
         device = "cuda"
         tokenizer.padding_side = "left"
         # if self.model_type == 'qwen':
@@ -156,15 +156,22 @@ class TestDataProcessor():
         #     add_special_tokens = True
         encodeds = tokenizer(prompts, return_tensors="pt", add_special_tokens=False, padding=True)
         model_inputs = encodeds.to(device)
-        generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
-                                       pad_token_id=tokenizer.pad_token_id,
-                                       temperature = 1.0) # max_new_tokens=max_new_tokens,
+        if len(stopping_criteria)>0:
+            generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
+                                        pad_token_id=tokenizer.pad_token_id,
+                                        temperature = 0.7,
+                                        #stopping_criteria = stopping_criteria
+                                        ) # max_new_tokens=max_new_tokens,
+        else:
+            generated_ids = model.generate(**model_inputs, do_sample=True, max_new_tokens=max_new_tokens,  
+                                        pad_token_id=tokenizer.pad_token_id,
+                                        temperature = 0.7) 
         generated_ids = generated_ids[:, encodeds.input_ids.shape[1]:]
         decoded = tokenizer.batch_decode(generated_ids)
         # decoded = [self._postprocess_model_output(i) for i in decoded]
         return (decoded)
                 
-    def add_responses_column(self, model, tokenizer, batch_size:int, max_new_tokens_factor:float) -> None:
+    def add_responses_column(self, model, tokenizer, batch_size:int, max_new_tokens_factor:float, stopping_criteria:list) -> None:
         """
         Adds a column with the response of the model to the actual query.
         
@@ -183,11 +190,11 @@ class TestDataProcessor():
         with tqdm(total=total_rows, desc="generating responses") as pbar:
             for i, idx in enumerate(indexes[:-1]):
                 indici = list(range(idx, indexes[i+1]))
-                tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
+                tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor, stopping_criteria)
                 responses_col.extend(tmp)
                 pbar.update(batch_size)
             indici = list(range(indexes[len(indexes[:-1])], max_index))
-            tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor)
+            tmp = self._generate_model_response(self.test_data.select(indici), model, tokenizer, max_new_tokens_factor, stopping_criteria)
             responses_col.extend(tmp)
             pbar.update(batch_size)
 

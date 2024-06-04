@@ -52,29 +52,36 @@ llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
 
 offset=False
-instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
+instruction_on_response_format='Extract the CLINICAL ENTITIES contained in the text. Do not extract any entity which is not clinical.\nReturn the result in a json format: [{"entity":"clinical_entity_name"}].'
 simplest_prompt=False
 clent = True
 
-
 ### TrainingArguments
-num_train_epochs= 3
-per_device_train_batch_size= 8
-gradient_accumulation_steps= [2]# ,4]#[2,4,8] reduce the number to finish faster
+### TrainingArguments
+num_train_epochs= 5
+per_device_train_batch_size= 16
+gradient_accumulation_steps= [1]#[2,4,8] # reduce the number to finish faster
 optim = "paged_adamw_8bit"
-save_steps= 1000
-logging_strategy="steps"
-logging_steps= 10
 learning_rate= [2e-4]
 weight_decay= 0.001
 fp16= False 
-bf16= False
+bf16= True
 max_grad_norm= 0.3
 max_steps= -1
 warmup_ratio= 0.3
 group_by_length= True
 lr_scheduler_type= "constant"
 
+logging_steps=2
+logging_strategy="steps"
+evaluation_strategy= "steps"
+save_strategy=evaluation_strategy
+save_steps= 25
+eval_steps=save_steps
+greater_is_better=False
+metric_for_best_model="eval_loss"
+save_total_limit = 1
+load_best_model_at_end = True
 
 ### SFTTrainer
 """

@@ -27,8 +27,8 @@ def main(ADAPTERS_CHECKPOINT,
   
   # Monitering the LLM
   wandb.login(key = WANDB_KEY)
-  run = wandb.init(project=ADAPTERS_CHECKPOINT.split('/')[1], job_type="training", anonymous="allow",
-                  name=config.TRAIN_LAYER+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+  run = wandb.init(project=config.WANDB_PROJECT_NAME, job_type="training", anonymous="allow",
+                  name=ADAPTERS_CHECKPOINT.split('/')[1],
                   config={'model': config.BASE_MODEL_CHECKPOINT, 
                           'dataset': config.DATASET_CHEKPOINT, 
                           'layer': config.TRAIN_LAYER,
@@ -99,14 +99,14 @@ def main(ADAPTERS_CHECKPOINT,
 
   tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=False,
                                             token = LLAMA_TOKEN) #, cache_dir='/data/disk1/share/pferrazzi/.cache')
-  tokenizer.pad_token = tokenizer.eos_token
+  tokenizer.pad_token = '<pad>'#tokenizer.eos_token
   tokenizer.padding_side = 'right'
 
   # tokenizer = AutoTokenizer.from_pretrained(config.BASE_MODEL_CHECKPOINT, add_eos_token=True, token=LLAMA_TOKEN)
   # tokenizer.add_special_tokens({"pad_token":"<pad>"})
   # model.resize_token_embeddings(len(tokenizer))
   # print('tokenizer.pad_token_id:', tokenizer.pad_token_id)
-  # model.config.pad_token_id = tokenizer.pad_token_id
+  model.config.pad_token_id = tokenizer.pad_token_id
   # # model.embed_tokens = nn.Embedding(model.config.vocab_size, model.config.hidden_size, model.config.padding_idx)
   # # tokenizer.pad_token = tokenizer.unk_token
   # tokenizer.padding_side = 'right'
@@ -137,6 +137,7 @@ def main(ADAPTERS_CHECKPOINT,
   torch.cuda.empty_cache()
 
   #Hyperparamter
+  
   training_arguments = TrainingArguments(
       output_dir= "./training_output",
       push_to_hub=True,
@@ -145,12 +146,9 @@ def main(ADAPTERS_CHECKPOINT,
       hub_private_repo=True,
       num_train_epochs= training_params.num_train_epochs,
       per_device_train_batch_size= training_params.per_device_train_batch_size,
-      per_device_eval_batch_size= training_params.per_device_train_batch_size/2,
+      per_device_eval_batch_size= training_params.per_device_train_batch_size,
       gradient_accumulation_steps= gradient_accumulation_steps,
       optim=  training_params.optim,
-      save_steps= training_params.save_steps,
-      logging_strategy=training_params.logging_strategy,
-      logging_steps= training_params.logging_steps,
       learning_rate= learning_rate,
       weight_decay= training_params.weight_decay,
       fp16= training_params.fp16,
@@ -161,6 +159,17 @@ def main(ADAPTERS_CHECKPOINT,
       group_by_length= training_params.group_by_length,
       lr_scheduler_type= training_params.lr_scheduler_type,
       report_to="wandb",
+
+      logging_steps= training_params.logging_steps, 
+      #logging_strategy= training_params.logging_strategy, 
+      #evaluation_strategy= training_params.evaluation_strategy, 
+      #save_strategy= training_params.save_strategy, 
+      #save_steps= training_params.save_steps, 
+      #eval_steps= training_params.eval_steps, 
+      #greater_is_better= training_params.greater_is_better, 
+      #metric_for_best_model= training_params.metric_for_best_model, 
+      #save_total_limit= training_params.save_total_limit,  
+      load_best_model_at_end= training_params.load_best_model_at_end  
       #lr_scheduler_type="cosine",
       #warmup_ratio = 0.1,
 

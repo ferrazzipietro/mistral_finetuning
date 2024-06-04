@@ -1,5 +1,5 @@
 
 offset=False
-instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
+instruction_on_response_format='Extract the CLINICAL ENTITIES contained in the text. Do not extract any entity which is not clinical.\nReturn the result in a json format: [{"entity":"clinical_entity_name"}].'
 simplest_prompt=False
 clent = True

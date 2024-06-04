@@ -1,8 +1,7 @@
 from datetime import datetime
 
 
-tagging_label = 'TAG' # uso questo escamotage per passare il parametro a model_loading_params.py e quindi al nome del modello, considerato che non uso la quantizazione e quindi alcuni parametri posso sovrasciriverli
-simplest_prompt=False
+tagging_label = 'TAG_3EPOCHS' # uso questo escamotage per passare il parametro a model_loading_params.py e quindi al nome del modello, considerato che non uso la quantizazione e quindi alcuni parametri posso sovrasciriverli
 
 
 DATASET_CHEKPOINT="ferrazzipietro/e3c-sentences" 
@@ -12,12 +11,9 @@ model_name=BASE_MODEL_CHECKPOINT.split('/')[1]
 TRAIN_LAYER = "en.layer1"
 ADAPTERS_CHECKPOINT= f"ferrazzipietro/{model_name}_adapters_{tagging_label}"
 FT_MODEL_CHECKPOINT="ferrazzipietro/ft_tmp" 
-if simplest_prompt:
-    ADAPTERS_CHECKPOINT=ADAPTERS_CHECKPOINT + "_simplest_prompt"
 
 WANDB_PROJECT_NAME = f'finetune {model_name} {tagging_label}'
 WANDB_RUN_NAME = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
 
 r = [16, 32] # [16, 32, 64] reduce the number to finish faster
 lora_alpha = [32, 64] 
@@ -27,7 +23,23 @@ use_rslora = True
 task_type="CAUSAL_LM"
 target_modules=["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]# substituted by the function find_all_linear_names()
 
+
 import torch
+
+"""
+    bnb_4bit_quant_type (str, optional, defaults to "nf4") – The quantization type to use. Options are "nf4" and "fp4".
+    bnb_4bit_compute_dtype (torch.dtype, optional, defaults to torch.bfloat16) – This sets the computational type which might be different than the input tipe
+    bnb_4bit_use_double_quant (bool, optional, defaults to True) – Whether to use double quantization.
+"""
+"""
+    llm_int8_threshold (float, optional, defaults to 6.0) – This corresponds to the outlier threshold for outlier detection as described. 
+                                                            Any hidden states value that is above this threshold will be considered an outlier 
+                                                            and the operation on those values will be done in fp16defaults to 6.0.
+    llm_int8_skip_modules (List[str], optional, defaults to ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]) – An explicit list of the modules 
+                                                                                                                    that we do not want to convert in 8-bit
+    llm_int8_has_fp16_weight (bool, optional, defaults to False) – This flag runs LLM.int8() with 16-bit main weights. This is useful for fine-tuning 
+                                                                    as the weights do not have to be converted back and forth for the backward pass.
+"""
 torch_dtype=torch.float16
 quantization = False
 load_in_4bit=[False]
@@ -40,13 +52,14 @@ llm_int8_has_fp16_weight = True
 llm_int8_skip_modules = ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj"]
 
 
-
 tagging_string='tag'
 offset=False
-instruction_on_response_format='Extract the entities contained in the text. Extract only entities contained in the text.\nReturn the result in a json format: [{"entity":"entity_name"}].'
+instruction_on_response_format=f'Extract the entities contained in the text, inserting the tag <{tagging_string}> before and the the tag </{tagging_string}> after each entity.'
+simplest_prompt=False
+
 
 ### TrainingArguments
-num_train_epochs= 6
+num_train_epochs= 3
 per_device_train_batch_size= 8
 gradient_accumulation_steps= [2]#[2,4,8] # reduce the number to finish faster
 optim = "paged_adamw_8bit"
@@ -60,16 +73,16 @@ warmup_ratio= 0.3
 group_by_length= True
 lr_scheduler_type= "constant"
 
-logging_steps=1
+logging_steps=100
 logging_strategy="steps"
 evaluation_strategy= "steps"
 save_strategy=evaluation_strategy
-save_steps= 10
+save_steps= 100
 eval_steps=save_steps
 greater_is_better=False
 metric_for_best_model="eval_loss"
 save_total_limit = 1
-load_best_model_at_end = True
+load_best_model_at_end = False
 
 
 ### SFTTrainer
