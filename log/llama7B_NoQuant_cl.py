@@ -58,9 +58,15 @@ instruction_on_response_format='Extract the CLINICAL ENTITIES contained in the t
 simplest_prompt=False
 clent = True
 
+<<<<<<< HEAD
+### TrainingArguments
+### TrainingArguments
+num_train_epochs= 5
+=======
 ### TrainingArguments
 ### TrainingArguments
 num_train_epochs= 3
+>>>>>>> 034d187f475f6f1e69f3d240c35d18b72dbf00ac
 per_device_train_batch_size= 16
 gradient_accumulation_steps= [1]#[2,4,8] # reduce the number to finish faster
 optim = "paged_adamw_8bit"
@@ -78,7 +84,11 @@ logging_steps=2
 logging_strategy="steps"
 evaluation_strategy= "steps"
 save_strategy=evaluation_strategy
+<<<<<<< HEAD
+save_steps= 25
+=======
 save_steps= 5
+>>>>>>> 034d187f475f6f1e69f3d240c35d18b72dbf00ac
 eval_steps=save_steps
 greater_is_better=False
 metric_for_best_model="eval_loss"
