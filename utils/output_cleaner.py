@@ -380,7 +380,6 @@ class OutputCleaner():
         if self.verbose: print('EXAMPLE:  ', example['model_responses'])
         model_output = example['model_responses']
         if self.verbose: print('ORIGINAL MODEL OUTPUT:', model_output)
-        print('ORIGINAL MODEL OUTPUT:', model_output)
         if self.verbose: print('GROUND TRUTH: ', example['ground_truth'])
         # model_output = self._exceptions_handler(model_output)
     
